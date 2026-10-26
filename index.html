@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-    <!-- टैब का नाम (Title) -->
-<title>Smart Study Portal - Educational Notes & Quiz</title>
-
-<!-- टैब का आइकॉन (Favicon - जो नाम के आगे छोटा लोगो दिखता है) -->
-<link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>स्मार्ट स्टडी पोर्टल - नोट्स, बुक्स और क्विज़</title>
     
-    <!-- 🔍 SEO Meta Tags (गूगल सर्च और सोशल मीडिया शेयरिंग के लिए) -->
+    <!-- 🔍 SEO Meta Tags -->
     <meta name="description" content="स्मार्ट स्टडी पोर्टल - कक्षा 1 से 10, स्पेक्ट्रम, ल्यूसेंट, नोट्स, बुक पीडीएफ, वीडियो और क्विज़ डाउनलोड करने का एक बेहतरीन और सुरक्षित एजुकेशनल प्लेटफॉर्म।" />
     <meta name="keywords" content="smart study portal, education notes pdf, class notes, lucent gk, spectrum modern history, online quiz, study material" />
     <meta name="author" content="Smart Study Portal" />
@@ -45,20 +40,13 @@
             font-family: 'Poppins', sans-serif; 
             background: var(--bg-color); 
             color: var(--text-color); 
-            margin: 0; 
-            padding: 0; 
-            transition: 0.3s; 
-            line-height: 1.6;
-            font-size: 16px;
+            margin: 0; padding: 0; 
+            transition: 0.3s; line-height: 1.6; font-size: 16px;
         }
 
         header { 
-            background: var(--header-bg); 
-            color: white; 
-            padding: 25px 20px; 
-            text-align: center; 
-            position: relative; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background: var(--header-bg); color: white; padding: 25px 20px; 
+            text-align: center; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         header h1 { margin: 0; font-size: 28px; font-weight: 700; }
         header p { margin: 6px 0 0; font-size: 16px; opacity: 0.95; }
@@ -69,99 +57,42 @@
         
         .container { max-width: 900px; margin: 20px auto; padding: 0 20px; }
         .card { background: var(--card-bg); padding: 25px; border-radius: 16px; margin-bottom: 25px; box-shadow: var(--shadow); border: 1px solid var(--border-color); }
-        
         .card h3 { font-size: 22px; font-weight: 600; color: var(--btn-color); margin-bottom: 18px; }
 
-        /* लैंडस्केप/ग्रिड सपोर्ट */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 12px;
-        }
+        .grid-container { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        @media (min-width: 600px) { .grid-container { grid-template-columns: repeat(2, 1fr); } }
 
-        @media (min-width: 600px) {
-            .grid-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .item-card-btn, .chapter-btn { 
+            background: var(--btn-bg); color: var(--btn-color); border: 1.5px solid var(--border-color); 
+            padding: 16px 20px; font-weight: 600; font-size: 17px; border-radius: 12px; cursor: pointer; 
+            transition: all 0.2s ease; text-align: left; display: flex; justify-content: space-between; 
+            align-items: center; width: 100%; box-sizing: border-box; margin-bottom: 10px;
         }
-
-        .item-card-btn { 
-            background: var(--btn-bg); 
-            color: var(--btn-color); 
-            border: 1.5px solid var(--border-color); 
-            padding: 16px 20px; 
-            font-weight: 600; 
-            font-size: 17px; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            transition: all 0.2s ease; 
-            text-align: left; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-        }
-        .item-card-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
-        
-        .chapter-btn { 
-            background: var(--btn-bg); 
-            color: var(--text-color); 
-            border: 1.5px solid var(--border-color); 
-            padding: 16px 20px; 
-            font-weight: 600; 
-            font-size: 17px; 
-            border-radius: 12px; 
-            cursor: pointer; 
-            text-align: left; 
-            width: 100%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            box-sizing: border-box;
-            transition: all 0.2s;
-        }
-        .chapter-btn:hover { transform: translateY(-2px); background: var(--card-bg); border-color: var(--btn-color); }
+        .item-card-btn:hover, .chapter-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(0,0,0,0.1); }
         
         .action-btns { display: flex; gap: 8px; }
-        .edit-btn { background: #f59e0b; color: white; border: none; padding: 8px 14px; font-size: 13px; border-radius: 8px; cursor: pointer; font-weight: 600; }
-        .delete-btn { background: #ef4444; color: white; border: none; padding: 8px 14px; font-size: 13px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        .edit-btn { background: #f59e0b; color: white; border: none; padding: 6px 12px; font-size: 12px; border-radius: 6px; cursor: pointer; font-weight: 600; }
+        .delete-btn { background: #ef4444; color: white; border: none; padding: 6px 12px; font-size: 12px; border-radius: 6px; cursor: pointer; font-weight: 600; }
 
         .back-btn { background: #4b5563; color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; margin-bottom: 20px; font-size: 15px; font-weight: 600; }
-
         .hidden { display: none; }
         
         .admin-panel { background: var(--card-bg); border: 2px dashed #f59e0b; padding: 22px; border-radius: 14px; margin-top: 25px; }
         .admin-panel h4 { margin-top: 0; color: #d97706; font-size: 18px; font-weight: 600; }
         
         input, select { 
-            width: 100%; 
-            padding: 14px 16px; 
-            margin: 10px 0; 
-            border: 1.5px solid var(--border-color); 
-            background: var(--card-bg); 
-            color: var(--text-color); 
-            border-radius: 10px; 
-            box-sizing: border-box; 
-            font-size: 16px; 
-            font-family: 'Poppins', sans-serif;
+            width: 100%; padding: 14px 16px; margin: 10px 0; border: 1.5px solid var(--border-color); 
+            background: var(--card-bg); color: var(--text-color); border-radius: 10px; box-sizing: border-box; 
+            font-size: 16px; font-family: 'Poppins', sans-serif;
         }
 
         .submit-btn { 
-            background: #10b981; 
-            color: white; 
-            border: none; 
-            padding: 14px; 
-            font-weight: 600; 
-            width: 100%; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            margin-top: 12px; 
-            font-size: 17px; 
+            background: #10b981; color: white; border: none; padding: 14px; font-weight: 600; 
+            width: 100%; border-radius: 10px; cursor: pointer; margin-top: 12px; font-size: 17px; 
             font-family: 'Poppins', sans-serif;
         }
         
         .item-box { background: var(--card-bg); border: 1.5px solid var(--border-color); padding: 20px; border-radius: 14px; margin-top: 15px; }
-        .item-box strong { font-size: 17px; font-weight: 600; }
         .item-box a { display: inline-block; background: #2563eb; color: white; text-decoration: none; padding: 11px 20px; border-radius: 10px; font-size: 15px; margin-top: 12px; font-weight: 600; }
     </style>
 </head>
@@ -185,10 +116,12 @@
             <div id="adminCategoryBox" class="hidden" style="margin-bottom: 20px; padding:15px; border-radius:12px; border:1px solid var(--border-color); background: var(--btn-bg);">
                 <label style="font-size:14px; font-weight:600;">+ नई क्लास या बुक जोड़ें:</label>
                 <input type="text" id="newCategoryInput" placeholder="उदा. Class 11 या UPSC">
-                <button class="submit-btn" style="background-color: #4f46e5; margin-top: 8px;" onclick="addCustomCategory()">क्लास जोड़ें</button>
+                <button class="submit-btn" style="background-color: #4f46e5; margin-top: 8px;" onclick="addOnlineCategory()">क्लास ऑनलाइन जोड़ें</button>
             </div>
 
-            <div id="classList" class="grid-container"></div>
+            <div id="classList" class="grid-container">
+                <p style="text-align:center; color:#6b7280;">डेटा लोड हो रहा है...</p>
+            </div>
         </div>
 
         <!-- स्टेप 2: सब्जेक्ट -->
@@ -199,7 +132,7 @@
             <div id="adminSubjectBox" class="hidden" style="margin-bottom: 20px; padding:15px; border-radius:12px; border:1px solid var(--border-color); background: var(--btn-bg);">
                 <label style="font-size:14px; font-weight:600;">+ नया विषय (Subject) जोड़ें:</label>
                 <input type="text" id="newSubjectInput" placeholder="उदा. Physics या History">
-                <button class="submit-btn" style="background-color: #4f46e5; margin-top: 8px;" onclick="addCustomSubject()">विषय जोड़ें</button>
+                <button class="submit-btn" style="background-color: #4f46e5; margin-top: 8px;" onclick="addOnlineSubject()">विषय ऑनलाइन जोड़ें</button>
             </div>
 
             <div id="subjectList" class="grid-container"></div>
@@ -210,16 +143,14 @@
             <button class="back-btn" onclick="goBack('step-chapter', 'step-subject')">← विषय बदलें</button>
             <h3 id="subjectTitle"></h3>
             
-            <!-- लाइव सर्च बार -->
             <div style="margin-bottom: 20px;">
                 <input type="text" id="searchInput" placeholder="🔍 कोई भी चैप्टर खोजें..." onkeyup="searchChapters()">
             </div>
 
-            <div id="adminChapterBox" class="hidden" style="margin-bottom: 20px;">
-                <h4 style="margin-bottom: 8px; font-size:16px;">नया चैप्टर जोड़ें:</h4>
+            <div id="adminChapterBox" class="hidden" style="margin-bottom: 20px; padding:15px; border-radius:12px; border:1px solid var(--border-color); background: var(--btn-bg);">
+                <h4 style="margin-top:0; font-size:16px; color:#d97706;">नया चैप्टर जोड़ें:</h4>
                 <input type="text" id="newChapterInput" placeholder="चैप्टर का नाम लिखें">
-                <button class="submit-btn" style="background-color: #4f46e5;" onclick="addChapter()">+ नया चैप्टर बनाएं</button>
-                <hr style="border:0; border-top:1px solid var(--border-color); margin:20px 0;">
+                <button class="submit-btn" style="background-color: #4f46e5;" onclick="addOnlineChapter()">+ चैप्टर ऑनलाइन बनाएं</button>
             </div>
             
             <h4 style="margin-bottom: 12px; font-size: 17px; font-weight: 600;">उपलब्ध चैप्टर्स:</h4>
@@ -230,58 +161,102 @@
         <div id="step-content" class="card hidden">
             <button class="back-btn" onclick="goBack('step-content', 'step-chapter')">← चैप्टर बदलें</button>
             <h3 id="chapterTitleHeader"></h3>
-<!-- चैप्टर के अंदर सामग्री का प्रकार चुनने के फिल्टर बटन -->
-<div style="text-align: center; margin: 15px 0; background: #f8f9fa; padding: 12px; border-radius: 8px;">
-    <button onclick="filterContent('notes')" style="padding: 8px 14px; margin: 3px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">📝 नोट्स</button>
-    <button onclick="filterContent('book-pdf')" style="padding: 8px 14px; margin: 3px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">📚 बुक PDF</button>
-    <button onclick="filterContent('ppt')" style="padding: 8px 14px; margin: 3px; background: #fd7e14; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">📊 PPT</button>
-    <button onclick="filterContent('video')" style="padding: 8px 14px; margin: 3px; background: #6f42c1; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">🎥 वीडियो</button>
-    <button onclick="filterContent('quiz')" style="padding: 8px 14px; margin: 3px; background: #dc3545; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">❓ क्विज़</button>
-</div>
+
             <div id="displayArea">
                 <p style="text-align:center; color:#6b7280;">सामग्री लोड हो रही है...</p>
             </div>
 
-            <!-- एडमिन पैनल -->
             <div id="adminContentPanel" class="admin-panel hidden">
-                <h4>➕ सामग्री जोड़ें</h4>
+                <h4>➕ सामग्री जोड़ें (Live Online)</h4>
                 
-                <label style="font-size: 14px; font-weight: 600;">सामग्री का प्रकार चुनें:</label>
                 <select id="contentType" onchange="toggleInputType()">
-                    <option value="Notes">📁 Notes (फाइल अपलोड)</option>
-                    <option value="BookPDF">📖 Book PDF (फाइल अपलोड)</option>
-                    <option value="PPT">📊 PPT Presentation (फाइल अपलोड)</option>
+                    <option value="Notes">📁 Notes (लिंक या टेक्स्ट)</option>
+                    <option value="BookPDF">📖 Book PDF (लिंक)</option>
+                    <option value="PPT">📊 PPT Presentation (लिंक)</option>
                     <option value="Video">🎥 Video (YouTube लिंक)</option>
                     <option value="Quiz">✍️ Quiz (Google Form लिंक)</option>
                 </select>
 
                 <input type="text" id="contentTitleInput" placeholder="शीर्षक (Title) दर्ज करें">
+                <input type="text" id="contentLinkInput" placeholder="फाइल या वीडियो का लिंक (URL) पेस्ट करें">
 
-                <div id="fileInputGroup">
-                    <label style="font-size: 13px; font-weight: 600; display: block; margin-top: 8px;">अपने फोन से फाइल चुनें:</label>
-                    <input type="file" id="filePicker" accept=".pdf,.ppt,.pptx,.doc,.docx">
-                </div>
-
-                <div id="linkInputGroup" class="hidden">
-                    <input type="text" id="contentLinkInput" placeholder="YouTube या गूगल फॉर्म लिंक पेस्ट करें">
-                </div>
-
-                <button class="submit-btn" onclick="processAndSave()">डेटा सेव करें</button>
+                <button class="submit-btn" onclick="saveOnlineContent()">डेटा ऑनलाइन सेव करें</button>
             </div>
         </div>
 
     </div>
 
     <script>
+        // --- ⚙️ GitHub API सेटिंग्स (Username सेट है, बस अपना Token डालें) ---
+        const GITHUB_USERNAME = "smartstudyportal"; 
+        const REPO_NAME = "SMART-STUDY-PORTAL";             
+        const TOKEN = "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"; // <-- यहाँ अपना असली GitHub Token पेस्ट कर दें
+        const FILE_PATH = "data.json";
+
+        let portalData = { categories: [], subjects: {}, chapters: {}, contents: {} };
         let selectedClass = "";
         let selectedSubject = "";
         let selectedChapter = "";
         let isAdminLoggedIn = false;
 
+        async function fetchGitHubData() {
+            const url = `https://raw.githubusercontent.com/${GITHUB_USERNAME}/${REPO_NAME}/main/${FILE_PATH}?t=` + Date.now();
+            try {
+                let res = await fetch(url);
+                if (res.ok) {
+                    portalData = await res.json();
+                } else {
+                    portalData = { 
+                        categories: ["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Spectrum", "Lucent"], 
+                        subjects: {}, chapters: {}, contents: {} 
+                    };
+                }
+            } catch (err) {
+                console.log("लोडिंग त्रुटि:", err);
+            }
+            loadMainCategories();
+        }
+
+        async function updateGitHubFile(updatedJsonData) {
+            const apiUrl = `https://api.github.com/repos/${GITHUB_USERNAME}/${REPO_NAME}/contents/${FILE_PATH}`;
+            try {
+                let getRes = await fetch(apiUrl, { headers: { "Authorization": `token ${TOKEN}` } });
+                let fileJson = await getRes.json();
+                let shaCode = fileJson.sha;
+
+                let putRes = await fetch(apiUrl, {
+                    method: "PUT",
+                    headers: { "Authorization": `token ${TOKEN}`, "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        message: "Admin updated portal data",
+                        content: btoa(unescape(encodeURIComponent(JSON.stringify(updatedJsonData, null, 2)))),
+                        sha: shaCode
+                    })
+                });
+
+                if (putRes.ok) {
+                    alert("सफलतापूर्वक ऑनलाइन सेव हो गया है! अब यह सबको दिखेगा[span_0](start_span)[span_0](end_span).");
+                    portalData = updatedJsonData;
+                    refreshCurrentView();
+                } else {
+                    alert("सेव करने में विफल! अपना टोकन (Token) चेक करें।");
+                }
+            } catch (err) {
+                alert("त्रुटि: " + err);
+            }
+        }
+
+        function refreshCurrentView() {
+            loadMainCategories();
+            if (!document.getElementById('step-subject').classList.contains('hidden')) loadSubjects();
+            if (!document.getElementById('step-chapter').classList.contains('hidden')) loadChapters();
+            if (!document.getElementById('step-content').classList.contains('hidden')) loadOnlineContentList();
+        }
+
         function toggleAdminMode() {
             if (!isAdminLoggedIn) {
                 let pwd = prompt("कृपया एडमिन पासवर्ड दर्ज करें:");
-                if (pwd === "12345") {
+                if (pwd === "1234") {
                     isAdminLoggedIn = true;
                     document.getElementById("adminModeBtn").innerText = "🔓 Logout";
                     document.getElementById("adminModeBtn").style.background = "#10b981";
@@ -296,11 +271,7 @@
                 document.getElementById("adminModeBtn").style.background = "rgba(255,255,255,0.25)";
                 alert("एडमिन मोड बंद हो गया है।");
             }
-            
-            loadMainCategories();
-            if(!document.getElementById('step-subject').classList.contains('hidden')) loadSubjects();
-            if(!document.getElementById('step-chapter').classList.contains('hidden')) loadChapters();
-            if(!document.getElementById('step-content').classList.contains('hidden')) loadLocalData();
+            refreshCurrentView();
         }
 
         function toggleTheme() {
@@ -315,45 +286,15 @@
             }
         }
 
-        function searchChapters() {
-            let input = document.getElementById('searchInput').value.toLowerCase();
-            let chapterListDiv = document.getElementById('chapterList');
-            let buttons = chapterListDiv.getElementsByClassName('chapter-btn');
-
-            for (let i = 0; i < buttons.length; i++) {
-                let text = buttons[i].innerText.toLowerCase();
-                if (text.includes(input)) {
-                    buttons[i].style.display = "";
-                } else {
-                    buttons[i].style.display = "none";
-                }
-            }
-        }
-
-        function getDefaultCategories() {
-            let list = [];
-            for (let i = 1; i <= 10; i++) {
-                list.push("Class " + i);
-            }
-            list.push("Spectrum", "Lucent");
-            return list;
-        }
-
         function loadMainCategories() {
             let classListDiv = document.getElementById('classList');
             classListDiv.innerHTML = "";
+            document.getElementById('adminCategoryBox').classList.toggle('hidden', !isAdminLoggedIn);
 
-            let adminBox = document.getElementById('adminCategoryBox');
-            if (isAdminLoggedIn) {
-                adminBox.classList.remove('hidden');
-            } else {
-                adminBox.classList.add('hidden');
-            }
-
-            let categories = JSON.parse(localStorage.getItem('portal_all_categories'));
-            if (!categories) {
-                categories = getDefaultCategories();
-                localStorage.setItem('portal_all_categories', JSON.stringify(categories));
+            let categories = portalData.categories || [];
+            if (categories.length === 0) {
+                categories = ["Class 1", "Class 2", "Class 3", "Class 4", "Class 5", "Class 6", "Class 7", "Class 8", "Class 9", "Class 10", "Spectrum", "Lucent"];
+                portalData.categories = categories;
             }
 
             categories.forEach(function(cat, index) {
@@ -374,44 +315,29 @@
             });
         }
 
-        function addCustomCategory() {
-            let input = document.getElementById('newCategoryInput');
-            let newCat = input.value.trim();
-            if(!newCat) {
-                alert('कृपया नाम लिखें!');
-                return;
-            }
-
-            let categories = JSON.parse(localStorage.getItem('portal_all_categories')) || getDefaultCategories();
-            categories.push(newCat);
-            localStorage.setItem('portal_all_categories', JSON.stringify(categories));
-
-            input.value = "";
-            loadMainCategories();
+        function addOnlineCategory() {
+            let val = document.getElementById('newCategoryInput').value.trim();
+            if (!val) return alert("नाम लिखें!");
+            portalData.categories.push(val);
+            document.getElementById('newCategoryInput').value = "";
+            updateGitHubFile(portalData);
         }
 
         function editCategory(event, index) {
             event.stopPropagation();
-            let categories = JSON.parse(localStorage.getItem('portal_all_categories')) || getDefaultCategories();
-            let oldName = categories[index];
-
+            let oldName = portalData.categories[index];
             let newName = prompt('श्रेणी का नया नाम दर्ज करें:', oldName);
             if (!newName || !newName.trim()) return;
             
-            categories[index] = newName.trim();
-            localStorage.setItem('portal_all_categories', JSON.stringify(categories));
-            loadMainCategories();
+            portalData.categories[index] = newName.trim();
+            updateGitHubFile(portalData);
         }
 
         function deleteCategory(event, index) {
             event.stopPropagation();
-            let categories = JSON.parse(localStorage.getItem('portal_all_categories')) || getDefaultCategories();
-            
-            if (!confirm('क्या आप "' + categories[index] + '" को डिलीट करना चाहते हैं?')) return;
-
-            categories.splice(index, 1);
-            localStorage.setItem('portal_all_categories', JSON.stringify(categories));
-            loadMainCategories();
+            if (!confirm("क्या आप इसे डिलीट करना चाहते हैं?")) return;
+            portalData.categories.splice(index, 1);
+            updateGitHubFile(portalData);
         }
 
         function selectClass(cls) {
@@ -422,30 +348,16 @@
             loadSubjects();
         }
 
-        function getDefaultSubjects() {
-            return ["Math (गणित)", "Science (विज्ञान)", "Social Science", "Hindi", "English"];
-        }
-
         function loadSubjects() {
             let subjectListDiv = document.getElementById('subjectList');
-            let storageKey = 'subjects_' + selectedClass;
-            
-            let adminSubBox = document.getElementById('adminSubjectBox');
-            if (isAdminLoggedIn) {
-                adminSubBox.classList.remove('hidden');
-            } else {
-                adminSubBox.classList.add('hidden');
-            }
-
-            let subjects = JSON.parse(localStorage.getItem(storageKey));
-            if (!subjects) {
-                subjects = getDefaultSubjects();
-                localStorage.setItem(storageKey, JSON.stringify(subjects));
-            }
-
             subjectListDiv.innerHTML = "";
+            document.getElementById('adminSubjectBox').classList.toggle('hidden', !isAdminLoggedIn);
 
-            subjects.forEach(function(sub, index) {
+            if (!portalData.subjects[selectedClass]) {
+                portalData.subjects[selectedClass] = ["Math (गणित)", "Science (विज्ञान)", "Social Science", "Hindi", "English"];
+            }
+
+            portalData.subjects[selectedClass].forEach(function(sub, index) {
                 let btn = document.createElement('div');
                 btn.className = 'item-card-btn';
                 
@@ -463,46 +375,30 @@
             });
         }
 
-        function addCustomSubject() {
-            let input = document.getElementById('newSubjectInput');
-            let newSub = input.value.trim();
-            if(!newSub) {
-                alert('कृपया विषय का नाम लिखें!');
-                return;
-            }
-
-            let storageKey = 'subjects_' + selectedClass;
-            let subjects = JSON.parse(localStorage.getItem(storageKey)) || getDefaultSubjects();
-            subjects.push(newSub);
-            localStorage.setItem(storageKey, JSON.stringify(subjects));
-
-            input.value = "";
-            loadSubjects();
+        function addOnlineSubject() {
+            let val = document.getElementById('newSubjectInput').value.trim();
+            if (!val) return alert("विषय का नाम लिखें!");
+            if (!portalData.subjects[selectedClass]) portalData.subjects[selectedClass] = [];
+            portalData.subjects[selectedClass].push(val);
+            document.getElementById('newSubjectInput').value = "";
+            updateGitHubFile(portalData);
         }
 
         function editSubject(event, index) {
             event.stopPropagation();
-            let storageKey = 'subjects_' + selectedClass;
-            let subjects = JSON.parse(localStorage.getItem(storageKey)) || getDefaultSubjects();
-
+            let subjects = portalData.subjects[selectedClass];
             let newSub = prompt('विषय का नया नाम दर्ज करें:', subjects[index]);
             if (!newSub || !newSub.trim()) return;
 
             subjects[index] = newSub.trim();
-            localStorage.setItem(storageKey, JSON.stringify(subjects));
-            loadSubjects();
+            updateGitHubFile(portalData);
         }
 
         function deleteSubject(event, index) {
             event.stopPropagation();
-            let storageKey = 'subjects_' + selectedClass;
-            let subjects = JSON.parse(localStorage.getItem(storageKey)) || getDefaultSubjects();
-
-            if (!confirm('क्या आप "' + subjects[index] + '" विषय को डिलीट करना चाहते हैं?')) return;
-
-            subjects.splice(index, 1);
-            localStorage.setItem(storageKey, JSON.stringify(subjects));
-            loadSubjects();
+            if (!confirm("क्या आप इस विषय को डिलीट करना चाहते हैं?")) return;
+            portalData.subjects[selectedClass].splice(index, 1);
+            updateGitHubFile(portalData);
         }
 
         function selectSubject(sub) {
@@ -513,40 +409,16 @@
             loadChapters();
         }
 
-        function addChapter() {
-            let chapterName = document.getElementById('newChapterInput').value.trim();
-            if (!chapterName) {
-                alert('कृपया चैप्टर का नाम लिखें!');
-                return;
-            }
-
-            let storageKey = 'chapters_' + selectedClass + '_' + selectedSubject;
-            let chapters = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-            chapters.push(chapterName);
-            localStorage.setItem(storageKey, JSON.stringify(chapters));
-
-            document.getElementById('newChapterInput').value = '';
-            loadChapters();
-        }
-
         function loadChapters() {
             let chapterListDiv = document.getElementById('chapterList');
-            let storageKey = 'chapters_' + selectedClass + '_' + selectedSubject;
-            
-            let adminChapBox = document.getElementById('adminChapterBox');
-            if (isAdminLoggedIn) {
-                adminChapBox.classList.remove('hidden');
-            } else {
-                adminChapBox.classList.add('hidden');
-            }
-
-            let chapters = JSON.parse(localStorage.getItem(storageKey)) || [];
-
             chapterListDiv.innerHTML = "";
+            document.getElementById('adminChapterBox').classList.toggle('hidden', !isAdminLoggedIn);
+
+            let key = selectedClass + '_' + selectedSubject;
+            let chapters = portalData.chapters[key] || [];
 
             if (chapters.length === 0) {
-                chapterListDiv.innerHTML = "<p style='color:#6b7280; font-size:15px;'>अभी कोई चैप्टर उपलब्ध नहीं है।</p>";
+                chapterListDiv.innerHTML = "<p style='color:#6b7280;'>अभी कोई चैप्टर उपलब्ध नहीं है।</p>";
                 return;
             }
 
@@ -568,29 +440,33 @@
             });
         }
 
+        function addOnlineChapter() {
+            let val = document.getElementById('newChapterInput').value.trim();
+            if (!val) return alert("चैप्टर का नाम लिखें!");
+            let key = selectedClass + '_' + selectedSubject;
+            if (!portalData.chapters[key]) portalData.chapters[key] = [];
+            portalData.chapters[key].push(val);
+            document.getElementById('newChapterInput').value = "";
+            updateGitHubFile(portalData);
+        }
+
         function editChapter(event, index) {
             event.stopPropagation();
-            let storageKey = 'chapters_' + selectedClass + '_' + selectedSubject;
-            let chapters = JSON.parse(localStorage.getItem(storageKey)) || [];
-
+            let key = selectedClass + '_' + selectedSubject;
+            let chapters = portalData.chapters[key];
             let newChap = prompt('चैप्टर का नया नाम दर्ज करें:', chapters[index]);
             if (!newChap || !newChap.trim()) return;
 
             chapters[index] = newChap.trim();
-            localStorage.setItem(storageKey, JSON.stringify(chapters));
-            loadChapters();
+            updateGitHubFile(portalData);
         }
 
         function deleteChapter(event, index) {
             event.stopPropagation();
-            let storageKey = 'chapters_' + selectedClass + '_' + selectedSubject;
-            let chapters = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-            if (!confirm('क्या आप इस चैप्टर को डिलीट करना चाहते हैं?')) return;
-
-            chapters.splice(index, 1);
-            localStorage.setItem(storageKey, JSON.stringify(chapters));
-            loadChapters();
+            if (!confirm("क्या आप इस चैप्टर को डिलीट करना चाहते हैं?")) return;
+            let key = selectedClass + '_' + selectedSubject;
+            portalData.chapters[key].splice(index, 1);
+            updateGitHubFile(portalData);
         }
 
         function selectChapter(chap) {
@@ -598,7 +474,52 @@
             document.getElementById('chapterTitleHeader').innerText = selectedSubject + ' > ' + chap;
             document.getElementById('step-chapter').classList.add('hidden');
             document.getElementById('step-content').classList.remove('hidden');
-            loadLocalData();
+            loadOnlineContentList();
+        }
+
+        function loadOnlineContentList() {
+            let displayArea = document.getElementById('displayArea');
+            displayArea.innerHTML = "";
+            document.getElementById('adminContentPanel').classList.toggle('hidden', !isAdminLoggedIn);
+
+            let key = selectedClass + '_' + selectedSubject + '_' + selectedChapter;
+            let items = portalData.contents[key] || [];
+
+            if (items.length === 0) {
+                displayArea.innerHTML = "<p style='color:#6b7280; text-align:center;'>अभी इस चैप्टर में कोई सामग्री उपलब्ध नहीं है।</p>";
+                return;
+            }
+
+            items.forEach(function(item) {
+                let box = document.createElement('div');
+                box.className = 'item-box';
+                let delHtml = isAdminLoggedIn ? `<button class="delete-btn" style="float:right;" onclick="deleteContent(${item.id})">डिलीट</button>` : '';
+                box.innerHTML = `${delHtml}<strong>📌 [${item.type}] ${item.title}</strong><br><a href="${item.content}" target="_blank">📥 सामग्री खोलें / देखें</a>`;
+                displayArea.appendChild(box);
+            });
+        }
+
+        function saveOnlineContent() {
+            let type = document.getElementById('contentType').value;
+            let title = document.getElementById('contentTitleInput').value.trim();
+            let link = document.getElementById('contentLinkInput').value.trim();
+
+            if (!title || !link) return alert("कृपया शीर्षक और लिंक दोनों भरें!");
+
+            let key = selectedClass + '_' + selectedSubject + '_' + selectedChapter;
+            if (!portalData.contents[key]) portalData.contents[key] = [];
+
+            portalData.contents[key].push({ id: Date.now(), type, title, content: link });
+            document.getElementById('contentTitleInput').value = "";
+            document.getElementById('contentLinkInput').value = "";
+            updateGitHubFile(portalData);
+        }
+
+        function deleteContent(id) {
+            if (!confirm("क्या आप इसे डिलीट करना चाहते हैं?")) return;
+            let key = selectedClass + '_' + selectedSubject + '_' + selectedChapter;
+            portalData.contents[key] = portalData.contents[key].filter(i => i.id !== id);
+            updateGitHubFile(portalData);
         }
 
         function goBack(curr, target) {
@@ -606,138 +527,15 @@
             document.getElementById(target).classList.remove('hidden');
         }
 
-        function toggleInputType() {
-            let type = document.getElementById('contentType').value;
-            let fileGroup = document.getElementById('fileInputGroup');
-            let linkGroup = document.getElementById('linkInputGroup');
-
-            if (type === 'Notes' || type === 'BookPDF' || type === 'PPT') {
-                fileGroup.classList.remove('hidden');
-                linkGroup.classList.add('hidden');
-            } else {
-                fileGroup.classList.add('hidden');
-                linkGroup.classList.remove('hidden');
+        function searchChapters() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let buttons = document.getElementById('chapterList').getElementsByClassName('chapter-btn');
+            for (let b of buttons) {
+                b.style.display = b.innerText.toLowerCase().includes(input) ? "" : "none";
             }
         }
 
-        function processAndSave() {
-            let type = document.getElementById('contentType').value;
-            let title = document.getElementById('contentTitleInput').value.trim();
-
-            if (!title) {
-                alert('कृपया शीर्षक (Title) जरूर लिखें!');
-                return;
-            }
-
-            if (type === 'Notes' || type === 'BookPDF' || type === 'PPT') {
-                let fileInput = document.getElementById('filePicker');
-                let file = fileInput.files[0];
-
-                if (!file) {
-                    alert('कृपया फोन से फाइल चुनें!');
-                    return;
-                }
-
-                let reader = new FileReader();
-                reader.onload = function (e) {
-                    saveItem(type, title, e.target.result, file.name);
-                };
-                reader.readAsDataURL(file);
-            } else {
-                let link = document.getElementById('contentLinkInput').value.trim();
-                if (!link) {
-                    alert('कृपया लिंक दर्ज करें!');
-                    return;
-                }
-
-                saveItem(type, title, link, '');
-            }
-        }
-
-        function saveItem(type, title, content, fileName) {
-            let storageKey = 'content_' + selectedClass + '_' + selectedSubject + '_' + selectedChapter;
-            let existingData = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-            existingData.push({
-                id: Date.now(),
-                type: type,
-                title: title,
-                content: content,
-                fileName: fileName
-            });
-
-            try {
-                localStorage.setItem(storageKey, JSON.stringify(existingData));
-                alert('सफलतापूर्वक सेव हो गया!');
-                
-                document.getElementById('contentTitleInput').value = '';
-                document.getElementById('contentLinkInput').value = '';
-                document.getElementById('filePicker').value = '';
-                loadLocalData();
-            } catch (err) {
-                alert('फाइल का साइज़ बहुत बड़ा है। कृपया छोटी फाइल (2 MB तक) चुनें।');
-            }
-        }
-
-        function loadLocalData() {
-            let displayArea = document.getElementById('displayArea');
-            let storageKey = 'content_' + selectedClass + '_' + selectedSubject + '_' + selectedChapter;
-            
-            let adminPanel = document.getElementById('adminContentPanel');
-            if (isAdminLoggedIn) {
-                adminPanel.classList.remove('hidden');
-            } else {
-                adminPanel.classList.add('hidden');
-            }
-
-            let data = JSON.parse(localStorage.getItem(storageKey)) || [];
-
-            displayArea.innerHTML = "";
-
-            if (data.length === 0) {
-                displayArea.innerHTML = "<p style='color:#6b7280; text-align:center; padding:15px; font-size:16px;'>अभी इस चैप्टर में कोई सामग्री उपलब्ध नहीं है।</p>";
-                return;
-            }
-
-            data.forEach(function(item) {
-                let box = document.createElement('div');
-                box.className = 'item-box';
-                
-                let deleteBtn = "";
-                if (isAdminLoggedIn) {
-                    deleteBtn = '<button class="delete-btn" onclick="deleteItem(' + item.id + ')">डिलीट</button>';
-                }
-
-                if (item.type === 'Notes') {
-                    box.innerHTML = '<strong>📁 [Notes] ' + item.title + '</strong> ' + deleteBtn + '<br>' +
-                    '<a href="' + item.content + '" download="' + (item.fileName || 'notes.pdf') + '">📥 Notes डाउनलोड करें</a>';
-                } else if (item.type === 'BookPDF') {
-                    box.innerHTML = '<strong>📖 [Book PDF] ' + item.title + '</strong> ' + deleteBtn + '<br>' +
-                    '<a href="' + item.content + '" download="' + (item.fileName || 'book.pdf') + '" style="background:#0284c7;">📥 Book PDF डाउनलोड करें</a>';
-                } else if (item.type === 'PPT') {
-                    box.innerHTML = '<strong>📊 [PPT Presentation] ' + item.title + '</strong> ' + deleteBtn + '<br>' +
-                    '<a href="' + item.content + '" download="' + (item.fileName || 'presentation.ppt') + '" style="background:#8b5cf6;">📥 PPT डाउनलोड करें</a>';
-                } else if (item.type === 'Video') {
-                    box.innerHTML = '<strong>🎥 [Video] ' + item.title + '</strong> ' + deleteBtn + '<br>' +
-                    '<a href="' + item.content + '" target="_blank" style="background:#dc2626;">▶️ YouTube वीडियो देखें</a>';
-                } else if (item.type === 'Quiz') {
-                    box.innerHTML = '<strong>✍️ [Quiz] ' + item.title + '</strong> ' + deleteBtn + '<br>' +
-                    '<a href="' + item.content + '" target="_blank" style="background:#10b981;">📝 ऑनलाइन क्विज़ / टेस्ट खोलें</a>';
-                }
-
-                displayArea.appendChild(box);
-            });
-        }
-
-        function deleteItem(id) {
-            let storageKey = 'content_' + selectedClass + '_' + selectedSubject + '_' + selectedChapter;
-            let data = JSON.parse(localStorage.getItem(storageKey)) || [];
-            let filteredData = data.filter(function(item) { return item.id !== id; });
-            localStorage.setItem(storageKey, JSON.stringify(filteredData));
-            loadLocalData();
-        }
-
-        loadMainCategories();
+        window.onload = fetchGitHubData;
     </script>
 </body>
 </html>
