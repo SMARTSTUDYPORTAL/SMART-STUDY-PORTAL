@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>स्मार्ट स्टडी पोर्टल - नोट्स, बुक्स और क्विज़</title>
     
-    <!-- सुंदर गूगल फोंट्स (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -266,7 +265,7 @@
         let selectedChapter = "";
         let isAdminLoggedIn = false;
 
-        // सुरक्षित टोकन प्राप्त करने का फंक्शन
+        // 1. सुरक्षित टोकन प्राप्त करने का फंक्शन (localStorage)
         function getGitHubToken() {
             let token = localStorage.getItem("github_admin_token");
             if (!token) {
@@ -286,57 +285,39 @@
             alert("पुराना टोकन हटा दिया गया है।");
         }
 
-        // GitHub से data.json लोड करके ऐप में सिंक करना
-        async function syncDataFromGitHub() {
-            const token = getGitHubToken();
-            if (!token) return;
-
-            const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
+        // 2. वेबसाइट खुलते ही बैकग्राउंड में GitHub से लाइव डेटा लाना (सभी यूजर्स के लिए)
+        async function fetchLivePortalData() {
+            const rawUrl = `https://raw.githubusercontent.com/${OWNER}/${REPO}/main/${PATH}?t=` + new Date().getTime();
             try {
-                let res = await fetch(url, {
-                    headers: { "Authorization": `Bearer ${token}`, "Accept": "application/vnd.github.v3+json" }
-                });
-
-                if (!res.ok) {
-                    if (res.status === 401) {
-                        localStorage.removeItem("github_admin_token");
-                        alert("टोकन अमान्य या एक्सपायर है। कृपया दोबारा सही टोकन दर्ज करें।");
+                let res = await fetch(rawUrl);
+                if (res.ok) {
+                    let cloudData = await res.json();
+                    if (cloudData.categories) {
+                        localStorage.setItem('portal_all_categories', JSON.stringify(cloudData.categories));
                     }
-                    throw new Error("GitHub से डेटा लोड करने में विफल (Status: " + res.status + ")");
-                }
-
-                let fileData = await res.json();
-                let decodedContent = decodeURIComponent(escape(atob(fileData.content)));
-                let cloudData = JSON.parse(decodedContent);
-
-                // क्लाउड डेटा को लोकल स्टोरेज में अपडेट करें
-                if (cloudData.categories) {
-                    localStorage.setItem('portal_all_categories', JSON.stringify(cloudData.categories));
-                }
-                if (cloudData.subjects) {
-                    for (let cls in cloudData.subjects) {
-                        localStorage.setItem('subjects_' + cls, JSON.stringify(cloudData.subjects[cls]));
+                    if (cloudData.subjects) {
+                        for (let cls in cloudData.subjects) {
+                            localStorage.setItem('subjects_' + cls, JSON.stringify(cloudData.subjects[cls]));
+                        }
+                    }
+                    if (cloudData.chapters) {
+                        for (let key in cloudData.chapters) {
+                            localStorage.setItem('chapters_' + key, JSON.stringify(cloudData.chapters[key]));
+                        }
+                    }
+                    if (cloudData.contents) {
+                        for (let key in cloudData.contents) {
+                            localStorage.setItem('content_' + key, JSON.stringify(cloudData.contents[key]));
+                        }
                     }
                 }
-                if (cloudData.chapters) {
-                    for (let key in cloudData.chapters) {
-                        localStorage.setItem('chapters_' + key, JSON.stringify(cloudData.chapters[key]));
-                    }
-                }
-                if (cloudData.contents) {
-                    for (let key in cloudData.contents) {
-                        localStorage.setItem('content_' + key, JSON.stringify(cloudData.contents[key]));
-                    }
-                }
-
-                alert("GitHub से डेटा सफलताપूर्वक सिंक हो गया है! 🚀");
-                loadMainCategories();
             } catch (err) {
-                alert("त्रुटि: " + err.message);
+                console.log("लाइव डेटा लोड नहीं हो पाया, लोकल डेटा का उपयोग हो रहा है।");
             }
+            loadMainCategories();
         }
 
-        // लोकल डेटा को GitHub पर हमेशा के लिए सेव करना
+        // 3. एडमिन द्वारा किया गया बदलाव GitHub पर लाइव सेव करना
         async function syncDataToGitHub() {
             const token = getGitHubToken();
             if (!token) return;
@@ -391,7 +372,7 @@
                 });
 
                 if (putRes.ok) {
-                    alert("डेटा सफलतापूर्वक GitHub पर लाइव हो गया है! 🎉");
+                    alert("डेटा सफलतापूर्वक GitHub पर लाइव हो गया है! 🎉 अब दूसरे यूजर्स को भी दिखेगा।");
                 } else {
                     let errJson = await putRes.json();
                     alert("सेव करने में विफल: " + (errJson.message || putRes.statusText));
@@ -399,6 +380,12 @@
             } catch (err) {
                 alert("त्रुटि: " + err.message);
             }
+        }
+
+        // 4. GitHub से मैनुअल सिंक बटन के लिए
+        async function syncDataFromGitHub() {
+            await fetchLivePortalData();
+            alert("GitHub से डेटा सफलतापूर्वक सिंक हो गया है! 🚀");
         }
 
         function toggleAdminMode() {
@@ -798,7 +785,7 @@
 
             try {
                 localStorage.setItem(storageKey, JSON.stringify(existingData));
-                alert('सफलतापूर्वक लोकल सेव हो गया! (अब "बदलाव GitHub पर सेव करें" दबाएं)');
+                alert('लोकल सेव हो गया! अब ऊपर "☁️ बदलाव GitHub पर सेव करें" बटन दबाएं ताकि यह सबको दिखने लगे।');
                 
                 document.getElementById('contentTitleInput').value = '';
                 document.getElementById('contentLinkInput').value = '';
@@ -815,7 +802,6 @@
             
             let adminPanel = document.getElementById('adminContentPanel');
             if (isAdminLoggedIn) {
-                adminPanel.classList.add('hidden'); // Content add section remains editable via local storage then synced
                 adminPanel.classList.remove('hidden');
             } else {
                 adminPanel.classList.add('hidden');
@@ -867,7 +853,8 @@
             loadLocalData();
         }
 
-        loadMainCategories();
+        // पेज खुलते ही GitHub से लाइव डेटा लोड करें
+        fetchLivePortalData();
     </script>
 </body>
 </html>
