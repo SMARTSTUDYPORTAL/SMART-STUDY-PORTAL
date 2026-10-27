@@ -11,7 +11,9 @@
     "Class 9",
     "Class 10",
     "Spectrum",
-    "Lucent"
+    "Lucent",
+    "घटनाचक्र",
+    "Current affairs"
   ],
   "subjects": {
     "Class 1": [],
@@ -24,7 +26,9 @@
     "Class 9": [],
     "Class 10": [],
     "Spectrum": [],
-    "Lucent": []
+    "Lucent": [],
+    "घटनाचक्र": [],
+    "Current affairs": []
   },
   "chapters": {},
   "contents": {}
