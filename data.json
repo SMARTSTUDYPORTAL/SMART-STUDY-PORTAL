@@ -10,10 +10,12 @@
     "Class 8",
     "Class 9",
     "Class 10",
-    "Spectrum",
-    "Lucent",
+    "Class 11",
+    "Class 12",
     "घटनाचक्र",
-    "Current affairs"
+    "Current affairs",
+    "Lucent",
+    "Spectrum Modern History of India"
   ],
   "subjects": {
     "Class 1": [],
@@ -32,17 +34,34 @@
       "Science",
       "Maths"
     ],
-    "Class 9": [],
-    "Class 10": [],
-    "Spectrum": [
+    "Class 9": [
       "Physics",
       "Chemistry",
       "Biology",
       "Mathematics"
     ],
-    "Lucent": [],
+    "Class 10": [
+      "Physics",
+      "Chemistry",
+      "Biology",
+      "Mathematics"
+    ],
+    "Class 11": [
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Biology"
+    ],
+    "Class 12": [
+      "Mathematics",
+      "Physics",
+      "Chemistry",
+      "Biology"
+    ],
     "घटनाचक्र": [],
-    "Current affairs": []
+    "Current affairs": [],
+    "Lucent": [],
+    "Spectrum Modern History of India": []
   },
   "chapters": {
     "Class 6_Science": [],
@@ -51,10 +70,22 @@
     "Class 7_Maths": [],
     "Class 8_Science": [],
     "Class 8_Maths": [],
-    "Spectrum_Physics": [],
-    "Spectrum_Chemistry": [],
-    "Spectrum_Biology": [],
-    "Spectrum_Mathematics": []
+    "Class 9_Physics": [],
+    "Class 9_Chemistry": [],
+    "Class 9_Biology": [],
+    "Class 9_Mathematics": [],
+    "Class 10_Physics": [],
+    "Class 10_Chemistry": [],
+    "Class 10_Biology": [],
+    "Class 10_Mathematics": [],
+    "Class 11_Mathematics": [],
+    "Class 11_Physics": [],
+    "Class 11_Chemistry": [],
+    "Class 11_Biology": [],
+    "Class 12_Mathematics": [],
+    "Class 12_Physics": [],
+    "Class 12_Chemistry": [],
+    "Class 12_Biology": []
   },
   "contents": {}
 }
