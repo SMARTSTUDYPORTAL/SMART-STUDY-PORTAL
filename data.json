@@ -21,7 +21,10 @@
     "Class 4": [],
     "Class 5": [],
     "Class 6": [],
-    "Class 7": [],
+    "Class 7": [
+      "Science",
+      "Maths"
+    ],
     "Class 8": [
       "Science",
       "Maths"
@@ -34,6 +37,8 @@
     "Current affairs": []
   },
   "chapters": {
+    "Class 7_Science": [],
+    "Class 7_Maths": [],
     "Class 8_Science": [],
     "Class 8_Maths": []
   },
