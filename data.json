@@ -65,9 +65,35 @@
     "Spectrum Modern History of India": []
   },
   "chapters": {
-    "Class 6_Science": [],
+    "Class 6_Science": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
     "Class 6_Maths": [],
-    "Class 7_Science": [],
+    "Class 7_Science": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12"
+    ],
     "Class 7_Maths": [],
     "Class 8_Science": [
       "अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा",
@@ -103,6 +129,30 @@
     "Class 12_Biology": []
   },
   "contents": {
+    "Class 6_Science_1": [],
+    "Class 6_Science_2": [],
+    "Class 6_Science_3": [],
+    "Class 6_Science_4": [],
+    "Class 6_Science_5": [],
+    "Class 6_Science_6": [],
+    "Class 6_Science_7": [],
+    "Class 6_Science_8": [],
+    "Class 6_Science_9": [],
+    "Class 6_Science_10": [],
+    "Class 6_Science_11": [],
+    "Class 6_Science_12": [],
+    "Class 7_Science_1": [],
+    "Class 7_Science_2": [],
+    "Class 7_Science_3": [],
+    "Class 7_Science_4": [],
+    "Class 7_Science_5": [],
+    "Class 7_Science_6": [],
+    "Class 7_Science_7": [],
+    "Class 7_Science_8": [],
+    "Class 7_Science_9": [],
+    "Class 7_Science_10": [],
+    "Class 7_Science_11": [],
+    "Class 7_Science_12": [],
     "Class 8_Science_अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा": [
       {
         "id": 1793182134492,
