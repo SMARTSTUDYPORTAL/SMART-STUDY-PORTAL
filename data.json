@@ -74,7 +74,15 @@
       "अध्याय -2 : अदृश्य जीव-जगत हमारी आंखों की क्षमता  से परे",
       "अध्याय - 3 : स्वास्थ्य  एक अमूल्य निधि",
       "अध्याय 4 : विद्युत  चुंबकीय एवं  तापीय प्रभाव",
-      "5"
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "10",
+      "11",
+      "12",
+      "13"
     ],
     "Class 8_Maths": [],
     "Class 9_Physics": [],
@@ -152,6 +160,70 @@
         "title": "5",
         "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288190/uc8lzjhz1c4pyopmotws.pdf",
         "fileName": "hhcu105.pdf"
+      }
+    ],
+    "Class 8_Science_6": [
+      {
+        "id": 1793288371864,
+        "type": "BookPDF",
+        "title": "6",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288369/oxnftz93i12nlrr9wpna.pdf",
+        "fileName": "hhcu106.pdf"
+      }
+    ],
+    "Class 8_Science_7": [
+      {
+        "id": 1793288510129,
+        "type": "BookPDF",
+        "title": "7",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288508/brxcpx67d8ttgl9akeuf.pdf",
+        "fileName": "hhcu107.pdf"
+      }
+    ],
+    "Class 8_Science_8": [
+      {
+        "id": 1793288562887,
+        "type": "BookPDF",
+        "title": "8",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288561/fq43fu0kobhg7crcglyx.pdf",
+        "fileName": "hhcu108.pdf"
+      }
+    ],
+    "Class 8_Science_9": [],
+    "Class 8_Science_10": [
+      {
+        "id": 1793288616826,
+        "type": "BookPDF",
+        "title": "10",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288615/n38r6ipwgc7diopd4bns.pdf",
+        "fileName": "hhcu110.pdf"
+      }
+    ],
+    "Class 8_Science_11": [
+      {
+        "id": 1793288664979,
+        "type": "BookPDF",
+        "title": "11",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288662/mfodwj1abe3ecxswscbk.pdf",
+        "fileName": "hhcu111.pdf"
+      }
+    ],
+    "Class 8_Science_12": [
+      {
+        "id": 1793288687349,
+        "type": "BookPDF",
+        "title": "12",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288686/wyn8ihcxoxywkzad6s0r.pdf",
+        "fileName": "hhcu112.pdf"
+      }
+    ],
+    "Class 8_Science_13": [
+      {
+        "id": 1793288719003,
+        "type": "BookPDF",
+        "title": "13",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288716/kdg3vx2onjjauwt86l53.pdf",
+        "fileName": "hhcu113.pdf"
       }
     ]
   }
