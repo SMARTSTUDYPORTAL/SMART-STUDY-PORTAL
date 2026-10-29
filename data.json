@@ -141,18 +141,114 @@
     "Class 6_Science_10": [],
     "Class 6_Science_11": [],
     "Class 6_Science_12": [],
-    "Class 7_Science_1": [],
-    "Class 7_Science_2": [],
-    "Class 7_Science_3": [],
-    "Class 7_Science_4": [],
-    "Class 7_Science_5": [],
-    "Class 7_Science_6": [],
-    "Class 7_Science_7": [],
-    "Class 7_Science_8": [],
-    "Class 7_Science_9": [],
-    "Class 7_Science_10": [],
-    "Class 7_Science_11": [],
-    "Class 7_Science_12": [],
+    "Class 7_Science_1": [
+      {
+        "id": 1793289273658,
+        "type": "BookPDF",
+        "title": "1",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289271/ux8lwrnj4l5fuvwvubzj.pdf",
+        "fileName": "ghcu101.pdf"
+      }
+    ],
+    "Class 7_Science_2": [
+      {
+        "id": 1793289293199,
+        "type": "BookPDF",
+        "title": "2",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289291/s30x6s6ryblrinkreced.pdf",
+        "fileName": "ghcu102.pdf"
+      }
+    ],
+    "Class 7_Science_3": [
+      {
+        "id": 1793289315783,
+        "type": "BookPDF",
+        "title": "3",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289314/stwh0ttp33zib33gs2ye.pdf",
+        "fileName": "ghcu103.pdf"
+      }
+    ],
+    "Class 7_Science_4": [
+      {
+        "id": 1793289338220,
+        "type": "BookPDF",
+        "title": "4",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289334/ijrigff0zlrwb6ffl4eu.pdf",
+        "fileName": "ghcu104.pdf"
+      }
+    ],
+    "Class 7_Science_5": [
+      {
+        "id": 1793289364280,
+        "type": "BookPDF",
+        "title": "5",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289362/ayg87p4ckgewymeps19t.pdf",
+        "fileName": "ghcu105.pdf"
+      }
+    ],
+    "Class 7_Science_6": [
+      {
+        "id": 1793289390094,
+        "type": "BookPDF",
+        "title": "6",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289382/nxj0l48ul86nda0i6ytf.pdf",
+        "fileName": "ghcu106.pdf"
+      }
+    ],
+    "Class 7_Science_7": [
+      {
+        "id": 1793289432481,
+        "type": "BookPDF",
+        "title": "7",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289430/rhckkwln4slcrhhhjjta.pdf",
+        "fileName": "ghcu107.pdf"
+      }
+    ],
+    "Class 7_Science_8": [
+      {
+        "id": 1793289496992,
+        "type": "BookPDF",
+        "title": "8",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289494/ntno4lbng1mybaiznr92.pdf",
+        "fileName": "ghcu108.pdf"
+      }
+    ],
+    "Class 7_Science_9": [
+      {
+        "id": 1793289524930,
+        "type": "BookPDF",
+        "title": "9",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289523/dcewy1gj7zderbtiibai.pdf",
+        "fileName": "ghcu109.pdf"
+      }
+    ],
+    "Class 7_Science_10": [
+      {
+        "id": 1793289553448,
+        "type": "BookPDF",
+        "title": "10",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289550/ocrilrdv4gelje0usfw7.pdf",
+        "fileName": "ghcu110.pdf"
+      }
+    ],
+    "Class 7_Science_11": [
+      {
+        "id": 1793289582699,
+        "type": "BookPDF",
+        "title": "11",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289577/c7dsv8g8jhmqpqaihgzr.pdf",
+        "fileName": "ghcu111.pdf"
+      }
+    ],
+    "Class 7_Science_12": [
+      {
+        "id": 1793289660249,
+        "type": "BookPDF",
+        "title": "12",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289659/tnq7s3eu0ler1y52vx2w.pdf",
+        "fileName": "ghcu112.pdf"
+      }
+    ],
     "Class 8_Science_अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा": [
       {
         "id": 1793182134492,
