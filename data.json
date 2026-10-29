@@ -103,24 +103,10 @@
         "fileName": "hhcu101.pdf"
       },
       {
-        "id": 1793260872369,
-        "type": "BookPDF",
-        "title": "अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा",
-        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793260871/wddeqmchcdbks6lmrisr.pdf",
-        "fileName": "hhcu101 (1).pdf"
-      },
-      {
-        "id": 1793269148959,
+        "id": 1793276784372,
         "type": "Quiz",
         "title": "अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा",
-        "content": "chapter1scienceclass8.netlify.app",
-        "fileName": ""
-      },
-      {
-        "id": 1793269324240,
-        "type": "Quiz",
-        "title": "1",
-        "content": "https://chapter1scienceclass8.netlify.app",
+        "content": "Class8_Science_Ch1_CBT_Test (1).html",
         "fileName": ""
       }
     ],
