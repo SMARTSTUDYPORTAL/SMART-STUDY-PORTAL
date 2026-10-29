@@ -129,18 +129,114 @@
     "Class 12_Biology": []
   },
   "contents": {
-    "Class 6_Science_1": [],
-    "Class 6_Science_2": [],
-    "Class 6_Science_3": [],
-    "Class 6_Science_4": [],
-    "Class 6_Science_5": [],
-    "Class 6_Science_6": [],
-    "Class 6_Science_7": [],
-    "Class 6_Science_8": [],
-    "Class 6_Science_9": [],
-    "Class 6_Science_10": [],
-    "Class 6_Science_11": [],
-    "Class 6_Science_12": [],
+    "Class 6_Science_1": [
+      {
+        "id": 1793290797554,
+        "type": "BookPDF",
+        "title": "1",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793290796/xuht9sfyrdjo7yrkt5mi.pdf",
+        "fileName": "fhcu101.pdf"
+      }
+    ],
+    "Class 6_Science_2": [
+      {
+        "id": 1793290862287,
+        "type": "BookPDF",
+        "title": "2",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793290860/g5gfvodsfpoxesubrhen.pdf",
+        "fileName": "fhcu102.pdf"
+      }
+    ],
+    "Class 6_Science_3": [
+      {
+        "id": 1793290895394,
+        "type": "BookPDF",
+        "title": "3",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793290893/mxfsphwiqvmy1inycbwo.pdf",
+        "fileName": "fhcu103.pdf"
+      }
+    ],
+    "Class 6_Science_4": [
+      {
+        "id": 1793290926921,
+        "type": "BookPDF",
+        "title": "4",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793290925/es0epvoi3eixpw1yej1z.pdf",
+        "fileName": "fhcu104.pdf"
+      }
+    ],
+    "Class 6_Science_5": [
+      {
+        "id": 1793291415081,
+        "type": "BookPDF",
+        "title": "5",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291413/euklhjxhssozq5sl3bw2.pdf",
+        "fileName": "fhcu105.pdf"
+      }
+    ],
+    "Class 6_Science_6": [
+      {
+        "id": 1793291450033,
+        "type": "BookPDF",
+        "title": "6",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291448/xyigk02jhj5yykcoc1ru.pdf",
+        "fileName": "fhcu106.pdf"
+      }
+    ],
+    "Class 6_Science_7": [
+      {
+        "id": 1793291508923,
+        "type": "BookPDF",
+        "title": "7",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291493/wv1xauprv8w4mikdbymc.pdf",
+        "fileName": "fhcu107.pdf"
+      }
+    ],
+    "Class 6_Science_8": [
+      {
+        "id": 1793291538661,
+        "type": "BookPDF",
+        "title": "8",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291536/dujpecvb8wjukgk8wc9l.pdf",
+        "fileName": "fhcu108.pdf"
+      }
+    ],
+    "Class 6_Science_9": [
+      {
+        "id": 1793291602322,
+        "type": "BookPDF",
+        "title": "9",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291600/nhvmefclgijhrsrruo8z.pdf",
+        "fileName": "fhcu109.pdf"
+      }
+    ],
+    "Class 6_Science_10": [
+      {
+        "id": 1793291778062,
+        "type": "BookPDF",
+        "title": "10",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291777/jo4h3iinuerzmjoo2scw.pdf",
+        "fileName": "fhcu110.pdf"
+      }
+    ],
+    "Class 6_Science_11": [
+      {
+        "id": 1793291825268,
+        "type": "BookPDF",
+        "title": "11",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291823/ywc4a7hurh9fjo1rcnoy.pdf",
+        "fileName": "fhcu111.pdf"
+      }
+    ],
+    "Class 6_Science_12": [
+      {
+        "id": 1793291855696,
+        "type": "BookPDF",
+        "title": "12",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291854/msqtbhtto7aei4mwkmyw.pdf",
+        "fileName": "fhcu112.pdf"
+      }
+    ],
     "Class 7_Science_1": [
       {
         "id": 1793289273658,
@@ -148,6 +244,13 @@
         "title": "1",
         "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793289271/ux8lwrnj4l5fuvwvubzj.pdf",
         "fileName": "ghcu101.pdf"
+      },
+      {
+        "id": 1793290693508,
+        "type": "PPT",
+        "title": "1",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793290691/mvg4fzkx3jjfshn8sqtq.pdf",
+        "fileName": "BPSC Science Mind Maps (Hindi)_1.pdf"
       }
     ],
     "Class 7_Science_2": [
