@@ -73,7 +73,8 @@
       "अध्याय -1 : विज्ञान के अन्वेषी संसार की खोज यात्रा",
       "अध्याय -2 : अदृश्य जीव-जगत हमारी आंखों की क्षमता  से परे",
       "अध्याय - 3 : स्वास्थ्य  एक अमूल्य निधि",
-      "अध्याय 4 : विद्युत  चुंबकीय एवं  तापीय प्रभाव"
+      "अध्याय 4 : विद्युत  चुंबकीय एवं  तापीय प्रभाव",
+      "5"
     ],
     "Class 8_Maths": [],
     "Class 9_Physics": [],
@@ -142,6 +143,15 @@
         "title": "अध्याय 4 : विद्युत चुंबकीय एवं तापीय प्रभाव",
         "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793261218/fn8zohq6u3i6cdp5syct.pdf",
         "fileName": "hhcu104.pdf"
+      }
+    ],
+    "Class 8_Science_5": [
+      {
+        "id": 1793288192377,
+        "type": "BookPDF",
+        "title": "5",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288190/uc8lzjhz1c4pyopmotws.pdf",
+        "fileName": "hhcu105.pdf"
       }
     ]
   }
