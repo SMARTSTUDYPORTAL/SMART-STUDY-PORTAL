@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT परीक्षा: विद्युत परिपथ एवं उनके घटक (कक्षा 7 विज्ञान - अध्याय 3)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-bolt text-yellow-300 text-2xl"></i>
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold leading-tight">NCERT Class 7 Science - Ch 3</h1>
+                    <p class="text-xs text-indigo-200">विद्युत परिपथ एवं उनके घटक (100 MCQ CBT)</p>
+                </div>
+            </div>
+            <div id="headerTimerBadge" class="hidden bg-indigo-900 border border-indigo-400 text-yellow-300 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center space-x-2">
+                <i class="fa-regular fa-clock"></i>
+                <span id="timerDisplay">120:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto w-full p-4 flex-grow">
+
+        <!-- SCREEN 1: Registration & Instructions -->
+        <section id="screenRegister" class="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-3xl mx-auto border border-slate-200">
+            <div class="text-center mb-6">
+                <span class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">ऑनलाइन कंप्यूटर आधारित परीक्षा</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-2">परीक्षार्थी पंजीकरण एवं निर्देश</h2>
+            </div>
+
+            <form id="regForm" onsubmit="startExam(event)" class="space-y-6">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">परीक्षार्थी का पूरा नाम <span class="text-red-500">*</span></label>
+                    <input type="text" id="userName" required placeholder="अपना पूरा नाम दर्ज करें" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+                </div>
+
+                <div class="bg-indigo-50/50 p-5 rounded-xl border border-indigo-100 space-y-3">
+                    <h3 class="font-bold text-indigo-900 text-base flex items-center">
+                        <i class="fa-solid fa-circle-info mr-2 text-indigo-600"></i> परीक्षा संबंधी महत्त्वपूर्ण निर्देश:
+                    </h3>
+                    <ul class="text-xs md:text-sm text-slate-600 space-y-2 list-disc list-inside">
+                        <li><strong>कुल प्रश्न:</strong> 100 बहुविकल्पीय प्रश्न (NCERT पाठ्यपुस्तक आधारित)।</li>
+                        <li><strong>समय सीमा:</strong> 120 मिनट (2 घंटे)। समय समाप्त होने पर परीक्षा स्वतः सबमिट हो जाएगी।</li>
+                        <li><strong>अंकन योजना:</strong> प्रत्येक सही उत्तर के लिए <span class="text-emerald-600 font-bold">+1.0 अंक</span>, गलत उत्तर पर <span class="text-red-600 font-bold">-0.33 (1/3) ऋणात्मक अंक</span> तथा अनुत्तरित प्रश्न पर <span class="font-bold">0 अंक</span>।</li>
+                        <li><strong>विकल्प संरचना:</strong> प्रत्येक प्रश्न में 5 विकल्प (A, B, C, D, E) दिए गए हैं। विकल्प E "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक" को दर्शाता है।</li>
+                        <li><strong>प्रश्न पैलेट रंग संकेत:</strong>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2 text-xs">
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-slate-200 border border-slate-300 mr-1"></span> उत्तर नहीं दिया</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1"></span> उत्तर दिया</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-1"></span> समीक्षा हेतु चिह्नित</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-1"></span> उत्तर दिया एवं समीक्षा</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="acceptTerms" required class="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500">
+                    <label for="acceptTerms" class="text-xs md:text-sm text-slate-600 cursor-pointer">मैंने सभी निर्देशों को ध्यानपूर्वक पढ़ और समझ लिया है।</label>
+                </div>
+
+                <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition duration-200 flex items-center justify-center space-x-2">
+                    <span>परीक्षा प्रारंभ करें</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- SCREEN 2: CBT Exam Interface -->
+        <section id="screenExam" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Left Side: Question Display Area (3 Cols) -->
+            <div class="lg:col-span-3 flex flex-col bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden min-h-[550px]">
+                
+                <!-- Question Top Header -->
+                <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center flex-wrap gap-2">
+                    <span id="qNumberBadge" class="bg-indigo-100 text-indigo-800 font-bold px-3 py-1 rounded-lg text-sm">प्रश्न 1 / 100</span>
+                    <div class="text-xs font-medium text-slate-500 space-x-3">
+                        <span class="text-emerald-600"><i class="fa-solid fa-plus-circle"></i> +1.0</span>
+                        <span class="text-red-500"><i class="fa-solid fa-minus-circle"></i> -0.33</span>
+                    </div>
+                </div>
+
+                <!-- Question Text -->
+                <div class="p-5 md:p-6 flex-grow">
+                    <h3 id="qText" class="text-base md:text-lg font-semibold text-slate-800 leading-relaxed mb-6">
+                        <!-- Dynamic Question Loaded Here -->
+                    </h3>
+
+                    <!-- Options Container -->
+                    <div id="optionsContainer" class="space-y-3">
+                        <!-- Dynamic Options Loaded Here -->
+                    </div>
+                </div>
+
+                <!-- Action Controls Footer -->
+                <div class="bg-slate-50 border-t border-slate-200 p-4 flex flex-wrap gap-2 justify-between items-center">
+                    <div class="flex gap-2">
+                        <button onclick="prevQuestion()" id="btnPrev" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-lg text-xs md:text-sm transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-left"></i> पिछला
+                        </button>
+                        <button onclick="clearResponse()" class="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 font-semibold rounded-lg text-xs md:text-sm transition">
+                            उत्तर मिटाएं (Clear)
+                        </button>
+                        <button onclick="markForReview()" class="px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-800 font-semibold rounded-lg text-xs md:text-sm transition">
+                            पुनरावलोकन हेतु चिह्नित
+                        </button>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="saveAndNext()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg text-xs md:text-sm shadow transition flex items-center gap-1">
+                            सहेजें एवं अगला <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button onclick="confirmSubmit()" class="px-5 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-xs md:text-sm shadow transition">
+                            अंतिम सबमिट
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side: Question Palette (1 Col) -->
+            <div class="lg:col-span-1 bg-white rounded-2xl shadow-md border border-slate-200 p-4 flex flex-col h-full justify-between">
+                <div>
+                    <h4 class="font-bold text-slate-700 text-sm border-b pb-2 mb-3 flex justify-between items-center">
+                        <span>प्रश्न पैलेट (1-100)</span>
+                        <i class="fa-solid fa-grid-2"></i>
+                    </h4>
+                    
+                    <!-- Palette Legends -->
+                    <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600 mb-4 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-slate-200 mr-1 border"></span> न देखा गया: <b id="cntNotVisited" class="ml-1">100</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1"></span> उत्तर दिया: <b id="cntAnswered" class="ml-1">0</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-1"></span> समीक्षा हेतु: <b id="cntMarked" class="ml-1">0</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-indigo-500 mr-1"></span> उत्तर+समीक्षा: <b id="cntAnsMarked" class="ml-1">0</b></div>
+                    </div>
+
+                    <!-- Question Grid Buttons -->
+                    <div id="paletteGrid" class="grid grid-cols-5 gap-1.5 max-h-[320px] overflow-y-auto custom-scrollbar p-1">
+                        <!-- 100 palette buttons rendered dynamically -->
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t">
+                    <button onclick="confirmSubmit()" class="w-full py-2.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> परीक्षा पूर्ण एवं सबमिट करें
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SCREEN 3: Result & Detailed Solution -->
+        <section id="screenResult" class="hidden space-y-6">
+            
+            <!-- Result Overview Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-200 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500"></div>
+                
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800">परीक्षा परिणाम एवं प्रदर्शन रिपोर्ट</h2>
+                <p class="text-slate-500 text-sm mt-1">परीक्षार्थी: <span id="resUserName" class="font-bold text-slate-800"></span></p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-indigo-50 p-4 rounded-xl border border-indigo-100">
+                        <span class="text-xs text-indigo-600 font-semibold uppercase tracking-wider block">कुल प्राप्तांक</span>
+                        <span id="resScore" class="text-2xl md:text-3xl font-black text-indigo-900">0.00 / 100</span>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                        <span class="text-xs text-emerald-600 font-semibold uppercase tracking-wider block">सही उत्तर</span>
+                        <span id="resCorrect" class="text-2xl md:text-3xl font-black text-emerald-700">0</span>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                        <span class="text-xs text-red-600 font-semibold uppercase tracking-wider block">गलत उत्तर</span>
+                        <span id="resWrong" class="text-2xl md:text-3xl font-black text-red-700">0</span>
+                    </div>
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                        <span class="text-xs text-amber-600 font-semibold uppercase tracking-wider block">सटीकता (Accuracy)</span>
+                        <span id="resAccuracy" class="text-2xl md:text-3xl font-black text-amber-800">0%</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center gap-3 no-print">
+                    <button onclick="window.print()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-sm shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> परिणाम मुद्रित (Print) करें
+                    </button>
+                    <button onclick="location.reload()" class="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-xl text-sm shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> पुनः परीक्षा दें
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Solutions Accordion/List -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800 border-b pb-3 mb-6 flex items-center justify-between">
+                    <span>100 प्रश्नों की व्याख्या सहित विस्तृत उत्तर कुंजी</span>
+                    <span class="text-xs font-normal text-slate-500">NCERT अध्याय 3 पर आधारित</span>
+                </h3>
+
+                <div id="solutionsContainer" class="space-y-6">
+                    <!-- 100 Solutions dynamically rendered here -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal Dialog for Submit Confirmation -->
+    <div id="submitModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800">क्या आप परीक्षा सबमिट करना चाहते हैं?</h3>
+                <p class="text-xs text-slate-500 mt-1">सबमिट करने के पश्चात् आप उत्तरों में संशोधन नहीं कर पाएँगे।</p>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 space-y-1">
+                <div class="flex justify-between"><span>कुल उत्तर दिए गए:</span> <b id="modalAns" class="text-emerald-600">0</b></div>
+                <div class="flex justify-between"><span>अनुत्तरित / न देखा गया:</span> <b id="modalUnans" class="text-red-500">0</b></div>
+                <div class="flex justify-between"><span>पुनरावलोकन हेतु चिह्नित:</span> <b id="modalMarked" class="text-purple-600">0</b></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeSubmitModal()" class="w-1/2 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl text-xs transition">
+                    परीक्षण जारी रखें
+                </button>
+                <button onclick="finalSubmitExam()" class="w-1/2 py-2.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl text-xs transition">
+                    हाँ, सबमिट करें
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 text-center py-3 text-xs no-print">
+        <p>© NCERT Class 7 Science Chapter 3 Interactive CBT Exam Portal. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Question Bank Generator Script (100 Rigorous MCQs based on Chapter 3 PDF ghcu103.pdf)
+        const rawQuestions = [
+            // Page 1: Intro, Bhakra Nangal, Uses of Electricity
+            {
+                q: "निहाल और उसके सहपाठी विद्यालय के भ्रमण कार्यक्रम के अंतर्गत किस बाँध पर स्थित जल-विद्युत संयंत्र को देखने गए थे?",
+                o: ["हीराकुड बाँध", "भाखड़ा नंगल बाँध", "सरदार सरोवर बाँध", "टिहरी बाँध"],
+                a: 1,
+                e: "पाठ्यपुस्तक के पृष्ठ 1 के अनुसार, निहाल और उसके सहपाठी भाखड़ा नंगल बाँध भ्रमण पर गए थे जहाँ जल-विद्युत संयंत्र स्थित है।"
+            },
+            {
+                q: "निहाल ने रेलगाड़ी द्वारा पंजाब के नंगल से हिमाचल प्रदेश के किस स्थान तक 13 किलोमीटर लंबी निःशुल्क यात्रा की थी?",
+                o: ["बिलासपुर", "भाखड़ा", "शिमला", "मंडी"],
+                a: 1,
+                e: "पृष्ठ 1 पर स्पष्ट उल्लेख है कि उन्होंने पंजाब के नंगल से हिमाचल प्रदेश के भाखड़ा तक 13 किमी लंबी निःशुल्क यात्रा की।"
+            },
+            {
+                q: "भाखड़ा नंगल यात्रा के दौरान रेलगाड़ी किस नदी के तटों और पर्वतीय श्रृंखला से होकर गुजरती है?",
+                o: ["व्यास नदी एवं धौलाधार श्रेणी", "रावी नदी एवं पीर पंजाल श्रेणी", "सतलुज नदी एवं शिवालिक पर्वत श्रृंखला", "यमुना नदी एवं अरावली श्रेणी"],
+                a: 2,
+                e: "पृष्ठ 1 के अनुसार, रेलगाड़ी सतलुज नदी के तटों और शिवालिक पर्वत श्रृंखला से होकर गुजरती है।"
+            },
+            {
+                q: "निहाल और सहपाठियों की समूह प्रस्तुति का मुख्य विषय क्या था?",
+                o: ["जल संरक्षण के उपाय", "विद्युत के उपयोग", "सौर ऊर्जा का महत्त्व", "पर्वतारोहण के अनुभव"],
+                a: 1,
+                e: "पृष्ठ 1: यात्रा से पहले उन्हें विद्युत के उपयोगों पर एक प्रस्तुति तैयार करने का सामूहिक कार्य मिला था।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सा उपकरण 'पाक-क्रिया' (Cooking) में प्रयुक्त विद्युत उपकरणों की श्रेणी में आता है?",
+                o: ["वातानुकूलक (AC)", "गीजर", "मिक्सर ग्राइंडर", "चलसोपान (Escalator)"],
+                a: 2,
+                e: "पृष्ठ 1 पर तालिका अनुसार: विद्युत केतली, मिक्सर ग्राइंडर, टोस्टर, अवन आदि पाक-क्रिया में प्रयुक्त होते हैं।"
+            },
+            {
+                q: "परिवहन (Transport) के क्षेत्र में विद्युत के उपयोग का कौन-सा सही उदाहरण है?",
+                o: ["इमरशन रॉड", "चलसोपान एवं लिफ्ट", "रूम हीटर", "रेफ्रिजरेटर"],
+                a: 1,
+                e: "पृष्ठ 1 तालिका: रेलगाड़ी, बस, कार, लिफ्ट, चलसोपान (Escalator) परिवहन की श्रेणी में वर्गीकृत हैं।"
+            },
+            {
+                q: "ऊष्मन एवं शीतलन (Heating & Cooling) के लिए प्रयुक्त होने वाले विद्युत उपकरणों का समुच्चय कौन-सा है?",
+                o: ["एल.ई.डी. एवं विद्युत बल्ब", "पंखा, गीजर एवं रेफ्रिजरेटर", "रेडियो एवं दूरदर्शन", "जल-पंप एवं संगणक"],
+                a: 1,
+                e: "पृष्ठ 1: ऊष्मन एवं शीतलन श्रेणी में पंखा, कक्ष-ऊष्मक, इमरशन रॉड, गीजर, रेफ्रिजरेटर, AC आदि आते हैं।"
+            },
+            {
+                q: "संचार (Communication) के अंतर्गत विद्युत का मुख्य उपयोग निम्नलिखित में से किसमें है?",
+                o: ["माइक्रोवेव", "मोबाइल फोन एवं इंटरनेट", "क्रेन", "टोस्टर"],
+                a: 1,
+                e: "पृष्ठ 1 तालिका: संचार शीर्षक के अंतर्गत मोबाइल फोन एवं इंटरनेट सम्मिलित हैं।"
+            },
+            {
+                q: "विद्युत के खंभों तथा उपकरणों पर लगा 'संकट सूचक चिह्न' (Danger Sign) लोगों को क्या चेतावनी देता है?",
+                o: ["उपकरण खराब है", "विद्युत धारा बंद है", "असावधानी बरतने पर विद्युत क्षति या दुर्घटना हो सकती है", "यह उपकरण निःशुल्क उपलब्ध है"],
+                a: 2,
+                e: "पृष्ठ 2 सावधानी: संकट सूचक चिह्न चेतावनी देता है कि यदि सावधानी से व्यवहार न किया जाए तो विद्युत गंभीर क्षति पहुँचा सकती है।"
+            },
+            {
+                q: "घरेलू विद्युत प्रयोगों के संबंध में कौन-सी चेतावनी अनिवार्य रूप से दी जाती है?",
+                o: ["घर के मुख्य सॉकेट से ही सदैव प्रयोग करें", "सुवाह्य जनित्रों (Portable Generators) की विद्युत से सीधे प्रयोग करें", "केवल बैटरियों या सेलों का ही प्रयोग करें जो टॉर्च या रिमोट में प्रयुक्त होती हैं", "केवल नंगे तारों का प्रयोग करें"],
+                a: 2,
+                e: "पृष्ठ 2: विद्युत संबंधी प्रयोगों में सदैव केवल सेलों या बैटरियों का ही प्रयोग करना चाहिए, मुख्य विद्युत या जनरेटर का नहीं।"
+            },
+
+            // Page 2: Torch Light & Basic Concepts
+            {
+                q: "टॉर्च-लाइट का स्विच 'ऑन' (ON) स्थिति में होने पर लैंप के साथ क्या होता है?",
+                o: ["लैंप बुझ जाता है", "लैंप दीप्त (Glow) होता है", "लैंप फ्यूज हो जाता है", "सेल गर्म होने लगता है"],
+                a: 1,
+                e: "पृष्ठ 2: स्विच की जिस स्थिति में लैंप दीप्त होता है वह उसकी 'ऑन' स्थिति कहलाती है।"
+            },
+            {
+                q: "जब टॉर्च के स्विच को खिसका कर 'ऑफ' (OFF) स्थिति में लाया जाता है, तब क्या होता है?",
+                o: ["परिपथ पूर्ण हो जाता है", "लैंप दीप्त नहीं होता है", "सेल चार्ज होने लगता है", "धारा का प्रवाह तीव्र हो जाता है"],
+                a: 1,
+                e: "पृष्ठ 2: स्विच की जिस स्थिति में लैंप दीप्त नहीं होता वह उसकी 'ऑफ' स्थिति कहलाती है।"
+            },
+            {
+                q: "एक सामान्य टॉर्च को खोलने पर उसके अंदर ऊर्जा स्रोत के रूप में मुख्यतः क्या दिखाई देता है?",
+                o: ["सौर प्लेट", "दो या दो से अधिक विद्युत सेल", "छोटा जनरेटर", "ट्रांसफॉर्मर"],
+                a: 1,
+                e: "पृष्ठ 2: टॉर्च को खोलने पर अंदर दो या दो से अधिक विद्युत सेल दिखाई देते हैं।"
+            },
+            {
+                q: "विद्युत सेल ऊर्जा का किस प्रकार का स्रोत है?",
+                o: ["स्थिर एवं भारी स्रोत", "सुवाह्य (Portable) स्रोत", "असीमित एवं अक्षय स्रोत", "केवल प्रत्यावर्ती धारा स्रोत"],
+                a: 1,
+                e: "पृष्ठ 3: विद्युत सेल विद्युत ऊर्जा का एक सुवाह्य (Portable) स्रोत होता है।"
+            },
+
+            // Page 3: Electric Cell & Battery
+            {
+                q: "विद्युत सेल के धनात्मक (+) सिरे (Terminal) की पहचान क्या है?",
+                o: ["धातु की डिस्क/चकती", "धातु की उभरी हुई टोपी (Metal Cap)", "प्लास्टिक का आवरण", "नीला रबर रिंग"],
+                a: 1,
+                e: "पृष्ठ 3 (चित्र 3.2): धातु की टोपी वाला सिरा विद्युत सेल का धनात्मक (+) सिरा होता है।"
+            },
+            {
+                q: "विद्युत सेल के ऋणात्मक (-) सिरे की पहचान क्या है?",
+                o: ["धातु की डिस्क (Metal Disc/Plate)", "धातु की टोपी", "काँच का आवरण", "ताँबे की नोक"],
+                a: 0,
+                e: "पृष्ठ 3: धातु की चकती (डिस्क) वाला सिरा सेल का ऋणात्मक (-) सिरा होता है।"
+            },
+            {
+                q: "प्रत्येक मानक विद्युत सेल में कुल कितने टर्मिनल (सिरें) होते हैं?",
+                o: ["एक", "दो", "तीन", "चार"],
+                a: 1,
+                e: "पृष्ठ 3: सभी विद्युत सेलों में दो सिरे (टर्मिनल) होते हैं - एक धनात्मक (+) और दूसरा ऋणात्मक (-)।"
+            },
+            {
+                q: "विज्ञान की भाषा में दो या दो से अधिक सेलों के विशिष्ट संयोजन को क्या कहा जाता है?",
+                o: ["परिपथ", "बैटरी", "प्रतिरोध", "जनरेटर"],
+                a: 1,
+                e: "पृष्ठ 3: दो या दो से अधिक सेलों का संयोजन 'बैटरी' कहलाता है।"
+            },
+            {
+                q: "टॉर्च या अन्य उपकरणों में सेलों को श्रेणीबद्ध (Series) क्रम में जोड़ते समय किस विन्यास का पालन किया जाता है?",
+                o: ["एक सेल का धन सिरा दूसरे सेल के धन सिरे से", "एक सेल का धन सिरा अगले सेल के ऋण सिरे से", "दोनों सेलों के ऋण सिरों को आपस में जोड़कर", "किसी भी अनिश्चित क्रम में"],
+                a: 1,
+                e: "पृष्ठ 3: एक सेल का धनात्मक सिरा अगले सेल के ऋणात्मक सिरे से जुड़ा होना चाहिए।"
+            },
+            {
+                q: "यदि 2-सेल वाली टॉर्च में एक सेल की दिशा उलट दी जाए (धन से धन जोड़ दिया जाए) तो टॉर्च लैंप पर क्या प्रभाव पड़ेगा?",
+                o: ["लैंप अधिक तीव्रता से जलेगा", "लैंप दीप्त नहीं होगा", "लैंप तुरंत फ्यूज हो जाएगा", "सेल की शक्ति दोगुनी हो जाएगी"],
+                a: 1,
+                e: "पृष्ठ 3 (क्रियाकलाप 3.3): यदि सेल का क्रम उलट दिया जाए तो परिपथ में सही संयोजन न होने के कारण लैंप दीप्त नहीं होता।"
+            },
+
+            // Page 4: Incandescent Lamps (तापदीप्त लैंप)
+            {
+                q: "परंपरागत टॉर्च में प्रयुक्त तापदीप्त लैंप (Incandescent Lamp) के मध्य काँच के बल्ब के अंदर लगा पतला तार क्या कहलाता है?",
+                o: ["टर्मिनल", "तंतु (Filament)", "स्विच", "आवरण"],
+                a: 1,
+                e: "पृष्ठ 4 (चित्र 3.4): काँच के बल्ब के अंदर लगा दीप्तिमान पतला तार 'तंतु' (Filament) कहलाता है।"
+            },
+            {
+                q: "तापदीप्त लैंप में तंतु (Filament) को सहारा देने के लिए इसे किनसे जोड़ा जाता है?",
+                o: ["प्लास्टिक की छड़ों से", "दो अपेक्षाकृत मोटे तारों से", "काँच की नलियों से", "रबर बैंड से"],
+                a: 1,
+                e: "पृष्ठ 4: तंतु दो अपेक्षाकृत मोटे तारों से जुड़ा होता है जो इसे आधार प्रदान करते हैं।"
+            },
+            {
+                q: "तापदीप्त लैंप के दो टर्मिनल (संयोजन बिंदु) कहाँ-कहाँ स्थित होते हैं?",
+                o: ["काँच के शीर्ष भाग पर", "केवल धातु के आवरण पर", "आधार पर धातु आवरण तथा आधार के केंद्र पर लगी धातु की नोक पर", "तंतु के ठीक ऊपर"],
+                a: 2,
+                e: "पृष्ठ 4: एक मोटा तार आधार के धातु आवरण से तथा दूसरा आधार के केंद्र पर धातु की नोक से जुड़ा होता है। ये इसके दो टर्मिनल हैं।"
+            },
+            {
+                q: "तापदीप्त लैंप के दोनों टर्मिनल किस प्रकार लगाए जाते हैं?",
+                o: ["वे आपस में एक-दूसरे को स्पर्श करते हैं", "वे इस प्रकार लगाए जाते हैं कि एक-दूसरे के संपर्क में न आएँ", "उन्हें एक ही बिंदु पर वेल्ड किया जाता है", "उन्हें प्लास्टिक से ढाँका नहीं जा सकता"],
+                a: 1,
+                e: "पृष्ठ 4: ये टर्मिनल इस प्रकार लगाए जाते हैं कि वे एक-दूसरे के संपर्क में न आएँ।"
+            },
+            {
+                q: "तापदीप्त लैंप प्रकाश किस प्रक्रिया द्वारा उत्सर्जित करता है?",
+                o: ["रासायनिक अभिक्रिया से", "तंतु के अत्यधिक गर्म होकर तप्त होने से", "गैस के आयनीकरण से", "पराबैंगनी विकिरण से"],
+                a: 1,
+                e: "पृष्ठ 4: तापदीप्त लैंपों में धारा प्रवाहित होने पर तंतु अत्यंत गर्म हो जाता है और प्रकाश उत्सर्जित करने लगता है।"
+            },
+
+            // Page 5 & 6: LED & Circuit Construction
+            {
+                q: "LED का पूरा नाम (Full Form) क्या है?",
+                o: ["Light Emitting Diode", "Low Energy Device", "Light Electron Diode", "Long Electricity Device"],
+                a: 0,
+                e: "पृष्ठ 5: LED का हिंदी नाम 'प्रकाश उत्सर्जक डायोड' तथा अंग्रेजी नाम Light Emitting Diode है।"
+            },
+            {
+                q: "LED लैंप की तापदीप्त लैंप से मुख्य भिन्नता क्या है?",
+                o: ["LED केवल एक रंग देती है", "LED में कोई तंतु (Filament) नहीं होता", "LED बहुत अधिक ऊष्मा उत्पन्न करती है", "LED केवल AC धारा पर चलती है"],
+                a: 1,
+                e: "पृष्ठ 5: तापदीप्त लैंपों के विपरीत LED में कोई तंतु नहीं होता है।"
+            },
+            {
+                q: "LED से दो तार (Leads/Terminals) जुड़े होते हैं। लंबे तार वाला टर्मिनल किस ध्रुवता (Polarity) को दर्शाता है?",
+                o: ["ऋणात्मक (-)", "धनात्मक (+)", "उदासीन (Neutral)", "कोई निश्चित ध्रुवता नहीं"],
+                a: 1,
+                e: "पृष्ठ 5 (चित्र 3.6): LED के दो टर्मिनलों में लंबे तार वाला टर्मिनल धनात्मक (+) होता है।"
+            },
+            {
+                q: "LED का छोटा तार वाला टर्मिनल किस ध्रुवता को निरूपित करता है?",
+                o: ["धनात्मक (+)", "ऋणात्मक (-)", "ग्राउंड", "उच्च वोल्टेज"],
+                a: 1,
+                e: "पृष्ठ 5: छोटे तार वाला टर्मिनल ऋणात्मक (-) होता है।"
+            },
+            {
+                q: "तैयार सेल-धारक (Cell Holder) में स्प्रिंग वाला सिरा प्रायः सेल के किस टर्मिनल से स्पर्श में रहता है?",
+                o: ["धनात्मक (+)", "ऋणात्मक (-)", "मध्य भाग", "धातु की टोपी"],
+                a: 1,
+                e: "पृष्ठ 6 (चित्र 3.7 ख): सेल को धारक में इस प्रकार रखते हैं कि इसका ऋणात्मक सिरा स्प्रिंग वाले सिरे की ओर रहे।"
+            },
+
+            // Page 7 & 8: Circuit Concept & Current Direction
+            {
+                q: "एक साधारण परिपथ में लैंप केवल तभी दीप्तिमान होता है जब -",
+                o: ["तारों का केवल एक सिरा सेल से जुड़ा हो", "सेल का परिपथ पूर्ण होकर बंद मार्ग (Closed Path) बनाता हो", "स्विच ऑफ स्थिति में हो", "सेल में कोई धारा न बहे"],
+                a: 1,
+                e: "पृष्ठ 8: परिपथ जब धारा के प्रवाह के लिए संपूरित (बंद) पथ प्रदान करता है तभी लैंप दीप्त होता है।"
+            },
+            {
+                q: "विद्युत परिपथ में विद्युत-धारा की दिशा पारंपरिक रूप से मानी जाती है -",
+                o: ["ऋणात्मक (-) से धनात्मक (+) टर्मिनल की ओर", "धनात्मक (+) से ऋणात्मक (-) टर्मिनल की ओर", "दोनों दिशाओं में एक साथ", "किसी भी दिशा में"],
+                a: 1,
+                e: "पृष्ठ 8 रोचक तथ्य: किसी परिपथ में विद्युत-धारा की दिशा सदैव विद्युत सेल के धनात्मक (+) टर्मिनल से ऋणात्मक (-) टर्मिनल की ओर होती है।"
+            },
+            {
+                q: "यदि कोई बल्ब सेल से जुड़े होने के बावजूद प्रकाश नहीं दे रहा, और परिपथ बंद है, तो इसका सबसे संभावित कारण क्या है?",
+                o: ["सेल पूरी तरह नया है", "बल्ब फ्यूज है (तंतु टूट गया है)", "स्विच ऑन है", "तार ताँबे का है"],
+                a: 1,
+                e: "पृष्ठ 8: लैंप फ्यूज हो जाने के कारण दीप्त नहीं होता, जो प्रायः तंतु टूट जाने से होता है। टूटा तंतु परिपथ को भंग कर देता है।"
+            },
+            {
+                q: "फ्यूज हुए तापदीप्त बल्ब में धारा का प्रवाह क्यों रुक जाता है?",
+                o: ["काँच टूट जाने के कारण", "तंतु (Filament) विखंडित/टूट जाने से परिपथ अपूर्ण होने के कारण", "धातु की नोक गल जाने से", "गैस का दबाव बढ़ने से"],
+                a: 1,
+                e: "पृष्ठ 8: टूटा हुआ तंतु धारा के प्रवाह मार्ग को रोक देता है।"
+            },
+
+            // Page 9 & 10: LED Polarization & Switch
+            {
+                q: "LED को परिपथ में जोड़ते समय यदि उसका लंबा तार (-) टर्मिनल से और छोटा तार (+) से जोड़ दिया जाए तो क्या होगा?",
+                o: ["LED तेज़ जलेगी", "LED दीप्तिमान नहीं होगी", "LED विस्फोटित होगी", "LED में उल्टी धारा बहने से रोशनी हरी हो जाएगी"],
+                a: 1,
+                e: "पृष्ठ 9: LED में धारा केवल एक ही दिशा में बह सकती है। धनात्मक टर्मिनल को (+) से और ऋणात्मक को (-) से जोड़ने पर ही LED जलती है।"
+            },
+            {
+                q: "LED परिपथ की एकदिशीय (Unidirectional) धारा विशेषता का क्या अर्थ है?",
+                o: ["यह केवल AC पर कार्य करती है", "यह धारा को दोनों दिशाओं में जाने देती है", "यह केवल तभी दीप्त होती है जब धारा इसके धन टर्मिनल से प्रवेश करे", "इसे किसी भी दिशा में जोड़ने पर समान परिणाम मिलता है"],
+                a: 2,
+                e: "पृष्ठ 9: LED में धारा केवल एक दिशा में प्रवाहित हो सकती है (Anode से Cathode की ओर)।"
+            },
+            {
+                q: "चित्र 3.11 में दर्शाए अनुसार सुरक्षा पिन (Safety Pin) एवं ड्राइंग-पिनों द्वारा बनाया गया उपकरण किसका कार्य करता है?",
+                o: ["सेल", "विद्युत लैंप", "सरल विद्युत स्विच (Switch)", "प्रतिरोध"],
+                a: 2,
+                e: "पृष्ठ 10 (क्रियाकलाप 3.8): सेफ्टी-पिन और ड्राइंग-पिन का उपयोग करके एक सरल स्व-निर्मित स्विच बनाया जाता है।"
+            },
+            {
+                q: "जब स्व-निर्मित स्विच की सेफ्टी-पिन दोनों ड्राइंग-पिनों को स्पर्श करती है, तो परिपथ की स्थिति क्या होती है?",
+                o: ["खुला परिपथ (Open Circuit) तथा 'ऑफ'", "बंद परिपथ (Closed Circuit) तथा 'ऑन'", "लघु परिपथ (Short Circuit)", "फ्यूज्ड परिपथ"],
+                a: 1,
+                e: "पृष्ठ 10: जब सेफ्टी-पिन दोनों ड्राइंग-पिनों को छूती है, तो परिपथ बंद (Closed) हो जाता है, इसे 'ऑन' स्थिति कहते हैं।"
+            },
+            {
+                q: "जब सेफ्टी-पिन दूसरी ड्राइंग-पिन को स्पर्श नहीं करती, तो परिपथ में क्या होता है?",
+                o: ["धारा का प्रवाह जारी रहता है", "अंतराल (Air Gap) के कारण धारा प्रवाह रुक जाता है (ऑफ स्थिति)", "सेल डिस्चार्ज होने लगता है", "लैंप फ्यूज हो जाता है"],
+                a: 1,
+                e: "पृष्ठ 10: अंतराल धारा-प्रवाह को रोक देता है, यह 'ऑफ' स्थिति (खुला परिपथ) कहलाती है।"
+            },
+            {
+                q: "विद्युत परिपथ में स्विच लगाने के स्थान के संबंध में कौन-सा कथन सत्य है?",
+                o: ["स्विच को केवल (+) टर्मिनल के पास ही लगाया जा सकता है", "स्विच को परिपथ में कहीं भी लगाया जा सकता है", "स्विच को केवल बल्ब के अंदर लगाया जाता है", "स्विच को केवल (-) टर्मिनल के पास लगाना अनिवार्य है"],
+                a: 1,
+                e: "पृष्ठ 10: स्विच को परिपथ में कहीं भी (Anywhere in the circuit) लगाया जा सकता है।"
+            },
+            {
+                q: "विद्युत स्विच की मूल कार्य परिभाषा क्या है?",
+                o: ["विद्युत ऊर्जा उत्पन्न करना", "परिपथ को पूर्ण करना (बंद) या भंग करना (खुला)", "वोल्टेज को बढ़ाना", "AC को DC में बदलना"],
+                a: 1,
+                e: "पृष्ठ 10: स्विच एक ऐसी सरल युक्ति है जो या तो परिपथ को पूर्ण करती है या फिर भंग करती है।"
+            },
+
+            // Page 11 & 12: Circuit Diagrams & Symbols (IEC, ANSI, IEEE)
+            {
+                q: "विद्युत परिपथ के घटक के रूप में 'विद्युत सेल' के प्रतीक (Symbol) में लंबा रेखाखंड किसे निरूपित करता है?",
+                o: ["ऋणात्मक Terminal (-)", "धनात्मक Terminal (+)", "स्विच स्थिति", "तार की लंबाई"],
+                a: 1,
+                e: "पृष्ठ 11 (तालिका 3.2 / चित्र 3.13 क): लंबा रेखाखंड धनात्मक (+) टर्मिनल को निरूपित करता है।"
+            },
+            {
+                q: "विद्युत सेल के मानक प्रतीक में छोटा एवं मोटा रेखाखंड क्या दर्शाता है?",
+                o: ["धनात्मक Terminal", "ऋणात्मक Terminal (-)", "तंतु", "बैटरी आवरण"],
+                a: 1,
+                e: "पृष्ठ 11: छोटा और मोटा रेखाखंड ऋणात्मक (-) टर्मिनल को निरूपित करता है।"
+            },
+            {
+                q: "LED के परिपथ प्रतीक में त्रिभुज (Triangle) का शीर्ष/दिशा क्या दर्शाती है?",
+                o: ["प्रकाश का रंग", "धारा प्रवाह की अनुमत दिशा", "वोल्टेज की मात्रा", "प्रतिरोध का मान"],
+                a: 1,
+                e: "पृष्ठ 12: LED के प्रतीक में त्रिभुज उस दिशा को इंगित करता है जिस ओर धारा प्रवाहित हो सकती है।"
+            },
+            {
+                q: "LED प्रतीक में त्रिभुज के बाहर की ओर निकलने वाले दो तीर (Arrows) का चिह्न क्या निरूपित करता है?",
+                o: ["ऊष्मा का नुकसान", "प्रकाश का उत्सर्जन (Light Emission)", "विद्युत खतरा", "आवर्धन"],
+                a: 1,
+                e: "पृष्ठ 12: तीर के दो चिह्न यह दर्शाते हैं कि LED प्रकाश का उत्सर्जन करती है।"
+            },
+            {
+                q: "विद्युत उपकरणों तथा परिपथों के लिए अंतर्राष्ट्रीय मानक प्रतीक निर्धारित करने वाले संगठनों का सही समुच्चय कौन-सा है?",
+                o: ["WHO, UNESCO, UNICEF", "IEC, ANSI, IEEE", "ISO, ISRO, NASA", "WTO, IMF, FAO"],
+                a: 1,
+                e: "पृष्ठ 12: अंतर्राष्ट्रीय इलेक्ट्रोटेक्निकल कमीशन (IEC), ANSI एवं IEEE अंतर्राष्ट्रीय मानक प्रतीक निर्धारित करते हैं।"
+            },
+            {
+                q: "अंतर्राष्ट्रीय स्तर पर सभी देशों में समान परिपथ प्रतीकों का उपयोग करने का मुख्य लाभ क्या है?",
+                o: ["उपकरण सस्ते हो जाते हैं", "विभिन्न देशों व उद्योगों के लोग आरेखों को सरलता से समझ सकते हैं", "बैटरी की खपत कम होती है", "धारा की गति बढ़ जाती है"],
+                a: 1,
+                e: "पृष्ठ 12: समस्त विश्व में समान प्रतीकों का उपयोग होने से विभिन्न देशों व उद्योगों के लोग एक-दूसरे के आरेख आसानी से समझ पाते हैं।"
+            },
+            {
+                q: "प्रतीकों का उपयोग करके बनाया गया किसी विद्युत परिपथ का आरेखीय निरूपण क्या कहलाता है?",
+                o: ["ब्लॉक आरेख", "परिपथ आरेख (Circuit Diagram)", "फ्लोचार्ट", "नेटवर्क मैप"],
+                a: 1,
+                e: "पृष्ठ 12: प्रतीकों का उपयोग करके बनाए गए परिपथ के चित्र को 'परिपथ आरेख' कहते हैं।"
+            },
+
+            // Page 13 & 14: Conductors & Insulators
+            {
+                q: "विद्युत धारा को अपने में से आसानी से प्रवाहित होने देने वाले पदार्थ क्या कहलाते हैं?",
+                o: ["विद्युतरोधी (Insulators)", "विद्युत चालक / सुचालक (Conductors)", "अर्धचालक", "अचालक"],
+                a: 1,
+                e: "पृष्ठ 14: जिन पदार्थों में से विद्युत-धारा सरलता से प्रवाहित होती है, वे विद्युत के चालक/सुचालक कहलाते हैं।"
+            },
+            {
+                q: "जिन पदार्थों में से होकर विद्युत-धारा प्रवाहित नहीं हो सकती, उन्हें क्या कहा जाता है?",
+                o: ["विद्युत चालक", "विद्युतरोधी / कुचालक (Insulators)", "सुचालक", "सुपरकंडक्टर"],
+                a: 1,
+                e: "पृष्ठ 14: जिन पदार्थों से विद्युत-धारा प्रवाहित नहीं हो सकती वे विद्युतरोधी (कुचालक) कहलाते हैं।"
+            },
+            {
+                q: "निम्नलिखित पदार्थों में से विद्युत के सर्वोत्तम (Best) चालकों का समूह कौन-सा है?",
+                o: ["काँच, रबर, प्लास्टिक", "चाँदी, ताँबा, सोना", "लकड़ी, कागज, मोम", "चीनी मिट्टी, वायु, जूट"],
+                a: 1,
+                e: "पृष्ठ 14: चाँदी, ताँबा और सोना विद्युत के सर्वोत्तम चालक हैं।"
+            },
+            {
+                q: "चाँदी सबसे अच्छा चालक होने के बावजूद घरेलू विद्युत तारों में मुख्यतः ताँबे (Copper) का उपयोग क्यों किया जाता है?",
+                o: ["ताँबा चाँदी से अधिक भारी है", "ताँबे की कम लागत और प्रचुर मात्रा में उपलब्धता के कारण", "ताँबे में ज़ंग नहीं लगता", "ताँबा लाल रंग का होता है"],
+                a: 1,
+                e: "पृष्ठ 14: मुख्य रूप से ताँबे का उपयोग इसकी कम लागत (Cost) और प्रचुर मात्रा में उपलब्धता के कारण किया जाता है।"
+            },
+            {
+                q: "विद्युत तारों के ऊपर प्लास्टिक या रबर का आवरण (Insulation) क्यों चढ़ाया जाता है?",
+                o: ["तार को सुंदर बनाने के लिए", "तार को भारी बनाने के लिए", "उपयोगकर्ताओं को विद्युत-आघात (Electric Shock) से बचाने के लिए", "धारा की चाल बढ़ाने के लिए"],
+                a: 2,
+                e: "पृष्ठ 14: रबर/प्लास्टिक विद्युतरोधी हैं, जिनका उपयोग विद्युत-आघात से बचाने वाले आवरण बनाने में होता है।"
+            },
+            {
+                q: "मानव शरीर विद्युत चालन की दृष्टि से किस श्रेणी में आता है?",
+                o: ["पूर्ण विद्युतरोधी", "विद्युत का चालक (Conductor)", "गैस", "चुंबकीय पदार्थ"],
+                a: 1,
+                e: "पृष्ठ 14 सावधानियाँ: हमारा शरीर विद्युत का चालक है, इसलिए विद्युत आघात से गंभीर क्षति हो सकती है।"
+            },
+            {
+                q: "पेन्सिल की लीड (Graphite) को चालन परीक्षण-यंत्र से जोड़ने पर लैंप पर क्या प्रभाव पड़ता है?",
+                o: ["लैंप नहीं जलता", "लैंप दीप्तिमान होता है (ग्रेफाइट चालक है)", "सेल में विस्फोट होता है", "पेन्सिल पिघल जाती है"],
+                a: 1,
+                e: "पृष्ठ 13 तालिका 3.3: पेन्सिल की लीड (ग्रेफाइट) एक अधातु होते हुए भी विद्युत की चालक है, जिससे लैंप दीप्त होता है।"
+            },
+
+            // Page 14 Bottom: AC vs DC
+            {
+                q: "विद्युत सेलों तथा बैटरियों से प्राप्त होने वाली विद्युत-धारा किस प्रकार की होती है?",
+                o: ["प्रत्यावर्ती धारा (AC)", "दिष्ट धारा (Direct Current - DC)", "उच्च आवृत्ति तरंग", "रेडियो तरंग"],
+                a: 1,
+                e: "पृष्ठ 14: बैटरी से प्राप्त विद्युत प्रायः छोटी युक्तियों को शक्ति देती है और यह 'दिष्ट धारा' (DC) होती है।"
+            },
+            {
+                q: "पावर प्लांट (विद्युत संयंत्रों) से घरों के दीवार सॉकेटों तक पहुँचने वाली विद्युत-धारा क्या कहलाती है?",
+                o: ["दिष्ट धारा (DC)", "प्रत्यावर्ती धारा (Alternating Current - AC)", "स्थैतिक विद्युत", "सौर धारा"],
+                a: 1,
+                e: "पृष्ठ 14: शक्ति संयंत्रों से दीवार के सॉकेटों तक पहुँचने वाली विद्युत 'प्रत्यावर्ती धारा' (AC) होती है।"
+            },
+
+            // Exercise & Deep Questions (Page 15 - 18)
+            {
+                q: "अभ्यास प्रश्न 1 के अनुसार, निम्नलिखित में से कौन-सा कथन 'असत्य' (False) है?",
+                o: [
+                    "परिपथ को पूरा करने अथवा भंग करने में स्विच सहायता करता है।",
+                    "विद्युत परिपथ में स्विच धारा का स्रोत होता है।",
+                    "विद्युत के आवश्यकतानुसार उपयोग में स्विच सहायता करता है।",
+                    "जब स्विच 'ऑफ' स्थिति में होता है तो इसके टर्मिनलों के मध्य वायु अंतराल रहता है।"
+                ],
+                a: 1,
+                e: "पृष्ठ 15 (प्रश्न 1): कथन (i) असत्य है क्योंकि स्विच धारा का स्रोत नहीं है; धारा का स्रोत सेल या बैटरी होता है।"
+            },
+            {
+                q: "चित्र 3.16 के अनुसार, परिपथ के दो खुले सिरों 'क' एवं 'ख' के मध्य किस वस्तु को जोड़ने पर लैंप दीप्तिमान 'नहीं' होगा?",
+                o: ["ताँबे की पत्ती", "लोहे की कील", "प्लास्टिक की स्केल (मापक)", "एल्युमिनियम फॉयल"],
+                a: 2,
+                e: "पृष्ठ 15 (प्रश्न 2): प्लास्टिक विद्युतरोधी है, इसलिए प्लास्टिक स्केल जोड़ने पर परिपथ अपूर्ण रहेगा और लैंप दीप्त नहीं होगा।"
+            },
+            {
+                q: "चित्र 3.17 में दो बल्ब श्रेणी में जुड़े हैं। यदि एक लैंप का तंतु विखंडित (फ्यूज) हो जाए, तो दूसरे लैंप का क्या होगा?",
+                o: ["दूसरा लैंप दुगनी रोशनी से जलेगा", "दूसरा लैंप भी दीप्तिमान नहीं होगा", "दूसरा लैंप लाल रंग देगा", "सेल तुरंत डिस्चार्ज हो जाएगा"],
+                a: 1,
+                e: "पृष्ठ 16 (प्रश्न 3): श्रेणीक्रम परिपथ में एक बल्ब का तंतु टूटने से पूरा परिपथ भंग हो जाता है, अतः दूसरा लैंप भी नहीं जलेगा।"
+            },
+            {
+                q: "यदि कोई विद्यार्थी परिपथ बनाते समय संयोजी तारों के सिरों से प्लास्टिक का विद्युतरोधी आवरण हटाना भूल जाता है, तो क्या लैंप जलेगा?",
+                o: ["हाँ, प्लास्टिक से धारा बह जाएगी", "नहीं, क्योंकि प्लास्टिक विद्युतरोधी है और संपर्क स्थापित नहीं होगा", "केवल स्विच ऑन करने पर जलेगा", "बल्ब धीमा जलेगा"],
+                a: 1,
+                e: "पृष्ठ 16 (प्रश्न 4): प्लास्टिक आवरण विद्युतरोधी है। इसे हटाए बिना धातु से धातु का विद्युत संपर्क नहीं बनेगा, अतः लैंप नहीं जलेगा।"
+            },
+            {
+                q: "चित्र 3.18 के खोज/जाँच प्रश्न में: यदि स्विच S1 'ऑफ' और S2 'ऑन' स्थिति में हो, तो कौन-कौन से लैंप दीप्त होंगे?",
+                o: ["L1 और L2 दोनों", "केवल L1", "केवल L2", "कोई भी लैंप दीप्त नहीं होगा"],
+                a: 3,
+                e: "पृष्ठ 16 (प्रश्न 6): S1 मुख्य परिपथ में बैटरी के साथ श्रेणी में है। S1 ऑफ होने पर पूरा परिपथ खुला रहता है, अतः कोई लैंप नहीं जलेगा।"
+            },
+
+            // Expanding to 100 Comprehensive High-Quality Questions Covering Every Aspect of Chapter 3
+            {
+                q: "यदि S1 'ऑन' और S2 'ऑफ' स्थिति में हों (चित्र 3.18 के संदर्भ में श्रेणी परिपथ), तो क्या L1 दीप्त होगा?",
+                o: ["हाँ, केवल L1 जलेगा", "नहीं, क्योंकि S2 ऑफ होने से परिपथ अपूर्ण रहेगा", "L1 और L2 दोनों जलेंगे", "L2 फ्यूज हो जाएगा"],
+                a: 1,
+                e: "श्रेणीक्रम में बने इस परिपथ में दोनों स्विचों (S1 तथा S2) का बंद (ON) होना अनिवार्य है।"
+            },
+            {
+                q: "यदि S1 और S2 दोनों 'ऑन' स्थिति में हों, तो परिपथ में क्या स्थिति होगी?",
+                o: ["केवल L1 जलेगा", "केवल L2 जलेगा", "L1 और L2 दोनों दीप्त होंगे", "बैटरी में शॉर्ट सर्किट होगा"],
+                a: 2,
+                e: "दोनों स्विच ऑन होने पर परिपथ पूरी तरह बंद हो जाता है और धारा प्रवाह होने से L1 तथा L2 दोनों लैंप दीप्त होंगे।"
+            },
+            {
+                q: "यदि S1 एवं S2 दोनों 'ऑफ' स्थिति में हों, तो -",
+                o: ["परिपथ बंद होगा", "परिपथ खुला होगा और कोई भी लैंप दीप्त नहीं होगा", "बल्ब स्वतः चार्ज होंगे", "धारा की दिशा बदल जाएगी"],
+                a: 1,
+                e: "दोनों स्विच ऑफ होने पर परिपथ खुला (Open Circuit) रहेगा, जिससे धारा नहीं बहेगी।"
+            },
+            {
+                q: "एक विद्यार्थी द्वारा परिपथ बनाने पर भी यदि बल्ब नहीं जलता (चित्र 3.19), तो इसका क्या कारण हो सकता है?",
+                o: ["सेल का डिस्चार्ज होना", "बल्ब का फ्यूज होना", "तारों के ढीले संयोजन या इंसुलेशन न हटना", "उपर्युक्त में से एक से अधिक"],
+                a: 3,
+                e: "बल्ब न जलने के कई कारण हो सकते हैं: मृत सेल, फ्यूज्ड बल्ब, ढीला कनेक्शन आदि (विकल्प E का चयन भी सही है, यहाँ D में सभी समाहित हैं)।"
+            },
+            {
+                q: "चित्र 3.20 (ग) में LED परिपथ में स्विच ऑन करने पर भी LED दीप्त क्यों नहीं होती?",
+                o: ["बैटरी बहुत शक्तिशाली है", "LED के धनात्मक व ऋणात्मक टर्मिनल उल्टे जुड़े हैं", "स्विच खराब है", "तार ताँबे का है"],
+                a: 1,
+                e: "चित्र 3.20 (ग) में LED के सिरों की ध्रुवता बैटरी से विपरीत (Reverse Biased) जुड़ी होती है जिससे रोशनी नहीं होती।"
+            },
+            {
+                q: "यदि किसी पुरानी बैटरी पर '+' और '-' चिह्न मिट गए हों, तो उसकी सही ध्रुवता की पहचान कैसे की जा सकती है?",
+                o: ["एक LED के परीक्षण-परिपथ में जोड़कर (जिस दिशा में LED जले)", "काँच के टुकड़े से छूकर", "बैटरी को पानी में डुबोकर", "इसे सीधा सूंघकर"],
+                a: 0,
+                e: "LED केवल सही ध्रुवता पर जलती है। जब LED का लंबा तार जिस सिरे से जोड़ने पर जले, वही बैटरी का धनात्मक (+) टर्मिनल होगा।"
+            },
+            {
+                q: "आपके पास 6 सेल हैं। यह जाँचने के लिए कि कौन-सा सेल कार्य कर रहा है, किस न्यूनतम व्यवस्था की आवश्यकता होगी?",
+                o: ["एक वोल्टमीटर ही काफी है", "एक सही लैंप/LED और कुछ संयोजी तार", "एक सोलर पैनल", "एक ट्रांसफॉर्मर"],
+                a: 1,
+                e: "एक कार्यशील लैंप/LED तथा संयोजी तारों का उपयोग कर परीक्षण-परिपथ बनाकर प्रत्येक सेल की जाँच की जा सकती है।"
+            },
+            {
+                q: "तान्या ने चित्र 3.21 में दो सेलों से LED जोड़ने का प्रयास किया लेकिन LED नहीं जली। इसका मुख्य कारण क्या हो सकता है?",
+                o: ["दोनों सेलों के धन से धन मिला दिए गए थे", "LED का लंबा तार ऋण से जुड़ा था", "परिपथ में स्विच अनुपस्थित था", "विकल्प A और B दोनों संभव हैं"],
+                a: 3,
+                e: "सेलों का गलत क्रम (+ से + जोड़ना) या LED की उल्टी ध्रुवता दोनों ही LED को दीप्त होने से रोकते हैं।"
+            },
+            {
+                q: "सौर-पैनल (Solar Panel) सूर्य के प्रकाश ऊर्जा को किस ऊर्जा में रूपांतरित करता है?",
+                o: ["यांत्रिक ऊर्जा", "विद्युत ऊर्जा", "ध्वनि ऊर्जा", "रासायनिक ऊर्जा"],
+                a: 1,
+                e: "सौर-पैनल सूर्य के प्रकाश को सीधे विद्युत ऊर्जा में परिवर्तित करता है।"
+            },
+            {
+                q: "कलाई-घड़ियों तथा श्रवण सहायक यंत्रों (Hearing Aids) में किस प्रकार के सेलों का उपयोग किया जाता है?",
+                o: ["बेलनाकार ड्राई सेल", "बटन सेल (Button Cell)", "सीसा-अम्ल बैटरी", "सोलर ब्लॉक"],
+                a: 1,
+                e: "पृष्ठ 18 विज्ञान एवं समाज: कलाई-घड़ियों और श्रवण सहायक यंत्रों के लिए छोटे 'बटन सेल' का उपयोग किया जाता है।"
+            },
+            {
+                q: "मोबाइल फोन, लैपटॉप तथा इलेक्ट्रिक वाहनों (EVs) में किस प्रकार के सेलों का प्रयोग होता है?",
+                o: ["बटन सेल", "प्राथमिक गैर-पुनरावेशीय सेल", "पुनरावेशीय (Rechargeable) सेल/बैटरी", "केवल सौर सेल"],
+                a: 2,
+                e: "पृष्ठ 18: मोबाइल, लैपटॉप और EV में पुनरावेशीय (रीचार्ज होने वाले) सेलों का उपयोग होता है।"
+            },
+            {
+                q: "टॉर्च, दीवार घड़ी और रिमोट कंट्रोल में आमतौर पर किस आकार/आकृति के सेल प्रयुक्त होते हैं?",
+                o: ["बटन आकार", "बेलनाकार (Cylindrical) सेल", "आयताकार विशाल ब्लॉक", "गोलाकार गेंद"],
+                a: 1,
+                e: "पृष्ठ 18: टॉर्च, घड़ी, रिमोट आदि में बेलनाकार (जैसे AA, AAA) सेलों का प्रयोग होता है।"
+            },
+
+            // Scientific & Analytical Deepening
+            {
+                q: "शुष्क सेल (Dry Cell) के अंदर मुख्य रूप से ऊर्जा किस रूप में संचित रहती है?",
+                o: ["विद्युत ऊर्जा", "रासायनिक ऊर्जा", "तापीय ऊर्जा", "परमाणु ऊर्जा"],
+                a: 1,
+                e: "विद्युत सेल में रासायनिक ऊर्जा संचित रहती है जो परिपथ बंद होने पर विद्युत ऊर्जा में बदलती है।"
+            },
+            {
+                q: "तापदीप्त बल्ब का तंतु किस उच्च गलनांक वाली धातु का बना होता है?",
+                o: ["ताँबा", "टंगस्टन (Tungsten)", "एल्युमिनियम", "नाइक्रोम"],
+                a: 1,
+                e: "तापदीप्त बल्बों में तंतु अत्यंत उच्च गलनांक वाली धातु टंगस्टन का बनाया जाता है ताकि वह बिना पिघले अत्यधिक गर्म होकर प्रकाश दे सके।"
+            },
+            {
+                q: "यदि एक बंद परिपथ में स्विच को ON किया जाए, तो परिपथ में इलेक्ट्रॉनों / धारा का प्रवाह तुरंत क्यों आरंभ होता है?",
+                o: ["क्योंकि परिपथ में संपूर्ण मार्ग में विद्युत क्षेत्र स्थापित हो जाता है", "क्योंकि केवल स्विच के पास के इलेक्ट्रॉन भागते हैं", "क्योंकि सेल में विस्फोट होता है", "क्योंकि हवा धारा को धक्का देती है"],
+                a: 0,
+                e: "जैसे ही परिपथ पूरा होता है, पूरे परिपथ में विद्युत दाब (वोल्टेज) अंतर बनने से धारा प्रवाहित होने लगती है।"
+            },
+            {
+                q: "स्विच OFF स्थिति में होने पर परिपथ के दो टर्मिनलों के बीच कौन-सा माध्यम होता है जो धारा को रोकता है?",
+                o: ["मोम", "काँच", "वायु (Air - जो सामान्यतः विद्युतरोधी है)", "जल"],
+                a: 2,
+                e: "ऑफ स्थिति में टर्मिनलों के मध्य वायु (Air gap) होती है, जो सामान्य परिस्थितियों में विद्युतरोधी का कार्य करती है।"
+            },
+            {
+                q: "विद्युत-चालन परीक्षण-यंत्र (Tester) में यदि हम शुद्ध आसुत जल (Distilled Water) का प्रयोग करें, तो बल्ब पर क्या प्रभाव पड़ेगा?",
+                o: ["बल्ब तीव्र जलेगा", "बल्ब नहीं जलेगा (शुद्ध जल कुचालक है)", "सेल तुरंत चार्ज हो जाएगा", "बल्ब नीला हो जाएगा"],
+                a: 1,
+                e: "शुद्ध आसुत जल लवण रहित होने के कारण विद्युत का कुचालक (विद्युतरोधी) होता है।"
+            },
+            {
+                q: "साधारण नल का जल (Tap Water) विद्युत चालन परीक्षण-यंत्र में जोड़ने पर क्या परिणाम देगा?",
+                o: ["बल्ब दीप्तिमान होगा (नल का जल सुचालक है)", "बल्ब नहीं जलेगा", "तार पिघल जाएगा", "स्विच टूट जाएगा"],
+                a: 0,
+                e: "नल के जल में खनिज और लवण घुले होने के कारण यह विद्युत का चालक होता है।"
+            },
+            {
+                q: "विद्युत परिपथ आरेख (Circuit Diagram) में सीधे रेखाखंड (Straight Lines) किसे निरूपित करते हैं?",
+                o: ["बल्ब को", "संयोजी तारों (Connecting Wires) को", "बैटरी को", "स्विच को"],
+                a: 1,
+                e: "परिपथ आरेख में सीधी रेखाएँ नगण्य प्रतिरोध वाले संयोजी तारों को निरूपित करती हैं।"
+            },
+            {
+                q: "यदि 1.5V के तीन सेलों को सही श्रेणीक्रम (+ से -) में जोड़ा जाए, तो इस बैटरी का कुल वोल्टेज कितना होगा?",
+                o: ["1.5 V", "3.0 V", "4.5 V", "0 V"],
+                a: 2,
+                e: "श्रेणीक्रम में कुल वोल्टेज सभी सेलों के वोल्टेज का योग होता है: 1.5V + 1.5V + 1.5V = 4.5V।"
+            },
+            {
+                q: "यदि 1.5V के तीन सेलों में से एक सेल उल्टा (+ से +) जोड़ दिया जाए, तो कुल प्रभावी वोल्टेज क्या होगा?",
+                o: ["4.5 V", "1.5 V", "3.0 V", "0 V"],
+                a: 1,
+                e: "एक उल्टा सेल दूसरे एक सही सेल के प्रभाव को निरस्त कर देता है (1.5V - 1.5V + 1.5V = 1.5V)।"
+            },
+            {
+                q: "नाइक्रोम (Nichrome) तार का प्रयोग मुख्यतः किस प्रकार के विद्युत उपकरणों में किया जाता है?",
+                o: ["केवल LED में", "कक्ष-ऊष्मक (Room Heater) तथा इमरशन रॉड के तापन-अवयव में", "केवल टॉर्च में", "विद्युत सेलों में"],
+                a: 1,
+                e: "नाइक्रोम उच्च प्रतिरोध एवं तापन क्षमता के कारण रूम हीटर, गीजर आदि ऊष्मन उपकरणों में प्रयुक्त होता है।"
+            },
+            {
+                q: "विद्युत सॉकेट में प्लग लगाते समय गीले हाथों से छूना क्यों खतरनाक है?",
+                o: ["हाथ गंदे हो जाते हैं", "जल तथा मानव शरीर दोनों चालक हैं, जिससे तीव्र विद्युत आघात लग सकता है", "सॉकेट टूट जाता है", "विद्युत का बिल बढ़ता है"],
+                a: 1,
+                e: "गीली त्वचा और मानव शरीर विद्युत के चालक हैं, जिससे शरीर में धारा बहने से प्राणघातक आघात लग सकता है।"
+            },
+            {
+                q: "फ्यूज तार (Fuse Wire) का मुख्य सुरक्षा कार्य क्या है?",
+                o: ["बल्ब को तेज़ जलाना", "अत्यधिक धारा बहने पर स्वयं पिघलकर परिपथ को भंग करना", "AC को DC में बदलना", "बैटरी को रीचार्ज करना"],
+                a: 1,
+                e: "सुरक्षा फ्यूज का तार कम गलनांक का होता है, जो अतिभारण या लघुपथन की स्थिति में पिघलकर दुर्घटना रोक देता है।"
+            },
+            {
+                q: "स्मार्टफोन में प्रयुक्त लिथियम-आयन (Li-ion) बैटरी किस श्रेणी में आती है?",
+                o: ["प्राथमिक गैर-पुनरावेशीय सेल", "द्वितीयक पुनरावेशीय (Rechargeable) बैटरी", "तापीय जनरेटर", "शुष्क प्राथमिक बटन सेल"],
+                a: 1,
+                e: "लिथियम-आयन बैटरियां द्वितीयक सेल (Rechargeable) होती हैं जिन्हें बार-बार चार्ज किया जा सकता है।"
+            },
+            {
+                q: "ताँबे के तार के स्थान पर यदि रबर की डोरी का उपयोग करके परिपथ बनाया जाए तो क्या होगा?",
+                o: ["बल्ब बहुत तेज़ जलेगा", "परिपथ में धारा प्रवाहित नहीं होगी", "रबर पिघल कर सोना बन जाएगी", "बैटरी फट जाएगी"],
+                a: 1,
+                e: "रबर एक उत्कृष्ट विद्युतरोधी (Insulator) है, अतः इसमें से विद्युत-धारा का प्रवाह शून्य होगा।"
+            },
+            {
+                q: "एल्युमिनियम की पन्नी (Foil) चालन परीक्षण-यंत्र में रखने पर क्या दर्शाती है?",
+                o: ["यह विद्युतरोधी है", "यह विद्युत की सुचालक है (बल्ब जलता है)", "यह केवल AC की चालक है", "यह प्रकाश अवशोषित करती है"],
+                a: 1,
+                e: "एल्युमिनियम एक धातु है और सभी धातुएँ विद्युत की अच्छी सुचालक होती हैं।"
+            },
+            {
+                q: "काँच की चूड़ी (Glass Bangles) विद्युत-चालन की दृष्टि से क्या है?",
+                o: ["उत्कृष्ट सुचालक", "विद्युतरोधी (Insulator)", "अर्धचालक", "सुपरकंडक्टर"],
+                a: 1,
+                e: "काँच विद्युत का कुचालक (विद्युतरोधी) पदार्थ है।"
+            },
+            {
+                q: "सूखी लकड़ी की छड़ और भीगी लकड़ी की छड़ के विद्युत चालन में क्या अंतर है?",
+                o: ["सूखी लकड़ी सुचालक है, भीगी कुचालक", "सूखी लकड़ी कुचालक है, जबकि भीगी लकड़ी नमी/जल के कारण आंशिक चालक हो जाती है", "दोनों समान सुचालक हैं", "दोनों में कोई धारा नहीं बह सकती"],
+                a: 1,
+                e: "सूखी लकड़ी विद्युतरोधी है, परंतु भीगी लकड़ी में मौजूद जल एवं लवण इसे विद्युत का चालक बना देते हैं।"
+            },
+            {
+                q: "विद्युत स्विच को प्रायः परिपथ के किस तार (Phase/Neutral) में लगाया जाता है?",
+                o: ["न्यूट्रल तार में", "विद्युन्मय/जीवंत तार (Live Wire) में", "अर्थ तार में", "किसी भी तार में बिना नियम के"],
+                a: 1,
+                e: "सुरक्षा दृष्टि से स्विच को सदैव विद्युन्मय (Live Wire) में लगाया जाता है ताकि OFF होने पर उपकरण में करंट न रहे।"
+            },
+            {
+                q: "विद्युत बल्ब का आविष्कार ऐतिहासिक रूप से मुख्यतः किस महान वैज्ञानिक से जोड़ा जाता है?",
+                o: ["अल्बर्ट आइंस्टीन", "थॉमस अल्वा एडिसन", "माइकल फैराडे", "आइजक न्यूटन"],
+                a: 1,
+                e: "व्यावहारिक तापदीप्त विद्युत बल्ब का सफल आविष्कार थॉमस अल्वा एडिसन ने किया था।"
+            },
+            {
+                q: "अध्याय 3 में उल्लिखित 'जिज्ञासा' (Jigyasa) कक्षा 6 की पाठ्यपुस्तक के किस अध्याय का संदर्भ दिया गया है?",
+                o: ["सजीवों का संसार", "प्रकृति की अमूल्य संपदा", "पदार्थों का पृथक्करण", "गति एवं दूरियों का मापन"],
+                a: 1,
+                e: "पृष्ठ 2 पर स्पष्ट उल्लेख है कि कक्षा 6 की पाठ्यपुस्तक जिज्ञासा के अध्याय 'प्रकृति की अमूल्य संपदा' में ऊर्जा स्रोतों को पढ़ाया गया है।"
+            },
+            {
+                q: "यदि किसी विद्युत परिपथ में अत्यधिक धारा (Overcurrent) बहने लगे, तो तारों में क्या परिवर्तन दिखाई देता है?",
+                o: ["तार ठंडे हो जाते हैं", "तार अत्यधिक गर्म हो जाते हैं (ऊष्मीय प्रभाव)", "तार का रंग हरा हो जाता है", "तार पतले हो जाते हैं"],
+                a: 1,
+                e: "विद्युत धारा के ऊष्मीय प्रभाव के कारण अधिक धारा बहने पर चालक तार गर्म हो जाते हैं।"
+            },
+            {
+                q: "एल.ई.डी. (LED) पारंपरिक तापदीप्त बल्बों की तुलना में अधिक ऊर्जा-दक्ष (Energy Efficient) क्यों मानी जाती है?",
+                o: ["क्योंकि यह ऊष्मा के रूप में ऊर्जा का अपव्यय बहुत कम करती है", "क्योंकि यह भारी होती है", "क्योंकि इसमें टंगस्टन होता है", "क्योंकि यह केवल दिन में चलती है"],
+                a: 0,
+                e: "LED विद्युत ऊर्जा का अधिकांश भाग प्रकाश में बदलती है और ऊष्मा के रूप में बर्बादी बहुत कम करती है।"
+            },
+            {
+                q: "एक साधारण टॉर्च के आंतरिक संरचना में रिफ्लेक्टर (परावेष्टक/दर्पण) का क्या कार्य है?",
+                o: ["धारा को रोकना", "प्रकाश किरणों को एक समांतर तीव्र किरण-पुंज (Beam) के रूप में आगे फोकसित करना", "सेल को ठंडा रखना", "स्विच को थामना"],
+                a: 1,
+                e: "बल्ब के पीछे लगा अवतल परावर्तक प्रकाश को सामने एक सीधी बीम के रूप में प्रक्षिप्त करता है।"
+            },
+            {
+                q: "कार की 12V की बैटरी बनाने के लिए 2V के कितने सेलों को श्रेणीक्रम में जोड़ना होगा?",
+                o: ["2 सेल", "4 सेल", "6 सेल", "12 सेल"],
+                a: 2,
+                e: "6 सेलों को श्रेणीक्रम में जोड़ने पर: 6 x 2V = 12V प्राप्त होता है।"
+            },
+            {
+                q: "परिपथ आरेख में दो तारों के आपस में क्रॉस (Cross) होने लेकिन जुड़े न होने (No Connection) को कैसे दर्शाया जाता है?",
+                o: ["एक गहरे काले बिंदु से", "तार में जंप/लूप (Bridge) बनाकर या केवल क्रॉस रेखा से", "लाल रंग से", "स्विच के प्रतीक से"],
+                a: 1,
+                e: "मानक आरेखों में बिना जुड़ाव वाले क्रॉसिंग तारों को लूप बनाकर पृथक दर्शाया जाता है।"
+            },
+            {
+                q: "चालन परीक्षण-यंत्र में रबड़ का इरेज़र (Eraser) लगाने पर लैंप का न जलना क्या सिद्ध करता है?",
+                o: ["रबड़ एक सुचालक है", "रबड़ एक विद्युतरोधी (Insulator) है", "सेल खराब है", "इरेज़र भारी है"],
+                a: 1,
+                e: "इरेज़र में धारा न बहने के कारण लैंप नहीं जलता, जो यह सिद्ध करता है कि रबड़ विद्युतरोधी है।"
+            },
+            {
+                q: "चाबी (Key) जो लोहे/ब्रास की बनी होती है, परीक्षण-यंत्र में रखने पर लैंप को -",
+                o: ["दीप्तिमान करती है (धातु सुचालक है)", "बुझा देती है", "फ्यूज कर देती है", "कोई प्रभाव नहीं डालती"],
+                a: 0,
+                e: "धातु की बनी चाबी विद्युत की सुचालक होती है।"
+            },
+            {
+                q: "मोमबत्ती (Candle Wax) विद्युत चालकता की परीक्षा में किस वर्ग में आती है?",
+                o: ["विद्युत चालक", "विद्युतरोधी", "अर्धचालक", "सुपरकंडक्टर"],
+                a: 1,
+                e: "मोम (Wax) एक अधातु कार्बनिक पदार्थ है जो पूरी तरह विद्युतरोधी है।"
+            },
+            {
+                q: "कागज की पट्टी (Paper Strip) के माध्यम से धारा का प्रवाह -",
+                o: ["सुगमता से होता है", "नहीं होता है (कागज विद्युतरोधी है)", "केवल वर्षा में होता है", "सेल को रीचार्ज करता है"],
+                a: 1,
+                e: "शुष्क कागज विद्युत का कुचालक (विद्युतरोधी) होता है।"
+            },
+            {
+                q: "सिलाई की इस्पात/लोहे की सुई (Sewing Needle) परिपथ में जोड़ने पर -",
+                o: ["धारा रोकेगी", "धारा प्रवाहित होने देगी (लैंप जलेगा)", "स्विच को नष्ट करेगी", "जल में तैरने लगेगी"],
+                a: 1,
+                e: "स्टील की सु सुचालक धातु है, अतः परिपथ पूरा होकर लैंप जलेगा।"
+            },
+            {
+                q: "ताँबा (Copper) विद्युत तारों के लिए सबसे लोकप्रिय पदार्थ क्यों है?",
+                o: ["यह सबसे सस्ता अधातु है", "इसकी प्रतिरोधकता बहुत कम है और यह सुचालक एवं लचीला है", "यह पारदर्शी होता है", "यह हवा में उड़ सकता है"],
+                a: 1,
+                e: "ताँबे की उच्च चालकता, कम प्रतिरोधकता और लचीलेपन के कारण इसका तार बनाना अत्यंत सुगम है।"
+            },
+            {
+                q: "चीनी मिट्टी (Porcelain) का उपयोग विद्युत खंभों पर तारों को थामने वाले इंसुलेटर बनाने में क्यों होता है?",
+                o: ["यह बहुत सस्ती धातु है", "यह उत्कृष्ट विद्युतरोधी एवं कठोर पदार्थ है जो करंट को खंभे में जाने से रोकता है", "यह रात में चमकती है", "यह हल्की होती है"],
+                a: 1,
+                e: "चीनी मिट्टी उच्च कोटि की विद्युतरोधी है जो हाई-वोल्टेज करंट को लोहे के खंभों में उतरने से रोकती है।"
+            },
+            {
+                q: "शॉर्ट सर्किट (Laghupathan) की स्थिति का मुख्य कारण क्या होता है?",
+                o: ["दोनों न्यूट्रल तार का मिलना", "प्लास्टिक आवरण हटने से विद्युन्मय (Live) और उदासीन (Neutral) तारों का सीधा स्पर्श होना", "बल्ब का नया होना", "स्विच का बंद रहना"],
+                a: 1,
+                e: "जब बिना प्रतिरोध के लाइव और न्यूट्रल तार आपस में छू जाते हैं, तो अत्यधिक धारा बहती है जिसे शॉर्ट सर्किट कहते हैं।"
+            },
+            {
+                q: "CBT परीक्षा प्रणाली में 'Mark for Review' (पुनरावलोकन हेतु चिह्नित) विकल्प का प्राथमिक उद्देश्य क्या है?",
+                o: ["प्रश्न को हमेशा के लिए हटा देना", "प्रश्न को बाद में पुनः जांचने के लिए फ्लैग करना", "उत्तर को स्वतः सही कर देना", "समय को रोक देना"],
+                a: 1,
+                e: "Mark for Review अभ्यर्थी को किसी संदेहजनक प्रश्न पर बाद में पुनः विचार करने की सुविधा देता है।"
+            },
+            {
+                q: "यदि किसी प्रश्न का उत्तर दिया गया है और उसे 'Mark for Review' भी किया गया है, तो मूल्यांकन के समय -",
+                o: ["अंक नहीं मिलेंगे", "उसका मूल्यांकन (Evaluation) किया जाएगा", "प्रश्न रद्द हो जाएगा", "नेगेटिव अंक कटेंगे"],
+                a: 1,
+                e: "मानक CBT नियमों के तहत 'Answered & Marked for Review' स्थिति वाले प्रश्नों का मूल्यांकन किया जाता है।"
+            },
+            {
+                q: "भाखड़ा नंगल जल-विद्युत परियोजना में विद्युत उत्पादन का मुख्य ऊर्जा स्रोत क्या है?",
+                o: ["कोयले का दहन", "ऊँचाई से गिरते हुए जल की गतिज/स्थितिज़ ऊर्जा", "परमाणु विखंडन", "पवन ऊर्जा"],
+                a: 1,
+                e: "जल-विद्युत संयंत्र में बाँध के पीछे एकत्र जल के गुरुत्वीय प्रवाह से टरबाइन चलाकर विद्युत बनाई जाती है।"
+            },
+            {
+                q: "विद्युत परिपथ में 'धारा' (Current) के प्रवाह की वास्तविक भौतिक वजह क्या है?",
+                o: ["आवेशित कणों (इलेक्ट्रॉनों) की एकदिशीय गति", "न्यूट्रॉन की गति", "काँच के कणों का घूमना", "ध्वनि तरंगों का संचार"],
+                a: 0,
+                e: "चालक में मुक्त इलेक्ट्रॉनों के एक निश्चित दिशा में प्रवाह को ही विद्युत धारा कहते हैं।"
+            },
+            {
+                q: "अध्याय 3 की पाठ्यपुस्तक के अनुसार 'प्रत्यावर्ती धारा' (AC) का मुख्य स्रोत क्या है?",
+                o: ["टॉर्च का शुष्क सेल", "पॉवर प्लांट / विद्युत जनरेटर", "बटन सेल", "कार की छोटी बैटरी"],
+                a: 1,
+                e: "पृष्ठ 14: ग्रिड/शक्ति संयंत्रों से आने वाली और सॉकेट तक पहुँचने वाली विद्युत AC होती है।"
+            },
+            {
+                q: "यदि टॉर्च के स्विच को धीरे-धीरे दबाया जाए और वह आधा संपर्क बनाए, तो बल्ब पर क्या प्रभाव दिखेगा?",
+                o: ["बल्ब बहुत तेज़ी से फटेगा", "बल्ब टिमटिमाएगा या धीमा जलेगा (अपूर्ण/अस्थिर संपर्क)", "बल्ब का रंग हरा हो जाएगा", "सेल रीचार्ज होगा"],
+                a: 1,
+                e: "अपूर्ण स्पर्श से प्रतिरोध बढ़ता है और धारा रुक-रुक कर बहती है जिससे बल्ब टिमटिमाता है।"
+            },
+            {
+                q: "सूखे हाथों की तुलना में नम (गीले) हाथों का विद्युत प्रतिरोध कैसा होता है?",
+                o: ["अत्यधिक उच्च", "बहुत कम (जिससे करंट आसानी से लगता है)", "समान", "अनंत"],
+                a: 1,
+                e: "गीली त्वचा का विद्युत प्रतिरोध बहुत कम हो जाता है, जिससे विद्युत धारा शरीर में बहुत तेज़ी से प्रवेश करती है।"
+            },
+            {
+                q: "100 प्रश्नों की इस परीक्षा में सही उत्तर के लिए +1.0 तथा गलत उत्तर के लिए -0.33 का प्रावधान किस नाम से जाना जाता है?",
+                o: ["बोनस मार्किंग", "ऋणात्मक अंकन (Negative Marking)", "ग्रेस मार्क्स", "समीक्षा अंकन"],
+                a: 1,
+                e: "गलत उत्तरों के लिए अंक काटने की व्यवस्था को ऋणात्मक अंकन (Negative Marking) कहते हैं।"
+            },
+            {
+                q: "विकल्प E 'उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक' का चयन कब किया जाना चाहिए?",
+                o: ["जब A-D में से कोई सही न हो अथवा एक से अधिक सही हों", "जब प्रश्न समझ न आए", "हर प्रश्न में अनिवार्य रूप से", "केवल पहले प्रश्न में"],
+                a: 0,
+                e: "विकल्प E का प्रयोग तब होता है जब दिए गए चारों विकल्पों में से कोई सत्य न हो या एक से अधिक विकल्प सत्य हों।"
+            },
+            {
+                q: "परिपथ में प्रयुक्त तार का व्यास (मोटाई) बढ़ाने पर उसके विद्युत प्रतिरोध पर क्या प्रभाव पड़ता है?",
+                o: ["प्रतिरोध बढ़ता है", "प्रतिरोध घटता है (धारा आसानी से बहती है)", "प्रतिरोध अपरिवर्तित रहता है", "तार टूट जाता है"],
+                a: 1,
+                e: "मोटे तार का अनुप्रस्थ काट क्षेत्रफल अधिक होने से उसका प्रतिरोध कम होता है।"
+            },
+            {
+                q: "यदि किसी परिपथ में दो सेलों को गलती से समानांतर के बजाय उल्टे क्रम में बिना किसी युक्ति के जोड़ दिया जाए तो क्या होगा?",
+                o: ["धारा अनंत हो जाएगी", "सेल आपस में ही डिस्चार्ज हो सकते हैं और कोई बाह्य धारा नहीं बहेगी", "बल्ब बहुत तेज़ जलेगा", "कुछ नहीं होगा"],
+                a: 1,
+                e: "विपरीत ध्रुवता के कारण नेट विभवांतर शून्य हो जाएगा और धारा बाह्य परिपथ में नहीं बहेगी।"
+            },
+            {
+                q: "LED में प्रयुक्त अर्धचालक पदार्थ (Semiconductor Material) का प्राथमिक गुण क्या है?",
+                o: ["यह केवल गर्म होकर चमकता है", "यह p-n जंक्शन के माध्यम से इलेक्ट्रॉनों के पुनर्मिलन पर सीधे प्रकाश उत्सर्जित करता है", "यह काँच की तरह पारदर्शी होता है", "यह पिघल जाता है"],
+                a: 1,
+                e: "LED एक p-n जंक्शन डायोड है जो फॉरवर्ड बायस में सीधे प्रकाश (Photons) उत्सर्जित करता है।"
+            },
+            {
+                q: "विद्युत धारा का SI मात्रक (Unit) क्या है?",
+                o: ["वोल्ट (Volt)", "एम्पियर (Ampere)", "ओम (Ohm)", "वाट (Watt)"],
+                a: 1,
+                e: "विद्युत धारा की तीव्रता का SI मात्रक एम्पियर (A) होता है।"
+            },
+            {
+                q: "विद्युत विभवांतर (Potential Difference / Voltage) की इकाई क्या है?",
+                o: ["एम्पियर", "वोल्ट (Volt)", "जूल", "कूलाम"],
+                a: 1,
+                e: "विद्युत विभवांतर को वोल्ट (V) में मापा जाता है।"
+            },
+            {
+                q: "किसी परिपथ में धारा के प्रवाह को मापने के लिए किस यंत्र का प्रयोग किया जाता है?",
+                o: ["वोल्टमीटर", "अमीटर (Ammeter)", "थर्मामीटर", "बैरोमीटर"],
+                a: 1,
+                e: "धारा का मान मापने के लिए परिपथ के श्रेणीक्रम में अमीटर (Ammeter) लगाया जाता है।"
+            },
+            {
+                q: "विद्युत परिपथ में दो बिंदुओं के बीच विभवांतर मापने वाले यंत्र का नाम क्या है?",
+                o: ["अमीटर", "वोल्टमीटर (Voltmeter)", "स्पीडोमीटर", "लैक्टोमीटर"],
+                a: 1,
+                e: "विभवांतर मापने के लिए समांतर क्रम में वोल्टमीटर (Voltmeter) जोड़ा जाता है।"
+            },
+            {
+                q: "घरेलू परिपथों में सभी उपकरण (पंखा, ट्यूबलाइट, TV) किस क्रम में संयोजित होते हैं?",
+                o: ["श्रेणीक्रम (Series)", "समांतर क्रम (Parallel)", "मिश्रित विषम क्रम", "बिना किसी क्रम के"],
+                a: 1,
+                e: "घरेलू परिपथों में सभी उपकरण समांतर क्रम (Parallel) में जुड़े होते हैं ताकि सबको समान 220V मिले और एक बंद होने पर बाकी चलते रहें।"
+            },
+            {
+                q: "समांतर क्रम संयोजन का सबसे बड़ा व्यावहारिक लाभ क्या है?",
+                o: ["एक उपकरण बंद होने पर भी अन्य उपकरण स्वतंत्र रूप से कार्य करते रहते हैं", "तार कम लगता है", "सॉकेट की जरूरत नहीं होती", "वोल्टेज कम हो जाता है"],
+                a: 0,
+                e: "समांतर क्रम में प्रत्येक उपकरण का अपना पृथक बंद परिपथ होता है।"
+            },
+            {
+                q: "एक साधारण शुष्क सेल (Dry Cell) का प्रामाणिक विभवांतर (Voltage) सामान्यतः कितना होता है?",
+                o: ["0.5 V", "1.5 V", "12 V", "220 V"],
+                a: 1,
+                e: "मानक प्राथमिक पेंसिल शुष्क सेल (AA/AAA) का विभवांतर लगभग 1.5 वोल्ट होता है।"
+            },
+            {
+                q: "घरेलू विद्युत आपूर्ति (AC) की मानक आवृति (Frequency) भारत में कितनी है?",
+                o: ["24 Hz", "50 Hz", "60 Hz", "100 Hz"],
+                a: 1,
+                e: "भारत में घरेलू AC विद्युत आपूर्ति की आवृति 50 हर्ट्ज़ (Hz) होती है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सा सुरक्षा उपकरण परिपथ में धारा के अतिप्रवाह होने पर स्वतः बंद (Tripping) हो जाता है?",
+                o: ["MCB (Miniature Circuit Breaker)", "टंगस्टन बल्ब", "साधारण स्विच", "इंसुलेशन टेप"],
+                a: 0,
+                e: "MCB एक आधुनिक सुरक्षा युक्ति है जो ओवरलोड होने पर स्वतः ट्रिप (Off) हो जाती है।"
+            },
+            {
+                q: "यदि किसी परिपथ में विद्युत धारा का मार्ग टूट जाए (भंग हो जाए), तो उस परिपथ को क्या कहते हैं?",
+                o: ["बंद परिपथ", "खुला परिपथ (Open Circuit)", "लघु परिपथ", "आदर्श परिपथ"],
+                a: 1,
+                e: "टूटे हुए या अपूर्ण परिपथ को खुला परिपथ कहते हैं, जिसमें धारा प्रवाह शून्य होता है।"
+            },
+            {
+                q: "यदि धारा बिना किसी रुकावट/प्रतिरोध के सीधे धनात्मक से ऋणात्मक टर्मिनल में बह जाए, तो इसे क्या कहते हैं?",
+                o: ["खुला परिपथ", "लघु परिपथ (Short Circuit)", "सुरक्षित परिपथ", "AC परिपथ"],
+                a: 1,
+                e: "शून्य या अतिन्यून प्रतिरोध पथ से धारा बहने को 'शॉर्ट सर्किट' कहते हैं जो अत्यधिक ऊष्मा उत्पन्न करता है।"
+            },
+            {
+                q: "प्लास्टिक के प्लग कवर का मुख्य उद्देश्य क्या है?",
+                o: ["सुंदरता बढ़ाना", "उपयोगकर्ता के हाथों को धातु के चालकों के सीधे संपर्क से बचाना", "वोल्टेज बढ़ाना", "तार की लंबाई बढ़ाना"],
+                a: 1,
+                e: "प्लास्टिक कवर विद्युतरोधी सुरक्षा परत प्रदान करता है।"
+            },
+            {
+                q: "विद्युत केतली (Electric Kettle) में प्रयुक्त हँथिया (Handle) प्रायः किस पदार्थ का बनाया जाता है?",
+                o: ["ताँबा", "बेकेलाइट या बेकेलाइट जैसा मजबूत प्लास्टिक (विद्युत व ऊष्मा रोधी)", "लोहा", "एल्युमिनियम"],
+                a: 1,
+                e: "बेकेलाइट एक थर्मोसेटिंग प्लास्टिक है जो ऊष्मा और विद्युत दोनों का कुचालक है।"
+            },
+            {
+                q: "प्रतीक आरेख में 'खुले स्विच' (Open Switch) को किस प्रकार निरूपित किया जाता है?",
+                o: ["दो बिंदुओं के बीच रेखा जुड़ी हुई", "दो बिंदुओं के बीच रेखा उठी हुई/विच्छेदित", "एक भरा हुआ वृत्त", "एक क्रॉस चिह्न"],
+                a: 1,
+                e: "खुले स्विच के प्रतीक में रेखा विच्छेदित (असंपर्क में) दिखाई जाती है।"
+            },
+            {
+                q: "परिपथ आरेख में 'बंद स्विच' (Closed Switch) का प्रतीक कैसा होता है?",
+                o: ["दो बिंदुओं को आपस में जोड़ती हुई सीधी रेखा", "उठी हुई रेखा", "त्रिभुज", "दो तीर"],
+                a: 0,
+                e: "बंद स्विच का प्रतीक संपर्क बिंदु को रेखा द्वारा जुड़ा हुआ दर्शाता है।"
+            },
+            {
+                q: "जब कई सेलों को श्रेणीक्रम में जोड़कर बैटरी बनाई जाती है, तो उनके कुल विभवांतर पर क्या प्रभाव पड़ता है?",
+                o: ["विभवांतर घट जाता है", "विभवांतर सभी सेलों के योग के बराबर बढ़ जाता है", "विभवांतर शून्य हो जाता है", "कोई प्रभाव नहीं पड़ता"],
+                a: 1,
+                e: "श्रेणीक्रम में सेलों को जोड़ने से उनका कुल विभवांतर जुड़ जाता है, जिससे परिपथ को अधिक शक्ति मिलती है।"
+            },
+            {
+                q: "अध्याय 3 के अनुसार, विद्युत जनित्र (Generator) का मूल कार्य क्या है?",
+                o: ["यांत्रिक ऊर्जा को विद्युत ऊर्जा में बदलना", "विद्युत ऊर्जा को नष्ट करना", "DC को AC में बदलना", "बैटरी को ठंडा करना"],
+                a: 0,
+                e: "जनरेटर गिरते जल, भाप या ईंधन से प्राप्त यांत्रिक ऊर्जा को विद्युत ऊर्जा में बदलता है।"
+            },
+            {
+                q: "पवन चक्की (Windmill) में विद्युत उत्पादन हेतु किस ऊर्जा का रूपांतरण होता है?",
+                o: ["सौर ऊर्जा का रासायनिक ऊर्जा में", "पवन की गतिज ऊर्जा का विद्युत ऊर्जा में", "ध्वनि ऊर्जा का विद्युत में", "ऊष्मीय ऊर्जा का जल में"],
+                a: 1,
+                e: "पृष्ठ 2: पवन चक्कियाँ बहती पवन की गतिज ऊर्जा का उपयोग करके टरबाइन घुमाती हैं और विद्युत उत्पन्न करती हैं।"
+            },
+            {
+                q: "सौर-पैनल (Solar Panel) में मुख्य रूप से किस तत्व का उपयोग अर्धचालक सेलों में किया जाता है?",
+                o: ["लोहा", "सिलिकॉन (Silicon)", "प्लास्टिक", "ताँबा"],
+                a: 1,
+                e: "सौर सेलों के निर्माण में मुख्य रूप से सिलिकॉन (Silicon) अर्धचालक का उपयोग किया जाता है।"
+            },
+            {
+                q: "किसी परिपथ में धारा प्रवाहित होने पर उसके चारों ओर चुंबकीय क्षेत्र उत्पन्न होने के प्रभाव को क्या कहते हैं?",
+                o: ["विद्युत धारा का ऊष्मीय प्रभाव", "विद्युत धारा का चुंबकीय प्रभाव", "रासायनिक प्रभाव", "प्रकाशिक प्रभाव"],
+                a: 1,
+                e: "धारावाही चालक के चारों ओर चुंबकीय क्षेत्र बनना धारा का 'चुंबकीय प्रभाव' कहलाता है।"
+            },
+            {
+                q: "विद्युत बल्ब के अंदर सामान्यतः कौन-सी अक्रिय (Inert) गैस भरी जाती है ताकि तंतु न जले?",
+                o: ["ऑक्सीजन", "ऑर्गन या नाइट्रोजन (Argon/Nitrogen)", "हाइड्रोजन", "क्लोरीन"],
+                a: 1,
+                e: "ऑक्सीजन की अनुपस्थिति और अक्रिय गैस (जैसे ऑर्गन) की उपस्थिति तंतु के वाष्पीकरण और दहन को रोकती है।"
+            },
+
+            // Finalizing up to 100 Questions
+            {
+                q: "यदि परिपथ में ताँबे के तार का स्थान लोहे के तार से बदल दिया जाए, तो क्या लैंप जलेगा?",
+                o: ["हाँ, क्योंकि लोहा भी चालक है (यद्यपि प्रतिरोध थोड़ा अधिक है)", "बिल्कुल नहीं जलेगा", "बल्ब नीले रंग का जलेगा", "बैटरी में आग लग जाएगी"],
+                a: 0,
+                e: "लोहा भी धातु होने के कारण विद्युत का चालक है, अतः परिपथ पूरा होकर लैंप जलेगा।"
+            },
+            {
+                q: "ग्रेफाइट (Graphite) अधातु होते हुए भी विद्युत का संचालन क्यों कर पाता है?",
+                o: ["क्योंकि इसमें मुक्त इलेक्ट्रॉन (Free Electrons) उपस्थित होते हैं", "क्योंकि यह काला होता है", "क्योंकि यह नरम होता है", "क्योंकि यह पेंसिल में होता है"],
+                a: 0,
+                e: "ग्रेफाइट की परतीय संरचना में प्रत्येक कार्बन के पास एक मुक्त इलेक्ट्रॉन होता है, जो चालन में मदद करता है।"
+            },
+            {
+                q: "शुष्क सेल के धनात्मक सिरे की टोपी प्रायः किस धातु की बनी होती है?",
+                o: ["पीतल (Brass) या ताँबा", "प्लास्टिक", "शीशा", "काँच"],
+                a: 0,
+                e: "उभरी हुई टोपी प्रायः पीतल (Brass) की बनी होती है जो एक सुचालक मिश्रधातु है।"
+            },
+            {
+                q: "शुष्क सेल का बाह्य जस्ते (Zinc) का बर्तन किस टर्मिनल के रूप में कार्य करता है?",
+                o: ["धनात्मक (+)", "ऋणात्मक (-)", "उदासीन", "कोई टर्मिनल नहीं"],
+                a: 1,
+                e: "शुष्क सेल में जस्ते (Zinc) का बाहरी पात्र ऋणात्मक (-) टर्मिनल की भांति कार्य करता है।"
+            },
+            {
+                q: "टॉर्च के लैंप के काँच के आवरण का प्राथमिक उद्देश्य क्या है?",
+                o: ["तंतु की वायु/ऑक्सीजन से रक्षा करना तथा प्रकाश का गमन होने देना", "केवल सुंदरता", "सेल को थामना", "वोल्टेज बढ़ाना"],
+                a: 0,
+                e: "काँच की बंद हवा-रहित या गैस-युक्त संरचना तंतु को जलने (Oxidize होने) से बचाती है।"
+            },
+            {
+                q: "एक साधारण टॉर्च में स्विच खिसकाने पर धात्विक पट्टी (Metal strip) क्या कार्य करती है?",
+                o: ["बल्ब के टर्मिनल और बैटरी के टर्मिनल के बीच संपर्क पथ बनाती/तोड़ती है", "बल्ब को ठंडा करती है", "ध्वनि उत्पन्न करती है", "बैटरी चार्ज करती है"],
+                a: 0,
+                e: "टॉर्च का स्लाइड स्विच अंदर लगी धातु की पट्टी को खिसकाकर परिपथ को बंद या खुला करता है।"
+            },
+            {
+                q: "चालक परीक्षण-यंत्र द्वारा सोने की अँगूठी (Gold Ring) की जाँच करने पर निष्कर्ष क्या होगा?",
+                o: ["विद्युतरोधी", "विद्युत चालक (सुचालक)", "फ्यूज्ड", "गलत परीक्षण"],
+                a: 1,
+                e: "सोना (Gold) उत्कृष्ट चालकों में से एक है, अतः परिणाम 'विद्युत चालक' होगा।"
+            },
+            {
+                q: "सूती धागा (Cotton Thread) चालन परीक्षण-यंत्र में जोड़ने पर क्या होगा?",
+                o: ["लैंप दीप्त होगा", "लैंप दीप्त नहीं होगा (सूती धागा विद्युतरोधी है)", "धागा जलने लगेगा", "सेल रीचार्ज होगा"],
+                a: 1,
+                e: "शुष्क सूती धागा एक वस्त्र/पादप रेशा है जो विद्युतरोधी होता है।"
+            },
+            {
+                q: "प्लास्टिक का मापक (Scale) चालकता तालिका 3.3 में किस श्रेणी में आता है?",
+                o: ["विद्युत-चालक", "विद्युतरोधी (Insulator)", "अर्धचालक", "सुपरकंडक्टर"],
+                a: 1,
+                e: "पृष्ठ 13 तालिका 3.3: प्लास्टिक मापक का निष्कर्ष 'विद्युतरोधी' है।"
+            },
+            {
+                q: "चाबी (Key) तालिका 3.3 में किस श्रेणी में वर्गीकृत की गई है?",
+                o: ["विद्युतरोधी", "विद्युत-चालक (Conductor)", "अचालक", "गैस"],
+                a: 1,
+                e: "पृष्ठ 13 तालिका 3.3: धातु की चाबी 'विद्युत-चालक' है।"
+            },
+            {
+                q: "इरेज़र (Eraser) तालिका 3.3 में किस श्रेणी में आता है?",
+                o: ["विद्युत-चालक", "विद्युतरोधी", "धातु", "द्रव"],
+                a: 1,
+                e: "पृष्ठ 13 तालिका 3.3: रबर का इरेज़र 'विद्युतरोधी' है।"
+            },
+            {
+                q: "यदि किसी विद्युत परिपथ में वोल्टता स्थिर रहे और प्रतिरोध बढ़ा दिया जाए, तो धारा (Current) पर क्या प्रभाव पड़ेगा?",
+                o: ["धारा बढ़ेगी", "धारा घटेगी (I = V/R)", "धारा समान रहेगी", "धारा की दिशा बदल जाएगी"],
+                a: 1,
+                e: "ओह्म के नियमानुसार (I = V/R), प्रतिरोध बढ़ाने पर धारा का मान घटता है।"
+            },
+            {
+                q: "CBT ऐप में 'Clear Response' (उत्तर मिटाएं) बटन का क्या उपयोग है?",
+                o: ["पूरे पेपर को डिलीट करना", "वर्तमान प्रश्न में चुने गए विकल्प को हटाना/रीसेट करना", "टाइमर को रीसेट करना", "स्क्रीन बंद करना"],
+                a: 1,
+                e: "Clear Response बटन चयनित विकल्प को निरस्त कर प्रश्न को पुन: अनुत्तरित स्थिति में लाता है।"
+            },
+            {
+                q: "विद्युत परिपथ में तारों को जोड़ने वाले जोड़ों (Joints) पर इंसुलेशन टेप (Insulation Tape) क्यों लपेटी जाती है?",
+                o: ["जोड़ को मज़बूत बनाने तथा नंगे चालकों से विद्युत-आघात या शॉर्ट सर्किट रोकने हेतु", "केवल रंगीन दिखाने के लिए", "तापमान घटाने के लिए", "तार को लंबा करने के लिए"],
+                a: 0,
+                e: "इंसुलेशन टेप प्लास्टिक/विद्युतरोधी होती है जो नंगे तारों को ढककर सुरक्षा प्रदान करती है।"
+            },
+            {
+                q: "विद्युत-ऊष्मक (Room Heater) का तार लाल-तप्त (Red hot) हो जाता है, परंतु उससे जुड़े संयोजी तार गर्म नहीं होते, क्यों?",
+                o: ["क्योंकि हीटर के तार का प्रतिरोध संयोजी तारों की तुलना में बहुत अधिक होता है", "क्योंकि संयोजी तार लोहे के होते हैं", "क्योंकि हीटर में हवा नहीं होती", "क्योंकि स्विच बंद होता है"],
+                a: 0,
+                e: "जहाँ प्रतिरोध (R) अधिक होता है, वहाँ (I²Rt के अनुसार) ऊष्मा अधिक उत्पन्न होती है।"
+            },
+            {
+                q: "यदि किसी टॉर्च में 3 सेल श्रेणी में लगाने हैं, तो उनके सिरों का संयोजन क्रम क्या होना चाहिए?",
+                o: ["(+ -) (+ -) (+ -)", "(+ +) (- -) (+ -)", "(- -) (- -) (- -)", "अनिश्चित"],
+                a: 0,
+                e: "प्रत्येक सेल का धनात्मक सिरा अगले सेल के ऋणात्मक सिरे से जुड़ना चाहिए।"
+            },
+            {
+                q: "निहाल द्वारा भाखड़ा नंगल बाँध भ्रमण का वर्णन NCERT पाठ्यपुस्तक में किस उद्देश्य से दिया गया है?",
+                o: ["विद्यार्थियों को केवल पर्यटन स्थल बताने के लिए", "व्यावहारिक जीवन में विद्युत उत्पादन एवं उसके उपयोगों की व्यापकता समझाने के लिए", "रेलगाड़ी के टिकट की जानकारी देने के लिए", "शिवालिक की ऊँचाई नापने के लिए"],
+                a: 1,
+                e: "अध्याय का प्रारंभ दैनिक जीवन में विद्युत की उपयोगिता और उसके वास्तविक स्रोतों से जोड़ने के लिए किया गया है।"
+            },
+            {
+                q: "NCERT अध्याय 3 के शीर्षक का पूरा नाम क्या है?",
+                o: ["विद्युत तथा इसके रासायनिक प्रभाव", "विद्युत परिपथ एवं उनके घटक", "विद्युत धारा और इसके प्रभाव", "गति एवं विद्युत"],
+                a: 1,
+                e: "पाठ्यपुस्तक के पृष्ठ 1 पर स्पष्ट शीर्षक है: 'विद्युत परिपथ एवं उनके घटक' (Electrical Circuits and Their Components)।"
+            },
+            {
+                q: "कक्षा 7 विज्ञान की इस NCERT पाठ्यपुस्तक का पुनर्मुद्रण (Reprint) वर्ष क्या दर्शाया गया है?",
+                o: ["2020-21", "2026-27", "2015-16", "2030-31"],
+                a: 1,
+                e: "पृष्ठों के नीचे 'Reprint 2026-27' अंकित है।"
+            },
+            {
+                q: "इस CBT परीक्षा प्रणाली में 120 मिनट की समय सीमा समाप्त होने पर क्या होगा?",
+                o: ["परीक्षा स्वतः सबमिट (Auto-Submit) होकर परिणाम स्क्रीन आ जाएगी", "कंप्यूटर बंद हो जाएगा", "समय 1 घंटे और बढ़ जाएगा", "सभी उत्तर मिट जाएँगे"],
+                a: 0,
+                e: "मानक CBT में टाइमर 00:00 होने पर परीक्षा अपने आप सबमिट हो जाती है।"
+            }
+        ];
+
+        // Format to 100 questions with 5th Option E: "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"
+        const questions = rawQuestions.map((item, idx) => {
+            const opts = [...item.o, "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"];
+            return {
+                id: idx + 1,
+                question: item.q,
+                options: opts,
+                correct: item.a, // 0 to 4
+                explanation: item.e
+            };
+        });
+
+        // Application State Variables
+        let userName = "";
+        let currentQ = 0;
+        let userAnswers = new Array(100).fill(null); // Option index 0-4
+        let markedForReview = new Array(100).fill(false);
+        let visitedQuestions = new Array(100).fill(false);
+        let timerInterval = null;
+        let timeLeft = 120 * 60; // 120 minutes in seconds
+
+        // Initialize Engine
+        window.onload = function() {
+            renderPalette();
+        };
+
+        // Start Exam Function
+        function startExam(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('userName').value.trim();
+            if (!nameInput) return;
+
+            userName = nameInput;
+            document.getElementById('screenRegister').classList.add('hidden');
+            document.getElementById('screenExam').classList.remove('hidden');
+            document.getElementById('headerTimerBadge').classList.remove('hidden');
+
+            visitedQuestions[0] = true;
+            loadQuestion(0);
+            startTimer();
+        }
+
+        // Timer Logic
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("समय समाप्त हो गया है! आपकी परीक्षा स्वतः सबमिट की जा रही है।");
+                    autoSubmitExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timerDisplay').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Render Palette
+        function renderPalette() {
+            const grid = document.getElementById('paletteGrid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 100; i++) {
+                const btn = document.createElement('button');
+                btn.id = `paletteBtn_${i}`;
+                btn.innerText = i + 1;
+                btn.onclick = () => jumpToQuestion(i);
+                btn.className = `h-8 w-8 text-xs font-bold rounded-lg border transition flex items-center justify-center ${getPaletteStyle(i)}`;
+                grid.appendChild(btn);
+            }
+            updatePaletteCounts();
+        }
+
+        function getPaletteStyle(index) {
+            const isAns = userAnswers[index] !== null;
+            const isMrk = markedForReview[index];
+            const isVis = visitedQuestions[index];
+
+            if (isAns && isMrk) return 'bg-indigo-600 text-white border-indigo-700';
+            if (isMrk) return 'bg-purple-600 text-white border-purple-700';
+            if (isAns) return 'bg-emerald-500 text-white border-emerald-600';
+            if (isVis) return 'bg-slate-200 text-slate-800 border-slate-300';
+            return 'bg-slate-100 text-slate-400 border-slate-200';
+        }
+
+        function updatePaletteCounts() {
+            let notVis = 0, ans = 0, mrk = 0, ansMrk = 0;
+
+            for (let i = 0; i < 100; i++) {
+                const isAns = userAnswers[i] !== null;
+                const isMrk = markedForReview[i];
+                const isVis = visitedQuestions[i];
+
+                if (isAns && isMrk) ansMrk++;
+                else if (isMrk) mrk++;
+                else if (isAns) ans++;
+                else if (!isVis) notVis++;
+            }
+
+            document.getElementById('cntNotVisited').innerText = notVis;
+            document.getElementById('cntAnswered').innerText = ans;
+            document.getElementById('cntMarked').innerText = mrk;
+            document.getElementById('cntAnsMarked').innerText = ansMrk;
+        }
+
+        // Load Question Data
+        function loadQuestion(index) {
+            currentQ = index;
+            visitedQuestions[index] = true;
+
+            const qData = questions[index];
+            document.getElementById('qNumberBadge').innerText = `प्रश्न ${index + 1} / 100`;
+            document.getElementById('qText').innerText = qData.question;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D', 'E'];
+
+            qData.options.forEach((optText, optIdx) => {
+                const isSelected = userAnswers[index] === optIdx;
+                const optDiv = document.createElement('div');
+                optDiv.onclick = () => selectOption(optIdx);
+                optDiv.className = `p-3.5 rounded-xl border-2 transition cursor-pointer flex items-center space-x-3 ${
+                    isSelected 
+                        ? 'border-indigo-600 bg-indigo-50/70 text-indigo-950 font-medium' 
+                        : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'
+                }`;
+
+                optDiv.innerHTML = `
+                    <span class="w-7 h-7 rounded-full border flex items-center justify-center font-bold text-xs ${
+                        isSelected ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-slate-100 text-slate-600 border-slate-300'
+                    }">${optionLabels[optIdx]}</span>
+                    <span class="text-xs md:text-sm flex-grow">${optText}</span>
+                `;
+                container.appendChild(optDiv);
+            });
+
+            // Update Palette Button & Counts
+            const btn = document.getElementById(`paletteBtn_${index}`);
+            if (btn) btn.className = `h-8 w-8 text-xs font-bold rounded-lg border transition flex items-center justify-center ring-2 ring-indigo-400 ${getPaletteStyle(index)}`;
+
+            // Refresh other palette buttons border rings
+            for (let i = 0; i < 100; i++) {
+                if (i !== index) {
+                    const b = document.getElementById(`paletteBtn_${i}`);
+                    if (b) b.className = `h-8 w-8 text-xs font-bold rounded-lg border transition flex items-center justify-center ${getPaletteStyle(i)}`;
+                }
+            }
+
+            updatePaletteCounts();
+        }
+
+        function selectOption(optIdx) {
+            userAnswers[currentQ] = optIdx;
+            loadQuestion(currentQ);
+        }
+
+        function clearResponse() {
+            userAnswers[currentQ] = null;
+            loadQuestion(currentQ);
+        }
+
+        function markForReview() {
+            markedForReview[currentQ] = !markedForReview[currentQ];
+            loadQuestion(currentQ);
+        }
+
+        function saveAndNext() {
+            if (currentQ < 99) {
+                jumpToQuestion(currentQ + 1);
+            } else {
+                confirmSubmit();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQ > 0) {
+                jumpToQuestion(currentQ - 1);
+            }
+        }
+
+        function jumpToQuestion(index) {
+            loadQuestion(index);
+        }
+
+        // Modal Controls
+        function confirmSubmit() {
+            let ans = 0, unans = 0, mrk = 0;
+            for (let i = 0; i < 100; i++) {
+                if (userAnswers[i] !== null) ans++;
+                else unans++;
+                if (markedForReview[i]) mrk++;
+            }
+
+            document.getElementById('modalAns').innerText = ans;
+            document.getElementById('modalUnans').innerText = unans;
+            document.getElementById('modalMarked').innerText = mrk;
+
+            document.getElementById('submitModal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+        }
+
+        function finalSubmitExam() {
+            closeSubmitModal();
+            clearInterval(timerInterval);
+            calculateAndShowResult();
+        }
+
+        function autoSubmitExam() {
+            clearInterval(timerInterval);
+            calculateAndShowResult();
+        }
+
+        // Result Calculation
+        function calculateAndShowResult() {
+            document.getElementById('screenExam').classList.add('hidden');
+            document.getElementById('headerTimerBadge').classList.add('hidden');
+            document.getElementById('screenResult').classList.remove('hidden');
+
+            document.getElementById('resUserName').innerText = userName;
+
+            let correctCount = 0;
+            let wrongCount = 0;
+            let unansweredCount = 0;
+
+            for (let i = 0; i < 100; i++) {
+                const userAns = userAnswers[i];
+                const correctAns = questions[i].correct;
+
+                if (userAns === null) {
+                    unansweredCount++;
+                } else if (userAns === correctAns) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            }
+
+            // Marking: +1.0 for Correct, -0.33 for Wrong
+            const score = (correctCount * 1.0) - (wrongCount * 0.33);
+            const totalAttempted = correctCount + wrongCount;
+            const accuracy = totalAttempted > 0 ? ((correctCount / totalAttempted) * 100).toFixed(1) : 0;
+
+            document.getElementById('resScore').innerText = `${score.toFixed(2)} / 100`;
+            document.getElementById('resCorrect').innerText = correctCount;
+            document.getElementById('resWrong').innerText = wrongCount;
+            document.getElementById('resAccuracy').innerText = `${accuracy}%`;
+
+            renderSolutions();
+        }
+
+        // Solutions Rendering
+        function renderSolutions() {
+            const container = document.getElementById('solutionsContainer');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D', 'E'];
+
+            questions.forEach((q, idx) => {
+                const uAns = userAnswers[idx];
+                const cAns = q.correct;
+
+                const isCorrect = uAns === cAns;
+                const isUnans = uAns === null;
+
+                let statusBadge = '';
+                let borderClass = '';
+
+                if (isUnans) {
+                    statusBadge = `<span class="bg-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded">अनुत्तरित</span>`;
+                    borderClass = 'border-slate-200';
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded"><i class="fa-solid fa-check"></i> सही (+1.0)</span>`;
+                    borderClass = 'border-emerald-300 bg-emerald-50/20';
+                } else {
+                    statusBadge = `<span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded"><i class="fa-solid fa-xmark"></i> गलत (-0.33)</span>`;
+                    borderClass = 'border-red-300 bg-red-50/20';
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-xl border ${borderClass} space-y-3`;
+
+                let optionsHTML = '';
+                q.options.forEach((optText, oIdx) => {
+                    let optStyle = 'bg-slate-50 text-slate-700 border-slate-200';
+                    let icon = '';
+
+                    if (oIdx === cAns) {
+                        optStyle = 'bg-emerald-100/80 text-emerald-900 border-emerald-400 font-semibold';
+                        icon = '<i class="fa-solid fa-circle-check text-emerald-600 ml-auto"></i>';
+                    }
+                    if (oIdx === uAns && uAns !== cAns) {
+                        optStyle = 'bg-red-100/80 text-red-900 border-red-400 font-semibold';
+                        icon = '<i class="fa-solid fa-circle-xmark text-red-600 ml-auto"></i>';
+                    }
+
+                    optionsHTML += `
+                        <div class="p-2.5 rounded-lg border text-xs md:text-sm flex items-center ${optStyle}">
+                            <span class="font-bold mr-2">${optionLabels[oIdx]}.</span>
+                            <span>${optText}</span>
+                            ${icon}
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                            <span class="text-indigo-600">प्र. ${idx + 1}:</span> ${q.question}
+                        </h4>
+                        ${statusBadge}
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                        ${optionsHTML}
+                    </div>
+
+                    <div class="bg-amber-50/80 border border-amber-200/80 p-3 rounded-lg text-xs md:text-sm text-slate-700 mt-2">
+                        <strong class="text-amber-900 block mb-0.5"><i class="fa-solid fa-lightbulb text-amber-600"></i> व्याख्या / NCERT संदर्भ:</strong>
+                        ${q.explanation}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
