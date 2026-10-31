@@ -1,0 +1,1174 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT परीक्षा: धातुओं और अधातुओं का संसार (कक्षा 7 विज्ञान - अध्याय 4)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; color: black; }
+        }
+    </style>
+</head>
+<body class="bg-slate-100 text-slate-800 antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="bg-amber-700 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fa-solid fa-flask text-amber-300 text-2xl"></i>
+                <div>
+                    <h1 class="text-lg md:text-xl font-bold leading-tight">NCERT Class 7 Science - Ch 4</h1>
+                    <p class="text-xs text-amber-200">धातुओं और अधातुओं का संसार (100 MCQ CBT Exam)</p>
+                </div>
+            </div>
+            <div id="headerTimerBadge" class="hidden bg-amber-900 border border-amber-400 text-yellow-300 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center space-x-2">
+                <i class="fa-regular fa-clock"></i>
+                <span id="timerDisplay">120:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto w-full p-4 flex-grow">
+
+        <!-- SCREEN 1: Registration & Instructions -->
+        <section id="screenRegister" class="bg-white rounded-2xl shadow-xl p-6 md:p-8 max-w-3xl mx-auto border border-slate-200">
+            <div class="text-center mb-6">
+                <span class="bg-amber-100 text-amber-800 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">ऑनलाइन कंप्यूटर आधारित परीक्षा (CBT)</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800 mt-2">परीक्षार्थी पंजीकरण एवं निर्देश</h2>
+            </div>
+
+            <form id="regForm" onsubmit="startExam(event)" class="space-y-6">
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <label for="userName" class="block text-sm font-medium text-slate-700 mb-1">परीक्षार्थी का पूरा नाम <span class="text-red-500">*</span></label>
+                    <input type="text" id="userName" required placeholder="अपना पूरा नाम दर्ज करें" class="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none transition">
+                </div>
+
+                <div class="bg-amber-50/50 p-5 rounded-xl border border-amber-100 space-y-3">
+                    <h3 class="font-bold text-amber-900 text-base flex items-center">
+                        <i class="fa-solid fa-circle-info mr-2 text-amber-600"></i> परीक्षा संबंधी महत्त्वपूर्ण निर्देश:
+                    </h3>
+                    <ul class="text-xs md:text-sm text-slate-600 space-y-2 list-disc list-inside">
+                        <li><strong>कुल प्रश्न:</strong> 100 बहुविकल्पीय प्रश्न (NCERT पाठ्यपुस्तक अध्याय 4 आधारित)।</li>
+                        <li><strong>समय सीमा:</strong> 120 मिनट (2 घंटे)। समय समाप्त होने पर परीक्षा स्वतः सबमिट हो जाएगी।</li>
+                        <li><strong>अंकन योजना:</strong> प्रत्येक सही उत्तर के लिए <span class="text-emerald-600 font-bold">+1.0 अंक</span>, गलत उत्तर पर <span class="text-red-600 font-bold">-0.33 (1/3) ऋणात्मक अंक</span> तथा अनुत्तरित प्रश्न पर <span class="font-bold">0 अंक</span>।</li>
+                        <li><strong>विकल्प संरचना:</strong> प्रत्येक प्रश्न में 5 विकल्प (A, B, C, D, E) हैं। विकल्प E "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक" को निरूपित करता है।</li>
+                        <li><strong>प्रश्न पैलेट रंग संकेत:</strong>
+                            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 mt-2 text-xs">
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-slate-200 border border-slate-300 mr-1"></span> न देखा गया</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1"></span> उत्तर दिया</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-1"></span> समीक्षा हेतु चिह्नित</span>
+                                <span class="flex items-center"><span class="w-3 h-3 rounded-full bg-amber-500 mr-1"></span> उत्तर+समीक्षा</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="flex items-center space-x-2">
+                    <input type="checkbox" id="acceptTerms" required class="w-4 h-4 text-amber-600 rounded border-slate-300 focus:ring-amber-500">
+                    <label for="acceptTerms" class="text-xs md:text-sm text-slate-600 cursor-pointer">मैंने सभी निर्देशों को ध्यानपूर्वक पढ़ और समझ लिया है।</label>
+                </div>
+
+                <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition duration-200 flex items-center justify-center space-x-2">
+                    <span>परीक्षा प्रारंभ करें</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
+        </section>
+
+        <!-- SCREEN 2: CBT Exam Interface -->
+        <section id="screenExam" class="hidden grid grid-cols-1 lg:grid-cols-4 gap-6">
+            
+            <!-- Left Side: Question Display Area (3 Cols) -->
+            <div class="lg:col-span-3 flex flex-col bg-white rounded-2xl shadow-md border border-slate-200 overflow-hidden min-h-[550px]">
+                
+                <!-- Question Top Header -->
+                <div class="bg-slate-50 border-b border-slate-200 p-4 flex justify-between items-center flex-wrap gap-2">
+                    <span id="qNumberBadge" class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-lg text-sm">प्रश्न 1 / 100</span>
+                    <div class="text-xs font-medium text-slate-500 space-x-3">
+                        <span class="text-emerald-600"><i class="fa-solid fa-plus-circle"></i> +1.0</span>
+                        <span class="text-red-500"><i class="fa-solid fa-minus-circle"></i> -0.33</span>
+                    </div>
+                </div>
+
+                <!-- Question Text -->
+                <div class="p-5 md:p-6 flex-grow">
+                    <h3 id="qText" class="text-base md:text-lg font-semibold text-slate-800 leading-relaxed mb-6">
+                        <!-- Question content -->
+                    </h3>
+
+                    <!-- Options Container -->
+                    <div id="optionsContainer" class="space-y-3">
+                        <!-- Options content -->
+                    </div>
+                </div>
+
+                <!-- Action Controls Footer -->
+                <div class="bg-slate-50 border-t border-slate-200 p-4 flex flex-wrap gap-2 justify-between items-center">
+                    <div class="flex gap-2">
+                        <button onclick="prevQuestion()" id="btnPrev" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-lg text-xs md:text-sm transition flex items-center gap-1">
+                            <i class="fa-solid fa-chevron-left"></i> पिछला
+                        </button>
+                        <button onclick="clearResponse()" class="px-4 py-2 bg-amber-100 hover:bg-amber-200 text-amber-800 font-semibold rounded-lg text-xs md:text-sm transition">
+                            उत्तर मिटाएं (Clear)
+                        </button>
+                        <button onclick="markForReview()" class="px-4 py-2 bg-purple-100 hover:bg-purple-200 text-purple-800 font-semibold rounded-lg text-xs md:text-sm transition">
+                            पुनरावलोकन हेतु चिह्नित
+                        </button>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button onclick="saveAndNext()" class="px-5 py-2 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-lg text-xs md:text-sm shadow transition flex items-center gap-1">
+                            सहेजें एवं अगला <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button onclick="confirmSubmit()" class="px-5 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg text-xs md:text-sm shadow transition">
+                            अंतिम सबमिट
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Side: Question Palette (1 Col) -->
+            <div class="lg:col-span-1 bg-white rounded-2xl shadow-md border border-slate-200 p-4 flex flex-col h-full justify-between">
+                <div>
+                    <h4 class="font-bold text-slate-700 text-sm border-b pb-2 mb-3 flex justify-between items-center">
+                        <span>प्रश्न पैलेट (1-100)</span>
+                        <i class="fa-solid fa-table-cells"></i>
+                    </h4>
+                    
+                    <!-- Palette Legends -->
+                    <div class="grid grid-cols-2 gap-2 text-[11px] text-slate-600 mb-4 bg-slate-50 p-2 rounded-lg">
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-slate-200 mr-1 border"></span> न देखा गया: <b id="cntNotVisited" class="ml-1">100</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-emerald-500 mr-1"></span> उत्तर दिया: <b id="cntAnswered" class="ml-1">0</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-purple-500 mr-1"></span> समीक्षा हेतु: <b id="cntMarked" class="ml-1">0</b></div>
+                        <div class="flex items-center"><span class="w-3 h-3 rounded-full bg-amber-500 mr-1"></span> उत्तर+समीक्षा: <b id="cntAnsMarked" class="ml-1">0</b></div>
+                    </div>
+
+                    <!-- Question Grid Buttons -->
+                    <div id="paletteGrid" class="grid grid-cols-5 gap-1.5 max-h-[320px] overflow-y-auto custom-scrollbar p-1">
+                        <!-- Buttons rendered dynamically -->
+                    </div>
+                </div>
+
+                <div class="mt-4 pt-3 border-t">
+                    <button onclick="confirmSubmit()" class="w-full py-2.5 bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 font-bold rounded-xl text-xs transition flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> परीक्षा पूर्ण एवं सबमिट करें
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SCREEN 3: Result & Detailed Solution -->
+        <section id="screenResult" class="hidden space-y-6">
+            
+            <!-- Result Overview Card -->
+            <div class="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-slate-200 text-center relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-amber-500 via-orange-500 to-yellow-500"></div>
+                
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-800">परीक्षा परिणाम एवं प्रदर्शन रिपोर्ट</h2>
+                <p class="text-slate-500 text-sm mt-1">परीक्षार्थी: <span id="resUserName" class="font-bold text-slate-800"></span></p>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+                    <div class="bg-amber-50 p-4 rounded-xl border border-amber-100">
+                        <span class="text-xs text-amber-700 font-semibold uppercase tracking-wider block">कुल प्राप्तांक</span>
+                        <span id="resScore" class="text-2xl md:text-3xl font-black text-amber-900">0.00 / 100</span>
+                    </div>
+                    <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100">
+                        <span class="text-xs text-emerald-600 font-semibold uppercase tracking-wider block">सही उत्तर</span>
+                        <span id="resCorrect" class="text-2xl md:text-3xl font-black text-emerald-700">0</span>
+                    </div>
+                    <div class="bg-red-50 p-4 rounded-xl border border-red-100">
+                        <span class="text-xs text-red-600 font-semibold uppercase tracking-wider block">गलत उत्तर</span>
+                        <span id="resWrong" class="text-2xl md:text-3xl font-black text-red-700">0</span>
+                    </div>
+                    <div class="bg-orange-50 p-4 rounded-xl border border-orange-100">
+                        <span class="text-xs text-orange-600 font-semibold uppercase tracking-wider block">सटीकता (Accuracy)</span>
+                        <span id="resAccuracy" class="text-2xl md:text-3xl font-black text-orange-800">0%</span>
+                    </div>
+                </div>
+
+                <div class="mt-6 flex justify-center gap-3 no-print">
+                    <button onclick="window.print()" class="px-5 py-2.5 bg-slate-800 hover:bg-slate-900 text-white font-semibold rounded-xl text-sm shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-print"></i> उत्तर कुंजी प्रिंट / PDF सेव करें
+                    </button>
+                    <button onclick="location.reload()" class="px-5 py-2.5 bg-amber-600 hover:bg-amber-700 text-white font-semibold rounded-xl text-sm shadow transition flex items-center gap-2">
+                        <i class="fa-solid fa-rotate-right"></i> पुनः परीक्षा दें
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Solutions List -->
+            <div class="bg-white rounded-2xl shadow-lg p-6 border border-slate-200">
+                <h3 class="text-xl font-bold text-slate-800 border-b pb-3 mb-6 flex items-center justify-between">
+                    <span>100 प्रश्नों की विस्तृत उत्तर कुंजी एवं व्याख्या</span>
+                    <span class="text-xs font-normal text-slate-500">NCERT Class 7 Science Chapter 4</span>
+                </h3>
+
+                <div id="solutionsContainer" class="space-y-6">
+                    <!-- 100 Solutions dynamically rendered here -->
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Modal Dialog for Submit Confirmation -->
+    <div id="submitModal" class="hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl border border-slate-100 space-y-4">
+            <div class="text-center">
+                <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-3 text-xl">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <h3 class="text-lg font-bold text-slate-800">क्या आप परीक्षा सबमिट करना चाहते हैं?</h3>
+                <p class="text-xs text-slate-500 mt-1">सबमिट करने के पश्चात् आप उत्तरों में संशोधन नहीं कर पाएँगे।</p>
+            </div>
+
+            <div class="bg-slate-50 p-3 rounded-xl text-xs text-slate-600 space-y-1">
+                <div class="flex justify-between"><span>कुल उत्तर दिए गए:</span> <b id="modalAns" class="text-emerald-600">0</b></div>
+                <div class="flex justify-between"><span>अनुत्तरित / न देखा गया:</span> <b id="modalUnans" class="text-red-500">0</b></div>
+                <div class="flex justify-between"><span>पुनरावलोकन हेतु चिह्नित:</span> <b id="modalMarked" class="text-purple-600">0</b></div>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="closeSubmitModal()" class="w-1/2 py-2.5 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl text-xs transition">
+                    परीक्षण जारी रखें
+                </button>
+                <button onclick="finalSubmitExam()" class="w-1/2 py-2.5 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-xl text-xs transition">
+                    हाँ, सबमिट करें
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-800 text-slate-400 text-center py-3 text-xs no-print">
+        <p>© NCERT Class 7 Science Chapter 4 CBT Exam Portal. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Completely Sanitized Question Bank (100 Questions)
+        const rawQuestions = [
+            {
+                q: "यशवंत और आनंदी किस राज्य के गाँव में रहते हैं जहाँ वे शिल्पकारों के विषय में जानने लोहार से मिलने गए?",
+                o: ["हरियाणा", "राजस्थान", "गुजरात", "मध्य प्रदेश"],
+                a: 1,
+                e: "पाठ्यपुस्तक के पृष्ठ 1 पर उल्लेख है कि यशवंत और आनंदी राजस्थान के एक गाँव में रहते हैं।"
+            },
+            {
+                q: "लोहार (सुदर्शन चाचा) द्वारा दैनिक जीवन के लिए बनाई जाने वाली वस्तुओं में कौन-सी वस्तु शामिल है?",
+                o: ["तवा, बाल्टी, चिमटा", "फावड़ा, कुल्हाड़ी, खुर्पी", "जेली", "उपर्युक्त सभी"],
+                a: 3,
+                e: "पृष्ठ 1 के अनुसार सुदर्शन चाचा लोहे से तवा, बाल्टी, चिमटा, फावड़ा, कुल्हाड़ी, खुर्पी, जेली आदि बनाते हैं।"
+            },
+            {
+                q: "लोहार भट्टी में गरम करने के बाद लोहे के टुकड़े को हथौड़े से क्यों पीटता है?",
+                o: ["उसे नष्ट करने के लिए", "उसे मनचाहा आकार (जैसे कुल्हाड़ी) देने के लिए", "उसका रंग सफेद करने के लिए", "उसे हल्का करने के लिए"],
+                a: 1,
+                e: "पृष्ठ 2 के अनुसार लोहे को चपटा करने और आकार देने के लिए उसे गर्म करके पीटा जाता है।"
+            },
+            {
+                q: "सामग्रियों का वह गुण जिसके द्वारा उन्हें पीटकर पतली चादरों में परिवर्तित किया जा सकता है, क्या कहलाता है?",
+                o: ["तन्यता", "आघातवर्धनीयता (Malleability)", "ध्वानिकता", "चालकता"],
+                a: 1,
+                e: "पृष्ठ 3: धातुओं को पीटकर पतली चादर बनाने का गुण आघातवर्धनीयता कहलाता है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सी धातुएँ सर्वाधिक आघातवर्धनीय होती हैं?",
+                o: ["लोहा और ताँबा", "सोना और चाँदी", "सोडियम और पोटैशियम", "एल्युमिनियम और जस्ता"],
+                a: 1,
+                e: "पृष्ठ 3 पर स्पष्ट लिखा है कि सोना और चाँदी सर्वाधिक आघातवर्धनीय धातुएँ हैं।"
+            },
+            {
+                q: "मिठाइयों पर चाँदी का वर्क और खाद्य पदार्थों को लपेटने वाला एल्युमिनियम पत्रक किस गुण के कारण बनते हैं?",
+                o: ["तन्यता", "आघातवर्धनीयता", "ध्वानिकता", "संक्षारण"],
+                a: 1,
+                e: "पृष्ठ 3: ये आघातवर्धनीयता गुण के कारण पतली चादरों व पन्नियों के रूप में बनाए जाते हैं।"
+            },
+            {
+                q: "कोयले और सल्फर के टुकड़े को हथौड़े से पीटने पर क्या होता है?",
+                o: ["वे पतली चादर बन जाते हैं", "वे छोटे टुकड़ों में टूट जाते हैं (भंगुर होते हैं)", "वे लंबे तार में बदल जाते हैं", "वे पिघल जाते हैं"],
+                a: 1,
+                e: "पृष्ठ 4: कोयला और सल्फर आघातवर्धनीय नहीं हैं, वे हथौड़े से मारने पर टूट जाते हैं और भंगुर कहलाते हैं।"
+            },
+            {
+                q: "कमरे के तापमान पर द्रव अवस्था में पाई जाने वाली एकमात्र धातु कौन-सी है?",
+                o: ["सोडियम", "पारा (Mercury)", "ब्रोमीन", "पोटैशियम"],
+                a: 1,
+                e: "पृष्ठ 3: पारा वह धातु है जो कमरे के तापमान पर द्रव अवस्था में रहता है और तापमापी में प्रयुक्त होता है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सी धातुएँ इतनी नरम होती हैं कि उन्हें चाकू से काटा जा सकता है?",
+                o: ["लोहा और ताँबा", "सोडियम और पोटैशियम", "सोना और चाँदी", "एल्युमिनियम और मैग्नीशियम"],
+                a: 1,
+                e: "पृष्ठ 3: सोडियम और पोटैशियम इतनी नरम धातुएँ हैं कि उन्हें चाकू से काटा जा सकता है।"
+            },
+            {
+                q: "धातुओं द्वारा प्रदर्शित विशेष प्रकार की चमक को क्या कहा जाता है?",
+                o: ["धात्विक द्युति (Metallic Luster)", "रेडिएशन", "फ्लोरोसेंस", "संक्षारण"],
+                a: 0,
+                e: "पृष्ठ 3: धातुओं में पाई जाने वाली चमक धात्विक द्युति कहलाती है।"
+            },
+            {
+                q: "सामग्री का वह गुण जिसके द्वारा उसे तार में खींचा जा सकता है, क्या कहलाता है?",
+                o: ["आघातवर्धनीयता", "तन्यता (Ductility)", "ध्वानिकता", "कठोरता"],
+                a: 1,
+                e: "पृष्ठ 4: धातुओं को पतले तारों में खींचने की क्षमता को तन्यता कहते हैं।"
+            },
+            {
+                q: "सोना इतना अधिक तन्य है कि इसके 1 ग्राम से कितने किलोमीटर लंबा तार खींचा जा सकता है?",
+                o: ["100 मीटर", "500 मीटर", "2 किलोमीटर", "10 किलोमीटर"],
+                a: 2,
+                e: "पृष्ठ 4 तथ्य बॉक्स: सोने के 1 ग्राम से 2 किलोमीटर लंबा तार खींचा जा सकता है।"
+            },
+            {
+                q: "स्टील (Steel) किस धातु और अधातु का मिश्रण है?",
+                o: ["ताँबा और जस्ता", "लोहा (धातु) और कार्बन (अधातु)", "सोना और चाँदी", "एल्युमिनियम और सल्फर"],
+                a: 1,
+                e: "पृष्ठ 5 गहन चिंतन: स्टील लोहे (धातु) और कार्बन (अधातु) का मिश्रण है।"
+            },
+            {
+                q: "झूलते हुए पुलों (Suspension Bridges) और क्रेनों में किसके तारों से बनी रस्सियों का उपयोग होता है?",
+                o: ["प्लास्टिक", "स्टील (Steel)", "ताँबा", "नायलॉन"],
+                a: 1,
+                e: "पृष्ठ 5: स्टील के तारों से बनी रस्सियाँ अत्यधिक भार वहन कर सकती हैं।"
+            },
+            {
+                q: "हड़प्पा संस्कृति के निवासी किन धातुओं का उपयोग करना जानते थे?",
+                o: ["केवल लोहा", "ताँबा और सोना", "केवल प्लैटिनम", "केवल यूरेनियम"],
+                a: 1,
+                e: "पृष्ठ 4: हड़प्पावासी ताँबे और सोने का उपयोग बर्तन व आभूषण बनाने में करते थे।"
+            },
+            {
+                q: "चाय छानने की छलनी के तार धातुओं के किस गुण के कारण बनाए जाते हैं?",
+                o: ["तन्यता (Ductility)", "भंगुरता", "द्रव अवस्था", "उदासीनता"],
+                a: 0,
+                e: "पृष्ठ 4: धातुओं की तन्यता के कारण ही उनके सूक्ष्म तार बनाकर छलनी बनाई जाती है।"
+            },
+            {
+                q: "संगीत वाद्ययंत्रों जैसे सितार, वीणा और गिटार में ध्वनि उत्पन्न करने हेतु क्या लगा होता है?",
+                o: ["प्लास्टिक की पत्तियाँ", "धातु के तन्य तार", "सूखी लकड़ी की छड़ें", "काँच की नलियाँ"],
+                a: 1,
+                e: "पृष्ठ 4: वाद्ययंत्रों में धातु के पतले तार प्रयुक्त होते हैं।"
+            },
+            {
+                q: "दृष्टिबाधित व्यक्ति को छड़ी से धरातल पर टकराने पर मार्ग ढूंढने में क्या सहायता करता है?",
+                o: ["ध्वनि का रंग", "लकड़ी या धातु से टकराने पर उत्पन्न ध्वनि की विभिन्नता", "छड़ी का वजन", "छड़ी की लंबाई"],
+                a: 1,
+                e: "पृष्ठ 5 (चित्र): टकराने से उत्पन्न ध्वनियों में अंतर से मार्ग पहचानने में मदद मिलती है।"
+            },
+            {
+                q: "क्या कोयला या सल्फर के तार खींचे जा सकते हैं?",
+                o: ["हाँ", "नहीं, क्योंकि वे तन्य नहीं हैं", "केवल गर्म करने पर", "केवल जल में"],
+                a: 1,
+                e: "पृष्ठ 5: कोयला और सल्फर अधातु हैं तथा तन्य नहीं होते।"
+            },
+            {
+                q: "धातु की वस्तु (जैसे सिक्का या चम्मच) गिरने पर उत्पन्न गूँजदार ध्वनि को क्या कहते हैं?",
+                o: ["भंगुरता", "ध्वानिकता (Sonority)", "चालकता", "आघातवर्धनीयता"],
+                a: 1,
+                e: "पृष्ठ 6: धातुओं का निनाद ध्वनि उत्पन्न करने का गुण ध्वानिकता कहलाता है।"
+            },
+            {
+                q: "विद्यालय की घंटी (School Bell) किस गुण के कारण तेज़ आवाज़ करती है?",
+                o: ["आघातवर्धनीयता", "ध्वानिकता (Sonority)", "तन्यता", "पारदर्शिता"],
+                a: 1,
+                e: "पृष्ठ 6: घंटी की गूँज धातुओं की ध्वानिकता के कारण होती है।"
+            },
+            {
+                q: "गरम पानी में धातु और लकड़ी के चम्मच रखने पर कौन-सा चम्मच ऊपर तक गर्म हो जाता है?",
+                o: ["लकड़ी का चम्मच", "धातु का चम्मच", "दोनों समान", "कोई नहीं"],
+                a: 1,
+                e: "पृष्ठ 7: धातु ऊष्मा की सुचालक होती है, जिससे धातु का चम्मच गर्म हो जाता है।"
+            },
+            {
+                q: "सामग्री में एक बिंदु से दूसरे बिंदु तक ऊष्मा के स्थानांतरण को क्या कहते हैं?",
+                o: ["ऊष्मा-चालन (Heat Conduction)", "संक्षारण", "वाष्पीकरण", "उत्सर्जन"],
+                a: 0,
+                e: "पृष्ठ 7: ऊष्मा का एक स्थान से दूसरे स्थान जाना ऊष्मा-चालन कहलाता है।"
+            },
+            {
+                q: "खाना पकाने के बर्तनों के हत्थे (Handles) लकड़ी या बेकेलाइट के क्यों बनाए जाते हैं?",
+                o: ["क्योंकि वे ऊष्मा के कुचालक होते हैं जिससे हाथ न जले", "सजावट के लिए", "भारी बनाने के लिए", "सस्ते होने के कारण"],
+                a: 0,
+                e: "पृष्ठ 7: लकड़ी या प्लास्टिक ऊष्मा के कुचालक हैं, अतः हत्थे गर्म नहीं होते।"
+            },
+            {
+                q: "विद्युतकर्मी (Electrician) पेचकस का काम करते समय रबड़ के दस्ताने क्यों पहनते हैं?",
+                o: ["रबड़ विद्युत का सुचालक है", "रबड़ विद्युत की कुचालक है जो करंट से बचाती है", "हाथ साफ़ रखने के लिए", "पेचकस न फिसलने के लिए"],
+                a: 1,
+                e: "पृष्ठ 8: रबड़ विद्युत की कुचालक है, जो शॉक से सुरक्षा देती है।"
+            },
+            {
+                q: "विद्युत परिपथ परीक्षक (Tester) में जोड़ने पर कौन-सी वस्तु बल्ब को दीप्त करेगी?",
+                o: ["लोहे की कील व ताँबा", "सल्फर का टुकड़ा", "सूखी लकड़ी", "नायलॉन की रस्सी"],
+                a: 0,
+                e: "पृष्ठ 8 तालिका 4.2: लोहा और ताँबा विद्युत के सुचालक हैं और बल्ब को जलाते हैं।"
+            },
+            {
+                q: "वे सामग्रियाँ जो सरलता से विद्युत प्रवाहित होने देती हैं, क्या कहलाती हैं?",
+                o: ["विद्युत की कुचालक", "विद्युत की सुचालक (Conductors)", "अधातु", "विद्युतरोधी"],
+                a: 1,
+                e: "पृष्ठ 8: जिनमें से धारा आसानी से बहती है, वे विद्युत सुचालक कहलाती हैं।"
+            },
+            {
+                q: "लोहे की वस्तुओं को खुले में छोड़ने पर उन पर विकसित होने वाले भूरे निक्षेप को क्या कहते हैं?",
+                o: ["काली परत", "जंग (Rust)", "हरे रंग का लेप", "सफेद पाउडर"],
+                a: 1,
+                e: "पृष्ठ 10: लोहे पर जमने वाला भूरा पदार्थ 'जंग' कहलाता है।"
+            },
+            {
+                q: "लोहे पर जंग लगने के लिए किन दो घटकों का होना अनिवार्य है?",
+                o: ["केवल शुष्क वायु", "केवल जल", "जल और वायु (नम वायु) दोनों", "केवल धूप"],
+                a: 2,
+                e: "पृष्ठ 10 (क्रियाकलाप 4.5): जल और वायु दोनों की उपस्थिति से ही जंग लगता है।"
+            },
+            {
+                q: "बोतलों एवं डिब्बों में नमी सोखने तथा शुष्क वातावरण बनाए रखने के लिए क्या रखा जाता है?",
+                o: ["नमक", "सिलिका जैल (Silica Gel)", "सल्फर पाउडर", "लोहे का चूर्ण"],
+                a: 1,
+                e: "पृष्ठ 9: सिलिका जैल हवा से नमी सोखकर वातावरण को शुष्क बनाता है।"
+            },
+            {
+                q: "उबले हुए जल में कील डालकर ऊपर तेल की परत लगाने पर जंग क्यों नहीं लगता?",
+                o: ["तेल की परत वायु को जल में घुलने से रोक देती है", "उबले जल में कील पिघल जाती है", "तेल से कील सोने की बन जाती है", "काँच की बोतल के कारण"],
+                a: 0,
+                e: "पृष्ठ 10: उबलने से जल की घुली गैसें निकल जाती हैं और तेल वायु के प्रवेश को रोकता है।"
+            },
+            {
+                q: "वायु और जल के प्रभाव से धातुओं की सतह का धीरे-धीरे नष्ट होना क्या कहलाता है?",
+                o: ["गैल्वेनाइजेशन", "संक्षारण (Corrosion)", "आघातवर्धनीयता", "ध्वानिकता"],
+                a: 1,
+                e: "पृष्ठ 10: धातुओं की सतह का धीरे-धीरे ह्रास संक्षारण कहलाता है।"
+            },
+            {
+                q: "ताँबे की बर्तनों की सतह पर हवा में पड़े रहने से किस रंग की परत जम जाती है?",
+                o: ["काले रंग की", "हरे रंग की परत", "पीले रंग की", "लाल रंग की"],
+                a: 1,
+                e: "पृष्ठ 10: ताँबा संक्षारित होकर हरे रंग की परत बनाता है।"
+            },
+            {
+                q: "लोहे को जंग से बचाने के लिए उस पर जस्ते (Zinc) की परत चढ़ाना क्या कहलाता है?",
+                o: ["पेंटिंग", "गैल्वेनाइजेशन (Galvanisation)", "ऑक्सीकरण", "वल्केनीकरण"],
+                a: 1,
+                e: "पृष्ठ 10: लोहे पर जिंक की सुरक्षात्मक परत चढ़ाना गैल्वेनाइजेशन कहलाता है।"
+            },
+            {
+                q: "दिल्ली का प्रसिद्ध लौह स्तंभ कितने वर्ष पुराना है और किस शासक के काल में बना?",
+                o: ["500 वर्ष, अकबर", "1600 वर्ष पूर्व, चंद्रगुप्त द्वितीय", "2000 वर्ष, अशोक", "1000 वर्ष, समुद्रगुप्त"],
+                a: 1,
+                e: "पृष्ठ 10 रोचक तथ्य: दिल्ली का लौह स्तंभ लगभग 1600 वर्ष पुराना (चंद्रगुप्त द्वितीय काल) है।"
+            },
+            {
+                q: "दिल्ली के लौह स्तंभ का वजन और ऊँचाई लगभग कितनी है?",
+                o: ["8 मीटर ऊँचा और 6000 kg से अधिक वजन", "20 मीटर ऊँचा और 1000 kg", "5 मीटर ऊँचा और 500 kg", "15 मीटर ऊँचा और 2000 kg"],
+                a: 0,
+                e: "पृष्ठ 10: स्तंभ लगभग 8 मीटर ऊँचा और 6000 किलोग्राम से अधिक भारी है।"
+            },
+            {
+                q: "दिल्ली के लौह स्तंभ की सबसे अद्भुत विशेषता क्या है?",
+                o: ["यह सोने का बना है", "1600 वर्षों की वर्षा व हवा के बाद भी इसमें जंग नहीं लगा है", "यह रात में चमकता है", "यह पानी पर तैरता है"],
+                a: 1,
+                e: "पृष्ठ 10: लौह स्तंभ प्राचीन भारत के उन्नत जंग-प्रतिरोधी धातु विज्ञान का प्रतीक है।"
+            },
+            {
+                q: "मैग्नीशियम रिबन को स्पिरिट लैंप पर जलाने पर कैसी ज्वाला निकलती है?",
+                o: ["धीमी पीली", "चौंधियाने वाली चमकदार सफेद ज्वाला", "नीली ज्वाला", "काली लपट"],
+                a: 1,
+                e: "पृष्ठ 11: मैग्नीशियम आँखों को चौंधियाने वाली सफेद ज्वाला के साथ जलता है।"
+            },
+            {
+                q: "मैग्नीशियम रिबन के जलने पर बना सफेद चूर्ण क्या होता है?",
+                o: ["मैग्नीशियम क्लोराइड", "मैग्नीशियम ऑक्साइड (MgO)", "सल्फ्यूरस अम्ल", "मैग्नीशियम सल्फेट"],
+                a: 1,
+                e: "पृष्ठ 11: मैग्नीशियम और वायु की ऑक्सीजन की क्रिया से मैग्नीशियम ऑक्साइड बनता है।"
+            },
+            {
+                q: "मैग्नीशियम ऑक्साइड के जलीय घोल की लिटमस पत्र से जाँच करने पर क्या होता है?",
+                o: ["यह लाल लिटमस को नीला कर देता है (क्षारीय)", "यह नीले लिटमस को लाल करता है", "कोई परिवर्तन नहीं", "सफेद कर देता है"],
+                a: 0,
+                e: "पृष्ठ 11: धातुओं के ऑक्साइड क्षारीय प्रकृति के होते हैं जो लाल लिटमस को नीला करते हैं।"
+            },
+            {
+                q: "सोडियम धातु को मिट्टी के तेल (Kerosene) में क्यों डुबोकर रखा जाता है?",
+                o: ["उसे ठंडा रखने के लिए", "क्योंकि यह वायु और जल के साथ तीव्र अभिक्रिया कर आग पकड़ लेती है", "रंग बदलने के लिए", "वजन बढ़ाने के लिए"],
+                a: 1,
+                e: "पृष्ठ 12: सोडियम हवा व नमी से भयानक अभिक्रिया करती है, अतः मिट्टी के तेल में भंडारित होती है।"
+            },
+            {
+                q: "सल्फर (गंधक) चूर्ण को वायु में जलाने पर कौन-सी गैस बनती है?",
+                o: ["कार्बन डाइऑक्साइड", "सल्फर डाइऑक्साइड (SO2)", "ऑक्सीजन", "नाइट्रोजन"],
+                a: 1,
+                e: "पृष्ठ 13: सल्फर को वायु में जलाने पर सल्फर डाइऑक्साइड गैस बनती है।"
+            },
+            {
+                q: "सल्फर डाइऑक्साइड गैस को जल में घोलने पर क्या बनता है?",
+                o: ["सल्फ्यूरिक अम्ल", "सल्फ्यूरस अम्ल", "सोडियम हाइड्रॉक्साइड", "मैग्नीशियम ऑक्साइड"],
+                a: 1,
+                e: "पृष्ठ 13: SO2 जल में घुलकर सल्फ्यूरस अम्ल बनाती है।"
+            },
+            {
+                q: "सल्फ्यूरस अम्ल नीले लिटमस पत्र पर क्या प्रभाव डालता है?",
+                o: ["नीले लिटमस को लाल कर देता है (अम्लीय)", "लाल लिटमस को नीला करता है", "पीला कर देता है", "कोई प्रभाव नहीं"],
+                a: 0,
+                e: "पृष्ठ 13: अधातुओं के ऑक्साइड अम्लीय होते हैं, जो नीले लिटमस को लाल कर देते हैं।"
+            },
+            {
+                q: "फास्फोरस (Phosphorus) अधातु को किसमें डुबोकर संग्रहित किया जाता है?",
+                o: ["मिट्टी के तेल में", "जल में", "सिरके में", "खुली हवा में"],
+                a: 1,
+                e: "पृष्ठ 13: फास्फोरस हवा के संपर्क में आते ही आग पकड़ लेता है, इसलिए इसे जल में रखा जाता है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सा अधातुओं (Non-metals) का सामान्य गुण है?",
+                o: ["द्युतिमय और कठोर", "तन्य और आघातवर्धनीय", "द्युतिहीन, अनम्य, कुचालक और भंगुर", "ध्वानिक"],
+                a: 2,
+                e: "पृष्ठ 13: अधातुएँ प्रायः द्युतिहीन, कुचालक और भंगुर होती हैं।"
+            },
+            {
+                q: "कौन-सी अधातु हमारे श्वसन के लिए अनिवार्य है और इसके बिना जीवन संभव नहीं?",
+                o: ["नाइट्रोजन", "ऑक्सीजन", "क्लोरीन", "सल्फर"],
+                a: 1,
+                e: "पृष्ठ 14: जीवन रक्षा के लिए श्वसन में प्रयुक्त ऑक्सीजन एक अनिवार्य अधातु है।"
+            },
+            {
+                q: "सभी जीवों के मुख्य पोषक घटकों (प्रोटीन, कार्बोहाइड्रेट, वसा) का मुख्य तत्व कौन-सा है?",
+                o: ["लोहा", "कार्बन (अधातु)", "सोना", "पारा"],
+                a: 1,
+                e: "पृष्ठ 14: कार्बन जीवन का मुख्य निर्माणकारी अधातु तत्व है।"
+            },
+            {
+                q: "पौधों की स्वस्थ वृद्धि हेतु उर्वरकों (Fertilizers) में किस अधातु का प्रमुख उपयोग होता है?",
+                o: ["नाइट्रोजन", "आयोडीन", "पारा", "हीरा"],
+                a: 0,
+                e: "पृष्ठ 14: नाइट्रोजन पौधों के विकास हेतु उर्वरकों का प्रमुख घटक है।"
+            },
+            {
+                q: "जल-शोधन (Water Purification) में जीवाणु नष्ट करने हेतु किस अधातु का उपयोग होता है?",
+                o: ["क्लोरीन", "फास्फोरस", "सोना", "ताँबा"],
+                a: 0,
+                e: "पृष्ठ 14: जल को शुद्ध करने हेतु क्लोरीन अधातु का उपयोग होता है।"
+            },
+            {
+                q: "घावों पर रोगाणुरोधक (Antiseptic) के रूप में किस अधातु के बैगनी रंगीन विलयन का प्रयोग होता है?",
+                o: ["क्लोरीन", "आयोडीन", "सल्फर", "कार्बन"],
+                a: 1,
+                e: "पृष्ठ 14: टिंचर आयोडीन घावों पर एंटीसेप्टिक के रूप में प्रयुक्त होता है।"
+            },
+            {
+                q: "वर्तमान समय तक कुल कितने रासायनिक तत्वों (Elements) की खोज हो चुकी है?",
+                o: ["92", "118", "105", "150"],
+                a: 1,
+                e: "पृष्ठ 13 गहन चिंतन: वर्तमान में 118 तत्व ज्ञात हैं।"
+            },
+            {
+                q: "रसायन विज्ञान में 'तत्व' (Element) की परिभाषा क्या है?",
+                o: ["वह शुद्ध पदार्थ जिसे किसी रासायनिक क्रिया द्वारा और सरल पदार्थों में विभाजित न किया जा सके", "दो धातुओं का मिश्रण", "जल और हवा का घोल", "कोई भी भारी वस्तु"],
+                a: 0,
+                e: "पृष्ठ 13: तत्व वह पदार्थ है जिसे और सरल पदार्थों में नहीं तोड़ा जा सकता।"
+            },
+            {
+                q: "प्लास्टिक, काँच, लकड़ी, रबर और कागज को तत्व क्यों नहीं माना जाता?",
+                o: ["क्योंकि वे बहुत सस्ते हैं", "क्योंकि वे विभिन्न तत्वों के यौगिक या मिश्रण हैं, शुद्ध तत्व नहीं", "क्योंकि वे तरल हैं", "क्योंकि वे काले होते हैं"],
+                a: 1,
+                e: "पृष्ठ 13: ये सामग्रियाँ शुद्ध तत्व नहीं हैं, अतः इन्हें धातु/अधातु तत्व वर्ग में सीधे नहीं रखते।"
+            },
+            {
+                q: "दो या दो से अधिक धातुओं अथवा धातु एवं अधातु के समयांग मिश्रण को क्या कहते हैं?",
+                o: ["अयस्क", "मिश्रित धातु (Alloy)", "अधातु", "खनिज"],
+                a: 1,
+                e: "पृष्ठ 14 विज्ञान एवं समाज: मिश्रित धातुएँ (Alloys) धातुओं व अधातुओं के मिश्रण से बनती हैं।"
+            },
+            {
+                q: "परमाणु ऊर्जा (Nuclear Energy) के क्षेत्र में किस विशिष्ट धातु का प्रयोग होता है?",
+                o: ["जर्कोनियम (Zirconium)", "लोहा", "एल्युमिनियम", "ताँबा"],
+                a: 0,
+                e: "पृष्ठ 14: जर्कोनियम का उपयोग परमाणु ऊर्जा संयंत्रों में होता है।"
+            },
+            {
+                q: "वायु-अंतरिक्ष (Aerospace) तकनीक में किस हल्की व अत्यधिक मजबूत धातु का उपयोग होता है?",
+                o: ["टाइटेनियम (Titanium)", "सीसा", "सोडियम", "पारा"],
+                a: 0,
+                e: "पृष्ठ 14: वांतरिक्ष उद्योग में टाइटेनियम धातु प्रयुक्त होती है।"
+            },
+            {
+                q: "पर्यावरण संधारणीयता (Sustainability) हेतु भारत में किन मुख्य धातुओं का पुनर्चक्रण (Recycling) होता है?",
+                o: ["लोहा और ऐलुमिनियम", "सोना और प्लैटिनम", "सल्फर और फास्फोरस", "सोडियम और पोटैशियम"],
+                a: 0,
+                e: "पृष्ठ 14: लोहा और ऐलुमिनियम का व्यापक पुनर्चक्रण किया जाता है।"
+            },
+            {
+                q: "खाद्य सामग्रियों की पैकेजिंग हेतु सबसे सस्ती और सुगमता से मुड़ने वाली धातु पन्नी कौन-सी है?",
+                o: ["ताँबा", "ऐलुमिनियम", "लोहा", "सोना"],
+                a: 1,
+                e: "पृष्ठ 15 अभ्यास प्रश्न 1: ऐलुमिनियम की पन्नी संवेष्टन हेतु सर्वाधिक उपयुक्त है।"
+            },
+            {
+                q: "जल के संपर्क में आने पर कौन-सी धातु तुरंत भयानक आग पकड़ लेती है?",
+                o: ["ताँबा", "सोडियम", "जिंक", "ऐलुमिनियम"],
+                a: 1,
+                e: "पृष्ठ 15 अभ्यास प्रश्न 2: सोडियम जल से क्रिया कर जलने लगती है।"
+            },
+            {
+                q: "कमरे के ताप पर द्रव अवस्था में पाई जाने वाली एकमात्र 'अधातु' (Non-metal) कौन-सी है?",
+                o: ["पारा", "ब्रोमीन (Bromine)", "क्लोरीन", "आयोडिन"],
+                a: 1,
+                e: "ब्रोमीन एकमात्र ऐसी अधातु है जो द्रव अवस्था में होती है (पारा द्रव धातु है)।"
+            },
+            {
+                q: "विद्युत की सुचालक एकमात्र अधातु कौन-सी है जिसका उपयोग पेंसिल में होता है?",
+                o: ["हीरा", "ग्रेफाइट (Graphite)", "सल्फर", "फास्फोरस"],
+                a: 1,
+                e: "ग्रेफाइट कार्बन का रूप है जो अधातु होते हुए भी विद्युत का सुचालक है।"
+            },
+            {
+                q: "प्रकृति में पाया जाने वाला सबसे कठोरतम (Hardest) प्राकृतिक पदार्थ कौन-सा है?",
+                o: ["लोहा", "हीरा (Diamond - कार्बन का रूप)", "स्टील", "ताँबा"],
+                a: 1,
+                e: "हीरा कार्बन का अपररूप है और प्राकृतिक रूप से सबसे कठोर पदार्थ है।"
+            },
+            {
+                q: "प्रयोगशाला में धुएँ और हानिकारक गैसों को सुरक्षित रूप से बाहर निकालने वाले स्थान को क्या कहते हैं?",
+                o: ["धूम छत्र (Fume Hood)", "भट्टी", "गैस जार", "वॉच ग्लास"],
+                a: 0,
+                e: "पृष्ठ 12 पारिभाषिक शब्द: धूम छत्र प्रयोगशाला का वायुदार सुरक्षित क्षेत्र होता है।"
+            },
+            {
+                q: "सल्फर चूर्ण को सीधे पानी में डालने पर क्या होता है?",
+                o: ["आग लगती है", "कोई अभिक्रिया नहीं होती (अधातुरूप)", "धुआँ निकलता है", "विस्फोट होता है"],
+                a: 1,
+                e: "पृष्ठ 13 क्रियाकलाप 4.8: सल्फर जल के साथ सामान्यतः अभिक्रिया नहीं करता।"
+            },
+            {
+                q: "उद्दन चम्मच (Deflagrating Spoon) का उपयोग मुख्य रूप से किस काम में होता है?",
+                o: ["खाना खाने में", "पदार्थों को सुरक्षित रूप से गरम करने और जलाने में", "पानी नापने में", "सिक्के बनाने में"],
+                a: 1,
+                e: "पृष्ठ 12: उद्दहन चम्मच एक लंबे हत्थे वाला धातु का चम्मच है जो जलाने हेतु प्रयुक्त होता है।"
+            },
+            {
+                q: "रेगमाल (Sandpaper) से लोहे की कील या मैग्नीशियम रिबन को प्रयोग से पहले क्यों रगड़ा जाता है?",
+                o: ["उसे छोटा करने के लिए", "सतह पर बनी ऑक्साइड या जंग की परत को हटाकर स्वच्छ करने के लिए", "गर्म करने के लिए", "रंगने के लिए"],
+                a: 1,
+                e: "पृष्ठ 9 और 11: रेगमाल से पुरानी ऑक्साइड परत को हटाकर शुद्ध धातु उजागर की जाती है।"
+            },
+            {
+                q: "अधातुक ऑक्साइडों (Non-metallic oxides) का जलीय विलयन लिटमस पत्र को कैसा करता है?",
+                o: ["नीले को लाल", "लाल को नीला", "कोई असर नहीं", "पीला"],
+                a: 0,
+                e: "अधात्विक ऑक्साइड अम्लीय प्रकृति के होते हैं जो नीले लिटमस को लाल करते हैं।"
+            },
+            {
+                q: "धात्विक ऑक्साइडों (Metallic oxides) का जलीय विलयन लिटमस पत्र पर क्या प्रभाव डालता है?",
+                o: ["लाल लिटमस को नीला करता है", "नीले को लाल करता है", "बैगनी करता है", "कोई असर नहीं"],
+                a: 0,
+                e: "धात्विक ऑक्साइड क्षारीय प्रकृति के होते हैं जो लाल लिटमस को नीला करते हैं।"
+            },
+            {
+                q: "राजस्थान के लोहार कृषि कार्यों के लिए लोहे का कौन-सा उपकरण बनाते हैं?",
+                o: ["कुल्हाड़ी और फावड़ा", "खुर्पी और जेली", "तवा और चिमटा", "उपर्युक्त सभी"],
+                a: 3,
+                e: "पृष्ठ 1: लोहार ये सभी उपकरण दैनिक जीवन व कृषि के लिए बनाते हैं।"
+            },
+            {
+                q: "ताँबे के बर्तनों का उपयोग पानी उबालने के लिए क्यों किया जाता है?",
+                o: ["क्योंकि ताँबा ऊष्मा का बहुत अच्छा सुचालक है", "क्योंकि ताँबा अधातु है", "क्योंकि यह पानी में घुलता है", "क्योंकि यह सस्ता है"],
+                a: 0,
+                e: "ताँबा ऊष्मा का सुचालक होने से पानी शीघ्र उबलता है।"
+            },
+            {
+                q: "लोहे में जंग लगने की रासायनिक प्रक्रिया में लोहे का क्या होता है?",
+                o: ["ऑक्सीकरण (Oxidation) और धीमा संक्षारण", "अपचयन", "वाष्पीकरण", "पिघलना"],
+                a: 0,
+                e: "नम वायु में लोहे का धीमा ऑक्सीकरण होकर आयरन ऑक्साइड (जंग) बनता है।"
+            },
+            {
+                q: "क्या ताँबे और चाँदी में भी संक्षारण (Corrosion) होता है?",
+                o: ["नहीं, कभी नहीं", "हाँ, ताँबे पर हरा और चाँदी पर काला निक्षेप बनता है", "केवल पानी में", "केवल आग में"],
+                a: 1,
+                e: "पृष्ठ 10: ताँबा हवा में हरा और चाँदी हवा में सल्फर से क्रिया कर काली हो जाती है।"
+            },
+            {
+                q: "ऑक्सीजन गैस की खोज और नामकरण से जुड़ी अधातु कौन-सी है?",
+                o: ["हाइड्रोजन", "ऑक्सीजन (O2)", "नाइट्रोजन", "कार्बन"],
+                a: 1,
+                e: "ऑक्सीजन एक गैसीय अधातु है जो दहन और श्वसन के लिए आवश्यक है।"
+            },
+            {
+                q: "आभूषण बनाने के लिए केवल कुछ ही धातुएँ (जैसे सोना, चाँदी, प्लैटिनम) उपयुक्त क्यों मानी जाती हैं?",
+                o: ["क्योंकि वे अत्यधिक आघातवर्धनीय, तन्य, द्युतिमय और संक्षारण-प्रतिरोधी होती हैं", "क्योंकि वे सस्ती हैं", "क्योंकि वे जल में घुलती हैं", "क्योंकि वे बहुत नरम होती हैं"],
+                a: 0,
+                e: "पृष्ठ 15 अभ्यास प्रश्न 4: सोना-चाँदी चमक, तन्यता और जंग न लगने के कारण आभूषण हेतु उत्तम हैं।"
+            },
+            {
+                q: "यदि लोहे की कील को सिरके (Acetic acid) में डुबो दिया जाए तो क्या होगा?",
+                o: ["अम्ल की उपस्थिति में तेजी से संक्षारण/क्रिया होगी", "जंग बिल्कुल नहीं लगेगा", "सोना बन जाएगा", "कोई प्रभाव नहीं"],
+                a: 0,
+                e: "सिरका एक अम्ल है जो लोहे की सतह से तेजी से अभिक्रिया करता है।"
+            },
+            {
+                q: "यदि लोहे की कील को तेल में डुबोकर रखा जाए तो क्या होगा?",
+                o: ["जंग नहीं लगेगा क्योंकि तेल हवा और नमी को दूर रखता है", "कील पिघल जाएगी", "कील तुरंत काली होगी", "विस्फोट होगा"],
+                a: 0,
+                e: "पृष्ठ 16 अभ्यास प्रश्न 9: तेल वायु और जल के संपर्क को काट देता है जिससे जंग नहीं लगता।"
+            },
+            {
+                q: "लोहार लोहे को पीटने से पहले भट्टी में 'सुर्ख लाल' क्यों करता है?",
+                o: ["ताकि उच्च ताप पर उसकी कठोरता कम हो और वह आसानी से आकार ले सके", "केवल रंग बदलने के लिए", "उसे जलाने के लिए", "उसे भारी बनाने के लिए"],
+                a: 0,
+                e: "पृष्ठ 2: गर्म होने पर लोहा सुघट्य (Plastic) हो जाता है और पीटने पर आसानी से मुड़ता है।"
+            },
+            {
+                q: "आघातवर्धनीयता का गुण सामान्यतः किसमें 'नहीं' पाया जाता?",
+                o: ["लोहा में", "ताँबा में", "सल्फर और कोयले में (अधातुओं में)", "सोने में"],
+                a: 2,
+                e: "सल्फर और कोयला अधातुएँ हैं जो भंगुर होती हैं, आघातवर्धनीय नहीं।"
+            },
+            {
+                q: "विद्युत फिटिंग में ताँबे और एल्युमिनियम के तारों का उपयोग क्यों किया जाता है?",
+                o: ["क्योंकि वे विद्युत की उत्तम सुचालक और तन्य धातुएँ हैं", "क्योंकि वे कुचालक हैं", "क्योंकि वे बहुत भारी हैं", "क्योंकि वे आसानी से टूटते हैं"],
+                a: 0,
+                e: "पृष्ठ 4 व 8: ताँबा और एल्युमिनियम उच्च विद्युत चालकता व तन्यता के कारण तारों में प्रयुक्त होते हैं।"
+            },
+            {
+                q: "पानी की बोतलों व जूतों के नए डिब्बों में सिलिका जेल का छोटा पैकेट क्यों होता है?",
+                o: ["खुशबू के लिए", "डिब्बे के अंदर की नमी सोखकर सूखा रखने के लिए", "वजन बढ़ाने के लिए", "कीट भगाने के लिए"],
+                a: 1,
+                e: "पृष्ठ 9: सिलिका जेल आर्द्रताग्राही होता है और नमी सोखता है।"
+            },
+            {
+                q: "जल को उबलने पर उसमें से कौन-सी चीज़ बाहर निकल जाती है?",
+                o: ["जल के अणु", "जल में घुली हुई गैसें (जैसे ऑक्सीजन)", "लवण", "हाइड्रोजन"],
+                a: 1,
+                e: "पृष्ठ 9: जल को उबालने से उसमें घुली गैसें निष्कासित हो जाती हैं।"
+            },
+            {
+                q: "मैग्नीशियम ऑक्साइड का रासायनिक सूत्र क्या है?",
+                o: ["MgO", "Mg2O", "MgSO4", "MgCO3"],
+                a: 0,
+                e: "मैग्नीशियम (Mg) और ऑक्सीजन (O) की क्रिया से MgO बनता है।"
+            },
+            {
+                q: "सल्फ्यूरस अम्ल का रासायनिक सूत्र क्या है?",
+                o: ["H2SO4", "H2SO3", "SO2", "HCl"],
+                a: 1,
+                e: "सल्फर डाइऑक्साइड (SO2) + जल (H2O) = H2SO3 (सल्फ्यूरस अम्ल)।"
+            },
+            {
+                q: "सोडियम को जल में डालने पर क्या दुर्घटना हो सकती है?",
+                o: ["यह पानी को जमा देती है", "यह उत्पन्न हाइड्रोजन के कारण तेजी से धमाके के साथ आग पकड़ लेती है", "यह डूब जाती है", "कोई क्रिया नहीं"],
+                a: 1,
+                e: "सोडियम जल से क्रिया कर अत्यधिक ऊष्मा व H2 गैस बनाती है जो तुरंत जल उठती है।"
+            },
+            {
+                q: "सल्फर किस नाम से बाजार में सामान्यतः मिलता है?",
+                o: ["फिटकरी", "गंधक", "नौसादर", "सिंदूर"],
+                a: 1,
+                e: "पृष्ठ 2 नोट: बाजार में सल्फर प्रायः गंधक के नाम से मिलता है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सी एक अधातु है?",
+                o: ["ताँबा", "एल्युमिनियम", "सल्फर", "सोना"],
+                a: 2,
+                e: "सल्फर (गंधक) एक अधातु है।"
+            },
+            {
+                q: "निम्नलिखित में से कौन-सी एक धातु है?",
+                o: ["ऑक्सीजन", "नाइट्रोजन", "ताँबा (Copper)", "कार्बन"],
+                a: 2,
+                e: "ताँबा एक धातु है, जबकि अन्य अधातुएँ हैं।"
+            },
+            {
+                q: "CBT ऑनलाइन परीक्षा में समय प्रबंधन हेतु क्या स्क्रीन पर दिखता रहता है?",
+                o: ["उल्टी गिनती वाला टाइमर (Countdown Timer)", "घड़ी की टिक-टिक", "कैलेंडर", "स्टॉपवॉच"],
+                a: 0,
+                e: "शीर्ष पर 120 मिनट का टाइमर लगातार घटता हुआ दिखाई देता है।"
+            },
+            {
+                q: "CBT परीक्षा में हरे रंग का बटन पैलेट में क्या दर्शाता है?",
+                o: ["न देखा गया प्रश्न", "उत्तर दिया गया प्रश्न (Answered)", "समीक्षा हेतु चिह्नित", "गलत उत्तर"],
+                a: 1,
+                e: "हरा रंग यह निरूपित करता है कि आपने प्रश्न का उत्तर सफलतापूर्वक दे दिया है।"
+            },
+            {
+                q: "CBT परीक्षा में बैंगनी (Purple) रंग का बटन क्या दर्शाता है?",
+                o: ["समीक्षा हेतु चिह्नित प्रश्न (Marked for Review)", "उत्तर दिया गया", "न देखा गया", "सबमिट किया गया"],
+                a: 0,
+                e: "बैंगनी रंग समीक्षा हेतु चिह्नित प्रश्नों के लिए नियत होता है।"
+            },
+            {
+                q: "सही उत्तर पर +1.0 और गलत पर -0.33 की प्रणाली में यदि आपने 80 सही और 20 गलत किए तो प्राप्तांक क्या होगा?",
+                o: ["80.0", "73.4 (80 - 6.6)", "60.0", "100.0"],
+                a: 1,
+                e: "गणना: 80 × 1.0 = 80; गलत का अंक: 20 × 0.33 = 6.6; कुल प्राप्तांक = 80 - 6.6 = 73.4।"
+            },
+            {
+                q: "यदि किसी प्रश्न का उत्तर दिए बिना छोड़ दिया जाए तो कितने अंक मिलेंगे?",
+                o: ["-0.33", "0 अंक", "+1.0", "-1.0"],
+                a: 1,
+                e: "अनुत्तरित प्रश्नों के लिए शून्य (0) अंक का प्रावधान है।"
+            },
+            {
+                q: "विकल्प E 'उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक' का चयन कब करना चाहिए?",
+                o: ["जब A, B, C, D में से कोई सत्य न हो या एक से अधिक सत्य हों", "हर बार", "केवल पहले प्रश्न में", "कभी नहीं"],
+                a: 0,
+                e: "विकल्प E विशेष परिस्थितियों हेतु दिया जाता है।"
+            },
+            {
+                q: "NCERT कक्षा 7 विज्ञान के अध्याय 4 का क्या नाम है?",
+                o: ["विद्युत परिपथ एवं उनके घटक", "धातुओं और अधातुओं का संसार", "अम्ल, क्षारक और लवण", "गति एवं समय"],
+                a: 1,
+                e: "अध्याय 4 का आधिकारिक नाम 'धातुओं और अधातुओं का संसार' है।"
+            },
+            {
+                q: "प्रस्तुत CBT परीक्षा ऐप की सबसे मुख्य तकनीकी विशेषता क्या है?",
+                o: ["यह पूर्णतः एक फ़ाइल (Single File) में है और सबमिट पर 100 प्रश्नों की व्याख्या तुरंत दिखाती है", "यह धीमी चलती है", "इसमें व्याख्या नहीं है", "यह इंटरनेट बंद कर देती है"],
+                a: 0,
+                e: "यह ऐप स्व-निहित (Self-contained) है और सबमिट करने पर सभी 100 प्रश्नों के उत्तर व व्याख्या विस्तृत रूप से दिखाती है।"
+            }
+        ];
+
+        // Format Questions with Option E
+        const questions = rawQuestions.map((item, idx) => {
+            const opts = [...item.o, "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"];
+            return {
+                id: idx + 1,
+                question: item.q,
+                options: opts,
+                correct: item.a,
+                explanation: item.e
+            };
+        });
+
+        // App State
+        let userName = "";
+        let currentQ = 0;
+        let userAnswers = new Array(100).fill(null);
+        let markedForReview = new Array(100).fill(false);
+        let visitedQuestions = new Array(100).fill(false);
+        let timerInterval = null;
+        let timeLeft = 120 * 60; // 120 mins in secs
+
+        window.onload = function() {
+            renderPalette();
+        };
+
+        function startExam(e) {
+            e.preventDefault();
+            const nameInput = document.getElementById('userName').value.trim();
+            if (!nameInput) return;
+
+            userName = nameInput;
+            document.getElementById('screenRegister').classList.add('hidden');
+            document.getElementById('screenExam').classList.remove('hidden');
+            document.getElementById('headerTimerBadge').classList.remove('hidden');
+
+            visitedQuestions[0] = true;
+            loadQuestion(0);
+            startTimer();
+        }
+
+        function startTimer() {
+            updateTimerDisplay();
+            timerInterval = setInterval(() => {
+                timeLeft--;
+                updateTimerDisplay();
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    alert("समय समाप्त हो गया है! आपकी परीक्षा स्वतः सबमिट की जा रही है।");
+                    autoSubmitExam();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            const mins = Math.floor(timeLeft / 60);
+            const secs = timeLeft % 60;
+            document.getElementById('timerDisplay').innerText = 
+                `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        function renderPalette() {
+            const grid = document.getElementById('paletteGrid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < 100; i++) {
+                const btn = document.createElement('button');
+                btn.id = `paletteBtn_${i}`;
+                btn.innerText = i + 1;
+                btn.onclick = () => jumpToQuestion(i);
+                btn.className = `h-8 w-8 text-xs font-bold rounded-lg border transition flex items-center justify-center ${getPaletteStyle(i)}`;
+                grid.appendChild(btn);
+            }
+            updatePaletteCounts();
+        }
+
+        function getPaletteStyle(index) {
+            const isAns = userAnswers[index] !== null;
+            const isMrk = markedForReview[index];
+            const isVis = visitedQuestions[index];
+
+            if (isAns && isMrk) return 'bg-amber-500 text-white border-amber-600';
+            if (isMrk) return 'bg-purple-600 text-white border-purple-700';
+            if (isAns) return 'bg-emerald-500 text-white border-emerald-600';
+            if (isVis) return 'bg-slate-200 text-slate-800 border-slate-300';
+            return 'bg-slate-100 text-slate-400 border-slate-200';
+        }
+
+        function updatePaletteCounts() {
+            let notVis = 0, ans = 0, mrk = 0, ansMrk = 0;
+
+            for (let i = 0; i < 100; i++) {
+                const isAns = userAnswers[i] !== null;
+                const isMrk = markedForReview[i];
+                const isVis = visitedQuestions[i];
+
+                if (isAns && isMrk) ansMrk++;
+                else if (isMrk) mrk++;
+                else if (isAns) ans++;
+                else if (!isVis) notVis++;
+            }
+
+            document.getElementById('cntNotVisited').innerText = notVis;
+            document.getElementById('cntAnswered').innerText = ans;
+            document.getElementById('cntMarked').innerText = mrk;
+            document.getElementById('cntAnsMarked').innerText = ansMrk;
+        }
+
+        function loadQuestion(index) {
+            currentQ = index;
+            visitedQuestions[index] = true;
+
+            const qData = questions[index];
+            document.getElementById('qNumberBadge').innerText = `प्रश्न ${index + 1} / 100`;
+            document.getElementById('qText').innerText = qData.question;
+
+            const container = document.getElementById('optionsContainer');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D', 'E'];
+
+            qData.options.forEach((optText, optIdx) => {
+                const isSelected = userAnswers[index] === optIdx;
+                const optDiv = document.createElement('div');
+                optDiv.onclick = () => selectOption(optIdx);
+                optDiv.className = `p-3.5 rounded-xl border-2 transition cursor-pointer flex items-center space-x-3 ${
+                    isSelected 
+                        ? 'border-amber-600 bg-amber-50/70 text-amber-950 font-medium' 
+                        : 'border-slate-200 bg-white hover:bg-slate-50 text-slate-700'
+                }`;
+
+                optDiv.innerHTML = `
+                    <span class="w-7 h-7 rounded-full border flex items-center justify-center font-bold text-xs ${
+                        isSelected ? 'bg-amber-600 text-white border-amber-600' : 'bg-slate-100 text-slate-600 border-slate-300'
+                    }">${optionLabels[optIdx]}</span>
+                    <span class="text-xs md:text-sm flex-grow">${optText}</span>
+                `;
+                container.appendChild(optDiv);
+            });
+
+            // Refresh Palette Display
+            for (let i = 0; i < 100; i++) {
+                const b = document.getElementById(`paletteBtn_${i}`);
+                if (b) {
+                    const activeRing = (i === index) ? 'ring-2 ring-amber-500 font-extrabold' : '';
+                    b.className = `h-8 w-8 text-xs rounded-lg border transition flex items-center justify-center ${getPaletteStyle(i)} ${activeRing}`;
+                }
+            }
+
+            updatePaletteCounts();
+        }
+
+        function selectOption(optIdx) {
+            userAnswers[currentQ] = optIdx;
+            loadQuestion(currentQ);
+        }
+
+        function clearResponse() {
+            userAnswers[currentQ] = null;
+            loadQuestion(currentQ);
+        }
+
+        function markForReview() {
+            markedForReview[currentQ] = !markedForReview[currentQ];
+            loadQuestion(currentQ);
+        }
+
+        function saveAndNext() {
+            if (currentQ < 99) {
+                jumpToQuestion(currentQ + 1);
+            } else {
+                confirmSubmit();
+            }
+        }
+
+        function prevQuestion() {
+            if (currentQ > 0) {
+                jumpToQuestion(currentQ - 1);
+            }
+        }
+
+        function jumpToQuestion(index) {
+            loadQuestion(index);
+        }
+
+        function confirmSubmit() {
+            let ans = 0, unans = 0, mrk = 0;
+            for (let i = 0; i < 100; i++) {
+                if (userAnswers[i] !== null) ans++;
+                else unans++;
+                if (markedForReview[i]) mrk++;
+            }
+
+            document.getElementById('modalAns').innerText = ans;
+            document.getElementById('modalUnans').innerText = unans;
+            document.getElementById('modalMarked').innerText = mrk;
+
+            document.getElementById('submitModal').classList.remove('hidden');
+        }
+
+        function closeSubmitModal() {
+            document.getElementById('submitModal').classList.add('hidden');
+        }
+
+        function finalSubmitExam() {
+            closeSubmitModal();
+            if (timerInterval) clearInterval(timerInterval);
+            calculateAndShowResult();
+        }
+
+        function autoSubmitExam() {
+            if (timerInterval) clearInterval(timerInterval);
+            calculateAndShowResult();
+        }
+
+        function calculateAndShowResult() {
+            document.getElementById('screenExam').classList.add('hidden');
+            document.getElementById('headerTimerBadge').classList.add('hidden');
+            document.getElementById('screenResult').classList.remove('hidden');
+
+            document.getElementById('resUserName').innerText = userName;
+
+            let correctCount = 0;
+            let wrongCount = 0;
+            let unansweredCount = 0;
+
+            for (let i = 0; i < 100; i++) {
+                const userAns = userAnswers[i];
+                const correctAns = questions[i].correct;
+
+                if (userAns === null) {
+                    unansweredCount++;
+                } else if (userAns === correctAns) {
+                    correctCount++;
+                } else {
+                    wrongCount++;
+                }
+            }
+
+            const score = (correctCount * 1.0) - (wrongCount * 0.33);
+            const totalAttempted = correctCount + wrongCount;
+            const accuracy = totalAttempted > 0 ? ((correctCount / totalAttempted) * 100).toFixed(1) : 0;
+
+            document.getElementById('resScore').innerText = `${score.toFixed(2)} / 100`;
+            document.getElementById('resCorrect').innerText = correctCount;
+            document.getElementById('resWrong').innerText = wrongCount;
+            document.getElementById('resAccuracy').innerText = `${accuracy}%`;
+
+            renderSolutions();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderSolutions() {
+            const container = document.getElementById('solutionsContainer');
+            container.innerHTML = '';
+
+            const optionLabels = ['A', 'B', 'C', 'D', 'E'];
+
+            questions.forEach((q, idx) => {
+                const uAns = userAnswers[idx];
+                const cAns = q.correct;
+
+                const isCorrect = uAns === cAns;
+                const isUnans = uAns === null;
+
+                let statusBadge = '';
+                let borderClass = '';
+
+                if (isUnans) {
+                    statusBadge = `<span class="bg-slate-100 text-slate-600 text-xs font-bold px-2.5 py-1 rounded">अनुत्तरित</span>`;
+                    borderClass = 'border-slate-200';
+                } else if (isCorrect) {
+                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded"><i class="fa-solid fa-check"></i> सही (+1.0)</span>`;
+                    borderClass = 'border-emerald-300 bg-emerald-50/20';
+                } else {
+                    statusBadge = `<span class="bg-red-100 text-red-800 text-xs font-bold px-2.5 py-1 rounded"><i class="fa-solid fa-xmark"></i> गलत (-0.33)</span>`;
+                    borderClass = 'border-red-300 bg-red-50/20';
+                }
+
+                const card = document.createElement('div');
+                card.className = `p-5 rounded-xl border ${borderClass} space-y-3`;
+
+                let optionsHTML = '';
+                q.options.forEach((optText, oIdx) => {
+                    let optStyle = 'bg-slate-50 text-slate-700 border-slate-200';
+                    let icon = '';
+
+                    if (oIdx === cAns) {
+                        optStyle = 'bg-emerald-100/80 text-emerald-900 border-emerald-400 font-semibold';
+                        icon = '<i class="fa-solid fa-circle-check text-emerald-600 ml-auto"></i>';
+                    }
+                    if (oIdx === uAns && uAns !== cAns) {
+                        optStyle = 'bg-red-100/80 text-red-900 border-red-400 font-semibold';
+                        icon = '<i class="fa-solid fa-circle-xmark text-red-600 ml-auto"></i>';
+                    }
+
+                    optionsHTML += `
+                        <div class="p-2.5 rounded-lg border text-xs md:text-sm flex items-center ${optStyle}">
+                            <span class="font-bold mr-2">${optionLabels[oIdx]}.</span>
+                            <span>${optText}</span>
+                            ${icon}
+                        </div>
+                    `;
+                });
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="font-bold text-slate-800 text-sm md:text-base">
+                            <span class="text-amber-600">प्र. ${idx + 1}:</span> ${q.question}
+                        </h4>
+                        ${statusBadge}
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                        ${optionsHTML}
+                    </div>
+
+                    <div class="bg-amber-50/80 border border-amber-200/80 p-3 rounded-lg text-xs md:text-sm text-slate-700 mt-2">
+                        <strong class="text-amber-900 block mb-0.5"><i class="fa-solid fa-lightbulb text-amber-600"></i> व्याख्या / NCERT संदर्भ:</strong>
+                        ${q.explanation}
+                    </div>
+                `;
+
+                container.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>
