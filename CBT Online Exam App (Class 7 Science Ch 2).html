@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="hi" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT परीक्षा: पदार्थों का अन्वेषण - अम्लीय, क्षारीय एवं उदासीन (कक्षा 7)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Hind', sans-serif;
+            user-select: none;
+        }
+        /* Custom Scrollbar for Palette and Explanation */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between text-slate-800 antialiased">
+
+    <!-- TOP HEADER -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-flask-vial text-2xl text-yellow-300"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl tracking-wide leading-tight">NCERT जिज्ञासा - ऑनलाइन CBT परीक्षा</h1>
+                    <p class="text-xs text-blue-200">पाठ 2: पदार्थों का अन्वेषण - अम्लीय, क्षारीय एवं उदासीन (कक्षा 7)</p>
+                </div>
+            </div>
+            
+            <!-- Live Timer Badge (Hidden initially) -->
+            <div id="header-timer-badge" class="hidden bg-red-600 text-white font-mono font-bold px-4 py-2 rounded-lg border border-red-400 flex items-center space-x-2 animate-pulse shadow-lg">
+                <i class="fa-regular fa-clock"></i>
+                <span id="timer-display">120:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow flex flex-col justify-center items-center p-2 sm:p-4">
+
+        <!-- SCREEN 1: REGISTRATION & INSTRUCTIONS -->
+        <section id="start-screen" class="w-full max-w-4xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-auto my-4">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white text-center relative">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-1">CBT कंप्यूटर आधारित परीक्षा केंद्र</h2>
+                <p class="text-blue-100 text-sm md:text-base">कृपया परीक्षा शुरू करने से पहले दिए गए सभी निर्देशों को ध्यानपूर्वक पढ़ें।</p>
+            </div>
+
+            <div class="p-6 md:p-8 space-y-6">
+                <!-- Registration Input -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <label for="student-name" class="block font-semibold text-slate-700 mb-2">
+                        <i class="fa-solid fa-user-graduate text-blue-600 mr-2"></i>परीक्षार्थी का नाम (Candidate's Name): <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="student-name" placeholder="अपना पूरा नाम दर्ज करें..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 bg-white shadow-sm font-medium">
+                </div>
+
+                <!-- Exam Instructions -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 text-lg flex items-center">
+                        <i class="fa-solid fa-clipboard-list text-blue-600 mr-2"></i>परीक्षा निर्देश एवं दिशानिर्देश:
+                    </h3>
+                    
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-600">
+                        <li class="flex items-start space-x-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                            <i class="fa-solid fa-clock text-blue-600 mt-1"></i>
+                            <span><b>कुल समय सीमा:</b> 120 मिनट (2 घंटे)। समय समाप्त होने पर परीक्षा स्वतः सबमिट हो जाएगी।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                            <i class="fa-solid fa-list-check text-blue-600 mt-1"></i>
+                            <span><b>कुल प्रश्न:</b> 100 बहुविकल्पीय प्रश्न (MCQs), प्रत्येक प्रश्न के 5 विकल्प (A, B, C, D, E) हैं।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-green-50 p-3 rounded-lg border border-green-100">
+                            <i class="fa-solid fa-circle-check text-green-600 mt-1"></i>
+                            <span><b>अंक प्रणाली:</b> प्रत्येक सही उत्तर के लिए <b>+1.00 अंक</b> दिया जाएगा।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-red-50 p-3 rounded-lg border border-red-100">
+                            <i class="fa-solid fa-triangle-exclamation text-red-600 mt-1"></i>
+                            <span><b>नकारात्मक अंकन (Negative Marking):</b> प्रत्येक गलत उत्तर पर <b>-0.33 अंक</b> काटे जाएँगे।</span>
+                        </li>
+                    </ul>
+
+                    <!-- Color Palette Guide -->
+                    <div class="pt-2">
+                        <h4 class="font-semibold text-slate-700 text-sm mb-2">प्रश्न स्थिति पैलेट (Question Status Legend):</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center font-bold">1</span>
+                                <span>Not Visited (देखा नहीं)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center font-bold">2</span>
+                                <span>Not Answered (उत्तर नहीं दिया)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">3</span>
+                                <span>Answered (उत्तर दिया)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">4</span>
+                                <span>Marked for Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-4 text-center">
+                    <button id="start-exam-btn" class="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition transform active:scale-95 flex items-center justify-center mx-auto space-x-2">
+                        <span>परीक्षा प्रारंभ करें (Start Test)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SCREEN 2: MAIN CBT EXAM SCREEN (Hidden Initially) -->
+        <section id="exam-screen" class="hidden w-full max-w-7xl h-full flex-grow flex flex-col lg:flex-row gap-4 my-2">
+            
+            <!-- LEFT COLUMN: Question & Options Area -->
+            <div class="flex-1 bg-white rounded-2xl shadow-lg border border-slate-200 flex flex-col overflow-hidden">
+                
+                <!-- Exam Sub-Header -->
+                <div class="bg-slate-100 px-6 py-3 border-b border-slate-200 flex justify-between items-center text-sm font-semibold text-slate-700">
+                    <div>
+                        <span>परीक्षार्थी: </span><span id="display-candidate-name" class="text-blue-700 font-bold"></span>
+                    </div>
+                    <div class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-medium">
+                        NCERT Class 7 Science: Ch-2 (अम्लीय, क्षारीय एवं उदासीन)
+                    </div>
+                </div>
+
+                <!-- Question Header -->
+                <div class="p-4 sm:p-6 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-blue-900" id="question-number-title">
+                        प्रश्न संख्या 1 / 100
+                    </h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-slate-200 text-slate-700 rounded">
+                        अंक: +1.0 | ऋण: -0.33
+                    </span>
+                </div>
+
+                <!-- Question Body & Options (Scrollable) -->
+                <div class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-6">
+                    <!-- Question Text -->
+                    <div class="text-base sm:text-lg font-medium text-slate-800 leading-relaxed bg-white p-4 rounded-xl border border-slate-100 shadow-sm" id="question-text">
+                        प्रश्न लोड हो रहा है...
+                    </div>
+
+                    <!-- Options List -->
+                    <div class="space-y-3" id="options-container">
+                        <!-- Options generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Action Control Footer Buttons -->
+                <div class="p-4 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-2 justify-between items-center">
+                    <div class="flex flex-wrap gap-2">
+                        <button id="btn-prev" class="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-bold rounded-lg shadow transition flex items-center space-x-1 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <span>Previous</span>
+                        </button>
+                        <button id="btn-clear" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-lg shadow transition">
+                            Clear Response
+                        </button>
+                        <button id="btn-mark" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg shadow transition">
+                            Mark for Review
+                        </button>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button id="btn-save-next" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-md transition flex items-center space-x-1">
+                            <span>Save & Next</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button id="btn-final-submit" class="px-5 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-lg shadow-md transition">
+                            Final Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Question Palette Sidebar -->
+            <div class="w-full lg:w-80 bg-white rounded-2xl shadow-lg border border-slate-200 p-4 flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold text-slate-800 border-b pb-2 mb-3 text-center flex items-center justify-center">
+                        <i class="fa-solid fa-grip text-blue-600 mr-2"></i>Question Palette (प्रश्न पैलेट)
+                    </h4>
+
+                    <!-- Palette Legend Summary -->
+                    <div class="grid grid-cols-2 gap-2 text-xs mb-4 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-green-500 inline-block"></span>
+                            <span class="text-slate-600">Answered (<span id="count-answered">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-red-500 inline-block"></span>
+                            <span class="text-slate-600">Not Ans (<span id="count-not-answered">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-purple-600 inline-block"></span>
+                            <span class="text-slate-600">Marked (<span id="count-marked">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-slate-300 inline-block"></span>
+                            <span class="text-slate-600">Not Visited (<span id="count-not-visited">100</span>)</span>
+                        </div>
+                    </div>
+
+                    <!-- 1 to 100 Grid -->
+                    <div class="max-h-[360px] lg:max-h-[480px] overflow-y-auto p-1 border rounded-xl bg-slate-50">
+                        <div class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-2" id="palette-grid">
+                            <!-- Buttons 1 to 100 generated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t mt-4 text-center">
+                    <p class="text-xs text-slate-500">परीक्षा पूरा करने पर Final Submit दबाएँ।</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SCREEN 3: RESULT & SOLUTION REVIEW SCREEN (Hidden Initially) -->
+        <section id="result-screen" class="hidden w-full max-w-5xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-4">
+            <!-- Result Header -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-6 sm:p-8 text-center relative">
+                <div class="inline-block p-3 bg-white/10 rounded-full mb-3 backdrop-blur-md">
+                    <i class="fa-solid fa-trophy text-4xl text-yellow-400"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold">परीक्षा परिणाम व विस्तृत उत्तर कुंजी</h2>
+                <p class="text-blue-200 text-sm mt-1">परीक्षार्थी: <span id="res-candidate-name" class="font-bold text-white underline"></span></p>
+            </div>
+
+            <!-- Score Scorecard Grid -->
+            <div class="p-6 md:p-8 space-y-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-blue-600 block mb-1">कुल प्राप्तांक (Total Score)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-blue-900" id="res-total-score">0</span>
+                        <span class="text-xs text-slate-500 block">/ 100 अंक</span>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-emerald-600 block mb-1">सही प्रश्न (Correct)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-emerald-800" id="res-correct-count">0</span>
+                        <span class="text-xs text-emerald-600 block">+1.0 प्रति प्रश्न</span>
+                    </div>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-rose-600 block mb-1">गलत प्रश्न (Incorrect)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-rose-800" id="res-incorrect-count">0</span>
+                        <span class="text-xs text-rose-600 block">-0.33 कटौती</span>
+                    </div>
+                    <div class="bg-purple-50 border border-purple-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-purple-600 block mb-1">सटीकता (Accuracy %)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-purple-900" id="res-accuracy">0%</span>
+                        <span class="text-xs text-slate-500 block">परफॉर्मन्स दर</span>
+                    </div>
+                </div>
+
+                <!-- Print & Restart Buttons -->
+                <div class="flex flex-wrap justify-between items-center border-b pb-4 gap-4">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center">
+                        <i class="fa-solid fa-book-open text-blue-600 mr-2"></i>सभी 100 प्रश्नों की विस्तृत उत्तर कुंजी एवं व्याख्या
+                    </h3>
+                    <div class="flex space-x-3">
+                        <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold text-sm rounded-lg shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-print"></i>
+                            <span>उत्तर कुंजी प्रिंट करें</span>
+                        </button>
+                        <button onclick="location.reload()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>पुनः परीक्षा दें</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detailed Solutions Container (100 Questions) -->
+                <div class="space-y-6" id="solutions-container">
+                    <!-- Dynamic rendering of 100 detailed solutions -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-3 text-center text-xs border-t border-slate-800">
+        <p>© NCERT जिज्ञासा कक्षा 7 विज्ञान - अध्याय 2: पदार्थों का अन्वेषण (Netlify Compatible)</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT EXAM ENGINE & 100 QUESTION DATASTRUCTURE -->
+    <script>
+        // --- 100 EXHAUSTIVE MCQs BASED STRICTLY ON NCERT CLASS 7 SCIENCE CHAPTER 2 ---
+        const rawQuestions = [
+            {
+                q: "1. विद्यालय ने राष्ट्रीय विज्ञान दिवस मनाने हेतु विज्ञान मेले का आयोजन किस तिथि को किया था?",
+                o: ["28 फरवरी", "28 जनवरी", "5 सितंबर", "28 मार्च", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पाठ के आरंभ में उल्लेख है कि 28 फरवरी को विद्यालय ने राष्ट्रीय विज्ञान दिवस मनाने हेतु विज्ञान मेले का आयोजन किया।"
+            },
+            {
+                q: "2. विज्ञान मेले के प्रवेश द्वार पर भाई-बहन (अश्विन और कीर्ति) को श्वेत कागज पर द्रव छिड़कने पर कौन सा वाक्य दिखाई दिया?",
+                o: ["विज्ञान की दुनिया में आपका स्वागत है", "विज्ञान के अदभुत जगत में आपका स्वागत है", "अन्वेषण, परीक्षण और आनंद", "प्रकृति हमारी प्रयोगशाला है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "द्रव पदार्थ के छिड़कते ही उनके कागजों पर 'विज्ञान के अदभुत जगत में आपका स्वागत है' वाक्य दिखाई दिया।"
+            },
+            {
+                q: "3. चूने का पानी (Lime Water) तैयार करने के लिए लाइम (कैल्शियम ऑक्साइड) को जल में मिलाकर लगभग कितने समय तक अबाधित रखा जाता है?",
+                o: ["लगभग 30 मिनट", "लगभग 1 घंटा", "लगभग 24 घंटे", "लगभग 10 मिनट", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चूने का पानी, पानी में कैल्शियम हाइड्रॉक्साइड का विलयन है जिसे जल में मिलाकर लगभग एक घंटे के लिए अबाधित रखकर सरलता से तैयार किया जा सकता है।"
+            },
+            {
+                q: "4. रासायनिक रूप से 'चूने का पानी' (Lime Water) किसका विलयन है?",
+                o: ["कैल्शियम कार्बोनेट का", "कैल्शियम हाइड्रॉक्साइड का", "कैल्शियम क्लोराइड का", "सोडियम हाइड्रॉक्साइड का", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चूने का पानी, पानी में कैल्शियम हाइड्रॉक्साइड का विलयन है।"
+            },
+            {
+                q: "5. क्रियाकलाप 2.1 में निम्नलिखित में से कौन सा प्रतिदर्श (Sample) एकत्रित करने की सूची में शामिल नहीं था?",
+                o: ["नींबू का रस और इमली का पानी", "सिरका और बेकिंग सोडा का विलयन", "पेट्रोल और केरोसिन", "नल का पानी और नमक का विलयन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "पेट्रोल और केरोसिन प्रतिदर्शों की सूची में नहीं थे। सूची में नींबू, साबुन, आँवला, इमली, सिरका, बेकिंग सोडा, चूने का पानी, नल का पानी, वाशिंग पाउडर, चीनी और नमक शामिल थे।"
+            },
+            {
+                q: "6. समूह 'क' में वे प्रतिदर्श रखे गए हैं जो:",
+                o: ["नीले लिटमस पत्र को लाल कर देते हैं", "लाल लिटमस पत्र को नीला कर देते हैं", "लिटमस पत्रों को प्रभावित नहीं करते", "हल्दी को लाल कर देते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "समूह 'क' में वे प्रतिदर्श हैं जो नीले लिटमस पत्र को लाल कर देते हैं (अम्लीय प्रकृति)।"
+            },
+            {
+                q: "7. समूह 'ख' में वे प्रतिदर्श रखे गए हैं जो:",
+                o: ["नीले लिटमस पत्र को लाल कर देते हैं", "लाल लिटमस पत्र को नीला कर देते हैं", "दोनों लिटमस पत्रों पर कोई असर नहीं डालते", "गुलाब के अर्क को लाल करते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "समूह 'ख' में वे प्रतिदर्श हैं जो लाल लिटमस पत्र को नीला कर देते हैं (क्षारीय प्रकृति)।"
+            },
+            {
+                q: "8. समूह 'ग' के प्रतिदर्श (जैसे नल का पानी, शक्कर का विलयन, नमक का विलयन) लिटमस पत्रों पर क्या प्रभाव डालते हैं?",
+                o: ["नीले को लाल करते हैं", "लाल को नीला करते हैं", "दोनों प्रकार के लिटमस पत्रों को प्रभावित नहीं करते (उदासीन)", "दोनों को हरा कर देते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "समूह 'ग' के पदार्थों से दोनों प्रकार के लिटमस पत्रों का रंग नहीं बदलता है, इन्हें उदासीन कहा जाता है।"
+            },
+            {
+                q: "9. 'लिटमस' निम्नलिखित में से किससे प्राप्त होने वाला एक प्राकृतिक पदार्थ है?",
+                o: ["शैवाल", "कवक", "लाइकेन (Lichen)", "गुलाब के फूल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "लिटमस लाइकेन से प्राप्त एक प्राकृतिक पदार्थ है।"
+            },
+            {
+                q: "10. लाइकेन (Lichen) किन दो जीवों की सहजीविता (Symbiosis) से बनते हैं?",
+                o: ["जीवाणु और विषाणु", "कवक और शैवाल", "अमीबा और पैरामीशियम", "फर्न और मॉस", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "लाइकेन दो जीवों की सहजीविता से बनते हैं जिनमें एक कवक होता है और दूसरा शैवाल होता है।"
+            },
+            {
+                q: "11. लाइकेन सामान्यतः किन क्षेत्रों की चट्टानों और पेड़ों पर उगते हैं?",
+                o: ["शुष्क और मरुस्थलीय क्षेत्रों में", "जहाँ प्रचुर मात्रा में वर्षा होती है और वायु स्वच्छ होती है", "औद्योगिक प्रदूषण वाले क्षेत्रों में", "गर्म रेगिस्तान में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ये उन क्षेत्रों की चट्टानों और पेड़ों पर उगते हैं जहाँ प्रचुर मात्रा में वर्षा होती है और वायु स्वच्छ होती है।"
+            },
+            {
+                q: "12. ऐसे पदार्थ जो नीले लिटमस पत्र को लाल कर देते हैं, उनकी प्रकृति कैसी होती है?",
+                o: ["क्षारीय", "अम्लीय", "उदासीन", "लवणीय", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ऐसे पदार्थ जो नीले लिटमस पत्र को लाल कर देते हैं वे अम्लीय प्रकृति के होते हैं।"
+            },
+            {
+                q: "13. ऐसे पदार्थ जो लाल लिटमस पत्र को नीला कर देते हैं, उनकी प्रकृति कैसी होती है?",
+                o: ["अम्लीय", "क्षारीय", "उदासीन", "विषैली", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ऐसे पदार्थ जो लाल लिटमस पत्र को नीला कर देते हैं क्षारीय प्रकृति के होते हैं।"
+            },
+            {
+                q: "14. अम्ल-क्षार सूचक (Acid-Base Indicator) किसे कहा जाता है?",
+                o: ["जो जल को शुद्ध करते हैं", "जो अम्लीय और क्षारीय विलयन में भिन्न-भिन्न रंग दर्शाते हैं", "जो भोजन को स्वादिष्ट बनाते हैं", "जो विद्युत के अच्छे चालक होते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चूँकि लिटमस अम्लीय और क्षारीय विलयन में भिन्न-भिन्न रंग दर्शाता है, अतः यह अम्ल-क्षार सूचक कहलाता है।"
+            },
+            {
+                q: "15. नींबू के रस में सामान्यतः कौन सा अम्ल उपस्थित होता है?",
+                o: ["सिट्रिक अम्ल", "लेक्ट्रिक अम्ल", "एसिटिक अम्ल", "फॉस्फोरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चित्र 2.4 के अनुसार नींबू के रस में सिट्रिक अम्ल होता है।"
+            },
+            {
+                q: "16. आँवले के रस में कौन सा अम्ल/विटामिन प्रमुखता से पाया जाता है?",
+                o: ["सिट्रिक अम्ल एवं एस्कॉर्बिक अम्ल (विटामिन C)", "ऑक्सेलिक अम्ल", "टार्टरिक अम्ल", "फॉर्मिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चित्र 2.4 के अनुसार आँवले में सिट्रिक अम्ल एवं एस्कॉर्बिक अम्ल (विटामिन C) पाए जाते हैं।"
+            },
+            {
+                q: "17. इमली के पानी में मुख्य रूप से कौन सा अम्ल पाया जाता है?",
+                o: ["सिट्रिक अम्ल", "टार्टरिक अम्ल", "ऑक्सेलिक अम्ल", "एसिटिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चित्र 2.4 के अनुसार इमली में टार्टरिक अम्ल पाया जाता है।"
+            },
+            {
+                q: "18. खट्टे स्वाद वाले पदार्थों में क्या उपस्थित होता है?",
+                o: ["क्षार", "अम्ल", "लवण", "शर्करा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "खट्टे स्वाद वाले पदार्थों में अम्ल होता है और वे अम्लीय प्रकृति के होते हैं।"
+            },
+            {
+                q: "19. क्षारीय पदार्थ सामान्यतया छूने पर कैसे प्रतीत होते हैं?",
+                o: ["खुरदरे", "साबुन जैसे चिकने", "कड़े और नुकीले", "बर्फीले ठंडे", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "बेकिंग सोडा के विलयन को उंगलियों के बीच रगड़ने पर यह साबुन जैसा चिकना लगता है; क्षारीय पदार्थ सामान्यतया छूने पर चिकने होते हैं।"
+            },
+            {
+                q: "20. क्या सभी कड़वे स्वाद वाले पदार्थों की प्रकृति क्षारीय होती है? उदाहरण दीजिए।",
+                o: ["हाँ, सभी कड़वे पदार्थ क्षारीय होते हैं", "नहीं, जैसे करेले का स्वाद कड़वा होता है परंतु यह क्षारीय प्रकृति का नहीं है", "केवल नीम क्षारीय होता है", "कड़वे पदार्थों का स्वाद से कोई संबंध नहीं है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "यह आवश्यक नहीं है कि जिस पदार्थ का स्वाद कड़वा है उसमें क्षार की उपस्थिति हो ही; उदाहरण के लिए करेले का स्वाद कड़वा है परंतु वह क्षारीय नहीं है।"
+            },
+            {
+                q: "21. लाल गुलाब की पंखुड़ियों से प्राकृतिक सूचक तैयार करने के लिए उन्हें किसमें डुबोया/गर्म किया जाता है?",
+                o: ["ठंडे दूध में", "गरम पानी में", "सिरके में", "मिट्टी के तेल में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "कुचली हुई लाल गुलाब की पंखुड़ियों को काँच के गिलास में रखकर थोड़ा गरम पानी डाला जाता है ताकि वे पूर्णतः डूब जाएँ।"
+            },
+            {
+                q: "22. लाल गुलाब का अर्क अम्लीय विलयन को किस रंग में बदल देता है?",
+                o: ["हरा वर्ण", "लाल वर्ण", "नीला वर्ण", "पीला वर्ण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "लाल गुलाब का अर्क अम्लीय विलयन को लाल वर्ण का और क्षारीय विलयन को हरे वर्ण का कर देता है।"
+            },
+            {
+                q: "23. लाल गुलाब का अर्क क्षारीय विलयन को किस रंग में बदल देता है?",
+                o: ["लाल वर्ण", "हरा वर्ण", "पीला वर्ण", "गुलाबी वर्ण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "लाल गुलाब का अर्क क्षारीय विलयन को हरे वर्ण का कर देता है।"
+            },
+            {
+                q: "24. निम्नलिखित में से कौन सा सूचक मानव-निर्मित (प्रयोगशाला निर्मित) है?",
+                o: ["लिटमस", "हल्दी", "फिनाल्फ्थलीन (Phenolphthalein)", "लाल गुलाब का अर्क", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "फिनाल्फ्थलीन मानव-निर्मित (रासायनिक) सूचक है, जबकि लिटमस, हल्दी और लाल गुलाब प्राकृतिक सूचक हैं।"
+            },
+            {
+                q: "25. हाइड्रेजिया (Hydrangea) पौधे के फूलों के रंग में भिन्नता का मुख्य कारण क्या है?",
+                o: ["सूर्य के प्रकाश की तीव्रता", "मृदा की प्रकृति (अम्लीय या क्षारीय)", "पौधे की आयु", "जल देने की मात्रा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "हाइड्रेजिया में मृदा की प्रकृति के आधार पर भिन्न-भिन्न रंगों के पुष्प खिलते हैं।"
+            },
+            {
+                q: "26. अम्लीय मृदा में हाइड्रेजिया के पौधे पर किस रंग के पुष्प खिलते हैं?",
+                o: ["गुलाबी रंग के", "लाल रंग के", "नीले रंग के", "पीले रंग के", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "अम्लीय मृदा में नीले रंग के पुष्प खिलते हैं।"
+            },
+            {
+                q: "27. क्षारीय मृदा में हाइड्रेजिया के पौधे पर किस रंग के पुष्प खिलते हैं?",
+                o: ["गुलाबी या लाल रंग के", "नीले रंग के", "सफेद रंग के", "काले रंग के", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "क्षारीय मृदा में गुलाबी या लाल रंग के पुष्प खिलते हैं।"
+            },
+            {
+                q: "28. हल्दी-पत्र (Turmeric paper) तैयार करने के लिए फिल्टर पत्र को किसमें डुबोया जाता है?",
+                o: ["नींबू के रस में", "हल्दी के लेप में", "चूने के पानी में", "नमक के घोल में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "हल्दी के लेप में फिल्टर पत्र का टुकड़ा डुबोकर पीला हल्दी-पत्र तैयार किया जाता है।"
+            },
+            {
+                q: "29. हल्दी का पीला रंग किस प्रकार के विलयन के संपर्क में आने पर लाल हो जाता है?",
+                o: ["अम्लीय विलयन में", "उदासीन विलयन में", "क्षारीय विलयन में", "शुद्ध जल में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "हल्दी का पीला रंग क्षारीय विलयन में लाल हो जाता है।"
+            },
+            {
+                q: "30. क्या हल्दी-पत्र का उपयोग अम्लीय और उदासीन पदार्थों के मध्य भेद करने के लिए किया जा सकता है?",
+                o: ["हाँ, यह दोनों में अलग रंग देता है", "नहीं, इससे अम्लीय पदार्थों और उदासीन पदार्थों के मध्य भेद नहीं किया जा सकता", "अम्लीय में नीला और उदासीन में हरा हो जाता है", "अम्लीय में लाल हो जाता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "हल्दी-पत्र का उपयोग क्षारीय प्रकृति के परीक्षण के लिए किया जा सकता है, तथापि इससे अम्लीय और उदासीन पदार्थों के मध्य भेद नहीं किया जा सकता।"
+            },
+            {
+                q: "31. सफेद शर्ट पर लगे कढ़ी (हल्दी) के दाग पर जब साबुन (क्षार) लगाया जाता है, तो उसका रंग लाल/भूरा क्यों हो जाता है?",
+                o: ["साबुन में अम्ल होता है", "साबुन क्षारीय प्रकृति का होता है जो हल्दी के रंग को बदल देता है", "साबुन दाग को जला देता है", "पानी की रासायनिक प्रतिक्रिया से", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "मेरी सफेद शर्ट पर कढ़ी का दाग लग गया था और साबुन लगाने पर उसका रंग बदल गया क्योंकि साबुन क्षारीय है।"
+            },
+            {
+                q: "32. हल्दी किस कुल (Family) का सदस्य है?",
+                o: ["अदरक कुल (Ginger family)", "धनिया कुल", "गुलाब कुल", "लीची कुल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "हल्दी अदरक कुल की एक सदस्य है जिसे भारत और अन्य देशों में उगाया जाता है।"
+            },
+            {
+                q: "33. अश्विन ने गुरु पूर्णिमा के दिन अपने शिक्षक के लिए शुभकामना पत्र लिखने हेतु किस प्राकृतिक सूचक का लेप श्वेत कागज पर लगाया था?",
+                o: ["चुकंदर का रस", "हल्दी का लेप", "गुलाब का अर्क", "लाल पत्तागोभी का रस", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अश्विन ने श्वेत कागज पर हल्दी का लेप लगाकर उसे सुखाया था।"
+            },
+            {
+                q: "34. घ्राण सूचक (Olfactory Indicators) ऐसे पदार्थ होते हैं जिनकी ........... अम्लीय या क्षारीय माध्यम में परिवर्तित हो जाती है।",
+                o: ["गन्ध (Smell)", "चमक", "अवस्था", "घनत्व", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "कुछ पदार्थ ऐसे भी हैं जिनकी गंध अम्लीय या क्षारीय माध्यम में परिवर्तित हो जाती है, इन्हें घ्राण सूचक कहा जाता है।"
+            },
+            {
+                q: "35. क्रियाकलाप 2.6 में निम्नलिखित में से किस घ्राण सूचक का परीक्षण किया गया है?",
+                o: ["प्याज (Onion)", "लहसुन", "पुदीना", "नींबू", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "क्रियाकलाप 2.6 में बारीक कटे हुए प्याज और सूती वस्त्र/निस्यंदक पत्र की पट्टियों का उपयोग किया गया है।"
+            },
+            {
+                q: "36. आचार्य प्रफुल्ल चंद्र रे (पी.सी. रे) को किस रूप में जाना जाता है?",
+                o: ["आधुनिक भारतीय भौतिकी के जनक", "आधुनिक भारतीय रसायन विज्ञान के जनक", "आधुनिक भारतीय गणितज्ञ", "प्रसिद्ध चिकित्सक", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "आचार्य प्रफुल्ल चंद्र रे (पी.सी. रे) को 'आधुनिक भारतीय रसायन विज्ञान के जनक' के रूप में जाना जाता है।"
+            },
+            {
+                q: "37. आचार्य पी.सी. रे ने भारत की प्रथम फार्मास्युटिकल कंपनी (दवाओं के क्षेत्र में) की स्थापना किस वर्ष की थी?",
+                o: ["1857 में", "1901 में", "1947 में", "1920 में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "उन्होंने सामान्य संवत् 1901 में भारत की प्रथम फार्मास्युटिकल कंपनी की स्थापना की थी।"
+            },
+            {
+                q: "38. उदासीनीकरण अभिक्रिया (Neutralization Reaction) में क्या उत्पन्न होता है?",
+                o: ["केवल लवण", "लवण, जल और ऊष्मा", "केवल अम्ल और गैस", "केवल जल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "उदासीनीकरण अभिक्रिया में ऊष्मा के उत्सर्जन होने के साथ-साथ लवण और जल का भी उत्पादन होता है।"
+            },
+            {
+                q: "39. उदासीनीकरण अभिक्रिया का सामान्य समीकरण क्या है?",
+                o: ["अम्ल + क्षार ➔ लवण + जल + ऊष्मा", "अम्ल + जल ➔ क्षार + ऊष्मा", "क्षार + लवण ➔ अम्ल + जल", "लवण + ऊष्मा ➔ अम्ल + क्षार", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अम्ल + क्षार ➔ लवण + जल + ऊष्मा।"
+            },
+            {
+                q: "40. लाल चींटी के काटने पर त्वचा में कौन सा अम्लीय द्रव स्रावित होता है?",
+                o: ["सिट्रिक अम्ल", "फॉर्मिक अम्ल", "एसिटिक अम्ल", "लेक्टिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "जब चींटी काटती है तो वह त्वचा में एक अम्लीय द्रव (फॉर्मिक अम्ल) स्रावित करती है।"
+            },
+            {
+                q: "41. चींटी के काटने के प्रभाव को उदासीन करने के लिए प्रभावित क्षेत्र पर क्या लगाया जाता है?",
+                o: ["नींबू का रस", "नम बेकिंग सोडा", "सिरका", "नमक का घोल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "उसके भाई ने प्रभावित क्षेत्र पर नम बेकिंग सोडा लगाकर उसकी सहायता की क्योंकि बेकिंग सोडा क्षारीय होता है।"
+            },
+            {
+                q: "42. रासायनिक उर्वरकों के अत्यधिक प्रयोग से मृदा कैसी हो जाती है?",
+                o: ["क्षारीय", "अम्लीय", "उदासीन", "पोषक तत्वों से पूर्णतः मुक्त", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "रासायनिक उर्वरकों के अत्यधिक प्रयोग से मृदा अम्लीय हो गई है।"
+            },
+            {
+                q: "43. अम्लीय मृदा के उपचार के लिए उसमें क्या मिलाया जाता है?",
+                o: ["चूना (जो क्षारीय प्रकृति का होता है)", "सिरका", "सिट्रिक अम्ल", "अतिरिक्त रासायनिक उर्वरक", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अम्लीय मृदा को चूने से उपचारित किया जा सकता है जो कि क्षारीय प्रकृति का होता है।"
+            },
+            {
+                q: "44. यदि मृदा क्षारीय है, तो उसकी प्रकृति को उदासीन करने के लिए उसमें क्या मिलाया जाता है?",
+                o: ["चूना", "जैविक खाद और कम्पोस्ट की गई पत्तियाँ (कार्बनिक पदार्थ)", "कास्टिक सोडा", "बेकिंग सोडा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "यदि मृदा क्षारीय है तो उसमें जैविक खाद और कम्पोस्ट की गई पत्तियाँ जैसे कार्बनिक पदार्थ मिलाए जाते हैं।"
+            },
+            {
+                q: "45. औद्योगिक क्षेत्रों के समीप झीलों में मछलियों की संख्या कम होने का प्रमुख कारण क्या हो सकता है?",
+                o: ["कारखानों के अम्लीय अपशिष्ट का झील में छोड़ा जाना", "झील में अत्यधिक ठंड होना", "मछलियों के लिए भोजन की कमी", "शुद्ध पेयजल की अधिकता", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "झील में कारखानों का अपशिष्ट (संभवतः अम्लीय) छोड़े जाने के कारण मछलियाँ कम हो रही हैं।"
+            },
+            {
+                q: "46. कारखानों के अम्लीय अपशिष्ट को झील में छोड़ने से पहले उसे कैसे प्रबंधित किया जाता है?",
+                o: ["उसमें क्षारीय पदार्थ मिलाकर उसे उदासीन किया जाता है", "उसे सीधे उबालकर", "उसमें और अधिक अम्ल मिलाकर", "फिल्टर करके सीधे", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "कारखानों के अपशिष्ट को झील में छोड़ने से पहले उसमें क्षारीय पदार्थ मिलाकर उसे उदासीन किया जा सकता है।"
+            },
+            {
+                q: "47. अम्ल नीले लिटमस पत्र का रंग कैसा कर देते हैं?",
+                o: ["हरा", "लाल", "पीला", "नीला ही रखते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अम्ल नीले लिटमस सूचक का रंग लाल कर देते हैं।"
+            },
+            {
+                q: "48. क्षार लाल लिटमस पत्र का रंग कैसा कर देते हैं?",
+                o: ["लाल", "नीला", "हरा", "रंगहीन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "क्षार लाल लिटमस सूचक का रंग नीला कर देते हैं।"
+            },
+            {
+                q: "49. एक विलयन लाल लिटमस पत्र को नीला कर देता है। निम्नलिखित में से कौन-सा विलयन अत्यधिक मात्रा में मिलाने पर इस परिवर्तन को उत्क्रमित (Reverse) कर देगा?",
+                o: ["चूने का पानी", "बेकिंग सोडा", "सिरका", "साधारण नमक का विलयन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "लाल लिटमस को नीला करने वाला विलयन क्षारीय है। इसे उत्क्रमित (वापस लाल) करने के लिए अम्लीय विलयन (जैसे सिरका) अत्यधिक मात्रा में मिलाना होगा।"
+            },
+            {
+                q: "50. यदि विलयन 'क' में लाल लिटमस विलयन डालने पर वह नीला हो जाता है, विलयन 'ख' में हल्दी डालने पर वह लाल हो जाता है, और विलयन 'ग' में गुलाब का अर्क डालने पर वह हरा हो जाता है, तो 'क', 'ख' और 'ग' की प्रकृति क्या होगी?",
+                o: ["अम्लीय, अम्लीय, अम्लीय", "उदासीन, क्षारीय, क्षारीय", "क्षारीय, क्षारीय, क्षारीय", "अम्लीय, क्षारीय, उदासीन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "लाल लिटमस को नीला करना (क्षार), हल्दी को लाल करना (क्षार), और गुलाब के अर्क को हरा करना (क्षार)—तीनों ही क्षारीय प्रकृति दर्शाते हैं।"
+            },
+            {
+                q: "51. द्रव X को लाल गुलाब का अर्क हरा कर देता है। द्रव X की प्रकृति क्या होगी? यदि इसमें आँवले का रस अधिक मात्रा में मिलाया जाए तो क्या होगा?",
+                o: ["अम्लीय; कोई प्रभाव नहीं", "क्षारीय; आँवले का रस (अम्ल) इसके क्षार के प्रभाव को उदासीन कर देगा", "उदासीन; रंग गाढ़ा हो जाएगा", "लवणीय; गैस निकलेगी", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "गुलाब के अर्क को हरा करने वाला द्रव क्षारीय है। उसमें आँवले का रस (अम्ल) मिलाने पर उदासीनीकरण अभिक्रिया होगी।"
+            },
+            {
+                q: "52. अमन ने अंडे के छिलकों तथा संगमरमर के टुकड़ों पर सिरका गिराया तो बुलबुले उठे, परंतु साबुन का विलयन गिराने पर बुलबुले नहीं निकले। इसका कारण क्या है?",
+                o: ["सिरका अम्लीय है जो छिलकों में उपस्थित कार्बोनेट से क्रिया करके कार्बन डाइऑक्साइड गैस बनाता है", "साबुन बहुत ठंडा होता है", "संगमरमर केवल सिरके से घुलता है", "साबुन में गैस नहीं होती", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सिरका एक अम्ल है जो अंडे के छिलकों और संगमरमर (कैल्शियम कार्बोनेट) से क्रिया करके बुलबुले उत्पन्न करता है, जबकि साबुन क्षारीय होने के कारण ऐसा नहीं करता।"
+            },
+            {
+                q: "53. संतरे के रस में मुख्यतः कौन सा अम्ल पाया जाता है?",
+                o: ["सिट्रिक अम्ल", "टार्टरिक अम्ल", "ऑक्सेलिक अम्ल", "एसिटिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "संतरे के रस में सिट्रिक अम्ल पाया जाता है।"
+            },
+            {
+                q: "54. दही में कौन सा अम्ल पाया जाता है?",
+                o: ["लेक्टिक अम्ल", "सिट्रिक अम्ल", "एसिटिक अम्ल", "फॉर्मिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "दही में लैक्टिक अम्ल पाया जाता है।"
+            },
+            {
+                q: "55. सिरके (Vinegar) में कौन सा अम्ल उपस्थित होता है?",
+                o: ["एसिटिक अम्ल", "सिट्रिक अम्ल", "ऑक्सेलिक अम्ल", "टार्टरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सिरके में एसिटिक अम्ल उपस्थित होता है।"
+            },
+            {
+                q: "56. पालक में कौन सा अम्ल प्रमुख रूप से पाया जाता है?",
+                o: ["ऑक्सेलिक अम्ल", "सिट्रिक अम्ल", "लेक्ट्रिक अम्ल", "फॉस्फोरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पालक में ऑक्सेलिक अम्ल पाया जाता है।"
+            },
+            {
+                q: "57. प्राकृतिक रूप से मिलने वाला लिटमस किस रंग के विलयन के रूप में भी उपलब्ध होता है?",
+                o: ["गुलाबी विलयन", "बैंगनी (Purple) विलयन", "हरा विलयन", "पीला विलयन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "आमतौर पर शुद्ध लाइकेन निष्कर्षण का मूल रंग बैंगनी होता है।"
+            },
+            {
+                q: "58. निम्नलिखित में से कौन सा युग्म अम्ल और उसके स्रोत का सही मिलान नहीं है?",
+                o: ["दही - लैक्टिक अम्ल", "इमली - टार्टरिक अम्ल", "सिरका - एसिटिक अम्ल", "नींबू - ऑक्सेलिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 3,
+                exp: "नींबू में सिट्रिक अम्ल पाया जाता है, न कि ऑक्सेलिक अम्ल।"
+            },
+            {
+                q: "59. यदि किसी विलयन में फिनॉफ्थलीन सूचक की कुछ बूंदें मिलाई जाएं और वह गुलाबी रंग का हो जाए, तो विलयन की प्रकृति कैसी होगी?",
+                o: ["अम्लीय", "क्षारीय", "उदासीन", "अति अम्लीय", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "फिनाल्फ्थलीन क्षारीय माध्यम में गुलाबी रंग देता है।"
+            },
+            {
+                q: "60. यदि फिनॉफ्थलीन सूचक को किसी अम्लीय विलयन में डाला जाए तो क्या रंग परिवर्तन होगा?",
+                o: ["गुलाबी हो जाएगा", "रंगहीन (Colorless) रहेगा", "हरा हो जाएगा", "नीला हो जाएगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "फिनाल्फ्थलीन अम्लीय या उदासीन माध्यम में रंगहीन रहता है।"
+            },
+            {
+                q: "61. गर्मियों के दिनों में या विज्ञान मेले में श्वेत कागज पर गुप्त संदेश लिखने के लिए किस सुलभ प्राकृतिक सूचक का उपयोग किया जा सकता है?",
+                o: ["हल्दी का विलयन और साबुन का पानी", "नमक और चीनी का घोल", "साधारण नल का पानी", "पेट्रोल और डीजल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "हल्दी लेपित कागज पर साबुन या चूने के पानी से लिखने पर लाल रंग उभरता है।"
+            },
+            {
+                q: "62. अम्ल और क्षार की परस्पर क्रिया से लवण और जल बनने की प्रक्रिया को क्या कहते हैं?",
+                o: ["किण्वन (Fermentation)", "उदासीनीकरण (Neutralization)", "वाष्पीकरण (Evaporation)", "प्रकाशीय संश्लेषण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "इसे उदासीनीकरण (Neutralization) अभिक्रिया कहते हैं।"
+            },
+            {
+                q: "63. उदासीनीकरण अभिक्रिया में ऊष्मा का क्या होता है?",
+                o: ["ऊष्मा का अवशोषण होता है", "ऊष्मा का उत्सर्जन (Evolution) होता है", "तापमान पर कोई प्रभाव नहीं पड़ता", "विलयन बर्फ बन जाता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "उदासीनीकरण अभिक्रिया में ऊष्मा के उत्सर्जन के साथ लवण और जल बनते हैं।"
+            },
+            {
+                q: "64. मान्या की आँखों पर पट्टी बँधी है और उसे दो अज्ञात विलयन दिए गए हैं। उनकी प्रकृति जाँचने के लिए उसे किस सूचक का चयन करना चाहिए?",
+                o: ["घ्राण सूचक (जैसे बारीक कटी प्याज या वैनिला)", "केवल लाल लिटमस", "केवल हल्दी पत्र", "रंगीन कागज", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "दृष्टिबाधित या आँखों पर पट्टी होने पर गंध आधारित घ्राण सूचक सबसे उपयुक्त होते हैं।"
+            },
+            {
+                q: "65. अँगूर के रस को लाल गुलाब के अर्क के साथ मिलाने पर मिश्रण हल्का लाल हो जाता है। यदि इसमें बेकिंग सोडा मिला दिया जाए तो क्या होगा?",
+                o: ["रंग और अधिक लाल हो जाएगा", "अँगूर का रस अम्लीय होने के कारण लाल था, बेकिंग सोडा (क्षार) मिलाने पर रंग बदलकर हरा हो जाएगा", "कोई परिवर्तन नहीं होगा", "विलयन काला हो जाएगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अँगूर का रस अम्लीय होने से गुलाब के अर्क को लाल करता है। बेकिंग सोडा (क्षार) मिलाने पर माध्यम क्षारीय हो जाएगा और गुलाब का अर्क हरा रंग देगा।"
+            },
+            {
+                q: "66. अश्विन ने संतरे के रस से दादी को गुप्त संदेश लिखा। उसे दृश्यमान (Visible) बनाने के लिए दादी किस सूचक का प्रयोग कर सकती हैं?",
+                o: ["हल्दी पत्र या लाल गुलाब का अर्क", "साधारण नमक", "चीनी का घोल", "मिट्टी का तेल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "संतरे के रस (अम्ल) के संदेश को देखने के लिए उपयुक्त प्राकृतिक सूचक जैसे हल्दी पत्र या गुलाब के अर्क का उपयोग किया जा सकता है।"
+            },
+            {
+                q: "67. यदि आपको सिरका, बेकिंग सोडा का विलयन और चीनी का विलयन दिया जाए, तो क्या मात्र 'हल्दी-पत्र' से आप तीनों की पहचान कर सकते हैं?",
+                o: ["हाँ, बेकिंग सोडा हल्दी-पत्र को लाल कर देगा, जबकि सिरका और चीनी का विलयन हल्दी-पत्र के रंग को अपरिवर्तित (पीला) रखेंगे", "नहीं, हल्दी-पत्र किसी में काम नहीं करेगा", "तीनों अलग-अलग रंग दिखाएंगे", "केवल चीनी का विलयन नीला होगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "हल्दी-पत्र केवल क्षार (बेकिंग सोडा) के साथ लाल रंग देता है। सिरका (अम्ल) और चीनी (उदासीन) के साथ रंग नहीं बदलता, जिससे क्षार की पहचान हो जाती है।"
+            },
+            {
+                q: "68. प्राकृतिक सूचक के रूप में उपयोग होने वाली लाल एवं बैंगनी पत्तागोभी को किस प्रकार उपयोग में लाया जा सकता है?",
+                o: ["पत्तागोभी के पत्तों को उबालकर उसका रंगीन अर्क प्राप्त करके", "पत्तागोभी को सुखाकर पाउडर बनाकर", "कच्चा चबाकर", "तेल में तलकर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "लाल और बैंगनी पत्तागोभी के पत्तों का अर्क निकालकर अम्ल-क्षार सूचक के रूप में उपयोग किया जा सकता है।"
+            },
+            {
+                q: "69. निम्नलिखित में से कौन सा पौधा प्राकृतिक सूचक के रूप में उपयोग होने वाले फूलों का स्रोत है?",
+                o: ["गुड़हल (Hibiscus) और लाल गुलाब", "आम और अमरूद", "बांस और यूकेलिप्टस", "गेहूँ और चावल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "लाल गुड़हल और लाल गुलाब के पुष्पों का उपयोग सूचक के रूप में किया जाता है।"
+            },
+            {
+                q: "70. अपच (Indigestion) होने पर पेट में अत्यधिक अम्ल बनने पर राहत पाने के लिए एंटासिड (Antacid) के रूप में क्या लिया जाता है?",
+                o: ["दूधिया मैग्नीशिया (Magnesium hydroxide) जैसी क्षारीय औषधियाँ", "अधिक मात्रा में नींबू का रस", "सिरका", "सल्फ्यूरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पेट की अम्लता को उदासीन करने के लिए क्षारीय एंटासिड का उपयोग किया जाता है।"
+            },
+            {
+                q: "71. फैक्ट्री के कचरे और अपशिष्ट जल को जल स्रोतों में बहाने से पहले उदासीन क्यों किया जाना चाहिए?",
+                o: ["क्योंकि उसमें हानिकारक अम्ल या क्षार हो सकते हैं जो जलीय जीवों (मछलियों आदि) को हानि पहुँचाते हैं", "ताकि पानी का रंग चमकीला हो जाए", "पानी को मीठा करने के लिए", "भाप बनाने के लिए", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अम्लीय या क्षारीय अपशिष्ट जलीय जीवों के जीवन को नष्ट कर सकते हैं, इसलिए उन्हें उदासीन करना आवश्यक है।"
+            },
+            {
+                q: "72. दांतों की सड़न (Tooth decay) का मुख्य कारण मुँह में उपस्थित बैक्टीरिया द्वारा किसका उत्पादन करना है?",
+                o: ["अम्ल का उत्पादन", "क्षार का उत्पादन", "लवण का उत्पादन", "शुद्ध जल का उत्पादन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "मुँह में बचे भोजन के कणों को बैक्टीरिया विघटित करके अम्ल बनाते हैं, जिससे दांतों की परत क्षय होने लगती है।"
+            },
+            {
+                q: "73. दांतों की अम्लता को रोकने के लिए किस प्रकार के मंजन (Toothpaste) का उपयोग करना लाभदायक होता है?",
+                o: ["क्षारीय मंजन", "अम्लीय मंजन", "केवल सादा पानी", "नमक और नींबू का रस", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "टूथपेस्ट सामान्यतः क्षारीय होते हैं जो मुँह के अतिरिक्त अम्ल को उदासीन कर दांतों की सड़न रोकते हैं।"
+            },
+            {
+                q: "74. लिटमस पत्र की अनुपस्थिति में यदि हमें किसी घोल की अम्लता जाँचनी हो, तो निम्न में से किसका उपयोग प्राकृतिक सूचक के रूप में नहीं किया जा सकता?",
+                o: ["काँच का टुकड़ा", "हल्दी", "चुकंदर का रस", "जामुन का रस", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "काँच का टुकड़ा एक अक्रिय पदार्थ है, यह सूचक के रूप में कार्य नहीं कर सकता।"
+            },
+            {
+                q: "75. चुकंदर (Beetroot) के अर्क का उपयोग किस रूप में किया जा सकता है?",
+                o: ["अम्ल-क्षार सूचक के रूप में", "रंग रोगन के रूप में", "ईंधन के रूप में", "कीटनाशक के रूप में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चुकंदर, हल्दी, और जामुन आदि के अर्क अम्ल-क्षार सूचक के रूप में कार्य करते हैं।"
+            },
+            {
+                q: "76. यदि नीले लिटमस पत्र को सिरके में डुबोया जाए, तो क्या होगा?",
+                o: ["वह लाल हो जाएगा", "वह नीला ही रहेगा", "वह हरा हो जाएगा", "वह रंगहीन हो जाएगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सिरका अम्लीय होता है, इसलिए यह नीले लिटमस को लाल कर देता है।"
+            },
+            {
+                q: "77. यदि लाल लिटमस पत्र को साबुन के घोल में डुबोया जाए, तो क्या होगा?",
+                o: ["वह नीला हो जाएगा", "वह लाल ही रहेगा", "वह पीला हो जाएगा", "कोई परिवर्तन नहीं होगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "साबुन का घोल क्षारीय होता है, जो लाल लिटमस को नीला कर देता है।"
+            },
+            {
+                q: "78. उदासीनीकरण की प्रक्रिया में लवण (Salt) की प्रकृति क्या हो सकती है?",
+                o: ["अम्लीय, क्षारीय या उदासीन हो सकती है", "हमेशा केवल अम्लीय होती है", "हमेशा केवल क्षारीय होती है", "हमेशा विषैली होती है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अभिक्रिया करने वाले अम्ल और क्षार की प्रकृति के आधार पर बनने वाला लवण अम्लीय, क्षारीय या उदासीन हो सकता है।"
+            },
+            {
+                q: "79. आचार्य पी.सी. रे ने किस विषय के इतिहास पर लेखन कार्य करके प्राचीन भारतीय वैज्ञानिकों की उपलब्धियों को प्रकाश में लाया?",
+                o: ["रसायन विज्ञान (Chemistry)", "खगोल विज्ञान", "शल्य चिकित्सा", "भौतिकी", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "भारत में रसायन विज्ञान के इतिहास पर अपने लेखन के माध्यम से उन्होंने प्राचीन भारतीय वैज्ञानिकों की उपलब्धियों पर प्रकाश डाला।"
+            },
+            {
+                q: "80. समाज सुधारक आचार्य पी.सी. रे ने शैक्षणिक संस्थाओं में शिक्षा के माध्यम के रूप में किसके उपयोग का प्रबल समर्थन किया था?",
+                o: ["मातृभाषा (Mother tongue)", "केवल अंग्रेजी", "केवल लैटिन", "केवल फ्रेंच", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "समाज सुधारक पी.सी. रे ने शैक्षणिक संस्थाओं में शिक्षा के माध्यम के रूप में मातृभाषा के उपयोग का समर्थन किया था।"
+            },
+            {
+                q: "81. अम्ल शब्द की उत्पत्ति लैटिन शब्द 'Acere' से हुई है, जिसका अर्थ क्या होता है?",
+                o: ["खट्टा (Sour)", "मीठा", "कड़वा", "चिकना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "लैटिन भाषा में 'Acere' का अर्थ खट्टा होता है।"
+            },
+            {
+                q: "82. निम्नलिखित में से कौन सा पदार्थ स्वाद में खट्टा होने के कारण अम्लीय है?",
+                o: ["कच्चा आम", "बेकिंग सोडा", "धोने का सोडा", "चूने का पानी", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "कच्चा आम स्वाद में खट्टा होता है और इसमें अम्ल उपस्थित होता है।"
+            },
+            {
+                q: "83. मधुमक्खी या ततैया के डंक में कौन सा अम्ल होता है जिसे बेकिंग सोडा या कैलेमाइन सॉल्यूशन से शांत किया जाता है?",
+                o: ["फॉर्मिक अम्ल (या मेथैनोइक अम्ल)", "सिट्रिक अम्ल", "ऑक्सेलिक अम्ल", "टार्टरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "मधुमक्खी के डंक में अम्ल होता है जिसे क्षारीय कैलेमाइन लोशन या बेकिंग सोडा से उदासीन किया जाता है।"
+            },
+            {
+                q: "84. यदि प्रयोगशाला में परखनली में अम्ल और क्षार मिलाए जा रहे हों और परखनली गर्म हो जाए, तो यह किस बात का संकेत है?",
+                o: ["उदासीनीकरण अभिक्रिया हुई है जिसमें ऊष्मा निकली है", "परखनली खराब हो गई है", "अम्ल वाष्पीकृत हो रहा है", "रासायनिक विघटन हुआ है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "ऊष्मा का उत्सर्जन उदासीनीकरण अभिक्रिया की प्रमुख विशेषता है।"
+            },
+            {
+                q: "85. प्राकृतिक सूचक 'लिटमस' का सामान्य जल में मूल रंग क्या होता है?",
+                o: ["बैंगनी (Purple)", "चटख लाल", "गहरा हरा", "चमकीला पीला", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "आसूत जल में लाइकेन से प्राप्त लिटमस विलयन का रंग बैंगनी होता है।"
+            },
+            {
+                q: "86. निम्नलिखित में से किसे मानव-निर्मित (संश्लेषित) सूचक माना जाता है?",
+                o: ["फिनाल्फ्थलीन और मिथाइल ऑरेंज", "हल्दी और लिटमस", "गुलाब और गुड़हल", "चुकंदर और पत्तागोभी", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "फिनाल्फ्थलीन और मिथाइल ऑरेंज प्रयोगशाला में निर्मित संश्लेषित सूचक हैं।"
+            },
+            {
+                q: "87. अम्ल नीले लिटमस को लाल करते हैं तथा क्षार लाल लिटमस को नीला करते हैं। इस नियम के विपरीत यदि कोई पदार्थ दोनों पर कोई प्रभाव न डाले तो वह क्या कहलाता है?",
+                o: ["उदासीन (Neutral)", "संक्षारक", "उत्प्रेरक", "विद्युत अपघट्य", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "जो पदार्थ लिटमस पत्रों का रंग नहीं बदलते, वे उदासीन पदार्थ कहलाते हैं।"
+            },
+            {
+                q: "88. बरसात के मौसम में हवा में नमी और प्रदूषण के कारण यदि वर्षा का जल अत्यधिक अम्लीय हो जाए, तो उसे क्या कहते हैं?",
+                o: ["अम्लीय वर्षा (Acid Rain)", "क्षारीय वर्षा", "सामान्य वर्षा", "खनिज वर्षा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "इसे अम्लीय वर्षा कहा जाता है जो ऐतिहासिक इमारतों और जलीय जीवन को प्रभावित करती है।"
+            },
+            {
+                q: "89. अम्लीय मृदा के उपचार के लिए चूने के अतिरिक्त किस अन्य क्षारीय पदार्थ का उपयोग किया जा सकता है?",
+                o: ["बुझा हुआ चूना या बिना बुझा चूना", "सामान्य नमक", "यूरिया", "सिरका", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "कैल्शियम ऑक्साइड या कैल्शियम हाइड्रॉक्साइड क्षारीय होने के कारण अम्लीय मृदा में मिलाए जाते हैं।"
+            },
+            {
+                q: "90. यदि कोई विलयन नीले लिटमस को लाल कर देता है, तो उसकी प्रकृति कैसी होगी?",
+                o: ["अम्लीय", "क्षारीय", "उदासीन", "लवणीय", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "नीले लिटमस को लाल करने वाले विलयन की प्रकृति अम्लीय होती है।"
+            },
+            {
+                q: "91. यदि कोई विलयन लाल लिटमस को नीला कर देता है, तो उसकी प्रकृति कैसी होगी?",
+                o: ["क्षारीय", "अम्लीय", "उदासीन", "लवणीय", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "लाल लिटमस को नीला करने वाले विलयन की प्रकृति क्षारीय होती है।"
+            },
+            {
+                q: "92. उदासीन विलयन की प्रकृति कैसी होती है?",
+                o: ["न तो अम्लीय और न ही क्षारीय", "अति अम्लीय", "अति क्षारीय", "परिवर्तनशील", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "इन पदार्थों को उदासीन कहा जाता है क्योंकि ये न तो अम्लीय होते हैं और न ही क्षारीय।"
+            },
+            {
+                q: "93. पाठ में उल्लेखित 'पदार्थों के रंगीन संसार' स्टॉल पर छात्रों ने क्या देखा और सीखा?",
+                o: ["विभिन्न पदार्थों को मिश्रित करने पर रंगों में होने वाले परिवर्तन", "विभिन्न धातुओं के गुण", "तारों की गति", "चुंबक के आकर्षण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "वहाँ उन्होंने विभिन्न पदार्थों को मिश्रित करने पर रंगों में परिवर्तन होने वाली अनेक गतिविधियाँ देखीं।"
+            },
+            {
+                q: "94. अज्ञात पदार्थों का परीक्षण करते समय सुरक्षा के लिए सबसे महत्वपूर्ण सावधानी क्या बताई गई है?",
+                o: ["जब तक कहा न जाए तब तक किसी भी अज्ञात पदार्थ का स्वाद न चखें", "अज्ञात पदार्थों को सीधे हाथ से छुएँ", "उन्हें सूंघकर खा लें", "प्रयोगशाला में बिना शिक्षक के दौड़ें", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सावधानी दी गई है कि जब तक कहा न जाए तब तक कुछ भी न चखें और किसी अज्ञात पदार्थ का स्वाद न चखें।"
+            },
+            {
+                q: "95. रासायनिक प्रयोगशाला में कार्य करते समय सूचकों और अम्लों के उपयोग के दौरान किसकी देखरेख आवश्यक है?",
+                o: ["किसी वयस्क या शिक्षक के निर्देशन में ही कार्य करें", "अकेले रात में कार्य करें", "बिना सुरक्षा चश्मे के कार्य करें", "कोई सावधानी आवश्यक नहीं है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पाठ में कई स्थानों पर निर्देश दिया गया है कि ऐसे प्रयोग किसी वयस्क या शिक्षक के निर्देशन में ही किए जाने चाहिए।"
+            },
+            {
+                q: "96. पाठ के अंत में दी गई अन्वेषणात्मक परियोजना में छात्रों को क्या बनाने का सुझाव दिया गया है?",
+                o: ["अम्लीय अथवा क्षारीय पदार्थों और प्राकृतिक सूचकों का उपयोग करके रंगोली बनाना", "पत्थर की मूर्ति बनाना", "लोहे के औजार बनाना", "कागज के खिलौने बनाना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "परियोजना में अम्लीय या क्षारीय पदार्थों और प्राकृतिक सूचकों का उपयोग करके रंगोली बनाने का सुझाव दिया गया है।"
+            },
+            {
+                q: "97. अध्याय 2 'पदार्थों का अन्वेषण' मुख्य रूप से विज्ञान की किस प्रमुख शाखा से संबंधित है?",
+                o: ["रसायन विज्ञान (Chemistry)", "जीव विज्ञान", "भौतिकी", "भूगोल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अम्ल, क्षार, लवण और सूचकों का अध्ययन रसायन विज्ञान के अंतर्गत आता है।"
+            },
+            {
+                q: "98. चूने के पानी में जब फूँक मारी जाती है (कार्बन डाइऑक्साइड प्रवाहित की जाती है), तो वह दूधिया क्यों हो जाता है?",
+                o: ["कैल्शियम कार्बोनेट बनने के कारण", "ऑक्सीजन मिलने के कारण", "वाष्प बनने के कारण", "रंग उड़ने के कारण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "कार्बन डाइऑक्साइड चूने के पानी से क्रिया करके अघुलनशील कैल्शियम कार्बोनेट बनाती है जिससे पानी दूधिया हो जाता है।"
+            },
+            {
+                q: "99. निम्नलिखित में से कौन सा प्राकृतिक सूचक नहीं है?",
+                o: ["मिथाइल ऑरेंज", "हल्दी", "लिटमस", "लाल गुलाब का अर्क", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "मिथाइल ऑरेंज एक संश्लेषित (संश्लेषित प्रयोगशाला) सूचक है।"
+            },
+            {
+                q: "100. इस पूरे पाठ 'पदार्थों का अन्वेषण - अम्लीय, क्षारीय एवं उदासीन' का मुख्य संदेश क्या है?",
+                o: ["हमारे आसपास के पदार्थों को अम्लीय, क्षारीय एवं उदासीन में वर्गीकृत करना और उनके गुणों को समझना", "केवल रासायनिक सूत्र रटना", "प्रयोगशाला बंद रखना", "सूचकों का उपयोग न करना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "अध्याय का मुख्य निष्कर्ष है कि हमारे आसपास के पदार्थों को उनकी प्रकृति के आधार पर अम्लीय, क्षारीय एवं उदासीन में वर्गीकृत किया जा सकता है।"
+            }
+        ];
+
+        // --- APP STATE VARIABLES ---
+        let candidateName = "";
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(100).fill(null); // stores index 0-4
+        let questionStatus = new Array(100).fill("not-visited"); // 'not-visited', 'not-answered', 'answered', 'marked'
+        let timerSeconds = 120 * 60; // 120 minutes
+        let timerInterval = null;
+
+        // DOM ELEMENTS
+        const startScreen = document.getElementById("start-screen");
+        const examScreen = document.getElementById("exam-screen");
+        const resultScreen = document.getElementById("result-screen");
+        const headerTimerBadge = document.getElementById("header-timer-badge");
+        const timerDisplay = document.getElementById("timer-display");
+        const studentNameInput = document.getElementById("student-name");
+        const displayCandidateName = document.getElementById("display-candidate-name");
+        const resCandidateName = document.getElementById("res-candidate-name");
+
+        const questionNumberTitle = document.getElementById("question-number-title");
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const paletteGrid = document.getElementById("palette-grid");
+
+        // Action Buttons
+        const startExamBtn = document.getElementById("start-exam-btn");
+        const btnPrev = document.getElementById("btn-prev");
+        const btnSaveNext = document.getElementById("btn-save-next");
+        const btnClear = document.getElementById("btn-clear");
+        const btnMark = document.getElementById("btn-mark");
+        const btnFinalSubmit = document.getElementById("btn-final-submit");
+
+        // Stat Counters
+        const countAnswered = document.getElementById("count-answered");
+        const countNotAnswered = document.getElementById("count-not-answered");
+        const countMarked = document.getElementById("count-marked");
+        const countNotVisited = document.getElementById("count-not-visited");
+
+        // --- INITIALIZATION & EVENT LISTENERS ---
+        startExamBtn.addEventListener("click", startExam);
+        btnPrev.addEventListener("click", () => navigateQuestion(-1));
+        btnSaveNext.addEventListener("click", saveAndNext);
+        btnClear.addEventListener("click", clearResponse);
+        btnMark.addEventListener("click", markForReview);
+        btnFinalSubmit.addEventListener("click", () => {
+            if(confirm("क्या आप वाकई परीक्षा सबमिट करना चाहते हैं?")) {
+                finishExam();
+            }
+        });
+
+        function startExam() {
+            const name = studentNameInput.value.trim();
+            if(!name) {
+                alert("कृपया परीक्षा शुरू करने से पहले अपना नाम दर्ज करें!");
+                studentNameInput.focus();
+                return;
+            }
+            candidateName = name;
+            displayCandidateName.textContent = candidateName;
+            resCandidateName.textContent = candidateName;
+
+            // Switch Screen
+            startScreen.classList.add("hidden");
+            examScreen.classList.remove("hidden");
+            headerTimerBadge.classList.remove("hidden");
+
+            // Build Palette Grid
+            buildPaletteGrid();
+
+            // Load First Question
+            loadQuestion(0);
+
+            // Start Countdown Timer
+            startTimer();
+        }
+
+        // --- TIMER LOGIC ---
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                if(timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("समय समाप्त हो गया है! आपकी परीक्षा स्वतः सबमिट की जा रही है।");
+                    finishExam();
+                    return;
+                }
+                const mins = Math.floor(timerSeconds / 60);
+                const secs = timerSeconds % 60;
+                timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // --- PALETTE GRID BUILDING ---
+        function buildPaletteGrid() {
+            paletteGrid.innerHTML = "";
+            for(let i = 0; i < 100; i++) {
+                const btn = document.createElement("button");
+                btn.id = `palette-btn-${i}`;
+                btn.textContent = i + 1;
+                btn.className = `w-9 h-9 rounded-lg font-bold text-xs flex items-center justify-center transition border ${getPaletteStatusClass(i)}`;
+                btn.addEventListener("click", () => {
+                    saveCurrentStateBeforeJump();
+                    loadQuestion(i);
+                });
+                paletteGrid.appendChild(btn);
+            }
+            updatePaletteCounts();
+        }
+
+        function getPaletteStatusClass(index) {
+            const status = questionStatus[index];
+            if(index === currentQuestionIndex) {
+                return "ring-2 ring-blue-600 ring-offset-1 font-extrabold bg-blue-100 text-blue-900 border-blue-400";
+            }
+            switch(status) {
+                case 'answered':
+                    return "bg-green-500 text-white border-green-600 hover:bg-green-600";
+                case 'not-answered':
+                    return "bg-red-500 text-white border-red-600 hover:bg-red-600";
+                case 'marked':
+                    return "bg-purple-600 text-white border-purple-700 hover:bg-purple-700";
+                case 'not-visited':
+                default:
+                    return "bg-slate-200 text-slate-700 border-slate-300 hover:bg-slate-300";
+            }
+        }
+
+        function updatePaletteStyles() {
+            for(let i = 0; i < 100; i++) {
+                const btn = document.getElementById(`palette-btn-${i}`);
+                if(btn) {
+                    btn.className = `w-9 h-9 rounded-lg font-bold text-xs flex items-center justify-center transition border ${getPaletteStatusClass(i)}`;
+                }
+            }
+            updatePaletteCounts();
+        }
+
+        function updatePaletteCounts() {
+            let ans = 0, notAns = 0, marked = 0, notVis = 0;
+            questionStatus.forEach(s => {
+                if(s === 'answered') ans++;
+                else if(s === 'not-answered') notAns++;
+                else if(s === 'marked') marked++;
+                else notVis++;
+            });
+            countAnswered.textContent = ans;
+            countNotAnswered.textContent = notAns;
+            countMarked.textContent = marked;
+            countNotVisited.textContent = notVis;
+        }
+
+        // --- QUESTION RENDER LOGIC ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+
+            // Mark as visited if it was not-visited
+            if(questionStatus[index] === 'not-visited') {
+                questionStatus[index] = 'not-answered';
+            }
+
+            // Update UI elements
+            questionNumberTitle.textContent = `प्रश्न संख्या ${index + 1} / 100`;
+            const qData = rawQuestions[index];
+            questionText.textContent = qData.q;
+
+            // Render Options
+            optionsContainer.innerHTML = "";
+            const optionPrefixes = ["A", "B", "C", "D", "E"];
+
+            qData.o.forEach((optText, optIdx) => {
+                const isChecked = userAnswers[index] === optIdx;
+                const label = document.createElement("label");
+                label.className = `flex items-start p-3.5 rounded-xl border-2 cursor-pointer transition ${
+                    isChecked 
+                    ? 'border-blue-600 bg-blue-50/80 shadow-sm' 
+                    : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
+                }`;
+
+                label.innerHTML = `
+                    <input type="radio" name="option-choice" value="${optIdx}" ${isChecked ? 'checked' : ''} class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500">
+                    <div class="ml-3 text-sm sm:text-base font-medium ${isChecked ? 'text-blue-900 font-semibold' : 'text-slate-700'}">
+                        <span class="inline-block w-6 font-bold text-blue-600">${optionPrefixes[optIdx]}.</span>
+                        <span>${optText}</span>
+                    </div>
+                `;
+
+                label.addEventListener("click", () => {
+                    userAnswers[currentQuestionIndex] = optIdx;
+                    loadQuestion(currentQuestionIndex); // re-render options highlight
+                });
+
+                optionsContainer.appendChild(label);
+            });
+
+            // Prev Button state
+            btnPrev.disabled = (index === 0);
+
+            updatePaletteStyles();
+        }
+
+        function saveCurrentStateBeforeJump() {
+            const selectedOpt = document.querySelector('input[name="option-choice"]:checked');
+            if(selectedOpt) {
+                userAnswers[currentQuestionIndex] = parseInt(selectedOpt.value);
+                if(questionStatus[currentQuestionIndex] !== 'marked') {
+                    questionStatus[currentQuestionIndex] = 'answered';
+                }
+            } else {
+                if(questionStatus[currentQuestionIndex] !== 'marked') {
+                    questionStatus[currentQuestionIndex] = 'not-answered';
+                }
+            }
+        }
+
+        function saveAndNext() {
+            saveCurrentStateBeforeJump();
+            if(currentQuestionIndex < 99) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                alert("आप अंतिम प्रश्न पर हैं। समीक्षा करके Final Submit करें।");
+                updatePaletteStyles();
+            }
+        }
+
+        function navigateQuestion(direction) {
+            saveCurrentStateBeforeJump();
+            const target = currentQuestionIndex + direction;
+            if(target >= 0 && target < 100) {
+                loadQuestion(target);
+            }
+        }
+
+        function clearResponse() {
+            userAnswers[currentQuestionIndex] = null;
+            questionStatus[currentQuestionIndex] = 'not-answered';
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function markForReview() {
+            const selectedOpt = document.querySelector('input[name="option-choice"]:checked');
+            if(selectedOpt) {
+                userAnswers[currentQuestionIndex] = parseInt(selectedOpt.value);
+            }
+            questionStatus[currentQuestionIndex] = 'marked';
+            if(currentQuestionIndex < 99) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                updatePaletteStyles();
+            }
+        }
+
+        // --- RESULT & EVALUATION ENGINE ---
+        function finishExam() {
+            clearInterval(timerInterval);
+
+            // Calculate Scores
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let unattemptedCount = 0;
+
+            rawQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if(userAns === null) {
+                    unattemptedCount++;
+                } else if(userAns === q.a) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            });
+
+            // Score formula: +1 for correct, -0.33 for incorrect
+            const totalScore = (correctCount * 1.0) - (incorrectCount * 0.33);
+            const attemptedTotal = correctCount + incorrectCount;
+            const accuracy = attemptedTotal > 0 ? ((correctCount / attemptedTotal) * 100).toFixed(1) : 0;
+
+            // Render Results Scorecard
+            document.getElementById("res-total-score").textContent = totalScore.toFixed(2);
+            document.getElementById("res-correct-count").textContent = correctCount;
+            document.getElementById("res-incorrect-count").textContent = incorrectCount;
+            document.getElementById("res-accuracy").textContent = `${accuracy}%`;
+
+            // Render All 100 Solutions
+            renderDetailedSolutions();
+
+            // Switch Screen
+            examScreen.classList.add("hidden");
+            headerTimerBadge.classList.add("hidden");
+            resultScreen.classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderDetailedSolutions() {
+            const solContainer = document.getElementById("solutions-container");
+            solContainer.innerHTML = "";
+            const optionPrefixes = ["A", "B", "C", "D", "E"];
+
+            rawQuestions.forEach((q, idx) => {
+                const uAns = userAnswers[idx];
+                const isCorrect = (uAns === q.a);
+                const isUnattempted = (uAns === null);
+
+                let badgeHTML = "";
+                let cardBorder = "";
+
+                if(isUnattempted) {
+                    badgeHTML = `<span class="bg-slate-200 text-slate-700 text-xs px-2.5 py-1 rounded font-bold">अनुत्तरित (Unattempted)</span>`;
+                    cardBorder = "border-slate-200 bg-white";
+                } else if(isCorrect) {
+                    badgeHTML = `<span class="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded font-bold"><i class="fa-solid fa-check mr-1"></i>सही (+1.0)</span>`;
+                    cardBorder = "border-green-300 bg-green-50/20";
+                } else {
+                    badgeHTML = `<span class="bg-rose-100 text-rose-800 text-xs px-2.5 py-1 rounded font-bold"><i class="fa-solid fa-xmark mr-1"></i>गलत (-0.33)</span>`;
+                    cardBorder = "border-rose-300 bg-rose-50/20";
+                }
+
+                const solCard = document.createElement("div");
+                solCard.className = `p-5 rounded-xl border shadow-sm space-y-3 ${cardBorder}`;
+
+                let optionsHTML = "";
+                q.o.forEach((optText, oIdx) => {
+                    let optStyle = "text-slate-700 border-slate-200 bg-white";
+                    let icon = "";
+
+                    if(oIdx === q.a) {
+                        optStyle = "text-green-900 border-green-500 bg-green-100/80 font-bold";
+                        icon = `<i class="fa-solid fa-circle-check text-green-600 ml-auto"></i>`;
+                    }
+                    if(uAns === oIdx && uAns !== q.a) {
+                        optStyle = "text-rose-900 border-rose-400 bg-rose-100/80 font-bold line-through";
+                        icon = `<i class="fa-solid fa-circle-xmark text-rose-600 ml-auto"></i>`;
+                    }
+
+                    optionsHTML += `
+                        <div class="p-2.5 rounded-lg border text-sm flex items-center ${optStyle}">
+                            <span><b class="mr-2">${optionPrefixes[oIdx]}.</b> ${optText}</span>
+                            ${icon}
+                        </div>
+                    `;
+                });
+
+                solCard.innerHTML = `
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="font-bold text-slate-900 text-base">प्रश्न ${q.q}</h4>
+                        ${badgeHTML}
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 my-2">
+                        ${optionsHTML}
+                    </div>
+
+                    <div class="p-3 bg-blue-50/80 rounded-lg border border-blue-100 text-xs sm:text-sm text-blue-900 leading-relaxed">
+                        <strong class="font-bold text-blue-800 flex items-center mb-1">
+                            <i class="fa-solid fa-lightbulb text-yellow-500 mr-1.5"></i>विस्तृत व्याख्या (Explanation):
+                        </strong>
+                        ${q.exp}
+                    </div>
+                `;
+
+                solContainer.appendChild(solCard);
+            });
+        }
+    </script>
+</body>
+</html>
