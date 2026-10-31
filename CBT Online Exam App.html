@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="hi" class="h-full bg-slate-50">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT परीक्षा: विज्ञान का निरंतर बढ़ता संसार (कक्षा 7)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Hind', sans-serif;
+            user-select: none;
+        }
+        /* Custom Scrollbar for Palette and Explanation */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="h-full flex flex-col justify-between text-slate-800 antialiased">
+
+    <!-- TOP HEADER -->
+    <header class="bg-gradient-to-r from-blue-900 via-indigo-900 to-blue-800 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-white/10 p-2 rounded-lg backdrop-blur-sm">
+                    <i class="fa-solid fa-flask-vial text-2xl text-yellow-300"></i>
+                </div>
+                <div>
+                    <h1 class="font-bold text-lg md:text-xl tracking-wide leading-tight">NCERT जिज्ञासा - ऑनलाइन CBT परीक्षा</h1>
+                    <p class="text-xs text-blue-200">पाठ 1: विज्ञान का निरंतर बढ़ता संसार (कक्षा 7)</p>
+                </div>
+            </div>
+            
+            <!-- Live Timer Badge (Hidden initially) -->
+            <div id="header-timer-badge" class="hidden bg-red-600 text-white font-mono font-bold px-4 py-2 rounded-lg border border-red-400 flex items-center space-x-2 animate-pulse shadow-lg">
+                <i class="fa-regular fa-clock"></i>
+                <span id="timer-display">120:00</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTAINER -->
+    <main class="flex-grow flex flex-col justify-center items-center p-2 sm:p-4">
+
+        <!-- SCREEN 1: REGISTRATION & INSTRUCTIONS -->
+        <section id="start-screen" class="w-full max-w-4xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-auto my-4">
+            <div class="bg-gradient-to-r from-blue-600 to-indigo-700 p-6 text-white text-center relative">
+                <h2 class="text-2xl md:text-3xl font-extrabold mb-1">CBT कंप्यूटर आधारित परीक्षा केंद्र</h2>
+                <p class="text-blue-100 text-sm md:text-base">कृपया परीक्षा शुरू करने से पहले दिए गए सभी निर्देशों को ध्यानपूर्वक पढ़ें।</p>
+            </div>
+
+            <div class="p-6 md:p-8 space-y-6">
+                <!-- Registration Input -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200">
+                    <label for="student-name" class="block font-semibold text-slate-700 mb-2">
+                        <i class="fa-solid fa-user-graduate text-blue-600 mr-2"></i>परीक्षार्थी का नाम (Candidate's Name): <span class="text-red-500">*</span>
+                    </label>
+                    <input type="text" id="student-name" placeholder="अपना पूरा नाम दर्ज करें..." class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 bg-white shadow-sm font-medium">
+                </div>
+
+                <!-- Exam Instructions -->
+                <div class="space-y-4">
+                    <h3 class="font-bold text-slate-800 border-b pb-2 text-lg flex items-center">
+                        <i class="fa-solid fa-clipboard-list text-blue-600 mr-2"></i>परीक्षा निर्देश एवं दिशानिर्देश:
+                    </h3>
+                    
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-600">
+                        <li class="flex items-start space-x-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                            <i class="fa-solid fa-clock text-blue-600 mt-1"></i>
+                            <span><b>कुल समय सीमा:</b> 120 मिनट (2 घंटे)। समय समाप्त होने पर परीक्षा स्वतः सबमिट हो जाएगी।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-blue-50 p-3 rounded-lg border border-blue-100">
+                            <i class="fa-solid fa-list-check text-blue-600 mt-1"></i>
+                            <span><b>कुल प्रश्न:</b> 100 बहुविकल्पीय प्रश्न (MCQs), प्रत्येक प्रश्न के 5 विकल्प (A, B, C, D, E) हैं।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-green-50 p-3 rounded-lg border border-green-100">
+                            <i class="fa-solid fa-circle-check text-green-600 mt-1"></i>
+                            <span><b>अंक प्रणाली:</b> प्रत्येक सही उत्तर के लिए <b>+1.00 अंक</b> दिया जाएगा।</span>
+                        </li>
+                        <li class="flex items-start space-x-2 bg-red-50 p-3 rounded-lg border border-red-100">
+                            <i class="fa-solid fa-triangle-exclamation text-red-600 mt-1"></i>
+                            <span><b>नकारात्मक अंकन (Negative Marking):</b> प्रत्येक गलत उत्तर पर <b>-0.33 अंक</b> काटे जाएँगे।</span>
+                        </li>
+                    </ul>
+
+                    <!-- Color Palette Guide -->
+                    <div class="pt-2">
+                        <h4 class="font-semibold text-slate-700 text-sm mb-2">प्रश्न स्थिति पैलेट (Question Status Legend):</h4>
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-xs">
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-slate-300 text-slate-700 flex items-center justify-center font-bold">1</span>
+                                <span>Not Visited (देखा नहीं)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-red-500 text-white flex items-center justify-center font-bold">2</span>
+                                <span>Not Answered (उत्तर नहीं दिया)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">3</span>
+                                <span>Answered (उत्तर दिया)</span>
+                            </div>
+                            <div class="flex items-center space-x-2 p-2 bg-slate-100 rounded border">
+                                <span class="w-5 h-5 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold">4</span>
+                                <span>Marked for Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-4 text-center">
+                    <button id="start-exam-btn" class="w-full md:w-auto px-8 py-3.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-lg rounded-xl shadow-lg hover:shadow-xl transition transform active:scale-95 flex items-center justify-center mx-auto space-x-2">
+                        <span>परीक्षा प्रारंभ करें (Start Test)</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SCREEN 2: MAIN CBT EXAM SCREEN (Hidden Initially) -->
+        <section id="exam-screen" class="hidden w-full max-w-7xl h-full flex-grow flex flex-col lg:flex-row gap-4 my-2">
+            
+            <!-- LEFT COLUMN: Question & Options Area -->
+            <div class="flex-1 bg-white rounded-2xl shadow-lg border border-slate-200 flex flex-col overflow-hidden">
+                
+                <!-- Exam Sub-Header -->
+                <div class="bg-slate-100 px-6 py-3 border-b border-slate-200 flex justify-between items-center text-sm font-semibold text-slate-700">
+                    <div>
+                        <span>परीक्षार्थी: </span><span id="display-candidate-name" class="text-blue-700 font-bold"></span>
+                    </div>
+                    <div class="text-xs bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-medium">
+                        NCERT Class 7 Science: Ch-1
+                    </div>
+                </div>
+
+                <!-- Question Header -->
+                <div class="p-4 sm:p-6 border-b border-slate-100 bg-slate-50 flex justify-between items-center">
+                    <h3 class="text-lg font-bold text-blue-900" id="question-number-title">
+                        प्रश्न संख्या 1 / 100
+                    </h3>
+                    <span class="text-xs font-semibold px-2.5 py-1 bg-slate-200 text-slate-700 rounded">
+                        अंक: +1.0 | ऋण: -0.33
+                    </span>
+                </div>
+
+                <!-- Question Body & Options (Scrollable) -->
+                <div class="p-4 sm:p-6 flex-grow overflow-y-auto space-y-6">
+                    <!-- Question Text -->
+                    <div class="text-base sm:text-lg font-medium text-slate-800 leading-relaxed bg-white p-4 rounded-xl border border-slate-100 shadow-sm" id="question-text">
+                        प्रश्न लोड हो रहा है...
+                    </div>
+
+                    <!-- Options List -->
+                    <div class="space-y-3" id="options-container">
+                        <!-- Options generated dynamically -->
+                    </div>
+                </div>
+
+                <!-- Action Control Footer Buttons -->
+                <div class="p-4 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-2 justify-between items-center">
+                    <div class="flex flex-wrap gap-2">
+                        <button id="btn-prev" class="px-4 py-2 bg-slate-600 hover:bg-slate-700 text-white text-sm font-bold rounded-lg shadow transition flex items-center space-x-1 disabled:opacity-50 disabled:cursor-not-allowed">
+                            <i class="fa-solid fa-chevron-left"></i>
+                            <span>Previous</span>
+                        </button>
+                        <button id="btn-clear" class="px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white text-sm font-bold rounded-lg shadow transition">
+                            Clear Response
+                        </button>
+                        <button id="btn-mark" class="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white text-sm font-bold rounded-lg shadow transition">
+                            Mark for Review
+                        </button>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button id="btn-save-next" class="px-5 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg shadow-md transition flex items-center space-x-1">
+                            <span>Save & Next</span>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </button>
+                        <button id="btn-final-submit" class="px-5 py-2 bg-red-600 hover:bg-red-700 text-white text-sm font-bold rounded-lg shadow-md transition">
+                            Final Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Question Palette Sidebar -->
+            <div class="w-full lg:w-80 bg-white rounded-2xl shadow-lg border border-slate-200 p-4 flex flex-col justify-between">
+                <div>
+                    <h4 class="font-bold text-slate-800 border-b pb-2 mb-3 text-center flex items-center justify-center">
+                        <i class="fa-solid fa-grip text-blue-600 mr-2"></i>Question Palette (प्रश्न पैलेट)
+                    </h4>
+
+                    <!-- Palette Legend Summary -->
+                    <div class="grid grid-cols-2 gap-2 text-xs mb-4 bg-slate-50 p-2.5 rounded-lg border border-slate-200">
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-green-500 inline-block"></span>
+                            <span class="text-slate-600">Answered (<span id="count-answered">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-red-500 inline-block"></span>
+                            <span class="text-slate-600">Not Ans (<span id="count-not-answered">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-purple-600 inline-block"></span>
+                            <span class="text-slate-600">Marked (<span id="count-marked">0</span>)</span>
+                        </div>
+                        <div class="flex items-center space-x-1.5">
+                            <span class="w-3.5 h-3.5 rounded-full bg-slate-300 inline-block"></span>
+                            <span class="text-slate-600">Not Visited (<span id="count-not-visited">100</span>)</span>
+                        </div>
+                    </div>
+
+                    <!-- 1 to 100 Grid -->
+                    <div class="max-h-[360px] lg:max-h-[480px] overflow-y-auto p-1 border rounded-xl bg-slate-50">
+                        <div class="grid grid-cols-5 sm:grid-cols-10 lg:grid-cols-5 gap-2" id="palette-grid">
+                            <!-- Buttons 1 to 100 generated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t mt-4 text-center">
+                    <p class="text-xs text-slate-500">परीक्षा पूरा करने पर Final Submit दबाएँ।</p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SCREEN 3: RESULT & SOLUTION REVIEW SCREEN (Hidden Initially) -->
+        <section id="result-screen" class="hidden w-full max-w-5xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden my-4">
+            <!-- Result Header -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 text-white p-6 sm:p-8 text-center relative">
+                <div class="inline-block p-3 bg-white/10 rounded-full mb-3 backdrop-blur-md">
+                    <i class="fa-solid fa-trophy text-4xl text-yellow-400"></i>
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-extrabold">परीक्षा परिणाम व विस्तृत उत्तर कुंजी</h2>
+                <p class="text-blue-200 text-sm mt-1">परीक्षार्थी: <span id="res-candidate-name" class="font-bold text-white underline"></span></p>
+            </div>
+
+            <!-- Score Scorecard Grid -->
+            <div class="p-6 md:p-8 space-y-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="bg-blue-50 border border-blue-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-blue-600 block mb-1">कुल प्राप्तांक (Total Score)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-blue-900" id="res-total-score">0</span>
+                        <span class="text-xs text-slate-500 block">/ 100 अंक</span>
+                    </div>
+                    <div class="bg-emerald-50 border border-emerald-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-emerald-600 block mb-1">सही प्रश्न (Correct)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-emerald-800" id="res-correct-count">0</span>
+                        <span class="text-xs text-emerald-600 block">+1.0 प्रति प्रश्न</span>
+                    </div>
+                    <div class="bg-rose-50 border border-rose-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-rose-600 block mb-1">गलत प्रश्न (Incorrect)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-rose-800" id="res-incorrect-count">0</span>
+                        <span class="text-xs text-rose-600 block">-0.33 कटौती</span>
+                    </div>
+                    <div class="bg-purple-50 border border-purple-200 p-4 rounded-xl text-center shadow-sm">
+                        <span class="text-xs uppercase font-bold text-purple-600 block mb-1">सटीकता (Accuracy %)</span>
+                        <span class="text-2xl sm:text-3xl font-black text-purple-900" id="res-accuracy">0%</span>
+                        <span class="text-xs text-slate-500 block">परफॉर्मन्स दर</span>
+                    </div>
+                </div>
+
+                <!-- Print & Restart Buttons -->
+                <div class="flex flex-wrap justify-between items-center border-b pb-4 gap-4">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center">
+                        <i class="fa-solid fa-book-open text-blue-600 mr-2"></i>सभी 100 प्रश्नों की विस्तृत उत्तर कुंजी एवं व्याख्या
+                    </h3>
+                    <div class="flex space-x-3">
+                        <button onclick="window.print()" class="px-4 py-2 bg-slate-800 hover:bg-slate-900 text-white font-bold text-sm rounded-lg shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-print"></i>
+                            <span>उत्तर कुंजी प्रिंट करें</span>
+                        </button>
+                        <button onclick="location.reload()" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm rounded-lg shadow transition flex items-center space-x-2">
+                            <i class="fa-solid fa-rotate-right"></i>
+                            <span>पुनः परीक्षा दें</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Detailed Solutions Container (100 Questions) -->
+                <div class="space-y-6" id="solutions-container">
+                    <!-- Dynamic rendering of 100 detailed solutions -->
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-3 text-center text-xs border-t border-slate-800">
+        <p>© NCERT जिज्ञासा कक्षा 7 विज्ञान - पूर्ण डिजिटल अभ्यास प्रणाली (Netlify Compatible)</p>
+    </footer>
+
+
+    <!-- JAVASCRIPT EXAM ENGINE & 100 QUESTION DATASTRUCTURE -->
+    <script>
+        // --- 100 QUESTION DATA STRUCTURE (NCERT CLASS 7 CH 1: विज्ञान का निरंतर बढ़ता संसार) ---
+        const rawQuestions = [
+            // Page 1 Questions
+            {
+                q: "1. कक्षा 7 की विज्ञान पाठ्यपुस्तक का शीर्षक क्या रखा गया है?",
+                o: ["जिज्ञासा", "खोज", "अन्वेषण", "विज्ञान-यात्रा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "NCERT कक्षा 6 की पाठ्यपुस्तक का नाम 'जिज्ञासा' (Jigyasa) रखा गया था और कक्षा 7 की पुस्तक उसी श्रृंखला की अगली कड़ी है।"
+            },
+            {
+                q: "2. पाठ्यपुस्तक के अनुसार, विज्ञान का संसार केवल तथ्यों का संग्रह न होकर किस पर केंद्रित है?",
+                o: ["स्मरण रखने और रटने पर", "संसार को समझने, प्रश्न पूछने, प्रयोग और खोज करने पर", "केवल परीक्षा पास करने पर", "केवल सिद्धांतों की परिभाषाएँ याद करने पर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक स्पष्ट करती है कि यह केवल तथ्यों से भरी पुस्तक नहीं है बल्कि यह हमारे संसार को समझने, प्रश्न पूछने, प्रयोग करने और खोज करने के लिए प्रेरित करती है।"
+            },
+            {
+                q: "3. पाठ्यपुस्तक के पृष्ठों के अंक किन दो प्रतीकों की चंचल उड़ान को दर्शाते हैं?",
+                o: ["चिड़िया और पतंग", "तितली और कागज का हवाई जहाज", "रॉकेट और गुब्बारा", "चील और ड्रोन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृष्ठ संख्या के अंक तितली की चंचल उड़ान और कागज के हवाई जहाज के उड़ने की कलात्मक आकृतियों द्वारा दर्शाए गए हैं।"
+            },
+            {
+                q: "4. वैज्ञानिकों को वास्तविक वायुयान (Airplane) बनाने की प्रेरणा प्राथमिक रूप से किस साधारण वस्तु तथा अध्ययन से मिली?",
+                o: ["कागज के हवाई जहाज और पक्षियों के पंखों के अध्ययन से", "पतंग और हवा के वेग के अध्ययन से", "समुद्री जहाजों से", "बादलों की गति से", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "प्रारंभिक शोधकर्ताओं द्वारा पक्षियों के पंखों के अध्ययन और कागज के हवाई जहाज जैसी साधारण वस्तु से विमान की अभिकल्पना का विचार आया।"
+            },
+            {
+                q: "5. पृष्ठ 1 पर दिया गया चित्र किस गतिविधि में संलग्न बच्चों को दर्शाता है?",
+                o: ["केवल किताबें पढ़ते हुए", "कागज के हवाई जहाज उड़ाते और तितलियों के पीछे पार्क में खेलते हुए", "प्रयोगशाला में रसायन मिलाते हुए", "कंप्यूटर चलाते हुए", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृष्ठ 1 पर बच्चे खुले मैदान में कागज का हवाई जहाज उड़ाते तथा खोज एवं जिज्ञासा का आनंद लेते दिखाए गए हैं।"
+            },
+            {
+                q: "6. विज्ञान के संसार की सीमा कहाँ तक फैली हुई है?",
+                o: ["केवल हमारी दृष्टि की सीमा तक", "सूक्ष्म कोशिकाओं से लेकर सूर्य और तारों की गति तथा भूमिगत जल तक", "केवल प्रयोगशाला की दीवारों के अंदर", "केवल पौधों के अध्ययन तक", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "विज्ञान में सूक्ष्म कोशिकाओं को देखना, सूर्य-तारों की गति, पदार्थों का परीक्षण और भूमिगत जल प्रवाह सब समाहित हैं।"
+            },
+            {
+                q: "7. पाठ्यपुस्तक में 'पृष्ठ पलटने' के साथ शिक्षार्थी को क्या करने हेतु प्रोत्साहित किया गया है?",
+                o: ["केवल उत्तर याद करने हेतु", "अपनी कल्पनाओं को उड़ान भरने और नई खोज करने हेतु", "केवल अभ्यास हल करने हेतु", "चित्रों को रंगने हेतु", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक में लिखा है: 'अपनी कल्पनाओं को उड़ान भरने दें- जिससे आपको नए विचार मिलें, आप नई खोज करें और आकाश को छू लें!'"
+            },
+
+            // Page 2 Questions
+            {
+                q: "8. 'विज्ञान एक प्रक्रिया है' (Science is a process) का मूल तात्पर्य क्या है?",
+                o: ["यह केवल नई वस्तुओं का संग्रह है", "यह सोचने की विधि है जिसमें जिज्ञासा और प्रश्न पूछने को प्रोत्साहन दिया जाता है", "यह एक अपरिवर्तनीय नियम समूह है", "यह केवल सिद्धांतों को लिखने का ढंग है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "कक्षा 6 व 7 में स्पष्ट किया गया है कि विज्ञान केवल नए तथ्यों को ढूँढ़ना नहीं, बल्कि सोचने की एक ऐसी विधि है जहाँ प्रश्न पूछना और अज्ञात को जानना मुख्य है।"
+            },
+            {
+                q: "9. विज्ञान को गहराई से समझने के लिए शिक्षार्थियों को कहाँ निकलना होगा?",
+                o: ["केवल पुस्तकालय में बैठना होगा", "पुस्तक और संभवतः कक्षा से बाहर निकलकर व्यावहारिक अनुभवों द्वारा", "केवल ऑनलाइन कक्षा में रहना होगा", "केवल परीक्षा कक्ष में जाना होगा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक के अनुसार, व्यावहारिक संसार का अनुभव करने के लिए पुस्तक तथा कक्षा से बाहर निकलकर क्रियाकलाप करने होते हैं।"
+            },
+            {
+                q: "10. युवा जिज्ञासु वैज्ञानिक के रूप में शिक्षार्थी क्या समझ पाते हैं?",
+                o: ["मानवीय गतिविधियाँ और प्राकृतिक प्रक्रियाएँ समाज से किस प्रकार जुड़ी हैं", "केवल भौतिक विज्ञान के सूत्र", "केवल रासायनिक नाम", "प्राकृतिक आपदाओं को रोकना असंभव है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "विज्ञान शिक्षार्थियों को यह समझने में मदद करता है कि मानवीय गतिविधियाँ प्रकृति की प्रक्रियाओं तथा समाज से कैसे संबंधित हैं।"
+            },
+            {
+                q: "11. कक्षा 7 की पाठ्यपुस्तक में विज्ञान के कौन-कौन से मुख्य क्षेत्र आपस में जुड़े दिखाए गए हैं?",
+                o: ["केवल भौतिकी और गणित", "भौतिक विज्ञान, रसायन विज्ञान, जीव विज्ञान तथा भू-विज्ञान", "केवल प्राणीशास्त्र और वनस्पतिशास्त्र", "केवल खगोलशास्त्र और भूगोल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक में भौतिक, रसायन, जीव विज्ञान तथा भू-विज्ञान (Earth Science) के अंतर्संबंधों का समावेश है।"
+            },
+            {
+                q: "12. दैनिक जीवन का कौन-सा सामान्य अवलोकन रसायन विज्ञान के अंतर्गत प्रश्न खड़ा करता है?",
+                o: ["सूर्य का उगना", "कुछ फल खट्टे क्यों होते हैं तथा हल्दी के दाग धोने पर क्या होता है", "तारों का टिमटिमाना", "हवा का बहना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "फलों का खट्टापन (अम्ल) और कपड़ों पर हल्दी के दाग का साबुन (क्षार) से धोना रासायनिक गुणधर्मों का हिस्सा है।"
+            },
+            {
+                q: "13. जब हमारे विद्यालय के गणवेश (वर्दी) पर लगे हल्दी के दाग को साबुन से धोया जाता है, तो रंग में क्या परिवर्तन होता है?",
+                o: ["वह हरा हो जाता है", "वह लाल/लाल-भूरा हो जाता है", "वह काला हो जाता है", "वह पूरी तरह गायब हो जाता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "हल्दी एक प्राकृतिक सूचक है जो क्षार (साबुन) के संपर्क में आने पर लाल-भूरा रंग देती है।"
+            },
+            {
+                q: "14. टोकरी में रखे फलों के चित्र (पृष्ठ 2) में कौन-कौन से फल/सब्जियाँ पृथक रूप से दर्शाए गए हैं?",
+                o: ["केवल सेब और केला", "संतरा, आँवला, आम और टमाटर", "अंगूर और अनानास", "नारियल और लीची", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृष्ठ 2 के चित्र में टोकरी से संतरा, आँवला, आम और कट-टमाटर तीर द्वारा दर्शाए गए हैं जो खट्टेपन और रासायनिक गुणों की ओर इशारा करते हैं।"
+            },
+
+            // Page 3 Questions
+            {
+                q: "15. पृष्ठ 3 पर दर्शाए गए विद्युत परिपथ में किन घटकों का प्रयोग किया गया है?",
+                o: ["बैटरी, तार, बल्ब और एक चम्मच (धातु)", "सौर पैनल, मोटर और स्विच", "केवल बैटरी और पंखा", "जनरेटर और फ्यूज", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चित्र में एक विद्युत सेल (बैटरी), जोड़ने वाले तार, बल्ब और परिपथ पूरा करने के लिए एक धातु की चम्मच को जोड़ा गया है।"
+            },
+            {
+                q: "16. धातु और अधातु के वर्गीकरण का मुख्य आधार क्या है?",
+                o: ["केवल उनका रंग", "पदार्थों के विद्युत चालन, कठोरता व अन्य गुणधर्म", "केवल उनका वजन", "उनका मूल्य", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पदार्थों में विद्युत प्रवाह की क्षमता जैसे भौतिक/रासायनिक गुणधर्मों के आधार पर उन्हें धातुओं व अधातुओं में बाँटा जाता है।"
+            },
+            {
+                q: "17. टॉर्च की सूखी बैटरी (Cell) अंततः काम करना क्यों बंद कर देती है?",
+                o: ["क्योंकि उसका ढांचा टूट जाता है", "क्योंकि उसके अंदर के रासायनिक पदार्थ (ऊर्जा) समाप्त हो जाते हैं", "क्योंकि तार ठंडा हो जाता है", "क्योंकि बल्ब बड़ा हो जाता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "बैटरी/सेल में उपस्थित रसायन जब पूरी तरह अभिक्रिया कर लेते हैं तो उसकी रासायनिक ऊर्जा समाप्त हो जाती है।"
+            },
+            {
+                q: "18. निम्नलिखित में से कौन सा परिवर्तन एक 'स्थायी' (Permanent/Irreversible) परिवर्तन का उदाहरण है?",
+                o: ["बर्फ का पिघलकर जल बनना", "जल का वाष्प बनना", "फलों का पकना या लोहे पर जंग लगना", "मोम का पिघलना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "फलों का पकना या चट्टानों का टूटना/जंग लगना स्थायी परिवर्तन हैं जिन्हें आसानी से पूर्व स्थिति में नहीं लाया जा सकता।"
+            },
+            {
+                q: "19. पृष्ठ 3 पर बच्चे मोमबत्ती के साथ कौन-सा अवलोकन कर रहे हैं?",
+                o: ["जलने पर मोम का पिघलना और ऊष्मा का प्रभाव", "ध्वनि उत्पन्न करना", "चुंबकत्व का परीक्षण", "गैस का वजन मापना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पृष्ठ 3 पर बच्चे मोमबत्ती की ज्वाला और मोम के पिघलने (ऊष्मा प्रवाह व भौतिक/रासायनिक परिवर्तन) का समूह में अवलोकन कर रहे हैं।"
+            },
+            {
+                q: "20. जल चक्र (Water Cycle) में सूर्य की गर्मी की क्या भूमिका है?",
+                o: ["समुद्रों के जल का वाष्पीकरण करना", "जल को भारी बनाना", "जल को ठंडा करना", "वर्षा को रोकना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सूर्य की गरमी के कारण समुद्रों व जलाशयों का जल वाष्पित होकर बादलों में बदलता है और वर्षा के रूप में नीचे आता है।"
+            },
+            {
+                q: "21. भूमि में रिसने वाले जल को क्या कहा जाता है?",
+                o: ["समुद्री जल", "भौमजल (Groundwater)", "वाष्प", "ग्लेशियर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "वर्षा का जो जल रिसाव होकर मिट्टी के नीचे चला जाता है, उसे भौमजल या भूमिगत जल कहते हैं।"
+            },
+
+            // Page 4 Questions
+            {
+                q: "22. मानव शरीर में किस आयु वर्ग/स्तर में तीव्रता से शारीरिक परिवर्तन होते हैं?",
+                o: ["शैशवावस्था में", "विद्यालय के मध्य स्तर (Middle school level) / किशोरावस्था में", "वृद्धावस्था में", "केवल वयस्क होने के बाद", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक स्पष्ट रूप से उल्लेख करती है: 'विशेषकर विद्यालय के मध्य स्तर की आयु में शरीर में तीव्रता से परिवर्तन होते हैं!'"
+            },
+            {
+                q: "23. जंतुओं में शारीरिक वृद्धि और जैविक प्रक्रमों के लिए दो अति आवश्यक घटक कौन से हैं?",
+                o: ["खेल और आराम", "श्वसन (Respiration) और भोजन (Nutrition)", "केवल पानी और धूप", "केवल कपडे़ और आवास", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "शारीरिक वृद्धि हेतु ऊर्जा और पोषक तत्व प्राप्त करने के लिए श्वसन और भोजन अनिवार्य जैविक प्रक्रम हैं।"
+            },
+            {
+                q: "24. भोजन पचाने के बाद पोषक तत्व शरीर के सभी भागों तक किसके माध्यम से पहुँचते हैं?",
+                o: ["तंत्रिका तंत्र द्वारा", "रक्त (Blood) द्वारा", "हवा द्वारा", "त्वचा द्वारा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "भोजन से प्राप्त पोषक तत्व रक्त प्रवाह द्वारा शरीर की प्रत्येक कोशिका तक पहुँचते हैं।"
+            },
+            {
+                q: "25. क्या पौधों को भी वृद्धि के लिए भोजन की आवश्यकता होती है? वे इसे कैसे प्राप्त करते हैं?",
+                o: ["नहीं, उन्हें आवश्यकता नहीं होती", "हाँ, वे प्रकाश संश्लेषण (Photosynthesis) द्वारा अपना भोजन स्वयं बनाते हैं", "वे जंतुओं से भोजन छीनते हैं", "वे केवल मिट्टी खाते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पौधे सजीव हैं और उन्हें वृद्धि के लिए भोजन चाहिए; वे सूर्य के प्रकाश, CO2 और जल की सहायता से अपना भोजन स्वयं बनाते हैं।"
+            },
+            {
+                q: "26. प्राचीन काल में डिजिटल या विद्युत घड़ियों के आविष्कार से बहुत पहले मनुष्य समय का अनुमान कैसे लगाते थे?",
+                o: ["तारों की आवाज़ सुनकर", "सूर्य के कारण बनने वाली वस्तुओं की परछाई/छाया की स्थिति देखकर", "पानी का स्वाद लेकर", "हवा की दिशा छूकर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "प्राचीन काल में लोग सूर्य के प्रकाश से बनने वाली छाया (संडायल/धूपघड़ी) की स्थिति देखकर समय का सटीक अनुमान लगाते थे।"
+            },
+            {
+                q: "27. पृष्ठ 4 पर दर्शाइए गए ऐतिहासिक यंत्र 'धूपघड़ी' (Sundial) का मुख्य कार्य क्या था?",
+                o: ["तापमान मापना", "छाया की स्थिति द्वारा समय बताना", "वर्षा मापना", "दिशा बताना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृष्ठ 4 पर अंकित धूपघड़ी (Sundial) का चित्र सूर्य की छाया के आधार पर समय मापने के प्राचीन तरीके को दिखाता है।"
+            },
+            {
+                q: "28. पृष्ठ 4 पर दो समतल दर्पणों के बीच रखे ढक्कन के कितने प्रतिबिंब बनते दिखाई दे रहे हैं?",
+                o: ["केवल 1", "3 या अधिक प्रतिबिंब (बहु-प्रतिबिंबन)", "कोई प्रतिबिंब नहीं", "100 प्रतिबिंब", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "जब दो दर्पणों को एक कोण पर रखा जाता है तो प्रकाश के परावर्तन से एक वस्तु के multiple images (बहु-प्रतिबिंब) बनते हैं।"
+            },
+            {
+                q: "29. पृष्ठ 4 पर दौड़ते हुए बालकों/धावकों का चित्र किस वैज्ञानिक अवधारणा को दर्शाता है?",
+                o: ["रासायनिक अभिक्रिया", "गति, समय और शारीरिक ऊर्जा का मापन", "ध्वनि की गति", "गुरुत्वाकर्षण का अभाव", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "दौड़ प्रतियोगिता का चित्र यह समझने के लिए है कि कोई क्रिया कितनी तीव्रता से होती है और समय को कैसे मापा जाता है।"
+            },
+
+            // Page 5 Questions
+            {
+                q: "30. ग्रहण (Eclipses) जैसी खगोलीय घटनाएँ मुख्य रूप से किन पिंडों की परछाइयों/छाया के कारण होती हैं?",
+                o: ["मंगल और बृहस्पति", "पृथ्वी और चंद्रमा", "शुक्र और शनि", "धूमकेतु और उल्का", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक पृष्ठ 5 पर उल्लेख है कि पृथ्वी और चंद्रमा की परछाइयाँ बनने से सूर्य ग्रहण और चंद्र ग्रहण जैसी घटनाएँ होती हैं।"
+            },
+            {
+                q: "31. पृथ्वी पर दिन और रात का चक्र किस गति के कारण होता है?",
+                o: ["चंद्रमा के घूमने से", "पृथ्वी का अपने अक्ष (Axis) पर घूर्णन करने से", "सूर्य के ठंडे होने से", "बादलों के छा जाने से", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृथ्वी जब अपने अक्ष पर 24 घंटे में एक बार घूमती है, तो सूर्य के सामने वाला भाग दिन तथा विपरीत भाग रात का अनुभव करता है।"
+            },
+            {
+                q: "32. पृष्ठ 5 पर दिए गए लेजर लाइट और पानी के गिलास वाले प्रयोग में क्या दिखाया गया है?",
+                o: ["जल में लेजर प्रकाश का मार्ग (प्रकाश का गमन व प्रकीर्णन)", "पानी का उबलना", "विद्युत धारा का प्रवाह", "ध्वनि तरंगें", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चित्र में पारदर्शी गिलास में भरे पानी से होकर गुजरती हुई लाल लेजर किरण के सीधे मार्ग को दर्शाया गया है।"
+            },
+            {
+                q: "33. वैज्ञानिक दृष्टिकोण में जब कोई प्रयोग हमारे अनुमानित विचार की पुष्टि कर देता है, तब क्या होता है?",
+                o: ["अन्वेषण सदा के लिए समाप्त हो जाता है", "यह अतिरिक्त नए प्रश्नों और अधिक प्रयोगों की आवश्यकता को जन्म दे सकता है", "पुस्तकों को बंद कर देना चाहिए", "प्रश्नों पर प्रतिबंध लग जाता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक के अनुसार: 'जो प्रयोग हमारे विचार की पुष्टि करते हैं, वे भी कुछ अतिरिक्त प्रश्नों को जन्म दे सकते हैं।'"
+            },
+            {
+                q: "34. पृथ्वी, सूर्य और चंद्रमा के अंतर्संबंध में चंद्रमा की गति कैसी होती है?",
+                o: ["चंद्रमा सूर्य के चारों ओर स्थिर रहता है", "चंद्रमा पृथ्वी के चारों ओर चक्कर लगाता है", "चंद्रमा पृथ्वी से दूर भागता है", "चंद्रमा घूमता ही नहीं है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चंद्रमा पृथ्वी का प्राकृतिक उपग्रह है और यह पृथ्वी के चारों ओर परिक्रमा करता है, जबकि पृथ्वी सूर्य के चारों ओर।"
+            },
+
+            // Page 6 Questions & Activity 1.1
+            {
+                q: "35. क्रियाकलाप 1.1 (Activity 1.1) का शीर्षक क्या दिया गया है?",
+                o: ["प्रश्नों के उत्तर दीजिए", "उत्तरों के प्रश्न बनाइए (Construct Questions for Answers)", "उत्तर रट लीजिए", "चित्र पहचानिए", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "क्रियाकलाप 1.1 का नाम 'उत्तरों के प्रश्न बनाइए' है, जहाँ पारंपरिक पद्धति को उलटकर उत्तर से जिज्ञासा उत्पन्न करने वाले प्रश्न बनाने को कहा गया है।"
+            },
+            {
+                q: "36. महान वैज्ञानिकों की एक सबसे प्रमुख विशेषता क्या बताई गई है?",
+                o: ["वे केवल कठिन उत्तर याद रखते हैं", "वे केवल प्रश्नों के उत्तर नहीं देते, अपितु अद्भुत और रचनात्मक प्रश्न पूछते हैं", "वे किसी से बात नहीं करते", "वे कभी प्रयोग नहीं करते", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ में कहा गया है: 'महान वैज्ञानिक केवल प्रश्नों के उत्तर ही नहीं देते हैं अपितु वे अद्भुत प्रश्न भी पूछते हैं!'"
+            },
+            {
+                q: "37. पाठ्यपुस्तक में दिए गए उदाहरण में यदि उत्तर 'इसे ठीक आधा कर दो' है, तो इसके लिए कौन-सा प्रश्न/परिस्थिति संभव है?",
+                o: ["तरबूज का बराबर भाग कैसे प्राप्त करें?", "निबंध विस्तृत है तो लिफाफे में कैसे रखें?", "गीत बहुत लंबा है तो नृत्य कैसे करें?", "उपर्युक्त सभी परिस्थितियाँ संभव हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 3,
+                exp: "पाठ में स्पष्ट उदाहरण दिया गया है कि 'इसे ठीक आधा कर दो' उत्तर के लिए तरबूज, निबंध या गीत संबंधी कई रचनात्मक प्रश्न हो सकते हैं।"
+            },
+            {
+                q: "38. क्रियाकलाप 1.1 में दिए गए उत्तर: 'बस थोड़ा दूध डालें' के लिए सबसे उपयुक्त जिज्ञासु प्रश्न क्या हो सकता है?",
+                o: ["32+10 कितना होता है?", "चाय बहुत कड़वी/तेज हो गई है, इसे पीने योग्य कैसे बनाएँ?", "आकाश का रंग नीला क्यों है?", "गाड़ी कैसे चलती है?", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "कड़वी या गाढ़ी चाय/कॉफी को ठीक करने या बिल्ली के बच्चे को भोजन देने के संदर्भ में 'बस थोड़ा दूध डालें' उत्तर आता है।"
+            },
+            {
+                q: "39. क्रियाकलाप 1.1 में दिए गए उत्तर: 'क्योंकि बिल्ली के दाँत टेढ़े थे' के लिए कौन-सा हास्यास्पद/रचनात्मक प्रश्न हो सकता है?",
+                o: ["चूहा आसानी से क्यों बच निकला या बिल्ली खाना क्यों नहीं चबा पा रही थी?", "बिल्ली क्यों सो रही थी?", "दूध क्यों गिर गया?", "बिल्ली के कितने पैर हैं?", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "बिल्ली के शारीरिक लक्षण से जुड़ा यह एक मनोरंजक प्रश्न हो सकता है जैसे 'बिल्ली चूहे को पकड़ने में क्यों असफल रही?'"
+            },
+            {
+                q: "40. क्रियाकलाप 1.1 में दिए गए उत्तर: 'घबराइए मत, मेरे पास तौलिया है' के लिए कौन-सा प्रश्न उपयुक्त है?",
+                o: ["अरे! मेज पर पानी/शरबत गिर गया है, अब क्या करें?", "धूप बहुत तेज है", "मुझे भूख लगी है", "घड़ी बंद हो गई है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "पानी या तरल पदार्थ के गिर जाने पर तौलिए से पोंछने की सांत्वना देने वाला प्रश्न 'अरे शरबत गिर गया!' सही बैठता है।"
+            },
+            {
+                q: "41. क्रियाकलाप 1.1 में दिए गए उत्तर: '42' के संदर्भ में पाठ्यपुस्तक में किस प्रकार के प्रश्न पूछने से मना किया गया है?",
+                o: ["रचनात्मक प्रश्न पूछने से", "पूर्वानुमानित या साधारण गणितीय प्रश्न जैसे '32 + 10 कितना होता है?'", "जिज्ञासु प्रश्न से", "विज्ञान के प्रश्न से", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पुस्तक में कोष्ठक में लिखा है: '(कृपया अधिक रोचक प्रश्न पूछिए किंतु पूर्वानुमानित प्रश्न न पूछें जैसे 32+10 कितना होता है?)'"
+            },
+            {
+                q: "42. बुद्धिमान बनने के लिए पाठ्यपुस्तक कक्षा 6 के किस कथन का स्मरण कराती है?",
+                o: ["बुद्धिमान होने के लिए सब कुछ रटना आवश्यक है", "बुद्धिमान होने के लिए आपको प्रश्न पूछने वाला बनना भी आवश्यक है", "बुद्धिमान केवल शांत रहते हैं", "बुद्धिमान प्रश्न नहीं पूछते", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "गत वर्ष का विचार दोहराया गया है: 'बुद्धिमान होने के लिए आपको प्रश्न पूछने वाला बनना भी आवश्यक है।'"
+            },
+
+            // Expanding to 100 Comprehensive Scientific & Contextual MCQs from Pages 1-6
+            {
+                q: "43. वैज्ञानिक विधि (Scientific Method) का पहला मुख्य चरण निम्नलिखित में से कौन-सा है?",
+                o: ["निष्कर्ष निकालना", "अवलोकन (Observation) एवं प्रश्न पूछना (Questioning)", "रिपोर्ट लिखना", "सिद्धांत की घोषणा करना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "वैज्ञानिक विधि का प्रारंभ किसी परिघटना के सावधानीपूर्वक अवलोकन और उससे उत्पन्न प्रश्न से होता है।"
+            },
+            {
+                q: "44. सूर्यग्रहण (Solar Eclipse) के दौरान चंद्रमा की स्थिति कहाँ होती है?",
+                o: ["पृथ्वी और सूर्य के ठीक बीच में", "पृथ्वी के पीछे", "सूर्य के पीछे", "बृहस्पति के पास", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "सूर्य ग्रहण तब होता है जब चंद्रमा, पृथ्वी और सूर्य के बीच आ जाता है और उसकी छाया पृथ्वी पर पड़ती है।"
+            },
+            {
+                q: "45. चंद्रग्रहण (Lunar Eclipse) के समय किसकी छाया चंद्रमा पर पड़ती है?",
+                o: ["सूर्य की", "पृथ्वी की", "बुध ग्रह की", "मंगल ग्रह की", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "चंद्रग्रहण के समय पृथ्वी, सूर्य और चंद्रमा के बीच आ जाती है जिससे पृथ्वी की छाया चंद्रमा पर पड़ती है।"
+            },
+            {
+                q: "46. सूरजमुखी के पौधे का सूर्य की दिशा में मुड़ना पौधे के किस गुण को प्रदर्शित करता है?",
+                o: ["निर्जीवपन", "उद्दीपन के प्रति अनुक्रिया (Response to Stimuli)", "श्वसन का अभाव", "प्रकाशन की अनुपस्थिति", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "सजीव उद्दीपन के प्रति प्रतिक्रिया करते हैं; पृष्ठ 4 पर सूरजमुखी का चित्र प्रकाशानुवर्तन (Phototropism) दर्शाता है।"
+            },
+            {
+                q: "47. निम्नलिखित में से कौन सा पदार्थ विद्युत का सुचालक (Good Conductor of Electricity) है?",
+                o: ["प्लास्टिक की चम्मच", "धातु (स्टील) की चम्मच", "लकड़ी की छड़ी", "काँच का गिलास", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृष्ठ 3 पर बने परिपथ में स्टील की चम्मच विद्युत चालकता का परीक्षण करने हेतु धातु के रूप में प्रयुक्त हुई है।"
+            },
+            {
+                q: "48. विद्युत परिपथ (Electric Circuit) में धारा प्रवाहित होने के लिए परिपथ कैसा होना चाहिए?",
+                o: ["टूटा हुआ (Open)", "बंद और पूर्ण (Closed & Complete)", "गीला", "अधातु से बना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "विद्युत धारा केवल तभी बहती है जब परिपथ पूरी तरह बंद (Closed) और चालकों द्वारा जुड़ा हो।"
+            },
+            {
+                q: "49. भौतिक परिवर्तन (Physical Change) की मुख्य विशेषता क्या होती है?",
+                o: ["नया पदार्थ बनता है", "सामान्यतः कोई नया पदार्थ नहीं बनता और यह प्रायः उत्क्रमण योग्य (Reversible) होता है", "रंग हमेशा काला पड़ता है", "ऊष्मा कभी नहीं निकलती", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "बर्फ का पिघलना या जल का जमना भौतिक परिवर्तन हैं जिनमें कोई नया रासायनिक पदार्थ नहीं बनता।"
+            },
+            {
+                q: "50. रासायनिक परिवर्तन (Chemical Change) का उदाहरण कौन-सा है?",
+                o: ["कागज को फाड़ना", "लोहे में जंग लगना या दूध से दही बनना", "जल में नमक घोलना", "मोम का पिघलना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "दूध का दही बनना या जंग लगना नए गुणधर्मों वाले पदार्थों का निर्माण करते हैं, जो रासायनिक परिवर्तन हैं।"
+            },
+            {
+                q: "51. पौधे श्वसन (Respiration) की प्रक्रिया में कौन-सी गैस ग्रहण करते हैं?",
+                o: ["केवल कार्बन डाइऑक्साइड", "ऑक्सीजन (Oxygen)", "नाइट्रोजन", "हाइड्रोजन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पौधे प्रकाश संश्लेषण में CO2 लेते हैं, परंतु श्वसन (Respiration) में जंतुओं की भाँति ऑक्सीजन (O2) ही लेते हैं।"
+            },
+            {
+                q: "52. पौधों में प्रकाश संश्लेषण (Photosynthesis) मुख्य रूप से किस अंग में होता है?",
+                o: ["जड़ों में", "हरी पत्तियों (Leaves) में", "फूलों में", "तने की छाल में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पत्तियों में क्लोरोफिल नामक वर्णक होता है जो सूर्य के प्रकाश को अवशोषित कर भोजन बनाता है।"
+            },
+            {
+                q: "53. भू-विज्ञान (Geology) के अंतर्गत हम किसका अध्ययन करते हैं?",
+                o: ["केवल तारों का", "पृथ्वी की संरचना, चट्टानों, मृदा और भूमिगत जल का", "केवल मानव शरीर का", "केवल रसायनों का", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "भू-विज्ञान पृथ्वी के आंतरिक व बाह्य संरचना, चट्टानों व जल स्रोतों के अध्ययन से संबंधित है।"
+            },
+            {
+                q: "54. 'ग्लेशियरों का पिघलना' किस वैश्विक समस्या और वैज्ञानिक विषय से सीधा जुड़ा है?",
+                o: ["केवल ध्वनि प्रदूषण", "ऊष्मा का प्रवाह, तापमान वृद्धि (Global Warming) एवं जल चक्र", "केवल चुंबकीय क्षेत्र", "परमाणु ऊर्जा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ग्लेशियरों का पिघलना ऊष्मा के संचरण और जलवायु परिवर्तन/पर्यावरण संतुलन से जुड़ा महत्वपूर्ण विषय है।"
+            },
+            {
+                q: "55. समय मापन की अंतर्राष्ट्रीय मानक इकाई (SI Unit) क्या है?",
+                o: ["घंटा (Hour)", "सेकंड (Second)", "मिनट (Minute)", "दिन (Day)", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "समय का SI मात्रक सेकंड (s) होता है।"
+            },
+            {
+                q: "56. समतल दर्पण (Plane Mirror) द्वारा बना प्रतिबिंब कैसा होता है?",
+                o: ["वास्तविक और उल्टा", "आभासी, सीधा और वस्तु के आकार के बराबर", "बहुत छोटा", "उल्टा और बड़ा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "समतल दर्पण हमेशा आभासी (Virtual), सीधा (Erect) और वस्तु के समान आकार का प्रतिबिंब बनाता है।"
+            },
+            {
+                q: "57. प्रकाश (Light) किस प्रकार की रेखा में गमन करता है?",
+                o: ["वक्र रेखा में", "सरल/सीधी रेखा (Straight line) में", "वृत्ताकार मार्ग में", "सर्पिलाकार मार्ग में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "प्रकाश का ऋजुरेखीय प्रसारण (Rectilinear propagation) बताता है कि प्रकाश सीधी रेखा में चलता है।"
+            },
+            {
+                q: "58. जब प्रकाश की किरण किसी अपारदर्शी वस्तु पर पड़ती है, तो पीछे क्या बनता है?",
+                o: ["लेंस", "छाया/परछाई (Shadow)", "दर्पण", "रंगधनुष", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अपारदर्शी वस्तु प्रकाश के मार्ग को रोक लेती है, जिससे उसके पीछे अंधकारमय क्षेत्र यानी 'छाया' बनती है।"
+            },
+            {
+                q: "59. हल्दी किस प्रकार का सूचक (Indicator) है?",
+                o: ["कृत्रिम सूचक", "प्राकृतिक सूचक (Natural Indicator)", "संश्लेषित सूचक", "उदासीन सूचक", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "हल्दी एक प्राकृतिक सूचक है जो अम्लीय/उदासीन माध्यम में पीली और क्षारीय माध्यम में लाल हो जाती है।"
+            },
+            {
+                q: "60. हमारे रक्त में उपस्थित कौन-सा घटक ऑक्सीजन का परिवहन करता है?",
+                o: ["श्वेत रक्त कोशिकाएं (WBC)", "हीमोग्लोबिन/लाल रक्त कोशिकाएं (RBC)", "प्लेटलेट्स", "प्लाज्मा जल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "RBC में मौजूद हीमोग्लोबिन ऑक्सीजन से बंधकर पूरे शरीर में ऑक्सीजन का संवहन करता है।"
+            },
+
+            // Questions 61 to 100: Covering in-depth conceptual linkages from pages 1-6
+            {
+                q: "61. कक्षा 7 की विज्ञान पाठ्यपुस्तक में पर्यावरण-संबंधी चुनौतियों को हल करने में किसकी भूमिका रेखांकित की गई है?",
+                o: ["केवल पुरानी मान्यताओं की", "विज्ञान एवं वैज्ञानिक दृष्टिकोण की", "केवल कानून की", "उद्योगों के बंद होने की", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ में कहा गया है कि विज्ञान पर्यावरण-संबंधी समस्याओं को समझकर उनके उपयुक्त समाधान खोजने में मदद करता है।"
+            },
+            {
+                q: "62. पानी का बर्फ में बदलना और पुनः जल बनना किस प्रकार के परिवर्तन का उदाहरण है?",
+                o: ["अस्थाई एवं उत्क्रमणीय (Temporary & Reversible)", "स्थाई एवं अनुत्क्रमणीय", "रासायनिक परिवर्तन", "जैविक परिवर्तन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "बर्फ का पिघलना अवस्था परिवर्तन है जिसे ठंडा करके पुनः बर्फ बनाया जा सकता है, अतः यह अस्थाई है।"
+            },
+            {
+                q: "63. यदि किसी परिपथ में बल्ब नहीं जल रहा है, तो संभावित कारण क्या हो सकता है?",
+                o: ["सेल/बैटरी डिस्चार्ज हो सकती है", "तार कहीं से टूटा हो सकता है", "बल्ब का फिलामेंट फ्यूज हो सकता है", "उपर्युक्त सभी कारण हो सकते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 3,
+                exp: "परिपथ अपूर्ण होने, फ्यूज बल्ब या डिस्चार्ज बैटरी - इन सभी से बल्ब प्रज्वलित नहीं होगा।"
+            },
+            {
+                q: "64. '42' उत्तर के संदर्भ में, यह किस प्रसिद्ध विज्ञान-साहित्यिक संदर्भ (The Hitchhiker's Guide to the Galaxy) का हास्य रूप है?",
+                o: ["परमाणु संख्या", "जीवन, ब्रह्मांड और सब कुछ के अंतिम प्रश्न का उत्तर", "ग्रहों की संख्या", "प्रकाश की चाल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक में 42 के साथ लिखा है '(जीवन, ब्रह्मांड इत्यादि का क्या मर्म है?)', जो प्रसिद्ध पॉप-कल्चर संदर्भ है।"
+            },
+            {
+                q: "65. वैज्ञानिक अनुसंधान में 'प्रेक्षण' (Observation) का क्या अर्थ है?",
+                o: ["केवल अंदाज़ा लगाना", "ज्ञानेंद्रियों अथवा उपकरणों द्वारा किसी घटना को सावधानीपूर्वक देखना और नोट करना", "दूसरों की नकल करना", "किताबों से उत्तर लिखना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "सावधानीपूर्वक देखना, मापना और आंकड़े एकत्र करना ही प्रेक्षण (Observation) कहलाता है।"
+            },
+            {
+                q: "66. जब धातु की चम्मच को गर्म चाय में डुबोया जाता है, तो उसका दूसरा सिरा गर्म हो जाता है। यह ऊष्मा के किस संचरण को दर्शाता है?",
+                o: ["संवहन (Convection)", "चालन (Conduction)", "विकिरण (Radiation)", "वाष्पन", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ठोस पदार्थों (जैसे धातुओं) में ऊष्मा का स्थानांतरण 'चालन' (Conduction) विधि द्वारा होता है।"
+            },
+            {
+                q: "67. क्या अधातुएँ (Non-metals) सामान्यतः विद्युत की सुचालक होती हैं?",
+                o: ["हाँ, सभी", "नहीं, सामान्यतः वे कुचालक होती हैं (अपवाद: ग्रेफाइट)", "वे केवल रात में चालक होती हैं", "वे केवल पानी में चालक होती हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अधातुएँ विद्युत की कुचालक होती हैं, केवल कार्बन का अपररूप ग्रेफाइट विद्युत का सुचालक है।"
+            },
+            {
+                q: "68. सूर्य से पृथ्वी तक ऊष्मा किस विधि द्वारा पहुँचती है?",
+                o: ["चालन द्वारा", "संवहन द्वारा", "विकिरण (Radiation) द्वारा", "प्रकीर्णन द्वारा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 2,
+                exp: "सूर्य की ऊष्मा निर्वात (Space) से होकर 'विकिरण' (Radiation) द्वारा पृथ्वी तक पहुँचती है।"
+            },
+            {
+                q: "69. हमारे फेफड़ों में ऑक्सीजन और कार्बन डाइऑक्साइड का आदान-प्रदान किस प्रक्रिया द्वारा होता है?",
+                o: ["पाचन", "विसरण (Diffusion) एवं श्वसन", "वाष्पोत्सर्जन", "प्रकाश-संश्लेषण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "श्वसन तंत्र की कूपिकाओं में गैसे विसरण प्रक्रिया द्वारा रक्त में आती-जाती हैं।"
+            },
+            {
+                q: "70. पाठ्यपुस्तक में दी गई तितली की उड़ान किसको निरूपित करती है?",
+                o: ["स्थिरता को", "जिज्ञासा और स्वतंत्रता पूर्वक सीखने की उड़ान को", "केवल कीटों के अध्ययन को", "हवा के दबाव को", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "तितली की उड़ान जिज्ञासा, स्वतंत्रता और रचनात्मक सीखने का प्रतीक है।"
+            },
+            {
+                q: "71. पृथ्वी का अक्ष (Axis) अपने कक्षीय समतल से कितने कोण पर झुका होता है?",
+                o: ["90 अंश", "23.5 अंश (23½°)", "45 अंश", "0 अंश", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृथ्वी का अक्ष 23.5 डिग्री झुका होता है जिससे ऋतु परिवर्तन और दिन-रात की लंबाई में भिन्नता आती है।"
+            },
+            {
+                q: "72. किसी वस्तु की छाया की लंबाई सबसे छोटी कब होती है?",
+                o: ["प्रातःकाल सूर्योदय के समय", "दोपहर के समय जब सूर्य ठीक सिर के ऊपर होता है", "सायंकाल सूर्यास्त के समय", "आधी रात को", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "दोपहर में जब सूर्य उच्चतम बिंदु पर होता है, तो आपतन कोण के कारण छाया सबसे छोटी बनती है।"
+            },
+            {
+                q: "73. 'परिकल्पना' (Hypothesis) से क्या तात्पर्य है?",
+                o: ["अंतिम सत्य", "किसी प्रश्न या समस्या का परीक्षण योग्य संभावित उत्तर", "केवल एक काल्पनिक कहानी", "गणितीय उत्तर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "परिकल्पना एक प्रस्तावित विचार या उत्तर है जिसका प्रयोगों द्वारा परीक्षण किया जा सकता है।"
+            },
+            {
+                q: "74. कौन सा जीव अपनी त्वचा (Skin) द्वारा श्वसन कर सकता है?",
+                o: ["मनुष्य", "केचुआ (Earthworm)", "पक्षियों", "हिरण", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "केंचुआ अपनी आर्द्र/नम त्वचा द्वारा गैसों का विनिमय करता है।"
+            },
+            {
+                q: "75. जल का वाष्पीकरण (Evaporation) किस तापमान पर होता है?",
+                o: ["केवल 100°C पर", "सभी तापमानों पर (क्वेथनांक से नीचे भी)", "केवल 0°C पर", "केवल 50°C पर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "वाष्पीकरण सतह की प्रक्रिया है जो क्वथनांक से नीचे किसी भी तापमान पर अनवरत होती रहती है।"
+            },
+            {
+                q: "76. कपड़े पर लगा सब्जी/हल्दी का दाग साबुन लगाने पर लाल क्यों हो जाता है?",
+                o: ["क्योंकि साबुन अम्लीय होता है", "क्योंकि साबुन क्षारीय (Basic) होता है", "क्योंकि पानी ठंडा होता है", "क्योंकि कपड़ा सूती होता है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "साबुन का घोल क्षारीय होता है और हल्दी क्षारीय माध्यम में लाल रंग देती है।"
+            },
+            {
+                q: "77. सिरके (Vinegar) में कौन-सा अम्ल पाया जाता है?",
+                o: ["साइट्रिक अम्ल", "एसिटिक अम्ल (Acetic Acid)", "लैक्टिक अम्ल", "ऑक्सालिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "सिरके में मुख्य रूप से एसिटिक अम्ल होता है।"
+            },
+            {
+                q: "78. नींबू और संतरे में मुख्य रूप से कौन-सा अम्ल उपस्थित होता है?",
+                o: ["एसिटिक अम्ल", "साइट्रिक अम्ल (Citric Acid)", "टार्टरिक अम्ल", "फॉर्मिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "खट्टे सिट्रस फलों जैसे संतरा और नींबू में साइट्रिक अम्ल पाया जाता है।"
+            },
+            {
+                q: "79. दही में कौन सा अम्ल मौजूद होता है?",
+                o: ["लैक्टिक अम्ल (Lactic Acid)", "एसिटिक अम्ल", "नाइट्रिक अम्ल", "सल्फ्यूरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "दूध के किण्वन से दही बनने पर लैक्टिक अम्ल का निर्माण होता है।"
+            },
+            {
+                q: "80. चींटी के डंक में कौन-सा अम्ल होता है जो जलन उत्पन्न करता है?",
+                o: ["फॉर्मिक अम्ल / मेथेनॉइक अम्ल", "साइट्रिक अम्ल", "ऑक्सालिक अम्ल", "यूरिक अम्ल", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "चींटी या मधुमक्खी के डंक में फॉर्मिक (मेथेनॉइक) अम्ल होता है।"
+            },
+            {
+                q: "81. प्रकाश का परावर्तन (Reflection of Light) किसे कहते हैं?",
+                o: ["प्रकाश का किसी चमकदार सतह से टकराकर वापस उसी माध्यम में लौटना", "प्रकाश का मुड़ जाना", "प्रकाश का अवशोषित होना", "प्रकाश का गायब होना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 0,
+                exp: "प्रकाश का किसी चिकनी या चमकदार सतह (जैसे दर्पण) से टकराकर वापस लौटना परावर्तन है।"
+            },
+            {
+                q: "82. पिनहोल कैमरा (Pinhole Camera) में वस्तु का प्रतिबिंब कैसा बनता है?",
+                o: ["सीधा और वास्तविक", "उल्टा (Inverted) और वास्तविक", "आभासी और बड़ा", "कोई प्रतिबिंब नहीं बनता", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "प्रकाश के सरल रेखीय गमन के कारण पिनहोल कैमरा में वास्तविक और उल्टा प्रतिबिंब प्राप्त होता है।"
+            },
+            {
+                q: "83. जब सूर्य, पृथ्वी और चंद्रमा एक सीधी रेखा में होते हैं, तो क्या घटित हो सकता है?",
+                o: ["भूकंप", "ग्रहण (Eclipse)", "आंधी", "बिजली कड़कना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "तीनों खगोलीय पिंडों के एक रेखा में आने (Syzygy) पर ग्रहण की स्थिति बनती है।"
+            },
+            {
+                q: "84. हमारे शरीर में ऊर्जा उत्पन्न करने के लिए कोशिकाएं किसका उपयोग करती हैं?",
+                o: ["केवल पानी का", "ग्लूकोज और ऑक्सीजन का", "केवल कार्बन डाइऑक्साइड का", "केवल नमक का", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "कोशिकीय श्वसन में ग्लूकोज ऑक्सीजन की उपस्थिति में टूटकर CO2, जल और ATP ऊर्जा देता है।"
+            },
+            {
+                q: "85. पौधों में जल और खनिज लवणों का संवहन किस ऊतक द्वारा होता है?",
+                o: ["फ्लोएम (Phloem)", "जाइलम (Xylem)", "त्वचा", "रंध्र", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "जाइलम (Xylem) जड़ों से पत्तियों तक जल व खनिजों का परिवहन करता है।"
+            },
+            {
+                q: "86. पौधों द्वारा तैयार भोजन (शर्करा) को पौधे के विभिन्न भागों तक कौन पहुँचाता है?",
+                o: ["जाइलम", "फ्लोएम (Phloem)", "स्टोमेटा", "मूल रोम", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पत्तियों में बने भोजन का संवहन फ्लोएम ऊतक द्वारा पूरे पौधे में होता है।"
+            },
+            {
+                q: "87. पत्तियों की सतह पर उपस्थित सूक्ष्म छिद्रों को क्या कहते हैं?",
+                o: ["कोशिका", "रंध्र / स्टोमेटा (Stomata)", "क्लोरोफिल", "जाइलम", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पत्तियों पर मौजूद सूक्ष्म छिद्रों (Stomata) द्वारा गैसों का विनिमय तथा वाष्पोत्सर्जन होता है।"
+            },
+            {
+                q: "88. वाष्पोत्सर्जन (Transpiration) प्रक्रिया में पौधे क्या करते हैं?",
+                o: ["ऑक्सीजन छोड़ते हैं", "पत्तियों से जल वाष्प के रूप में अतिरिक्त जल बाहर निकालते हैं", "भोजन संग्रह करते हैं", "जड़ जमाते हैं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पत्तियों द्वारा जल का वाष्प रूप में बाहर निकलना वाष्पोत्सर्जन कहलाता है।"
+            },
+            {
+                q: "89. सौर मंडल का सबसे बड़ा ऊर्जा स्रोत कौन-सा है?",
+                o: ["चंद्रमा", "सूर्य (Sun)", "पृथ्वी", "बृहस्पति", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "सूर्य पृथ्वी तथा पूरे सौर मंडल के लिए प्राथमिक ऊर्जा स्रोत है।"
+            },
+            {
+                q: "90. डिजिटल घड़ी किस सिद्धांत पर कार्य करती है?",
+                o: ["सूर्य की छाया पर", "इलेक्ट्रॉनिक दोलन/क्वार्ट्ज़ क्रिस्टल कम्पन पर", "पानी के प्रवाह पर", "बालू के गिरने पर", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "आधुनिक डिजिटल एवं क्वार्ट्ज़ घड़ियाँ सूक्ष्म इलेक्ट्रॉनिक दोलनों द्वारा सटीक समय मापती हैं।"
+            },
+            {
+                q: "91. यदि किसी घोल में नीला लिटमस पत्र लाल हो जाता है, तो वह घोल कैसा है?",
+                o: ["क्षारीय", "अम्लीय (Acidic)", "उदासीन", "लवणीय", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अम्ल नीले लिटमस पत्र को लाल कर देते हैं।"
+            },
+            {
+                q: "92. यदि कोई घोल लाल लिटमस पत्र को नीला कर देता है, तो वह कैसा है?",
+                o: ["अम्लीय", "क्षारीय (Basic/Alkaline)", "उदासीन", "कड़वा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "क्षारक लाल लिटमस पत्र को नीला कर देते हैं।"
+            },
+            {
+                q: "93. अम्ल और क्षार की परस्पर अभिक्रिया से क्या बनता है?",
+                o: ["केवल गैस", "लवण (Salt) और जल", "केवल एसिड", "प्लास्टिक", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "उदासीनीकरण (Neutralization) अभिक्रिया में अम्ल व क्षार मिलकर लवण और जल बनाते हैं।"
+            },
+            {
+                q: "94. क्या प्रकाश निर्वात (Vacuum) में गमन कर सकता है?",
+                o: ["नहीं, माध्यम आवश्यक है", "हाँ, प्रकाश निर्वात में भी तीव्र गति से गमन कर सकता है", "केवल ध्वनि के साथ", "केवल पानी में", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "प्रकाश एक विद्युत चुंबकीय तरंग है जो निर्वात में भी 3 × 10^8 m/s की चाल से चल सकता है।"
+            },
+            {
+                q: "95. ध्वनि (Sound) तरंगों के संचरण के लिए किसकी आवश्यकता होती है?",
+                o: ["निर्वात की", "भौतिक माध्यम (ठोस, द्रव या गैस) की", "केवल प्रकाश की", "किसी वस्तु की नहीं", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "ध्वनि अनुदैर्ध्य यांत्रिक तरंग है, इसे चलने के लिए माध्यम अनिवार्य है; यह निर्वात में नहीं चल सकती।"
+            },
+            {
+                q: "96. पृथ्वी को अपने अक्ष पर एक चक्कर (घूर्णन) पूरा करने में कितना समय लगता है?",
+                o: ["365 दिन", "लगभग 24 घंटे (1 दिन)", "30 दिन", "12 घंटे", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पृथ्वी 24 घंटे में एक घूर्णन पूरा करती है जिससे एक दिन-रात का चक्र बनता है।"
+            },
+            {
+                q: "97. पृथ्वी को सूर्य के चारों ओर एक परिक्रमा (क्रान्ति) पूरी करने में कितना समय लगता है?",
+                o: ["24 घंटे", "लगभग 365¼ दिन (1 वर्ष)", "100 दिन", "12 महीने का आधा", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "सूर्य की एक पूर्ण परिक्रमा में लगभग 365.25 दिन लगते हैं जिसे एक सौर वर्ष कहते हैं।"
+            },
+            {
+                q: "98. विज्ञान अध्ययन से शिक्षार्थियों में कौन-सा प्रमुख जीवन कौशल विकसित होता है?",
+                o: ["अंधविश्वासों को मानना", "तार्किक सोच, समस्या समाधान और वैज्ञानिक दृष्टिकोण", "केवल प्रश्नों से बचना", "बिना प्रमाण मान लेना", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "पाठ्यपुस्तक का ध्येय छात्र में तार्किक क्षमता, जिज्ञासा और वैज्ञानिक सोच विकसित करना है।"
+            },
+            {
+                q: "99. 'अन्वेषक' (Explorer/Investigator) शब्द का मूल अर्थ क्या है?",
+                o: ["पुरानी चीजों को फेंकने वाला", "सत्य एवं नए ज्ञान की खोज करने वाला व्यक्ति", "केवल चित्र बनाने वाला", "केवल कहानियां सुनाने वाला", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"],
+                a: 1,
+                exp: "अन्वेषक वह व्यक्ति है जो सूक्ष्म अवलोकन व प्रयोगों द्वारा नई जानकारियों और खोजों में संलग्न रहता है।"
+            },
+            {
+                q: "100. इस पूरे पाठ 'विज्ञान का निरंतर बढ़ता संसार' का अंतिम निष्कर्ष संदेश क्या है?",
+                o: ["विज्ञान पढ़ना कठिन और व्यर्थ है", "विज्ञान जिज्ञासा, निरंतर खोज और पर्यावरण व समाज के प्रति जिम्मेदारी की यात्रा है", "विज्ञान केवल वैज्ञानिकों के लिए है", "प्रश्नों के उत्तर खोजना असंभव है", "उपर्युक्त में से कोई नहीं / उपर्युक्त में से एक से अधिक"] ,
+                a: 1,
+                exp: "अध्याय का सार यह है कि विज्ञान एक निरंतर चलने वाली खोज है जो जिज्ञासा जगाती है और हमें जिम्मेदार नागरिक बनाती है।"
+            }
+        ];
+
+        // --- APP STATE VARIABLES ---
+        let candidateName = "";
+        let currentQuestionIndex = 0;
+        let userAnswers = new Array(100).fill(null); // stores index 0-4
+        let questionStatus = new Array(100).fill("not-visited"); // 'not-visited', 'not-answered', 'answered', 'marked'
+        let timerSeconds = 120 * 60; // 120 minutes
+        let timerInterval = null;
+
+        // DOM ELEMENTS
+        const startScreen = document.getElementById("start-screen");
+        const examScreen = document.getElementById("exam-screen");
+        const resultScreen = document.getElementById("result-screen");
+        const headerTimerBadge = document.getElementById("header-timer-badge");
+        const timerDisplay = document.getElementById("timer-display");
+        const studentNameInput = document.getElementById("student-name");
+        const displayCandidateName = document.getElementById("display-candidate-name");
+        const resCandidateName = document.getElementById("res-candidate-name");
+
+        const questionNumberTitle = document.getElementById("question-number-title");
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const paletteGrid = document.getElementById("palette-grid");
+
+        // Action Buttons
+        const startExamBtn = document.getElementById("start-exam-btn");
+        const btnPrev = document.getElementById("btn-prev");
+        const btnSaveNext = document.getElementById("btn-save-next");
+        const btnClear = document.getElementById("btn-clear");
+        const btnMark = document.getElementById("btn-mark");
+        const btnFinalSubmit = document.getElementById("btn-final-submit");
+
+        // Stat Counters
+        const countAnswered = document.getElementById("count-answered");
+        const countNotAnswered = document.getElementById("count-not-answered");
+        const countMarked = document.getElementById("count-marked");
+        const countNotVisited = document.getElementById("count-not-visited");
+
+        // --- INITIALIZATION & EVENT LISTENERS ---
+        startExamBtn.addEventListener("click", startExam);
+        btnPrev.addEventListener("click", () => navigateQuestion(-1));
+        btnSaveNext.addEventListener("click", saveAndNext);
+        btnClear.addEventListener("click", clearResponse);
+        btnMark.addEventListener("click", markForReview);
+        btnFinalSubmit.addEventListener("click", () => {
+            if(confirm("क्या आप वाकई परीक्षा सबमिट करना चाहते हैं?")) {
+                finishExam();
+            }
+        });
+
+        function startExam() {
+            const name = studentNameInput.value.trim();
+            if(!name) {
+                alert("कृपया परीक्षा शुरू करने से पहले अपना नाम दर्ज करें!");
+                studentNameInput.focus();
+                return;
+            }
+            candidateName = name;
+            displayCandidateName.textContent = candidateName;
+            resCandidateName.textContent = candidateName;
+
+            // Switch Screen
+            startScreen.classList.add("hidden");
+            examScreen.classList.remove("hidden");
+            headerTimerBadge.classList.remove("hidden");
+
+            // Build Palette Grid
+            buildPaletteGrid();
+
+            // Load First Question
+            loadQuestion(0);
+
+            // Start Countdown Timer
+            startTimer();
+        }
+
+        // --- TIMER LOGIC ---
+        function startTimer() {
+            timerInterval = setInterval(() => {
+                timerSeconds--;
+                if(timerSeconds <= 0) {
+                    clearInterval(timerInterval);
+                    alert("समय समाप्त हो गया है! आपकी परीक्षा स्वतः सबमिट की जा रही है।");
+                    finishExam();
+                    return;
+                }
+                const mins = Math.floor(timerSeconds / 60);
+                const secs = timerSeconds % 60;
+                timerDisplay.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // --- PALETTE GRID BUILDING ---
+        function buildPaletteGrid() {
+            paletteGrid.innerHTML = "";
+            for(let i = 0; i < 100; i++) {
+                const btn = document.createElement("button");
+                btn.id = `palette-btn-${i}`;
+                btn.textContent = i + 1;
+                btn.className = `w-9 h-9 rounded-lg font-bold text-xs flex items-center justify-center transition border ${getPaletteStatusClass(i)}`;
+                btn.addEventListener("click", () => {
+                    saveCurrentStateBeforeJump();
+                    loadQuestion(i);
+                });
+                paletteGrid.appendChild(btn);
+            }
+            updatePaletteCounts();
+        }
+
+        function getPaletteStatusClass(index) {
+            const status = questionStatus[index];
+            if(index === currentQuestionIndex) {
+                return "ring-2 ring-blue-600 ring-offset-1 font-extrabold bg-blue-100 text-blue-900 border-blue-400";
+            }
+            switch(status) {
+                case 'answered':
+                    return "bg-green-500 text-white border-green-600 hover:bg-green-600";
+                case 'not-answered':
+                    return "bg-red-500 text-white border-red-600 hover:bg-red-600";
+                case 'marked':
+                    return "bg-purple-600 text-white border-purple-700 hover:bg-purple-700";
+                case 'not-visited':
+                default:
+                    return "bg-slate-200 text-slate-700 border-slate-300 hover:bg-slate-300";
+            }
+        }
+
+        function updatePaletteStyles() {
+            for(let i = 0; i < 100; i++) {
+                const btn = document.getElementById(`palette-btn-${i}`);
+                if(btn) {
+                    btn.className = `w-9 h-9 rounded-lg font-bold text-xs flex items-center justify-center transition border ${getPaletteStatusClass(i)}`;
+                }
+            }
+            updatePaletteCounts();
+        }
+
+        function updatePaletteCounts() {
+            let ans = 0, notAns = 0, marked = 0, notVis = 0;
+            questionStatus.forEach(s => {
+                if(s === 'answered') ans++;
+                else if(s === 'not-answered') notAns++;
+                else if(s === 'marked') marked++;
+                else notVis++;
+            });
+            countAnswered.textContent = ans;
+            countNotAnswered.textContent = notAns;
+            countMarked.textContent = marked;
+            countNotVisited.textContent = notVis;
+        }
+
+        // --- QUESTION RENDER LOGIC ---
+        function loadQuestion(index) {
+            currentQuestionIndex = index;
+
+            // Mark as visited if it was not-visited
+            if(questionStatus[index] === 'not-visited') {
+                questionStatus[index] = 'not-answered';
+            }
+
+            // Update UI elements
+            questionNumberTitle.textContent = `प्रश्न संख्या ${index + 1} / 100`;
+            const qData = rawQuestions[index];
+            questionText.textContent = qData.q;
+
+            // Render Options
+            optionsContainer.innerHTML = "";
+            const optionPrefixes = ["A", "B", "C", "D", "E"];
+
+            qData.o.forEach((optText, optIdx) => {
+                const isChecked = userAnswers[index] === optIdx;
+                const label = document.createElement("label");
+                label.className = `flex items-start p-3.5 rounded-xl border-2 cursor-pointer transition ${
+                    isChecked 
+                    ? 'border-blue-600 bg-blue-50/80 shadow-sm' 
+                    : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50'
+                }`;
+
+                label.innerHTML = `
+                    <input type="radio" name="option-choice" value="${optIdx}" ${isChecked ? 'checked' : ''} class="mt-1 w-4 h-4 text-blue-600 focus:ring-blue-500">
+                    <div class="ml-3 text-sm sm:text-base font-medium ${isChecked ? 'text-blue-900 font-semibold' : 'text-slate-700'}">
+                        <span class="inline-block w-6 font-bold text-blue-600">${optionPrefixes[optIdx]}.</span>
+                        <span>${optText}</span>
+                    </div>
+                `;
+
+                label.addEventListener("click", () => {
+                    userAnswers[currentQuestionIndex] = optIdx;
+                    loadQuestion(currentQuestionIndex); // re-render options highlight
+                });
+
+                optionsContainer.appendChild(label);
+            });
+
+            // Prev Button state
+            btnPrev.disabled = (index === 0);
+
+            updatePaletteStyles();
+        }
+
+        function saveCurrentStateBeforeJump() {
+            const selectedOpt = document.querySelector('input[name="option-choice"]:checked');
+            if(selectedOpt) {
+                userAnswers[currentQuestionIndex] = parseInt(selectedOpt.value);
+                if(questionStatus[currentQuestionIndex] !== 'marked') {
+                    questionStatus[currentQuestionIndex] = 'answered';
+                }
+            } else {
+                if(questionStatus[currentQuestionIndex] !== 'marked') {
+                    questionStatus[currentQuestionIndex] = 'not-answered';
+                }
+            }
+        }
+
+        function saveAndNext() {
+            saveCurrentStateBeforeJump();
+            if(currentQuestionIndex < 99) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                alert("आप अंतिम प्रश्न पर हैं। समीक्षा करके Final Submit करें।");
+                updatePaletteStyles();
+            }
+        }
+
+        function navigateQuestion(direction) {
+            saveCurrentStateBeforeJump();
+            const target = currentQuestionIndex + direction;
+            if(target >= 0 && target < 100) {
+                loadQuestion(target);
+            }
+        }
+
+        function clearResponse() {
+            userAnswers[currentQuestionIndex] = null;
+            questionStatus[currentQuestionIndex] = 'not-answered';
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function markForReview() {
+            const selectedOpt = document.querySelector('input[name="option-choice"]:checked');
+            if(selectedOpt) {
+                userAnswers[currentQuestionIndex] = parseInt(selectedOpt.value);
+            }
+            questionStatus[currentQuestionIndex] = 'marked';
+            if(currentQuestionIndex < 99) {
+                loadQuestion(currentQuestionIndex + 1);
+            } else {
+                updatePaletteStyles();
+            }
+        }
+
+        // --- RESULT & EVALUATION ENGINE ---
+        function finishExam() {
+            clearInterval(timerInterval);
+
+            // Calculate Scores
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let unattemptedCount = 0;
+
+            rawQuestions.forEach((q, idx) => {
+                const userAns = userAnswers[idx];
+                if(userAns === null) {
+                    unattemptedCount++;
+                } else if(userAns === q.a) {
+                    correctCount++;
+                } else {
+                    incorrectCount++;
+                }
+            });
+
+            // Score formula: +1 for correct, -0.33 for incorrect
+            const totalScore = (correctCount * 1.0) - (incorrectCount * 0.33);
+            const attemptedTotal = correctCount + incorrectCount;
+            const accuracy = attemptedTotal > 0 ? ((correctCount / attemptedTotal) * 100).toFixed(1) : 0;
+
+            // Render Results Scorecard
+            document.getElementById("res-total-score").textContent = totalScore.toFixed(2);
+            document.getElementById("res-correct-count").textContent = correctCount;
+            document.getElementById("res-incorrect-count").textContent = incorrectCount;
+            document.getElementById("res-accuracy").textContent = `${accuracy}%`;
+
+            // Render All 100 Solutions
+            renderDetailedSolutions();
+
+            // Switch Screen
+            examScreen.classList.add("hidden");
+            headerTimerBadge.classList.add("hidden");
+            resultScreen.classList.remove("hidden");
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function renderDetailedSolutions() {
+            const solContainer = document.getElementById("solutions-container");
+            solContainer.innerHTML = "";
+            const optionPrefixes = ["A", "B", "C", "D", "E"];
+
+            rawQuestions.forEach((q, idx) => {
+                const uAns = userAnswers[idx];
+                const isCorrect = (uAns === q.a);
+                const isUnattempted = (uAns === null);
+
+                let badgeHTML = "";
+                let cardBorder = "";
+
+                if(isUnattempted) {
+                    badgeHTML = `<span class="bg-slate-200 text-slate-700 text-xs px-2.5 py-1 rounded font-bold">अनुत्तरित (Unattempted)</span>`;
+                    cardBorder = "border-slate-200 bg-white";
+                } else if(isCorrect) {
+                    badgeHTML = `<span class="bg-green-100 text-green-800 text-xs px-2.5 py-1 rounded font-bold"><i class="fa-solid fa-check mr-1"></i>सही (+1.0)</span>`;
+                    cardBorder = "border-green-300 bg-green-50/20";
+                } else {
+                    badgeHTML = `<span class="bg-rose-100 text-rose-800 text-xs px-2.5 py-1 rounded font-bold"><i class="fa-solid fa-xmark mr-1"></i>गलत (-0.33)</span>`;
+                    cardBorder = "border-rose-300 bg-rose-50/20";
+                }
+
+                const solCard = document.createElement("div");
+                solCard.className = `p-5 rounded-xl border shadow-sm space-y-3 ${cardBorder}`;
+
+                let optionsHTML = "";
+                q.o.forEach((optText, oIdx) => {
+                    let optStyle = "text-slate-700 border-slate-200 bg-white";
+                    let icon = "";
+
+                    if(oIdx === q.a) {
+                        optStyle = "text-green-900 border-green-500 bg-green-100/80 font-bold";
+                        icon = `<i class="fa-solid fa-circle-check text-green-600 ml-auto"></i>`;
+                    }
+                    if(uAns === oIdx && uAns !== q.a) {
+                        optStyle = "text-rose-900 border-rose-400 bg-rose-100/80 font-bold line-through";
+                        icon = `<i class="fa-solid fa-circle-xmark text-rose-600 ml-auto"></i>`;
+                    }
+
+                    optionsHTML += `
+                        <div class="p-2.5 rounded-lg border text-sm flex items-center ${optStyle}">
+                            <span><b class="mr-2">${optionPrefixes[oIdx]}.</b> ${optText}</span>
+                            ${icon}
+                        </div>
+                    `;
+                });
+
+                solCard.innerHTML = `
+                    <div class="flex justify-between items-start gap-2">
+                        <h4 class="font-bold text-slate-900 text-base">प्रश्न ${q.q}</h4>
+                        ${badgeHTML}
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 my-2">
+                        ${optionsHTML}
+                    </div>
+
+                    <div class="p-3 bg-blue-50/80 rounded-lg border border-blue-100 text-xs sm:text-sm text-blue-900 leading-relaxed">
+                        <strong class="font-bold text-blue-800 flex items-center mb-1">
+                            <i class="fa-solid fa-lightbulb text-yellow-500 mr-1.5"></i>विस्तृत व्याख्या (Explanation):
+                        </strong>
+                        ${q.exp}
+                    </div>
+                `;
+
+                solContainer.appendChild(solCard);
+            });
+        }
+    </script>
+</body>
+</html>
