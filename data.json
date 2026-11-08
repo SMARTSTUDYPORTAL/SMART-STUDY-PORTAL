@@ -15,7 +15,8 @@
     "घटनाचक्र",
     "Current affairs",
     "Lucent",
-    "Spectrum Modern History of India"
+    "Spectrum Modern History of India",
+    "आधुनिक भारत"
   ],
   "subjects": {
     "Class 1": [],
@@ -62,7 +63,15 @@
     "घटनाचक्र": [],
     "Current affairs": [],
     "Lucent": [],
-    "Spectrum Modern History of India": []
+    "Spectrum Modern History of India": [],
+    "आधुनिक भारत": [
+      "Math (गणित)",
+      "Science (विज्ञान)",
+      "Social Science",
+      "Hindi",
+      "English",
+      "1857 की क्रांति"
+    ]
   },
   "chapters": {
     "Class 6_Science": [
@@ -126,7 +135,15 @@
     "Class 12_Mathematics": [],
     "Class 12_Physics": [],
     "Class 12_Chemistry": [],
-    "Class 12_Biology": []
+    "Class 12_Biology": [],
+    "आधुनिक भारत_Math (गणित)": [],
+    "आधुनिक भारत_Science (विज्ञान)": [],
+    "आधुनिक भारत_Social Science": [],
+    "आधुनिक भारत_Hindi": [],
+    "आधुनिक भारत_English": [],
+    "आधुनिक भारत_1857 की क्रांति": [
+      "1"
+    ]
   },
   "contents": {
     "Class 6_Science_1": [
@@ -515,6 +532,15 @@
         "title": "13",
         "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288716/kdg3vx2onjjauwt86l53.pdf",
         "fileName": "hhcu113.pdf"
+      }
+    ],
+    "आधुनिक भारत_1857 की क्रांति_1": [
+      {
+        "id": 1794173730239,
+        "type": "Quiz",
+        "title": "1",
+        "content": "1857_ka_vidroh_BPSC_CBT_220_Page175_Integrated.html",
+        "fileName": ""
       }
     ]
   }
