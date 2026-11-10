@@ -15,7 +15,6 @@
     "घटनाचक्र",
     "Current affairs",
     "Lucent",
-    "Spectrum Modern History of India",
     "आधुनिक भारत"
   ],
   "subjects": {
@@ -63,14 +62,13 @@
     "घटनाचक्र": [],
     "Current affairs": [],
     "Lucent": [],
-    "Spectrum Modern History of India": [],
     "आधुनिक भारत": [
       "Math (गणित)",
       "Science (विज्ञान)",
       "Social Science",
       "Hindi",
       "English",
-      "1857 की क्रांति"
+      "राष्ट्रीय आंदोलन"
     ]
   },
   "chapters": {
@@ -141,8 +139,8 @@
     "आधुनिक भारत_Social Science": [],
     "आधुनिक भारत_Hindi": [],
     "आधुनिक भारत_English": [],
-    "आधुनिक भारत_1857 की क्रांति": [
-      "1"
+    "आधुनिक भारत_राष्ट्रीय आंदोलन": [
+      "1857 की क्रांति ( MODERN HISTORY)"
     ]
   },
   "contents": {
@@ -548,12 +546,12 @@
         "fileName": "hhcu113.pdf"
       }
     ],
-    "आधुनिक भारत_1857 की क्रांति_1": [
+    "आधुनिक भारत_राष्ट्रीय आंदोलन_1857 की क्रांति ( MODERN HISTORY)": [
       {
-        "id": 1794243910836,
+        "id": 1794336944784,
         "type": "Quiz",
-        "title": "1",
-        "content": "1857_BPSC_220_Shared_Device_StudentID_BestScore.html",
+        "title": "1857 की क्रांति ( MODERN HISTORY)",
+        "content": "BPSC_1857_CBT_220Q_220Min.html",
         "fileName": ""
       }
     ]
