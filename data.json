@@ -109,7 +109,7 @@
       "अध्याय -2 : अदृश्य जीव-जगत हमारी आंखों की क्षमता  से परे",
       "अध्याय - 3 : स्वास्थ्य  एक अमूल्य निधि",
       "अध्याय 4 : विद्युत  चुंबकीय एवं  तापीय प्रभाव",
-      "बलों को जानें",
+      "5",
       "6",
       "7",
       "8",
@@ -475,7 +475,15 @@
         "fileName": "hhcu104.pdf"
       }
     ],
-    "Class 8_Science_बलों को जानें": [],
+    "Class 8_Science_5": [
+      {
+        "id": 1793288192377,
+        "type": "BookPDF",
+        "title": "5",
+        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793288190/uc8lzjhz1c4pyopmotws.pdf",
+        "fileName": "hhcu105.pdf"
+      }
+    ],
     "Class 8_Science_6": [
       {
         "id": 1793288371864,
