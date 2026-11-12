@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>हमारे आस-पास की सामग्री | BPSC 50 प्रश्न CBT</title>
+<style>
+:root{
+ --ink:#172554;--muted:#64748b;--line:#dbe4f3;--paper:#ffffff;
+ --blue:#3157d5;--violet:#7445d8;--pink:#e34f91;--orange:#f59e0b;
+ --teal:#0d9488;--green:#15966b;--red:#dc4555;--bg:#f3f5ff;
+}
+*{box-sizing:border-box}
+body{margin:0;color:var(--ink);font-family:system-ui,"Noto Sans Devanagari",Arial,sans-serif;
+ background:radial-gradient(circle at 8% 5%,#e6eaff 0,transparent 28%),radial-gradient(circle at 92% 18%,#ffe8f1 0,transparent 24%),linear-gradient(135deg,#f7f8ff,#eef5ff)}
+header{position:relative;overflow:hidden;color:#fff;padding:30px max(18px,calc((100% - 1160px)/2));
+ background:linear-gradient(115deg,#182b72 0%,#4c35b8 48%,#a43c9b 100%);box-shadow:0 12px 35px #263c9b35}
+header:before,header:after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+header:before{width:260px;height:260px;right:8%;top:-155px;background:#ffffff18;border:1px solid #ffffff30}
+header:after{width:150px;height:150px;right:23%;bottom:-115px;background:#ffbd5925}
+header h1{position:relative;margin:0;font-size:clamp(26px,5vw,40px);letter-spacing:.2px;text-shadow:0 2px 12px #151b4b55}
+header p{position:relative;margin:8px 0 0;color:#e6eaff;font-weight:600}
+main{max-width:1160px;margin:26px auto;padding:0 16px}
+.card{background:rgba(255,255,255,.94);border:1px solid #dce4f5;border-radius:20px;padding:22px;margin-bottom:19px;
+ box-shadow:0 10px 28px #283b7810,0 2px 6px #283b7808;backdrop-filter:blur(8px)}
+h2{margin:0 0 14px;color:#27358b;font-size:clamp(20px,3vw,26px)}
+h3{color:#303b86}
+.sub{color:var(--muted);font-size:14px;line-height:1.6}
+.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+input{padding:13px 15px;border:1.5px solid #cbd5f0;border-radius:12px;font:inherit;min-width:230px;max-width:100%;background:#fbfcff}
+input:focus,select:focus{outline:3px solid #a5b4fc88;border-color:#6476e8}
+button{border:0;border-radius:12px;padding:12px 17px;font:inherit;font-weight:750;cursor:pointer;color:white;
+ background:linear-gradient(115deg,var(--blue),var(--violet));box-shadow:0 5px 13px #4f46e533;transition:transform .16s,filter .16s,box-shadow .16s}
+button:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 8px 18px #4f46e544}
+button:active{transform:translateY(0)}
+button.secondary{background:linear-gradient(115deg,#e8edff,#f2eaff);color:#343b91;box-shadow:none;border:1px solid #d8def9}
+button.danger{background:linear-gradient(115deg,#e34d62,#c52c54);box-shadow:0 5px 13px #dc455533}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+table{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;overflow:hidden;border-radius:13px}
+th,td{padding:12px 13px;border-bottom:1px solid #e8ecf8;text-align:left}
+th{background:linear-gradient(100deg,#e9edff,#f5eaff);color:#343b91;font-weight:800}
+tbody tr:nth-child(even){background:#fafbff}tbody tr:hover{background:#f0f3ff}
+.tablewrap{overflow-x:auto;border:1px solid #e2e8f5;border-radius:13px}
+.pill{display:inline-block;background:linear-gradient(110deg,#e4eaff,#f5e8ff);color:#4a3ba0;border:1px solid #d9dcff;border-radius:30px;padding:6px 11px;font-size:12px;font-weight:750}
+.hidden{display:none!important}
+.topstats{display:flex;gap:10px;flex-wrap:wrap}
+.stat{background:linear-gradient(145deg,#f0f3ff,#fff);border:1px solid #e1e6fb;padding:12px 15px;border-radius:15px;min-width:112px;box-shadow:inset 0 1px #fff}
+.stat b{display:block;font-size:22px;color:#3e43a4;margin-top:2px}
+.progress{height:10px;background:#e6e9f8;border-radius:20px;overflow:hidden;margin:14px 0}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,#12b8a6,#4c70e8,#a855d8);width:0;border-radius:20px;transition:width .25s}
+.quizgrid{display:grid;grid-template-columns:minmax(0,1fr) 285px;gap:18px}
+.qtitle{font-size:19px;line-height:1.8;margin:17px 0;color:#1e2c62;font-weight:650;white-space:pre-line}
+.option{display:flex;gap:11px;align-items:flex-start;padding:13px 14px;border:1.5px solid #e0e6f5;border-radius:13px;margin:10px 0;cursor:pointer;background:linear-gradient(110deg,#fff,#fbfcff);transition:.15s}
+.option:hover{border-color:#7b79e8;background:#f5f4ff;transform:translateX(2px)}
+.option:has(input:checked){border-color:#6b5be7;background:linear-gradient(100deg,#eef0ff,#f8efff);box-shadow:0 0 0 2px #8b7cf022}
+.option input{min-width:auto;margin-top:4px;accent-color:#5b50d6}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.palette button{padding:9px 0;background:#edf0f7;color:#39445e;box-shadow:none;border:1px solid #dfe4ef}
+.palette button.done{background:linear-gradient(135deg,#b9f3df,#69d5ad);color:#075b42;border-color:#8cdec0}
+.palette button.review{background:linear-gradient(135deg,#ffe9a8,#ffc85e);color:#754700;border-color:#f3d078}
+.palette button.current{outline:3px solid #6d68e9;outline-offset:1px}
+.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:19px}
+.timer{font-size:25px;font-weight:900;color:#c2415a;background:#fff0f2;border:1px solid #ffd4dc;padding:8px 14px;border-radius:13px}
+.answerbox{border-left:5px solid var(--green);background:linear-gradient(100deg,#e9fbf3,#f7fffb);padding:15px;border-radius:10px;margin:11px 0}
+.badbox{border-left-color:var(--red);background:linear-gradient(100deg,#fff0f1,#fffafa)}
+.analysis-item{border:1px solid #e0e5f5;border-radius:16px;padding:17px;margin:13px 0;break-inside:avoid;background:linear-gradient(135deg,#fff,#fbfbff);box-shadow:0 4px 14px #243b7809}
+.analysis-item h3{line-height:1.7;color:#263574}
+.correct{color:var(--green);font-weight:800}.wrong{color:var(--red);font-weight:800}
+#leaderboardCard{border-top:5px solid transparent;border-image:linear-gradient(90deg,#16b8a6,#5271e8,#b24dd1) 1}
+#start{border-top:5px solid transparent;border-image:linear-gradient(90deg,#f59e0b,#e34f91,#654be0) 1}
+#quiz>.card:first-child{border:1px solid #d7defa;background:linear-gradient(110deg,#fff,#f5f5ff)}
+#quiz .quizgrid>.card:first-child{border-top:4px solid #6656df}
+#quiz aside{border-top:4px solid #14a89b}
+#result{border-top:5px solid #17a77e}
+#analysis{border-top:5px solid #8b5bd7}
+footer{text-align:center;color:#71809d;padding:26px;font-size:13px}
+@media(max-width:800px){header{padding:25px 18px}.quizgrid{grid-template-columns:1fr}.palette{grid-template-columns:repeat(8,1fr)}main{margin:16px auto}.card{padding:16px;border-radius:16px}.qtitle{font-size:17px}}
+@media(max-width:460px){.palette{grid-template-columns:repeat(6,1fr)}button{padding:11px 13px}.stat{flex:1;min-width:90px}.timer{font-size:21px}}
+@media print{
+ body{background:#fff!important}
+ body.print-ranking *{visibility:hidden!important}
+ body.print-ranking #leaderboardCard,
+ body.print-ranking #leaderboardCard *{visibility:visible!important}
+ body.print-ranking #leaderboardCard{position:absolute!important;left:0!important;top:0!important;width:100%!important;margin:0!important;padding:12px!important;border:0!important;box-shadow:none!important;background:#fff!important}
+ /* Diagnostics is nested inside leaderboardCard; hide the entire panel in ranking print. */
+ body.print-ranking #firebaseDiagnostic,
+ body.print-ranking #firebaseDiagnostic *{display:none!important;visibility:hidden!important}
+ body.print-ranking #leaderboardCard .noprint,
+ body.print-ranking #rankStatus{display:none!important}
+ body.print-ranking #leaderboardCard h2{font-size:22px!important;color:#172554!important}
+ body.print-ranking #rankTable{width:100%!important;border-collapse:collapse!important}
+ body.print-ranking #rankTable th,body.print-ranking #rankTable td{border:1px solid #9ca3af!important;padding:8px!important;color:#111!important}
+ body.print-ranking #rankTable th{background:#e8edff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ body:not(.print-ranking) header,.noprint,#start,#quiz,.actions,.filters{display:none!important}
+ body:not(.print-ranking) .card{box-shadow:none;border:0;padding:0}
+ body:not(.print-ranking) main{max-width:none;margin:0}
+ .analysis-item{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header><h1>हमारे आस-पास की सामग्री</h1><p>BPSC प्रारंभिक परीक्षा • 50 प्रश्न • कठिन स्तर (Hard) CBT Mock Test</p></header>
+<main>
+<section id="start" class="card">
+<h2>परीक्षा प्रारंभ करें <span class="pill">HARD LEVEL</span></h2>
+<p class="sub">अध्याय 6 • विज्ञान • कठिन स्तर • कुल प्रश्न: <b id="totalLabel">50</b> • समय: <b id="durationLabel">50 मिनट</b></p>
+<div class="row"><input id="studentName" maxlength="40" placeholder="विद्यार्थी का नाम"><input id="studentId" maxlength="24" placeholder="अलग Student ID (जैसे STU001)" oninput="clearBestScorePrompt()" onkeydown="if(event.key==='Enter')loadBestScoreForInput()"><button onclick="startExam()">परीक्षा शुरू करें</button><button class="secondary" onclick="resumeExam()">चल रही परीक्षा जारी रखें</button></div>
+<div class="card" style="background:#f8faff;border:1px solid #dce4ef;margin:14px 0"><h3 style="margin:0 0 10px;color:#13243a">PDF की मुख्य Heading के अनुसार प्रश्न-वितरण</h3><div class="tablewrap"><table><thead><tr><th>मुख्य Heading</th><th>प्रश्न</th></tr></thead><tbody><tr><td>जल की अवस्थाएँ एवं वाष्पीकरण</td><td>10</td></tr><tr><td>संघनन और उसके प्रमाण</td><td>8</td></tr><tr><td>अवस्थाओं के गुण एवं अवस्था-परिवर्तन</td><td>10</td></tr><tr><td>वाष्पीकरण की दर एवं शीतलन प्रभाव</td><td>10</td></tr><tr><td>बादल, वर्षा, जल चक्र एवं प्रमुख विचार</td><td>12</td></tr></tbody></table></div><p class="sub">प्रश्न PDF की विषय-रचना के अनुसार क्रमबद्ध हैं। पृष्ठ 175 के “प्रमुख विचार” सहित 50 प्रश्न पाँच मुख्य खंडों में व्यवस्थित हैं।</p></div><p class="sub">प्रश्न-संरचना: कथन आधारित, कारण-परिणाम, कालक्रम, केंद्र-नेता, विश्लेषण एवं परिणाम आधारित प्रश्न।</p>
+<p class="sub"><b>एक ही मोबाइल पर कई विद्यार्थियों के लिए:</b> हर विद्यार्थी अपना नाम और अलग Student ID दर्ज करे। अगली बार वही ID डालने पर उसी विद्यार्थी का पुराना सर्वोत्तम स्कोर सुरक्षित रहेगा।</p><p class="sub">अंक योजना: सही उत्तर +1 | गलत उत्तर −1/3 | E (अनुत्तरित) 0। कुल समय 50 मिनट (प्रत्येक प्रश्न के लिए 1 मिनट)। रिफ्रेश करने पर परीक्षा की स्थिति सुरक्षित रहेगी।</p>
+<div class="card" id="bestScoreCard" style="background:linear-gradient(120deg,#fffdf2,#fff7e7);border:1px solid #f4d58b;margin-top:14px">
+<h3 style="margin:0 0 8px;color:#8a5a00">🏆 आपका व्यक्तिगत Best Score</h3>
+<p class="sub" id="startBestScoreStatus">अपनी Student ID दर्ज करें। Best Score Firebase से प्राप्त होगा।</p>
+<button class="secondary noprint" onclick="loadBestScoreForInput()">Best Score देखें / Refresh करें</button>
+</div>
+</section>
+<section class="card" id="leaderboardCard">
+<div class="row" style="justify-content:space-between"><div><h2>आज की दैनिक रैंकिंग</h2><div class="sub">भारत समय (Asia/Kolkata) • Firebase लाइव अपडेट • इसी परीक्षा की दैनिक रैंकिंग • Firebase Best Score</div></div><div class="row noprint"><button class="secondary" onclick="loadRanking(true)">↻ अभी रिफ्रेश करें</button><button class="secondary" onclick="printRanking()">रैंकिंग प्रिंट / PDF</button></div></div>
+<div class="tablewrap"><table id="rankTable"><thead><tr><th>रैंक</th><th>विद्यार्थी का नाम</th><th>अंक</th><th>सही</th><th>गलत</th><th>सटीकता</th></tr></thead><tbody><tr><td colspan="6">रैंकिंग लोड हो रही है…</td></tr></tbody></table></div>
+<p class="sub" id="rankStatus">दैनिक रैंकिंग केवल Firebase सर्वर से दिखाई जाएगी।</p>
+<div class="card" id="firebaseDiagnostic" style="margin-top:14px;background:#f8fbff;border:1px solid #cbd8ef">
+ <div class="row" style="justify-content:space-between;align-items:center">
+  <h3 style="margin:0">Firebase Diagnostic / कनेक्शन जाँच</h3>
+  <button class="secondary noprint" id="firebaseRetryBtn" onclick="runFirebaseDiagnostics()">Firebase पुनः जाँचें</button>
+ </div>
+ <div id="fbDiagSummary" class="sub" style="margin:8px 0">स्थिति जाँची जा रही है…</div>
+ <div id="fbDiagDetails" class="sub" style="line-height:1.8"></div>
+</div>
+</section>
+<section id="quiz" class="hidden">
+<div class="card row" style="justify-content:space-between"><div class="topstats"><div class="stat"><span class="sub">प्रश्न</span><b id="qCount">1/50</b></div><div class="stat"><span class="sub">उत्तर दिए</span><b id="answered">0</b></div><div class="stat"><span class="sub">रिव्यू</span><b id="reviewCount">0</b></div></div><div class="timer" id="timer">50:00</div></div>
+<div class="progress"><span id="bar"></span></div>
+<div class="quizgrid"><div class="card"><div class="sub" id="sectionHeading" style="font-weight:800;color:#13243a;margin-bottom:8px"></div><div class="row"><span class="pill" id="topic"></span><span class="sub" id="page"></span></div><div class="qtitle" id="question"></div><div id="options"></div><div class="actions"><button class="secondary" onclick="prevQ()">पिछला</button><button onclick="saveNext()">उत्तर सुरक्षित करें / अगला</button><button class="secondary" onclick="toggleReview()">रिव्यू के लिए चिह्नित</button><button class="secondary" onclick="clearAnswer()">उत्तर हटाएँ</button><button class="danger" onclick="confirmSubmit()">परीक्षा सबमिट करें</button></div></div>
+<aside class="card"><h2>प्रश्न-पैलेट</h2><div class="sub">हरा: उत्तर दिया • पीला: रिव्यू • धूसर: शेष</div><div class="palette" id="palette"></div></aside></div>
+</section>
+<section id="result" class="hidden card">
+<h2>परीक्षा परिणाम</h2><div class="topstats" id="scoreStats"></div><p class="sub" id="bestScoreStatus">व्यक्तिगत Best Score Firebase से प्राप्त किया जा रहा है; यह तारीख बदलने पर reset नहीं होगा…</p><div id="topicReport"></div>
+<div class="actions noprint"><button onclick="showAnalysis()">सभी प्रश्नों का उत्तर एवं व्याख्या</button><button class="secondary" onclick="printResult()">रिजल्ट प्रिंट / PDF</button><button class="secondary" onclick="restart()">Restart / नई परीक्षा</button></div>
+</section>
+<section id="analysis" class="hidden card"><div class="row" style="justify-content:space-between"><h2>प्रत्येक प्रश्न का उत्तर एवं व्याख्या</h2><div class="actions noprint"><button class="secondary" onclick="printAnalysis()">विश्लेषण प्रिंट / PDF</button></div></div>
+<div class="filters noprint row"><select id="filter" onchange="renderAnalysis()" style="padding:10px;border:1px solid var(--line);border-radius:8px"><option value="all">सभी प्रश्न</option><option value="correct">सही</option><option value="wrong">गलत</option><option value="blank">अनुत्तरित</option></select><select id="topicFilter" onchange="renderAnalysis()" style="padding:10px;border:1px solid var(--line);border-radius:8px"><option value="all">सभी टॉपिक</option></select></div><div id="analysisList"></div></section>
+</main><footer>अध्याय-आधारित अभ्यास सामग्री • BPSC स्तर के अभ्यास हेतु</footer>
+<script>
+const QUESTIONS = [{"id":1,"topic":"सामग्री की परिभाषा","page":"100","q":"किसी वस्तु को बनाने के लिए प्रयुक्त पदार्थ या पदार्थों के मिश्रण को क्या कहा जाता है?","opts":["वर्गीकरण","सामग्री","द्रव्य","आयतन","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 100 पर पदार्थ या पदार्थों के मिश्रण को सामग्री कहा गया है। वस्तु सामग्री से निर्मित होती है।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":2,"topic":"प्राचीन मृद्भांड","page":"100","q":"भारतीय उपमहाद्वीप में पाए गए प्राचीन मिट्टी के बर्तनों की आयु पाठ के अनुसार लगभग कितनी है?","opts":["2,000–3,000 वर्ष","4,000–5,000 वर्ष","7,000–8,000 वर्ष","10,000–12,000 वर्ष","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 100 के अनुसार प्राचीन मृद्भांड 7,000 से 8,000 वर्ष पुराने हैं।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":3,"topic":"मृद्भांड तकनीक","page":"100","q":"लगभग 4000 BCE के संदर्भ में निम्नलिखित में से कौन-सी तकनीकें विकसित होने का उल्लेख है?\n1. चाक पर बर्तन बनाना\n2. स्लिप का उपयोग\n3. सजावटी पेंटिंग\n4. काँच पर नक्काशी\nसही विकल्प चुनिए।","opts":["केवल 1 और 2","केवल 1, 2 और 3","केवल 2, 3 और 4","1, 2, 3 और 4","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 100 पर चाक, रंगाई, सुरक्षात्मक/सजावटी लेप ‘स्लिप’ और पेंटिंग का उल्लेख है; काँच पर नक्काशी नहीं।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":4,"topic":"हड़प्पा सभ्यता","page":"100","q":"हड़प्पा सभ्यता के दौरान मृद्भांड कला के परिष्कार का काल पाठ में किस रूप में दिया गया है?","opts":["3000–2500 BCE","2600–1900 BCE","1500–1000 BCE","600–300 BCE","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 100 पर हड़प्पा सभ्यता का काल 2600–1900 BCE दिया गया है।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":5,"topic":"टेराकोटा","page":"100","q":"पाठ में ‘टेराकोटा’ शब्द किसके लिए प्रयुक्त हुआ है?","opts":["कच्ची और बिना छनी मिट्टी","चाक पर आकार दी गई गीली मिट्टी","भट्ठी में पकाई गई मिट्टी","मिट्टी पर लगाया गया सजावटी लेप","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"मिट्टी को साफ, छानकर, गूँथकर चाक पर आकार देने के बाद भट्ठी में पकाया जाता है; पकी मिट्टी टेराकोटा कहलाती है।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":6,"topic":"मृद्भांड निर्माण","page":"100","q":"मिट्टी के बर्तन बनाने की प्रक्रिया का पाठानुसार सही क्रम कौन-सा है?","opts":["चाक पर आकार → मिट्टी चुनना → भट्ठी → छानना","मिट्टी का चयन/सफाई → छलनी से छानना → गूँथना → चाक पर आकार → भट्ठी में पकाना","भट्ठी में पकाना → गूँथना → चाक पर आकार → सफाई","स्लिप लगाना → मिट्टी खोदना → बर्तन तोड़ना → पकाना","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 100 में मिट्टी का सावधानीपूर्वक चयन, सफाई, छलनी से छानना, गूँथना, चाक पर आकार देना और अंत में भट्ठी में पकाना बताया गया है।","section":"1. सामग्री, वस्तुएँ एवं प्राचीन मृद्भांड"},{"id":7,"topic":"वर्गीकरण","page":"101","q":"वस्तुओं को उनके समान गुणों के आधार पर समूहों में व्यवस्थित करने की विधि क्या कहलाती है?","opts":["अवलोकन","वर्गीकरण","अन्वेषण","मापन","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 101 के अनुसार समान गुणों के आधार पर वस्तुओं को समूहों में व्यवस्थित करना वर्गीकरण है।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":8,"topic":"वर्गीकरण के आधार","page":"101","q":"क्रियाकलाप 6.2 में वस्तुओं के समूह बनाने के लिए निम्नलिखित में से किन आधारों का उपयोग सुझाया गया है?\n1. आकार और रंग\n2. कठोरता और कोमलता\n3. चमक और द्युति‍हीनता\n4. निर्माण सामग्री\nसही उत्तर चुनिए।","opts":["केवल 1 और 2","केवल 2 और 3","केवल 1, 2 और 4","1, 2, 3 और 4","प्रश्न अनुत्तरित छोड़ें"],"a":3,"exp":"पृष्ठ 101 पर आकार, रंग, कठोरता, कोमलता, चमक, द्युति‍हीनता तथा निर्माण सामग्री के आधार पर वर्गीकरण का निर्देश है।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":9,"topic":"वस्तु-सामग्री संबंध","page":"101","q":"निम्नलिखित कथनों पर विचार कीजिए:\n1. एक वस्तु विभिन्न सामग्रियों से बनाई जा सकती है।\n2. एक ही सामग्री का उपयोग विभिन्न वस्तुओं के निर्माण में हो सकता है।\nसही विकल्प चुनिए।","opts":["केवल 1","केवल 2","1 और 2 दोनों","न तो 1, न ही 2","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 101 में दोनों बातें स्पष्ट रूप से दी गई हैं—एक वस्तु कई सामग्रियों से और एक सामग्री अनेक वस्तुओं के लिए प्रयुक्त हो सकती है।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":10,"topic":"सामग्री चयन","page":"102","q":"किसी वस्तु के निर्माण के लिए सामग्री चुनते समय मुख्यतः किन बातों पर विचार किया जाता है?","opts":["केवल सामग्री के रंग पर","केवल उसकी उपलब्धता पर","सामग्री के गुणों और वस्तु के प्रयोजन पर","केवल उसके द्रव्यमान पर","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 102 के अनुसार सामग्री का चयन उसके गुणों तथा उस प्रयोजन के आधार पर होता है जिसके लिए वस्तु का उपयोग किया जाना है।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":11,"topic":"गिलास की सामग्री","page":"102","q":"गिलास बनाने के लिए प्रयुक्त सामग्री में कौन-सा गुण आवश्यक बताया गया है?","opts":["विद्युत का सुचालक होना","जल धारण करने की क्षमता","जल में घुलनशील होना","अत्यधिक पारभासी होना","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 102 में स्पष्ट है कि गिलास बनाने की सामग्री में जल धारण करने की क्षमता होनी चाहिए।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":12,"topic":"गेंदों का चयन","page":"103","q":"एक ही आकार की विभिन्न सामग्रियों से बनी गेंदों के प्रयोग का मुख्य उद्देश्य क्या है?","opts":["केवल रंगों की तुलना करना","विभिन्न सामग्रियों की उछाल क्षमता की तुलना करना","गेंदों का आयतन मापना","उनकी पारदर्शिता जाँचना","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"क्रियाकलाप 6.4 में समान आकार की अलग-अलग सामग्री की गेंदों को समान ऊँचाई से गिराकर उछाल की तुलना की जाती है।","section":"2. वर्गीकरण एवं सामग्री का चयन"},{"id":13,"topic":"द्युतिमयता","page":"104–105","q":"किसी सामग्री की सतह प्रकाश पड़ने पर सामान्यतः चमकदार दिखाई देती है। पाठ में ऐसे स्वरूप के लिए कौन-सा शब्द प्रयुक्त है?","opts":["द्युतिहीन","द्युतिमय","पारभासी","अघुलनशील","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 104 पर चमकदार सतह वाली सामग्री को द्युतिमय कहा गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":14,"topic":"धातुओं की चमक","page":"104–105","q":"निम्नलिखित में से कौन-सा कथन पाठ के अनुरूप है?","opts":["सभी चमकदार पदार्थ धातु होते हैं","धातुएँ कभी चमक नहीं खोतीं","चमकदार सतह वाली सामग्रियाँ सामान्यतः धातु होती हैं, पर हर चमकदार वस्तु धातु नहीं","कागज और लकड़ी सदैव द्युतिमय होते हैं","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 105 में धातुओं के चमकदार होने की सामान्य प्रवृत्ति बताई गई है, साथ ही पॉलिश/लेप से गैर-धातु भी चमकदार दिख सकती हैं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":15,"topic":"धातुओं का मलिन होना","page":"105","q":"कुछ धातुओं की ताजी कटी सतह ही अधिक चमकदार क्यों दिखाई देती है?","opts":["वे जल में घुल जाती हैं","हवा और नमी के प्रभाव से उनकी सतह की चमक कम हो सकती है","वे प्रकाश को पूरी तरह पार कर देती हैं","उनका द्रव्यमान घट जाता है","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 105 के अनुसार हवा और नमी के प्रभाव से कुछ धातुएँ अपनी चमक खोकर मलिन/द्युतिहीन दिखने लगती हैं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":16,"topic":"कठोरता","page":"105","q":"पाठ के अनुसार किसी सामग्री को कठोर या नरम कहने का उपयुक्त आधार क्या है?","opts":["उसका रंग","उसे दबाने या खरोंचने में होने वाली कठिनाई","उसका पारदर्शी होना","उसका जल में घुलना","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 105 में जिसे दबाना या खरोंचना कठिन हो वह कठोर और जिसे आसानी से दबाया/खरोंचा जा सके वह नरम बताया गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":17,"topic":"कठोरता की सापेक्षता","page":"105","q":"रबर, स्पंज और लोहे के संदर्भ में कठोरता की सापेक्ष प्रकृति को कौन-सा कथन सही दर्शाता है?","opts":["रबर स्पंज से नरम और लोहे से कठोर है","रबर स्पंज से कठोर, लेकिन लोहे से नरम हो सकता है","रबर और लोहा समान कठोर हैं","कठोरता का तुलना से कोई संबंध नहीं","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 105 का उदाहरण बताता है कि रबर स्पंज से कठोर, लेकिन लोहे से नरम है; अतः कठोरता सापेक्ष गुण है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":18,"topic":"पारदर्शिता","page":"106","q":"जिन सामग्रियों के आर-पार स्पष्ट रूप से देखा जा सकता है, उन्हें क्या कहा जाता है?","opts":["अपारदर्शी","पारभासी","पारदर्शी","द्युतिहीन","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 106 पर स्पष्ट रूप से आर-पार देखा जा सकने वाली सामग्री को पारदर्शी कहा गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":19,"topic":"पारदर्शी पदार्थ","page":"106","q":"निम्नलिखित में से कौन-सा समूह पाठ में पारदर्शी सामग्रियों के उदाहरणों का है?","opts":["लकड़ी, गत्ता, धातु","काँच, जल, वायु, सेलोफेन कागज","बटर पेपर, फ्रॉस्टेड काँच, लकड़ी","रबर, जूट, कागज","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 106 पर काँच, जल, वायु और सेलोफेन कागज पारदर्शी सामग्रियों के उदाहरण हैं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":20,"topic":"अपारदर्शिता","page":"106","q":"किस विकल्प में केवल अपारदर्शी सामग्रियों के उदाहरण दिए गए हैं?","opts":["जल, वायु, काँच","बटर पेपर, फ्रॉस्टेड काँच","लकड़ी, गत्ता, धातुएँ","सेलोफेन कागज, जल, काँच","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 106 के अनुसार लकड़ी, गत्ता और धातुएँ अपारदर्शी हैं; इनके आर-पार नहीं देखा जा सकता।","section":"3. सामग्रियों के भौतिक गुण"},{"id":21,"topic":"पारभासी","page":"106","q":"पारभासी सामग्री की सबसे उपयुक्त पहचान क्या है?","opts":["उसके आर-पार स्पष्ट देखा जा सकता है","उसके आर-पार बिल्कुल नहीं देखा जा सकता","उसके आर-पार देखा जा सकता है, पर स्पष्ट नहीं","वह जल में पूरी तरह घुल जाती है","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 106 के अनुसार पारभासी सामग्रियों से आर-पार देखा जा सकता है, लेकिन स्पष्ट रूप से नहीं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":22,"topic":"जल में घुलनशीलता","page":"108","q":"किसी सामग्री को जल में घुलनशील कब कहा जाता है?","opts":["जब वह जल पर तैरती रहे","जब वह जल में मिलकर पूरी तरह अदृश्य हो जाए","जब वह जल को रंगहीन कर दे","जब वह पात्र के तल में बैठ जाए","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 108 के अनुसार जल में मिलाने पर पूर्णतः अदृश्य हो जाने वाली सामग्री जल में घुलनशील कहलाती है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":23,"topic":"घुलनशील-अघुलनशील","page":"108","q":"क्रियाकलाप 6.7 में किन पदार्थों के जल में व्यवहार की तुलना की गई है?","opts":["चीनी, नमक, चॉक पाउडर, रेत और लकड़ी का बुरादा","चीनी, तेल, दूध, सिरका और शहद","लोहा, ताँबा, सोना, चाँदी और जस्ता","काँच, प्लास्टिक, रबर, लकड़ी और कपड़ा","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"पृष्ठ 108 पर पाँच गिलासों में चीनी, नमक, चॉक पाउडर, रेत और लकड़ी का बुरादा डालकर अवलोकन करने को कहा गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":24,"topic":"जल का महत्त्व","page":"108–109","q":"जल को शरीर की प्रक्रियाओं के लिए महत्त्वपूर्ण बताने का एक कारण पाठ में क्या दिया गया है?","opts":["जल किसी भी गैस को नष्ट कर देता है","जल बहुत-सी सामग्रियों को घोल सकता है","जल का कोई आयतन नहीं होता","जल सभी पदार्थों को ठोस बना देता है","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 108 पर जल की घुलन क्षमता को शरीर में होने वाली प्रक्रियाओं के लिए महत्त्वपूर्ण बताया गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":25,"topic":"द्रवों का मिश्रण","page":"109","q":"पाठ में कुछ द्रवों के जल के साथ व्यवहार के संबंध में कौन-सी बात कही गई है?","opts":["सभी द्रव जल में पूरी तरह मिल जाते हैं","कोई भी द्रव जल के साथ नहीं मिलता","कुछ द्रव पूरी तरह मिलते हैं, जबकि कुछ अलग परत बना सकते हैं","द्रवों की घुलनशीलता का कोई अंतर नहीं","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 109 में कुछ द्रवों के जल में पूरी तरह मिलने और कुछ के अलग परत बनाने का उल्लेख है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":26,"topic":"गैसों की घुलनशीलता","page":"109","q":"जल में घुली ऑक्सीजन का विशेष महत्त्व किसके अस्तित्व के लिए बताया गया है?","opts":["केवल स्थलीय पौधों के लिए","जल में रहने वाले जंतुओं और पौधों के लिए","केवल मनुष्यों के लिए","केवल मिट्टी के जीवाणुओं के लिए","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 109 के अनुसार जल में घुली ऑक्सीजन जलीय जंतुओं और पौधों के अस्तित्व के लिए बहुत महत्त्वपूर्ण है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":27,"topic":"द्रव्यमान","page":"110","q":"समान आयतन वाले पदार्थों में भारी और हल्के का निर्धारण पाठ के अनुसार किस गुण को मापकर किया जाता है?","opts":["पारदर्शिता","द्रव्यमान","घुलनशीलता","कठोरता","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 110 में समान आयतन पर भारी/हल्के का पता द्रव्यमान मापकर लगाने की बात कही गई है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":28,"topic":"आयतन","page":"111","q":"किसी पदार्थ द्वारा घेरा गया स्थान क्या कहलाता है?","opts":["द्रव्यमान","घनत्व","आयतन","कठोरता","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 111–112 में जल द्वारा घेरा गया स्थान उसका आयतन बताया गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":29,"topic":"आयतन का मापन","page":"111–112","q":"बोतलों पर 1 L, 500 mL और 200 mL जैसे चिह्न मुख्यतः किस राशि को दर्शाते हैं?","opts":["द्रव्यमान","आयतन","तापमान","लंबाई","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 111 पर बोतलों पर लिखी L और mL मात्राएँ उनमें रखे जल का आयतन दर्शाती हैं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":30,"topic":"द्रव्य की परिभाषा","page":"112","q":"पाठ में द्रव्य की परिभाषा के लिए किन दो गुणों को अनिवार्य माना गया है?","opts":["रंग और चमक","कठोरता और पारदर्शिता","स्थान घेरना और द्रव्यमान होना","घुलनशीलता और द्युति","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 112 में जो वस्तु स्थान घेरती है और जिसका द्रव्यमान होता है, उसे द्रव्य कहा गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":31,"topic":"द्रव्यमान की इकाई","page":"112","q":"अंतरराष्ट्रीय मात्रक पद्धति (SI) में द्रव्यमान की इकाई कौन-सी है?","opts":["ग्राम","किलोग्राम","लीटर","घन मीटर","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 112 के अनुसार SI प्रणाली में किलोग्राम (kg) द्रव्यमान की इकाई है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":32,"topic":"आयतन की इकाइयाँ","page":"112","q":"पाठ में आयतन की सामान्य इकाइयों के रूप में किनका उल्लेख है?","opts":["kg और g","L और mL","m और cm","N और J","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 112 पर आयतन को लीटर (L) और मिलीलीटर (mL) में मापने का उल्लेख है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":33,"topic":"इकाई लेखन","page":"112","q":"पाठ में 7 किलोग्राम को सही ढंग से किस रूप में लिखने का उदाहरण दिया गया है?","opts":["7 kgs","7 kg.","7kg","7 kg","प्रश्न अनुत्तरित छोड़ें"],"a":3,"exp":"पृष्ठ 112 के अनुसार संख्या और इकाई के बीच एक स्थान छोड़कर 7 kg लिखा जाता है; kg के बाद बिंदु या s नहीं।","section":"3. सामग्रियों के भौतिक गुण"},{"id":34,"topic":"घन मीटर रूपांतरण","page":"112","q":"पाठ में दिया गया सही आयतन रूपांतरण कौन-सा है?","opts":["1 m³ = 100 L","1 m³ = 1,000 L","1 m³ = 10,000 L","1 m³ = 1 mL","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 112 में स्पष्ट रूप से 1 m³ = 1000 L दिया गया है।","section":"3. सामग्रियों के भौतिक गुण"},{"id":35,"topic":"द्रव्य के उदाहरण","page":"113","q":"पाठ में द्रव्य के उदाहरणों के रूप में निम्नलिखित में से किनका उल्लेख है?","opts":["जल, रेत, कंकड़ और कप","केवल प्रकाश और ध्वनि","केवल छाया और ताप","केवल गंध और रंग","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"पृष्ठ 113 पर जल, रेत, कंकड़ और कप को द्रव्य के उदाहरणों के रूप में दिया गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":36,"topic":"प्रमुख विचार: सामग्री","page":"115","q":"अध्याय के सारांश के अनुसार कोई वस्तु किस प्रकार की सामग्री से बनी हो सकती है?","opts":["केवल एक ही सामग्री से","केवल दो धातुओं से","एक सामग्री या विभिन्न सामग्रियों के संयोजन से","केवल प्राकृतिक सामग्री से","प्रश्न अनुत्तरित छोड़ें"],"a":2,"exp":"पृष्ठ 115 के सारांश में कहा गया है कि वस्तु एक सामग्री या विभिन्न सामग्रियों के संयोजन से बन सकती है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":37,"topic":"प्रमुख विचार: वर्गीकरण","page":"115","q":"सामग्रियों का वर्गीकरण करने का मूल आधार क्या है?","opts":["केवल उनका बाजार मूल्य","गुणों में समानता या अंतर","केवल उनका रंग","केवल उनका आकार","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 115 के सारांश के अनुसार सामग्रियों को उनके गुणों की समानता या अंतर के आधार पर समूहबद्ध किया जाता है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":38,"topic":"प्रमुख विचार: द्रव्य","page":"115","q":"अध्याय के सारांश में द्रव्य और आयतन का संबंध किस प्रकार बताया गया है?","opts":["आयतन द्रव्य का द्रव्यमान है","द्रव्य द्वारा घेरा गया स्थान उसका आयतन है","द्रव्य का कोई स्थान नहीं होता","आयतन केवल गैसों का गुण है","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 115 के सारांश में द्रव्य द्वारा घेरे गए स्थान को उसका आयतन कहा गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":39,"topic":"आयुर्वेदिक वर्गीकरण","page":"114","q":"अध्याय में आयुर्वेद के संदर्भ में भौतिक पदार्थों के वर्णन हेतु कितने गुणों (विपरीत गुणों के कितने जोड़ों) का उल्लेख है?","opts":["10 गुण, पाँच जोड़े","20 गुण, दस जोड़े","12 गुण, छह जोड़े","आठ गुण, चार जोड़े","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 114 में बीस गुणों अर्थात विपरीत गुणों के दस जोड़ों का उल्लेख है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":40,"topic":"आयुर्वेदिक गुण","page":"114","q":"आयुर्वेद में दिए गए गुण-युग्मों में कौन-सा युग्म सही है?","opts":["गुरु—लघु","हिम—स्निग्ध","मृदु—स्थिर","विशद—सूक्ष्म","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"पृष्ठ 114 में गुरु (भारी) के विपरीत लघु (हल्का) दिया गया है। अन्य विकल्प अलग-अलग गुणों को जोड़ते हैं, विपरीत युग्म नहीं।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":41,"topic":"आयुर्वेदिक गुण","page":"114","q":"निम्नलिखित में से कौन-सा युग्म ‘ठंडा/शीतल’ और ‘गरम/तप्त’ के विपरीत संबंध को दर्शाता है?","opts":["मंद—तीक्ष्ण","हिम—उष्ण","स्निग्ध—रुक्ष","स्थिर—चल","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 114 की सूची में हिम (ठंडा/शीतल) का विपरीत उष्ण (गरम/तप्त) है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":42,"topic":"आयुर्वेदिक गुण","page":"114","q":"‘विशद’ और ‘पिच्छिल’ के अर्थों का सही मिलान कौन-सा है?","opts":["विशद—चिपचिपा; पिच्छिल—गैर-चिपचिपा","विशद—गैर-चिपचिपा; पिच्छिल—चिपचिपा","विशद—ठोस; पिच्छिल—तरल","विशद—स्थिर; पिच्छिल—चल","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 114 में विशद का अर्थ गैर-चिपचिपा और पिच्छिल का अर्थ चिपचिपा दिया गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":43,"topic":"अभ्यास: कथन परीक्षण","page":"117","q":"निम्नलिखित कथनों पर विचार कीजिए:\n1. लकड़ी पारभासी है जबकि काँच अपारदर्शी है।\n2. ऐलुमिनियम की पन्नी में चमक होती है, जबकि रबर में नहीं।\n3. चीनी जल में घुल जाती है, जबकि लकड़ी का बुरादा नहीं।\nसही कथन चुनिए।","opts":["केवल 1","केवल 2 और 3","केवल 1 और 3","1, 2 और 3","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 117 के अभ्यास में कथन 1 उलटा है: लकड़ी अपारदर्शी और सामान्य काँच पारदर्शी है। कथन 2 और 3 सही हैं।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":44,"topic":"अभ्यास: पारदर्शिता","page":"117","q":"वायु और लकड़ी के दरवाजे के संदर्भ में रिक्त स्थानों की सही पूर्ति चुनिए— वायु ______ है और लकड़ी का दरवाजा ______ है।","opts":["पारदर्शी, अपारदर्शी","पारभासी, पारदर्शी","अपारदर्शी, पारभासी","पारदर्शी, पारभासी","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"पृष्ठ 117 के अभ्यास में वायु को पारदर्शी तथा लकड़ी के दरवाजे को अपारदर्शी बताया गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":45,"topic":"अभ्यास: सामग्री चयन","page":"117","q":"कुर्सी बनाने के लिए सामग्री चुनते समय पाठ में दिए गए वांछनीय गुणों में कौन-सा शामिल नहीं है?","opts":["कठोरता","हल्का भार","सर्दियों में अत्यधिक ठंडी महसूस न होना","जल में पूरी तरह घुलनशील होना","प्रश्न अनुत्तरित छोड़ें"],"a":3,"exp":"पृष्ठ 117 में कुर्सी के लिए कठोरता, हल्का भार, सर्दियों में कम ठंडा महसूस होना तथा आसानी से साफ होना/नई जैसी दिखना अपेक्षित गुण हैं; घुलनशीलता नहीं।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":46,"topic":"अभ्यास: अज्ञात सामग्री","page":"117","q":"दो अज्ञात सामग्रियों ‘क’ और ‘ख’ में ‘क’ दबाने पर कठोर रहती है तथा जल में पूरी तरह घुल जाती है; ‘ख’ आसानी से आकार बदलती है और जल में अपरिवर्तित रहती है। कौन-सा निष्कर्ष उचित है?","opts":["क नरम और अघुलनशील; ख कठोर और घुलनशील","क कठोर और घुलनशील; ख नरम और अघुलनशील","दोनों कठोर और घुलनशील","दोनों नरम और अघुलनशील","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 117 के अभ्यास में क को दबाने पर कठोर तथा जल में घुलनशील; ख को आसानी से आकार बदलने वाली तथा जल में अपरिवर्तित बताया गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":47,"topic":"अभ्यास: पदार्थ पहचान","page":"118","q":"‘मैं चमकदार हूँ’—पाठ के ‘मैं कौन हूँ?’ अभ्यास में यह संकेत मुख्यतः किस गुण की पहचान कराता है?","opts":["द्युतिमयता","घुलनशीलता","पारभासिता","आयतन","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"पृष्ठ 118 के अभ्यास में चमकदार होने का संकेत द्युति/चमक के गुण की ओर ले जाता है; विशिष्ट पदार्थ का नाम संदर्भ पर निर्भर है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":48,"topic":"अभ्यास: घुलनशीलता","page":"118","q":"पाठ के अंत में दी गई सामग्रियों—सिरका, शहद, सरसों का तेल, जल, ग्लूकोस और गेहूँ का आटा—के आधार पर अभ्यास किस कौशल की जाँच करता है?","opts":["केवल रंग के आधार पर वर्गीकरण","दो घुलनशील और दो अघुलनशील युग्म बनाना","केवल द्रव्यमान का मापन","केवल पारदर्शिता की पहचान","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 118 के अभ्यास में दिए गए पदार्थों के ऐसे जोड़े बनाने को कहा गया है जहाँ एक दूसरे में घुलनशील हो तथा ऐसे भी जोड़े जहाँ अघुलनशील हो।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":49,"topic":"अभ्यास: पुनर्चक्रण","page":"118","q":"पुनर्चक्रणकर्ता पुरानी वस्तुओं को खरीदने से पहले सामग्रियों के गुणों की जाँच क्यों करते हैं?","opts":["क्योंकि वस्तु का नया होना अनिवार्य है","क्योंकि सामग्री के गुण उसके पुनर्चक्रण और उपयोगिता को प्रभावित करते हैं","क्योंकि टूटी वस्तु कभी पुनर्चक्रित नहीं होती","क्योंकि केवल रंग से पुनर्चक्रण तय होता है","प्रश्न अनुत्तरित छोड़ें"],"a":1,"exp":"पृष्ठ 118 में पुनर्चक्रणकर्ता द्वारा सामग्री के गुण जाँचने और टूटी वस्तुओं के भी खरीदे जाने की चर्चा है; गुण पुनर्चक्रण-उपयुक्तता समझने में मदद करते हैं।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"},{"id":50,"topic":"समेकित अनुप्रयोग","page":"116–118","q":"निम्नलिखित में से कौन-सा विकल्प अध्याय में बताए गए पदार्थ-वर्गीकरण के विभिन्न गुणों का सही समेकित समूह है?","opts":["चमक, कठोरता/कोमलता, पारदर्शिता, जल में घुलनशीलता","केवल मूल्य, ब्रांड, आकार और पैकेजिंग","केवल रंग और गंध","केवल तापमान और ध्वनि","प्रश्न अनुत्तरित छोड़ें"],"a":0,"exp":"अध्याय के पृष्ठ 104–109 तथा सारांश पृष्ठ 115 में स्वरूप/चमक, कठोरता, पारदर्शिता और घुलनशीलता सहित गुणों के आधार पर वर्गीकरण बताया गया है।","section":"4. द्रव्य, प्रमुख विचार एवं आयुर्वेद के गुण"}]
+const EXAM_ID="hamare-aas-paas-ki-samagri-chapter-6"; // स्थायी unique examId; ranking और Best Score इसी से अलग रहते हैं।
+const STORE_BASE="bpsc_"+EXAM_ID;
+let STORE=STORE_BASE;
+function cleanStudentId(v){return String(v||"").trim().toUpperCase().replace(/[^A-Z0-9_-]/g,"").slice(0,24)}
+const FB_CONFIG={apiKey:"AIzaSyBXCieEZ4_6mx2aBqhb2v_4umsatliufgo",authDomain:"smart-study-portal-ranking.firebaseapp.com",projectId:"smart-study-portal-ranking",storageBucket:"smart-study-portal-ranking.firebasestorage.app",messagingSenderId:"440870532383",appId:"1:440870532383:web:b7e70ea886c7ff96d4ec2a",measurementId:"G-0F2WK3M0ZV"};
+let state=null,db=null,auth=null,fbReady=false;
+const $=id=>document.getElementById(id);
+function indiaDate(){return new Intl.DateTimeFormat("en-CA",{timeZone:"Asia/Kolkata",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date())}
+function save(){localStorage.setItem(STORE,JSON.stringify(state))}
+function startExam(){let name=$("studentName").value.trim(),studentId=cleanStudentId($("studentId").value);if(!name){alert("कृपया विद्यार्थी का नाम लिखें।");return}if(!studentId||studentId.length<3){alert("कृपया कम-से-कम 3 अक्षरों/अंकों की अलग Student ID लिखें।");return}
+ STORE=STORE_BASE+"_"+studentId;
+ if(localStorage.getItem(STORE)){let old=JSON.parse(localStorage.getItem(STORE));if(!old.submitted&&!confirm("इस Student ID की एक परीक्षा प्रगति में है। उसे नई परीक्षा से बदलें?"))return}
+ state={name,studentId,answers:{},review:[],index:0,start:Date.now(),end:Date.now()+QUESTIONS.length*60000,submitted:false};save();loadBestScore();$("start").classList.add("hidden");$("quiz").classList.remove("hidden");renderQ();tick()}
+function resumeExam(){try{let studentId=cleanStudentId($("studentId").value);if(!studentId){alert("पहले अपनी Student ID लिखें।");return}STORE=STORE_BASE+"_"+studentId;let s=JSON.parse(localStorage.getItem(STORE));if(!s||s.submitted){alert("इस Student ID की कोई अधूरी परीक्षा उपलब्ध नहीं है।");return}state=s;$("studentName").value=s.name;$("studentId").value=s.studentId||studentId;$("start").classList.add("hidden");$("quiz").classList.remove("hidden");renderQ();tick()}catch(e){alert("कोई सुरक्षित परीक्षा नहीं मिली।")}}
+function renderQ(){let q=QUESTIONS[state.index];if($("sectionHeading"))$("sectionHeading").textContent=q.section;$("qCount").textContent=(state.index+1)+"/"+QUESTIONS.length;$("topic").textContent=q.topic;$("page").textContent="PDF पृष्ठ "+q.page;$("question").textContent=q.id+". "+q.q;$("options").innerHTML=q.opts.map((o,i)=>`<label class="option"><input type="radio" name="answer" value="${i}" ${state.answers[q.id]===i?"checked":""} onchange="choose(${i})"><span><b>${String.fromCharCode(65+i)}.</b> ${o}</span></label>`).join("");$("bar").style.width=((state.index+1)/QUESTIONS.length*100)+"%";renderPalette();$("answered").textContent=Object.keys(state.answers).length;$("reviewCount").textContent=state.review.length}
+function choose(i){state.answers[QUESTIONS[state.index].id]=i;save();renderQ()}
+function renderPalette(){$("palette").innerHTML=QUESTIONS.map((q,i)=>`<button class="${i===state.index?"current ":""}${state.review.includes(q.id)?"review":state.answers[q.id]!==undefined?"done":""}" onclick="goQ(${i})">${i+1}</button>`).join("")}
+function goQ(i){state.index=i;save();renderQ()}function prevQ(){if(state.index>0)goQ(state.index-1)}function saveNext(){if(state.index<QUESTIONS.length-1)goQ(state.index+1);else confirmSubmit()}
+function toggleReview(){let id=QUESTIONS[state.index].id;state.review.includes(id)?state.review=state.review.filter(x=>x!==id):state.review.push(id);save();renderQ()}
+function clearAnswer(){delete state.answers[QUESTIONS[state.index].id];save();renderQ()}
+function tick(){if(!state||state.submitted)return;let left=Math.max(0,state.end-Date.now());let m=Math.floor(left/60000),s=Math.floor(left%60000/1000);$("timer").textContent=String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");if(left<=0){submitExam(true);return}setTimeout(tick,500)}
+function confirmSubmit(){let unanswered=QUESTIONS.length-Object.keys(state.answers).length;if(confirm(`क्या आप परीक्षा सबमिट करना चाहते हैं? अनुत्तरित प्रश्न: ${unanswered}`))submitExam(false)}
+function calculate(){let correct=0,wrong=0,blank=0;QUESTIONS.forEach(q=>{let a=state.answers[q.id];if(a===undefined||a===4)blank++;else if(a===q.a)correct++;else wrong++});let attempted=correct+wrong,score=correct-wrong/3;return{correct,wrong,blank,attempted,score,accuracy:attempted?correct/attempted*100:0}}
+async function submitExam(auto){if(state.submitted)return;state.submitted=true;state.submittedAt=Date.now();state.auto=auto;state.result=calculate();save();$("quiz").classList.add("hidden");$("result").classList.remove("hidden");renderResult();await saveToFirebase();await loadBestScore();loadRanking()}
+function renderResult(){let r=state.result;$("scoreStats").innerHTML=[["प्राप्तांक",r.score.toFixed(2)],["सही",r.correct],["गलत",r.wrong],["अनुत्तरित",r.blank],["प्रयास",r.attempted],["सटीकता",r.accuracy.toFixed(2)+"%"]].map(x=>`<div class="stat"><span class="sub">${x[0]}</span><b>${x[1]}</b></div>`).join("");let groups={};QUESTIONS.forEach(q=>{let g=groups[q.topic]||(groups[q.topic]={c:0,w:0,b:0});let a=state.answers[q.id];if(a===undefined||a===4)g.b++;else if(a===q.a)g.c++;else g.w++});$("topicReport").innerHTML="<h3>टॉपिक-वार प्रदर्शन</h3>"+Object.entries(groups).map(([k,v])=>`<p><b>${k}</b> — सही ${v.c}, गलत ${v.w}, अनुत्तरित ${v.b}</p>`).join("");}
+function showAnalysis(){$("analysis").classList.remove("hidden");let topics=[...new Set(QUESTIONS.map(q=>q.section))];$("topicFilter").innerHTML='<option value="all">सभी मुख्य Heading</option>'+topics.map(t=>`<option>${t}</option>`).join("");renderAnalysis();$("analysis").scrollIntoView({behavior:"smooth"})}
+function renderAnalysis(){let f=$("filter").value,t=$("topicFilter").value;let qs=QUESTIONS.filter(q=>{let a=state.answers[q.id],kind=a===undefined||a===4?"blank":a===q.a?"correct":"wrong";return(f==="all"||f===kind)&&(t==="all"||t===q.section)});$("analysisList").innerHTML=qs.map(q=>{let a=state.answers[q.id],kind=a===undefined||a===4?"blank":a===q.a?"correct":"wrong",label=kind==="correct"?"सही":kind==="wrong"?"गलत":"अनुत्तरित",mark=kind==="correct"?1:kind==="wrong"?-1/3:0;return `<article class="analysis-item"><div class="row"><span class="pill">प्रश्न ${q.id}</span><span class="pill">${q.section}</span><span class="pill">${q.topic}</span><span class="sub">PDF पृष्ठ ${q.page}</span><b class="${kind==="correct"?"correct":kind==="wrong"?"wrong":""}">${label} | ${mark.toFixed(2)} अंक</b></div><h3>${q.q}</h3>${q.opts.map((o,i)=>`<p style="${i===q.a?'color:#16845b;font-weight:700;':''}">${String.fromCharCode(65+i)}. ${o} ${i===q.a?"✓ सही उत्तर":""} ${a===i?" ← आपका उत्तर":""}</p>`).join("")}<div class="answerbox ${kind==="wrong"?"badbox":""}"><b>सही उत्तर: ${String.fromCharCode(65+q.a)}. ${q.opts[q.a]}</b><p>${q.exp}</p></div></article>`}).join("")||"कोई प्रश्न नहीं मिला।"}
+function printAnalysis(){document.body.classList.remove("print-ranking");window.print()}
+function printResult(){document.body.classList.remove("print-ranking");window.print()}
+function printRanking(){
+ document.body.classList.add("print-ranking");
+ const cleanup=()=>{document.body.classList.remove("print-ranking");window.removeEventListener("afterprint",cleanup)};
+ window.addEventListener("afterprint",cleanup);
+ window.print();
+ setTimeout(cleanup,2500);
+}
+function restart(){if(!confirm("क्या आप नई परीक्षा शुरू करना चाहते हैं? इस ब्राउज़र में वर्तमान परीक्षा की प्रगति रीसेट होगी; पहले से Firebase में सुरक्षित परिणाम नहीं हटेंगे।"))return;localStorage.removeItem(STORE);state=null;$("result").classList.add("hidden");$("analysis").classList.add("hidden");$("quiz").classList.add("hidden");$("start").classList.remove("hidden");$("studentName").value="";$("studentId").value="";STORE=STORE_BASE;loadRanking(true)}
+
+let rankingUnsubscribe=null;
+let lastRankingDate="";
+let rankingRequestToken=0;
+function renderRanking(list,sourceText){
+ list=list.filter(x=>x.examId===EXAM_ID&&x.examDate===indiaDate()&&x.studentId);
+ const merged=new Map();
+ list.forEach(x=>{
+  const key=String(x.studentId||"").trim().toUpperCase();
+  if(!key)return;
+  const old=merged.get(key);
+  const better=!old||Number(x.score)>Number(old.score)||
+   (Number(x.score)===Number(old.score)&&Number(x.correct)>Number(old.correct))||
+   (Number(x.score)===Number(old.score)&&Number(x.correct)===Number(old.correct)&&Number(x.incorrect)<Number(old.incorrect))||
+   (Number(x.score)===Number(old.score)&&Number(x.correct)===Number(old.correct)&&Number(x.incorrect)===Number(old.incorrect)&&Number(x.accuracy)>Number(old.accuracy));
+  if(better)merged.set(key,x);
+ });
+ list=[...merged.values()].sort((a,b)=>Number(b.score)-Number(a.score)||Number(b.correct)-Number(a.correct)||Number(a.incorrect)-Number(b.incorrect)||Number(b.accuracy)-Number(a.accuracy));
+ const body=$("rankTable").querySelector("tbody");
+ body.innerHTML=list.length?list.map((x,i)=>`<tr><td>${i===0?"🏆":i===1?"🥈":i===2?"🥉":i+1}</td><td>${escapeHtml(x.studentName)}</td><td><b>${Number(x.score).toFixed(2)}</b></td><td>${Number(x.correct)||0}</td><td>${Number(x.incorrect)||0}</td><td>${Number(x.accuracy||0).toFixed(2)}%</td></tr>`).join(""):'<tr><td colspan="6">आज इस परीक्षा के लिए अभी कोई Firebase रिकॉर्ड उपलब्ध नहीं है।</td></tr>';
+ $("rankStatus").textContent=sourceText+" • अंतिम अपडेट: "+new Date().toLocaleTimeString("en-IN",{timeZone:"Asia/Kolkata"});
+}
+
+const fbDiag={environment:"",network:navigator.onLine?"online":"offline",config:"जाँच लंबित",app:"जाँच लंबित",auth:"जाँच लंबित",firestore:"जाँच लंबित",ranking:"जाँच लंबित",save:"अभी नहीं किया गया",bestScore:"अभी नहीं जाँचा",lastError:null,lastCheck:null};
+function fbEnvironment(){
+ const p=location.protocol;
+ return p==="https:"?"HTTPS":p==="http:"?(location.hostname==="localhost"||location.hostname==="127.0.0.1"?"localhost HTTP":"HTTP"):p==="file:"?"file://":p==="content:"?"content://":p;
+}
+function fbDiagError(operation,e){
+ const err={operation,code:e&&e.code?String(e.code):"उपलब्ध नहीं",message:e&&e.message?String(e.message):String(e||"Unknown error"),name:e&&e.name?String(e.name):"Error",time:new Date().toLocaleString("hi-IN")};
+ // redact common token/credential patterns before rendering
+ err.message=err.message.replace(/(idToken|accessToken|refreshToken|password|private_key)\s*[:=]\s*[^,\s]+/gi,"$1=[छिपाया गया]");
+ fbDiag.lastError=err;renderFirebaseDiagnostics();
+}
+function renderFirebaseDiagnostics(){
+ const sum=$("fbDiagSummary"),det=$("fbDiagDetails"); if(!sum||!det)return;
+ const ok=fbReady&&auth&&auth.currentUser&&db;
+ sum.textContent=ok?"Firebase online mode: Authentication और Firestore initialized":"Firebase online mode उपलब्ध नहीं; CBT स्थानीय मोड में चलता रहेगा";
+ const rows=[
+ ["Environment",fbDiag.environment],["Internet",navigator.onLine?"Online":"Offline"],
+ ["Firebase Config",fbDiag.config],["Firebase App",fbDiag.app],["Authentication",fbDiag.auth],
+ ["Firestore",fbDiag.firestore],["Leaderboard",fbDiag.ranking],["Attempt Save",fbDiag.save],["Best Score",fbDiag.bestScore],
+ ["अंतिम जाँच",fbDiag.lastCheck||"—"]
+ ];
+ det.innerHTML=rows.map(x=>`<div><b>${escapeHtml(x[0])}:</b> ${escapeHtml(x[1])}</div>`).join("")+
+ (fbDiag.lastError?`<div style="margin-top:8px;padding:8px;border-radius:8px;background:#fff1f2;color:#9f1239"><b>अंतिम त्रुटि — ${escapeHtml(fbDiag.lastError.operation)}</b><br>Code: ${escapeHtml(fbDiag.lastError.code)}<br>Message: ${escapeHtml(fbDiag.lastError.message)}<br>समय: ${escapeHtml(fbDiag.lastError.time)}</div>`:"");
+}
+async function runFirebaseDiagnostics(){
+ const b=$("firebaseRetryBtn"); if(b)b.disabled=true;
+ fbDiag.environment=fbEnvironment();fbDiag.network=navigator.onLine?"online":"offline";
+ fbDiag.config=FB_CONFIG&&FB_CONFIG.projectId?"उपलब्ध":"अनुपलब्ध";
+ fbDiag.lastCheck=new Date().toLocaleString("hi-IN");
+ try{
+  await initFirebase();
+  fbDiag.app=fbReady?"Initialized":"Initialization विफल";
+  fbDiag.auth=auth&&auth.currentUser?"Authenticated (anonymous)":"Unauthenticated";
+  fbDiag.firestore=db?"Initialized":"Unavailable";
+  if(fbReady){fbDiag.ranking="सदस्यता/लोड प्रक्रिया शुरू";}else{fbDiag.ranking="Unavailable";}
+ }catch(e){fbDiagError("Diagnostic recheck",e);}
+ renderFirebaseDiagnostics();if(b)b.disabled=false;
+}
+window.addEventListener("online",()=>{fbDiag.network="online";renderFirebaseDiagnostics();});
+window.addEventListener("offline",()=>{fbDiag.network="offline";renderFirebaseDiagnostics();});
+
+async function initFirebase(){
+ try{
+  fbDiag.environment=fbEnvironment();fbDiag.config=FB_CONFIG&&FB_CONFIG.projectId?"उपलब्ध":"अनुपलब्ध";
+  let appmod=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js");
+  let authmod=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js");
+  let fs=await import("https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js");
+  const app=appmod.getApps().length?appmod.getApp():appmod.initializeApp(FB_CONFIG);
+  auth=authmod.getAuth(app);
+  // एक ही ब्राउज़र/प्रोफाइल में Anonymous UID को स्थायी रखने का प्रयास।
+  // अलग डिवाइस/ब्राउज़र के UID इससे एक जैसे नहीं बनते।
+  await authmod.setPersistence(auth,authmod.browserLocalPersistence);
+  if(!auth.currentUser)await authmod.signInAnonymously(auth);
+  db=fs.getFirestore(app);window._fs=fs;fbReady=true;fbDiag.app="Initialized";fbDiag.auth="Authenticated (anonymous)";fbDiag.firestore="Initialized";fbDiag.lastCheck=new Date().toLocaleString("hi-IN");renderFirebaseDiagnostics();
+  $("rankStatus").textContent="Firebase से आज की दैनिक रैंकिंग प्राप्त की जा रही है…";
+  setTimeout(syncPendingQueue,800);
+  subscribeRanking();
+  if($("studentId")&&$("studentId").value.trim())loadBestScoreForInput();
+ }catch(e){
+  fbReady=false;fbDiag.app="Initialization विफल";fbDiag.auth="Unavailable";fbDiag.firestore="Unavailable";fbDiagError("Firebase initialization",e);
+  $("rankStatus").textContent="Firebase रैंकिंग उपलब्ध नहीं है। स्थानीय रैंकिंग नहीं दिखाई जाएगी। ("+e.message+")";
+  $("rankTable").querySelector("tbody").innerHTML='<tr><td colspan="6">Firebase कनेक्शन उपलब्ध नहीं है। ऑनलाइन रैंकिंग नहीं दिखाई जा सकती।</td></tr>';
+ }
+}
+function subscribeRanking(force=false){
+ if(!fbReady)return;
+ const fs=window._fs,today=indiaDate();
+ if(rankingUnsubscribe&&lastRankingDate===today&&!force)return;
+ if(rankingUnsubscribe){rankingUnsubscribe();rankingUnsubscribe=null;}
+ lastRankingDate=today;
+ const token=++rankingRequestToken;
+ $("rankStatus").textContent="आज की Firebase रैंकिंग लोड हो रही है…";
+ const q=fs.query(fs.collection(db,"daily_leaderboard"),fs.where("examId","==",EXAM_ID),fs.where("examDate","==",today));
+ rankingUnsubscribe=fs.onSnapshot(q,(snap)=>{
+  if(token!==rankingRequestToken)return;
+  const list=[];
+  snap.forEach(d=>{const x=d.data();if(x.examId===EXAM_ID&&x.studentId)list.push(x)});
+  renderRanking(list,`Firebase लाइव रैंकिंग • ${list.length} रिकॉर्ड`);
+ },(e)=>{
+  if(token!==rankingRequestToken)return;
+  $("rankStatus").textContent="Firebase से रैंकिंग पढ़ने में त्रुटि: "+e.message+"। स्थानीय विकल्प उपलब्ध नहीं है।";
+  $("rankTable").querySelector("tbody").innerHTML='<tr><td colspan="6">सर्वर रैंकिंग पढ़ी नहीं जा सकी।</td></tr>';
+ });
+}
+async function loadRanking(force=false){
+ if(!fbReady){
+  $("rankStatus").textContent="Firebase उपलब्ध नहीं है। स्थानीय रैंकिंग नहीं दिखाई जाएगी।";
+  $("rankTable").querySelector("tbody").innerHTML='<tr><td colspan="6">Firebase कनेक्शन उपलब्ध नहीं है।</td></tr>';
+  return;
+ }
+ if(force)subscribeRanking(true);
+ else if(!rankingUnsubscribe)subscribeRanking();
+}
+function clearBestScorePrompt(){const el=$("startBestScoreStatus");if(el)el.textContent="Student ID बदल गई है। नया Best Score देखने के लिए बटन दबाएँ।";}
+async function loadBestScoreForInput(){
+ fbDiag.bestScore="लोड हो रहा है";renderFirebaseDiagnostics();
+ const studentId=cleanStudentId($("studentId").value);
+ const el=$("startBestScoreStatus");
+ if(!studentId||studentId.length<3){el.textContent="कृपया कम-से-कम 3 अक्षरों/अंकों की Student ID दर्ज करें।";return;}
+ await fetchBestScore(studentId,el);
+}
+async function loadBestScore(){
+ const id=state&&state.studentId?state.studentId:cleanStudentId($("studentId").value);
+ const el=$("bestScoreStatus");
+ if(el&&id)await fetchBestScore(id,el);
+}
+async function fetchBestScore(studentId,el){
+ if(!el)return;
+ if(!fbReady||!auth||!auth.currentUser){el.textContent="Best Score उपलब्ध नहीं है — Internet/Firebase connection जाँचें।";return;}
+ el.textContent="Firebase से आपका Best Score प्राप्त किया जा रहा है…";
+ try{
+  const fs=window._fs,uid=auth.currentUser.uid;
+  const q=fs.query(fs.collection(db,"exam_attempts"),fs.where("uid","==",uid),fs.where("examId","==",EXAM_ID),fs.where("studentId","==",studentId));
+  const snap=await fs.getDocs(q);let best=null;
+  snap.forEach(d=>{const x=d.data();if(x.uid===uid&&x.examId===EXAM_ID&&cleanStudentId(x.studentId)===studentId&&Number.isFinite(Number(x.score))){if(!best||Number(x.score)>Number(best.score)||(Number(x.score)===Number(best.score)&&Number(x.correct)>Number(best.correct)))best=x;}});
+  el.textContent=best?`आपका Best Score: ${Number(best.score).toFixed(2)} अंक | सही ${best.correct||0} | कुल प्रश्न ${best.totalQuestions||QUESTIONS.length} | तिथि ${best.examDate||"—"} (Firebase)`:`इस Student ID का इस Quiz में अभी कोई Firebase Best Score उपलब्ध नहीं है।`;
+  fbDiag.bestScore="जाँच सफल";renderFirebaseDiagnostics();
+ }catch(e){fbDiag.bestScore="विफल";fbDiagError("Best Score read",e);el.textContent="Best Score प्राप्त नहीं हो सका: "+e.message+"। Firebase Rules/Index जाँचें।";}
+}
+const PENDING_KEY="pending_sync_"+EXAM_ID;
+function readPending(){try{return JSON.parse(localStorage.getItem(PENDING_KEY)||"[]")}catch(e){return []}}
+function writePending(items){localStorage.setItem(PENDING_KEY,JSON.stringify(items))}
+function buildAttemptPayload(){
+ const r=state.result;
+ return {uid:auth&&auth.currentUser?auth.currentUser.uid:"",studentId:state.studentId,studentName:state.name,examId:EXAM_ID,examDate:indiaDate(),score:r.score,correct:r.correct,incorrect:r.wrong,unanswered:r.blank,attempted:r.attempted,accuracy:r.accuracy,totalQuestions:QUESTIONS.length,timestamp:state.submittedAt||Date.now()};
+}
+function queueCurrentAttempt(){
+ const items=readPending(),localId=EXAM_ID+"_"+state.studentId+"_"+(state.submittedAt||Date.now());
+ if(!items.some(x=>x.localId===localId)){
+  const payload=buildAttemptPayload();
+  items.push({localId,examId:EXAM_ID,studentId:state.studentId,payload,attemptSaved:false,leaderboardSaved:false});
+  writePending(items);
+ }
+ fbDiag.save="परिणाम स्थानीय Pending Sync Queue में सुरक्षित";
+ renderFirebaseDiagnostics();
+ $("rankStatus").textContent="परिणाम इस डिवाइस में सुरक्षित है; Firebase sync लंबित है। इंटरनेट उपलब्ध होने पर पुनः प्रयास होगा।";
+}
+async function saveToFirebase(){
+ if(!fbReady||!auth||!auth.currentUser){queueCurrentAttempt();return;}
+ const r=state.result,fs=window._fs,uid=auth.currentUser.uid;
+ const base={uid,studentId:state.studentId,studentName:state.name,examId:EXAM_ID,examDate:indiaDate(),score:r.score,correct:r.correct,incorrect:r.wrong,unanswered:r.blank,attempted:r.attempted,accuracy:r.accuracy,totalQuestions:QUESTIONS.length,timestamp:state.submittedAt||Date.now()};
+ const items=readPending(),localId=EXAM_ID+"_"+state.studentId+"_"+base.timestamp;
+ let item=items.find(x=>x.localId===localId);
+ if(!item){item={localId,examId:EXAM_ID,studentId:state.studentId,payload:base,attemptSaved:false,leaderboardSaved:false};items.push(item);writePending(items);}
+ try{
+  item.payload=base;
+  if(!item.attemptSaved){
+   // Stable deterministic attempt document ID prevents duplicate records on retry.
+   const attemptId=encodeURIComponent(item.localId).replace(/%/g,"_").slice(0,180);
+   const attemptRef=fs.doc(db,"exam_attempts",attemptId);
+   const existing=await fs.getDoc(attemptRef);
+   if(!existing.exists())await fs.setDoc(attemptRef,base);
+   item.attemptSaved=true;writePending(items);
+  }
+  if(!item.leaderboardSaved){
+   const safeId=encodeURIComponent(state.studentId).replace(/%/g,"_");
+   const docId=safeId+"_"+base.examDate+"_"+EXAM_ID;
+   const ref=fs.doc(db,"daily_leaderboard",docId);
+   await fs.runTransaction(db,async tx=>{
+    const snap=await tx.get(ref),old=snap.exists()?snap.data():null;
+    const better=!old||base.score>old.score||(base.score===old.score&&base.correct>old.correct)||(base.score===old.score&&base.correct===old.correct&&base.incorrect<old.incorrect)||(base.score===old.score&&base.correct===old.correct&&base.incorrect===old.incorrect&&base.accuracy>old.accuracy);
+    if(better)tx.set(ref,base);
+   });
+   item.leaderboardSaved=true;writePending(items);
+  }
+  writePending(readPending().filter(x=>x.localId!==localId));
+  fbDiag.save="सफलतापूर्वक Firebase पर Sync";renderFirebaseDiagnostics();
+  $("rankStatus").textContent="आपका परिणाम Firebase पर सुरक्षित और Sync हो गया है।";
+  await loadBestScore();loadRanking(true);
+ }catch(e){
+  writePending(items);
+  fbDiag.save="Sync लंबित/विफल";fbDiagError("Firestore pending sync",e);
+  $("rankStatus").textContent="Firebase sync पूरा नहीं हुआ; परिणाम Pending Queue में सुरक्षित है। त्रुटि: "+e.message;
+ }
+}
+async function syncPendingQueue(){
+ if(!fbReady||!auth||!auth.currentUser)return;
+ const items=readPending();
+ for(const item of items){
+  if(item.examId!==EXAM_ID||!item.studentId||!item.payload)continue;
+  const fs=window._fs,p={...item.payload,uid:auth.currentUser.uid};
+  try{
+   if(!item.attemptSaved){
+    const attemptId=encodeURIComponent(item.localId).replace(/%/g,"_").slice(0,180);
+    const ref=fs.doc(db,"exam_attempts",attemptId),snap=await fs.getDoc(ref);
+    if(!snap.exists())await fs.setDoc(ref,p);
+    item.attemptSaved=true;writePending(items);
+   }
+   if(!item.leaderboardSaved){
+    const safeId=encodeURIComponent(item.studentId).replace(/%/g,"_");
+    const ref=fs.doc(db,"daily_leaderboard",safeId+"_"+p.examDate+"_"+EXAM_ID);
+    await fs.runTransaction(db,async tx=>{
+     const snap=await tx.get(ref),old=snap.exists()?snap.data():null;
+     const better=!old||p.score>old.score||(p.score===old.score&&p.correct>old.correct);
+     if(better)tx.set(ref,p);
+    });
+    item.leaderboardSaved=true;writePending(items);
+   }
+   writePending(readPending().filter(x=>x.localId!==item.localId));
+  }catch(e){fbDiag.save="Pending Sync विफल";fbDiagError("Pending Sync Retry",e);renderFirebaseDiagnostics();}
+ }
+ if(readPending().length===0){$("rankStatus").textContent="सभी लंबित परिणाम Firebase पर Sync हो गए।";loadRanking(true);}
+}
+window.addEventListener("online",()=>{setTimeout(syncPendingQueue,1200);});
+
+function escapeHtml(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+$("totalLabel").textContent=QUESTIONS.length;$("durationLabel").textContent="50 मिनट";fbDiag.environment=fbEnvironment();fbDiag.config=FB_CONFIG&&FB_CONFIG.projectId?"उपलब्ध":"अनुपलब्ध";renderFirebaseDiagnostics();initFirebase().then(()=>{fbDiag.lastCheck=new Date().toLocaleString("hi-IN");renderFirebaseDiagnostics()});setInterval(()=>{if(indiaDate()!==lastRankingDate)subscribeRanking()},60000);
+// Shared-device mode: each student enters their own Student ID to resume their attempt.
+</script></body></html>
