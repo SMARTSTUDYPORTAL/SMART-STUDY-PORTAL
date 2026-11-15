@@ -15,7 +15,8 @@
     "घटनाचक्र",
     "Current affairs",
     "Lucent",
-    "आधुनिक भारत"
+    "आधुनिक भारत",
+    "Learning English"
   ],
   "subjects": {
     "Class 1": [],
@@ -69,6 +70,13 @@
       "Hindi",
       "English",
       "राष्ट्रीय आंदोलन"
+    ],
+    "Learning English": [
+      "Phonics",
+      "Science (विज्ञान)",
+      "Social Science",
+      "Hindi",
+      "English"
     ]
   },
   "chapters": {
@@ -141,7 +149,12 @@
     "आधुनिक भारत_English": [],
     "आधुनिक भारत_राष्ट्रीय आंदोलन": [
       "1857 की क्रांति ( MODERN HISTORY)"
-    ]
+    ],
+    "Learning English_Phonics": [],
+    "Learning English_Science (विज्ञान)": [],
+    "Learning English_Social Science": [],
+    "Learning English_Hindi": [],
+    "Learning English_English": []
   },
   "contents": {
     "Class 6_Science_1": [
