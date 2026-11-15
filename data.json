@@ -87,7 +87,7 @@
       "4",
       "5",
       "अध्याय 6 : हमारे आस पास की सामग्री",
-      "7",
+      "अध्याय 7 : ताप एवं उसका मापन",
       "8",
       "9",
       "10",
@@ -211,13 +211,13 @@
         "fileName": ""
       }
     ],
-    "Class 6_Science_7": [
+    "Class 6_Science_अध्याय 7 : ताप एवं उसका मापन": [
       {
-        "id": 1793291508923,
-        "type": "BookPDF",
-        "title": "7",
-        "content": "https://res.cloudinary.com/x3u1ykfe/image/upload/v1793291493/wv1xauprv8w4mikdbymc.pdf",
-        "fileName": "fhcu107.pdf"
+        "id": 1794721825016,
+        "type": "Quiz",
+        "title": "ताप एवं उसका मापन",
+        "content": "तापएवंउसकामापन.html",
+        "fileName": ""
       }
     ],
     "Class 6_Science_8": [
